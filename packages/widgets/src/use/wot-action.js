@@ -73,7 +73,7 @@ export function useWotAction(ctx, defaultValue, mode = 'latest-value') {
   const output = ref({}) // {undefined | InteractionOutput} - output from invokeaction
 
   const invokeAction = async (name, input, options) => {
-    const output = await thing.invokeAction(name, input, options)
+    const output = thing && (await thing.invokeAction(name, input, options))
     $console.info(`${topic} invokeaction ${name} with input ${input}`, {
       name,
       input,

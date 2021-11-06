@@ -17,7 +17,8 @@ export function useWot(ctx) {
     // console.info(ctx, value)
 
     // transformation:
-    const { type, value: query } = ctx.wot.options.transformation || {}
+    const { type, value: query } =
+      (ctx.wot && ctx.wot.options.transformation) || {}
     if (type === 'jsonata') {
       try {
         return !query ? value : jsonata(query).evaluate(value)

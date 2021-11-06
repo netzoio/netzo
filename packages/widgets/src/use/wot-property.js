@@ -76,7 +76,7 @@ export function useWotProperty(ctx, defaultValue, mode = 'latest-value') {
   // wot:
 
   // TODO: add optional-chaining support (tried adding babel/webpack but everything failed for app on cloudflare build)
-  const thing = 'getThing' in property ? property.getThing() : {}
+  const thing = 'getThing' in property ? property.getThing() : null
   const name = 'getThing' in property ? property.getName() : ''
   const {
     wotListener = async (data) => {
@@ -115,7 +115,7 @@ export function useWotProperty(ctx, defaultValue, mode = 'latest-value') {
   const readProperty = async () => {
     try {
       ctx.setLoading(true)
-      const val = await thing.readProperty(name, options, {})
+      const val = thing && (await thing.readProperty(name, options, {}))
       value.value = getValue(val)
       $console.info(`${topic} readproperty ${name} and set to ${val}`)
       return value.value
@@ -147,7 +147,7 @@ export function useWotProperty(ctx, defaultValue, mode = 'latest-value') {
       value.value = val // set locally
       try {
         ctx.setLoading(true)
-        await thing.writeProperty(name, val, {}) // try remote write
+        thing && (await thing.writeProperty(name, val, {})) // try remote write
         $console.info(`${topic} writeproperty ${name} to ${val}`)
         return value.value
       } catch (error) {
@@ -163,12 +163,12 @@ export function useWotProperty(ctx, defaultValue, mode = 'latest-value') {
   }
 
   const observeProperty = async (name, wotListener, options) => {
-    await thing.observeProperty(name, wotListener, options)
+    thing && (await thing.observeProperty(name, wotListener, options))
     $console.info(`${topic} observeproperty ${name}`)
   }
 
   const unobserveProperty = async (name) => {
-    thing.unobserveProperty(name)
+    thing && thing.unobserveProperty(name)
     $console.info(`${topic} unobserveproperty ${name}`)
   }
 
