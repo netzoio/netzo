@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "type": "object",
+  "properties": {
+    "uid": { "type": "string", "pattern": "^(ti-|tm-|wi-).*" },
+    "type": {
+      "type": "string",
+      "enum": ["app", "thing-importer", "thing-model", "widget"]
+    },
+    "version": { "type": "string", "pattern": "(0-9)*.(0-9)*.(0-9)*." },
+    "status": {
+      "type": "string",
+      "enum": ["alpha", "beta", "stable", "requested", "deprecated"]
+    },
+    "category": {
+      "type": "string",
+      "enum": ["core", "community", "enterprise"]
+    },
+    "name": { "type": "string" },
+    "title": { "type": "string" },
+    "description": { "type": "string", "maxLength": 250 },
+    "keywords": {
+      "type": "array",
+      "items": [{ "type": "string" }]
+    },
+    "main": { "type": "string" },
+    "display": {
+      "type": "object",
+      "properties": {
+        "imageUrl": { "type": "string", "format": "uri" },
+        "color": { "type": "string", "format": "hexcolor" },
+        "screenshots": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": { "type": "string" },
+              "src": {
+                "type": "string",
+                "contentMediaType": "image/png"
+              }
+            },
+            "required": ["src"]
+          }
+        }
+      },
+      "required": ["imageUrl"]
+    },
+    "links": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "rel": { "type": "string" },
+            "href": { "type": "string", "format": "uri" },
+            "title": { "type": "string" },
+            "type": { "type": "string" }
+          },
+          "required": ["rel", "href"]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "uid": "ti-losant",
+  "type": "thing-importer",
+  "version": "1.0.0",
+  "status": "beta",
+  "category": "enterprise",
+  "name": "Losant",
+  "description": "Losant is a powerful, easy-to-use enterprise IoT platform.",
+  "keywords": ["losant"],
+  "authors": ["miguel.romero@netzo.io"],
+  "license": "MIT",
+  "display": {
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/thing-importers/ti-losant/src/assets/icon.png",
+    "color": "#4750FF",
+    "screenshots": []
+  },
+  "links": [
+    {
+      "rel": "author",
+      "href": "https://netzo.io",
+      "title": "Netzo"
+    },
+    {
+      "rel": "homepage",
+      "href": "https://losant.com"
+    },
+    {
+      "rel": "readme",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/core/thing-importers/ti-losant/readme.md"
+    },
+    {
+      "rel": "license",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/LICENSE"
+    }
+  ],
+  "form": {
+    "model": {},
+    "schema": {
+      "type": "object",
+      "properties": {
+        "configuration": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string",
+              "title": "Devices URL",
+              "description": "Used to query the API for devices. Should be a valid HTTP endpoint which resolves to an array of devices. Using query parameters to filter query is valid.",
+              "default": "https://api.losant.com"
+            },
+            "accessToken": {
+              "type": "string",
+              "title": "Access Token",
+              "description": "Access tokens identify calling users, applications or services to make calls to an API. Refer to the documentation of the selected source to see how you can get a valid access token.",
+              "x-props": { "type": "password" }
+            },
+            "applicationId": {
+              "type": "string",
+              "title": "Application ID",
+              "description": "The ID of the application which owns the devices. You can copy this directly from the application's page in the Losant platform."
+            }
+          }
+        }
+      }
+    },
+    "options": {}
+  }
+}

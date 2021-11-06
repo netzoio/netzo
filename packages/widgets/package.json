@@ -1,0 +1,50 @@
+{
+  "name": "@netzoio/widgets",
+  "version": "0.3.0",
+  "description": "Open source library of widgets for the Web of Things (WoT) and used by Netzo, a Web of Things platform to interconnect IoT devices, platforms and services over the web.",
+  "keywords": [
+    "netzo",
+    "wot",
+    "web-of-things",
+    "iot",
+    "internet-of-things",
+    "w3c",
+    "opensource",
+    "widgets"
+  ],
+  "homepage": "https://github.com/netzoio/netzo/tree/main/packages/widgets#readme",
+  "bugs": {
+    "url": "https://github.com/netzoio/netzo/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/netzoio/netzo.git"
+  },
+  "license": "MIT",
+  "author": "Asterisc GmbH",
+  "exports": {
+    "import": "./src/index.js"
+  },
+  "main": "./src/index.js",
+  "scripts": {
+    "lint": "vue-cli-service lint",
+    "serve": "vue-cli-service serve",
+    "publish": "npm publish"
+  },
+  "dependencies": {
+    "@vueuse/core": "^6.3.3",
+    "apexcharts": "^3.26.1",
+    "core-js": "^3.6.5",
+    "jsonata": "^1.8.4",
+    "lightweight-charts": "^3.3.0",
+    "lit-html": "^1.3.0",
+    "nipplejs": "^0.9.0",
+    "vue": "^2.6.11",
+    "vuetify": "^2.5.4"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  }
+}

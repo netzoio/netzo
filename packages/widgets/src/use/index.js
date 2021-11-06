@@ -1,0 +1,7 @@
+export { useWidget } from './widget.js'
+export { useWot } from './wot.js'
+export { useWotProperty } from './wot-property.js'
+export { useWotAction } from './wot-action.js'
+export { useWotEvent } from './wot-event.js'
+export { useWotForm } from './wot-form.js'
+export { useWotLink } from './wot-link.js'
