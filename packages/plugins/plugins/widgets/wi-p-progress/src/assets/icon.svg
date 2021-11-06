@@ -1,11 +1,1 @@
-<svg width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0)">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M150 300C232.843 300 300 232.843 300 150C300 67.1573 232.843 0 150 0C67.1573 0 0 67.1573 0 150C0 232.843 67.1573 300 150 300ZM150 270C216.274 270 270 216.274 270 150C270 83.7258 216.274 30 150 30C83.7258 30 30 83.7258 30 150C30 216.274 83.7258 270 150 270Z" fill="#0080FF"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M0 150C0 67.1573 67.1573 0 150 0V30C83.7258 30 30 83.7258 30 150C30 181.419 42.0745 210.017 61.8362 231.408L40.6096 252.635C15.4252 225.803 0 189.703 0 150Z" fill="#D1D5DB"/>
-</g>
-<defs>
-<clipPath id="clip0">
-<rect width="300" height="300" fill="white"/>
-</clipPath>
-</defs>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" fill="none" viewBox="0 0 300 300"><g clip-path="url(#clip0)"><path fill="#0080FF" fill-rule="evenodd" d="M150 300C232.843 300 300 232.843 300 150C300 67.1573 232.843 0 150 0C67.1573 0 0 67.1573 0 150C0 232.843 67.1573 300 150 300ZM150 270C216.274 270 270 216.274 270 150C270 83.7258 216.274 30 150 30C83.7258 30 30 83.7258 30 150C30 216.274 83.7258 270 150 270Z" clip-rule="evenodd"/><path fill="#D1D5DB" fill-rule="evenodd" d="M0 150C0 67.1573 67.1573 0 150 0V30C83.7258 30 30 83.7258 30 150C30 181.419 42.0745 210.017 61.8362 231.408L40.6096 252.635C15.4252 225.803 0 189.703 0 150Z" clip-rule="evenodd"/></g><defs><clipPath id="clip0"><rect width="300" height="300" fill="#fff"/></clipPath></defs></svg>

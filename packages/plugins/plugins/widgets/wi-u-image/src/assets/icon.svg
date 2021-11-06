@@ -1,6 +1,1 @@
-<svg width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M6 50H294C296 50.1667 300 51.6 300 56V244C300 246 298.8 250 294 250H6C4 250 0 248.8 0 244V56C0 54 1.2 50 6 50ZM25 75V225H275V75H25Z" fill="#0080FF"/>
-<circle cx="79.6667" cy="108.667" r="26.6667" fill="#FF3B7C"/>
-<circle cx="79.6667" cy="108.667" r="26.6667" stroke="#FF3B7C"/>
-<path d="M195.601 98L115.59 165.145L90.2206 143.855L40 185.49V211H260V152.043L195.601 98Z" fill="#01AD9D"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" fill="none" viewBox="0 0 300 300"><path fill="#0080FF" fill-rule="evenodd" d="M6 50H294C296 50.1667 300 51.6 300 56V244C300 246 298.8 250 294 250H6C4 250 0 248.8 0 244V56C0 54 1.2 50 6 50ZM25 75V225H275V75H25Z" clip-rule="evenodd"/><circle cx="79.667" cy="108.667" r="26.667" fill="#FF3B7C"/><circle cx="79.667" cy="108.667" r="26.667" stroke="#FF3B7C"/><path fill="#01AD9D" d="M195.601 98L115.59 165.145L90.2206 143.855L40 185.49V211H260V152.043L195.601 98Z"/></svg>
