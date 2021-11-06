@@ -27,8 +27,8 @@ export function useWotForm(ctx, defaultValue, mode = 'latest-value') {
   // wot:
 
   // TODO: add optional-chaining support (tried adding babel/webpack but everything failed for app on cloudflare build)
-  const thing = 'getThing' in form ? form.getThing() : {}
-  const name = 'getThing' in form ? form.getName() : ''
+  const thing = form?.getThing?.() || {}
+  const name = form?.getName?.() || ''
   const { options } = form
 
   const { contentType, getValue } = useWot(ctx)
@@ -42,21 +42,21 @@ export function useWotForm(ctx, defaultValue, mode = 'latest-value') {
   const value = ref({}) // {InteractionInput} - value of readproperty and for writeproperty
 
   const readAllProperties = async () => {
-    value.value = await thing.readAllProperties(options) // returns Promise<PropertyReadMap>
+    value.value = await thing?.readAllProperties(options) // returns Promise<PropertyReadMap>
   }
 
   const readMultipleProperties = async (propertyNames) => {
-    value.value = await thing.readMultipleProperties(propertyNames, options) // returns Promise<PropertyReadMap>
+    value.value = await thing?.readMultipleProperties(propertyNames, options) // returns Promise<PropertyReadMap>
   }
 
   // NOTE: writeAllProperties() under discussion, use writeMultipleProperties()
   // see https://w3c.github.io/wot-scripting-api/#the-consumedthing-interface
   // const writeAllProperties = async (valueMap) => {
-  //   value.value = await thing.writeAllProperties(valueMap, options) // returns Promise<void>
+  //   value.value = await thing?.writeAllProperties(valueMap, options) // returns Promise<void>
   // }
 
   const writeMultipleProperties = async (valueMap) => {
-    value.value = await thing.writeMultipleProperties(valueMap, options) // returns Promise<void>
+    value.value = await thing?.writeMultipleProperties(valueMap, options) // returns Promise<void>
   }
 
   return {

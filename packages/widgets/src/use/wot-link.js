@@ -15,8 +15,8 @@ export function useWotLink(ctx, defaultValue, mode = 'latest-value') {
   // wot:
 
   // TODO: add optional-chaining support (tried adding babel/webpack but everything failed for app on cloudflare build)
-  const thing = 'getThing' in link ? link.getThing() : {}
-  const name = 'getThing' in link ? link.getName() : ''
+  const thing = link?.getThing?.() || {}
+  const name = link?.getName?.() || ''
   const { options } = link
 
   const { contentType, getValue } = useWot(ctx)
