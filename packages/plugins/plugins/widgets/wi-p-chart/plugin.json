@@ -1,0 +1,233 @@
+{
+  "uid": "wi-p-chart",
+  "type": "widget",
+  "version": "1.0.0",
+  "status": "alpha",
+  "category": "core",
+  "name": "Chart",
+  "description": "Chart widget for Netzo",
+  "keywords": ["chart"],
+  "authors": ["miguel.romero@netzo.io"],
+  "license": "MIT",
+  "main": "@netzoio/plugins/plugins/widgets/wi-p-chart/src/index.js",
+  "display": {
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/widgets/wi-p-chart/src/assets/icon.svg",
+    "color": "",
+    "screenshots": [
+      {
+        "label": "Screenshot of the widget",
+        "src": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/widgets/wi-p-chart/src/assets/images/screenshot.png"
+      }
+    ]
+  },
+  "links": [
+    {
+      "rel": "author",
+      "href": "https://netzo.io",
+      "title": "Netzo"
+    },
+    {
+      "rel": "repository",
+      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/widgets/wi-p-chart"
+    },
+    {
+      "rel": "readme",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/widgets/wi-p-chart/README.md"
+    },
+    {
+      "rel": "license",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/LICENSE"
+    }
+  ],
+  "form": {
+    "model": {
+      "uid": "wi-p-chart",
+      "w": 8,
+      "h": 12,
+      "name": "",
+      "description": "",
+      "wot": {},
+      "display": {
+        "transparent": false,
+        "hideToolbar": false,
+        "color": "#0080FF",
+        "textColor": "#121212",
+        "bgImageUrl": ""
+      },
+      "options": { "type": "line" }
+    },
+    "schema": {
+      "type": "object",
+      "x-display": "expansion-panels",
+      "x-props": {
+        "value": [0, 1]
+      },
+      "properties": {
+        "_type": { "const": "widget" },
+        "uid": { "const": "wi-p-chart" },
+        "w": { "const": 8 },
+        "h": { "const": 12 },
+        "name": { "type": "string", "title": "Display name", "required": true },
+        "description": {
+          "type": "string",
+          "title": "Description",
+          "x-display": "textarea"
+        },
+        "wot": {
+          "type": "object",
+          "title": "WoT Property",
+          "properties": {
+            "thingId": { "type": "string" },
+            "tdKey": { "const": "properties" },
+            "name": { "type": "string" },
+            "title": { "type": "string" },
+            "description": { "type": "string" },
+            "type": { "type": "string", "enum": ["array", "object"] },
+            "readOnly": { "type": "boolean" },
+            "writeOnly": { "type": "boolean" },
+            "observable": { "type": "boolean" }
+          },
+          "required": ["thingId", "tdKey", "name", "type"],
+          "additionalProperties": true,
+          "x-display": "custom-v-select-thing-wot-property",
+          "examples": [],
+          "valueExamples": [
+            { "text": "Single", "value": [23, 34, 12, 54, 32, 43] },
+            {
+              "text": "Paired",
+              "value": [
+                [1, 34],
+                [3, 54],
+                [5, 23],
+                [15, 43]
+              ]
+            },
+            {
+              "text": "XY Paired",
+              "value": [
+                { "x": 20, "y": 54 },
+                { "x": 30, "y": 66 }
+              ]
+            },
+            {
+              "text": "Timestamps",
+              "value": [
+                [1324508400000, 34],
+                [1324594800000, 54],
+                [1326236400000, 43]
+              ]
+            },
+            {
+              "text": "Date Strings",
+              "value": [
+                { "x": "05/06/2014", "y": 54 },
+                { "x": "05/08/2014", "y": 17 },
+                { "x": "05/28/2014", "y": 26 }
+              ]
+            }
+          ]
+        },
+        "display": {
+          "type": "object",
+          "title": "Display",
+          "properties": {
+            "transparent": { "type": "boolean", "title": "Transparent" },
+            "hideToolbar": { "type": "boolean", "title": "Hide Toolbar" },
+            "color": {
+              "type": "string",
+              "title": "Color",
+              "format": "hexcolor"
+            },
+            "textColor": {
+              "type": "string",
+              "title": "Text color",
+              "format": "hexcolor"
+            },
+            "bgImageUrl": {
+              "type": "string",
+              "title": "Background Image",
+              "description": "The URL of an image to use as background image.",
+              "contentMediaType": "image/*",
+              "x-props": { "clearable": true },
+              "x-options": {
+                "filesAsDataUrl": true
+              },
+              "writeOnly": true
+            }
+          }
+        },
+        "options": {
+          "type": {
+            "type": "string",
+            "title": "Chart type",
+            "x-display": "icon",
+            "x-itemIcon": "icon",
+            "oneOf": [
+              {
+                "const": "area",
+                "title": "Area",
+                "icon": "area-chart"
+              },
+              {
+                "const": "bar",
+                "title": "Bar",
+                "icon": "bar-chart"
+              },
+              {
+                "const": "candlestick",
+                "title": "Candlestick",
+                "icon": "candlestick-chart"
+              },
+              {
+                "const": "heatmap",
+                "title": "Heat Map",
+                "icon": "heatmap-chart"
+              },
+              {
+                "const": "treemap",
+                "title": "Tree Map",
+                "icon": "treemap-chart"
+              },
+              {
+                "const": "donut",
+                "title": "Donut",
+                "icon": "donut-chart"
+              },
+              {
+                "const": "line",
+                "title": "Line",
+                "icon": "line-chart"
+              },
+              {
+                "const": "pie",
+                "title": "Pie",
+                "icon": "pie-chart"
+              },
+              {
+                "const": "rangebar",
+                "title": "Range Bar",
+                "icon": "rangebar-chart"
+              },
+              {
+                "const": "radialbar",
+                "title": "Radial Bar",
+                "icon": "radialbar-chart"
+              },
+              {
+                "const": "treemap",
+                "title": "Tree Map",
+                "icon": "treemap-chart"
+              },
+              {
+                "const": "radar",
+                "title": "Radar",
+                "icon": "radar-chart"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "options": {}
+  }
+}

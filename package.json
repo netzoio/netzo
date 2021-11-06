@@ -1,0 +1,62 @@
+{
+  "name": "@netzoio/netzo",
+  "version": "0.3.0",
+  "description": "Plugin repository for Netzo, a Web of Things platform to interconnect IoT devices, platforms and services over the web.",
+  "keywords": [
+    "netzo",
+    "wot",
+    "web-of-things",
+    "iot",
+    "internet-of-things",
+    "w3c",
+    "opensource"
+  ],
+  "homepage": "https://github.com/netzoio/netzo/#readme",
+  "bugs": {
+    "url": "https://github.com/netzoio/netzo/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/netzoio/netzo.git"
+  },
+  "license": "MIT",
+  "author": "Asterisc GmbH",
+  "workspaces": [
+    "./packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "format": "prettier --write . && npm run format --silent --workspaces --if-present",
+    "lint": "npm run lint --silent --workspaces --if-present",
+    "publish": "npm run publish --workspaces --if-present",
+    "pretest": "npm run build",
+    "test": "npm run test --silent --workspaces --if-present"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run format --workspaces --if-present && npm run lint --workspaces --if-present"
+    }
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/plugin-proposal-optional-chaining": "^7.14.5",
+    "@babel/plugin-proposal-private-methods": "^7.13.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@types/jest": "^27.0.2",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "ajv": "^8.6.0",
+    "axios": "^0.21.1",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.2",
+    "eslint": "^6.8.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-vue": "^6.2.2",
+    "husky": "^6.0.0",
+    "jest": "^27.0.4",
+    "prettier": "^2.2.1",
+    "vue-template-compiler": "^2.6.11"
+  }
+}

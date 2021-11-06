@@ -1,0 +1,45 @@
+{
+  "name": "@netzoio/plugins",
+  "version": "0.3.0",
+  "description": "Plugin repository for Netzo, a Web of Things platform to interconnect IoT devices, platforms and services over the web.",
+  "keywords": [
+    "netzo",
+    "wot",
+    "web-of-things",
+    "iot",
+    "internet-of-things",
+    "w3c",
+    "opensource",
+    "plugins"
+  ],
+  "homepage": "https://github.com/netzoio/netzo/tree/main/packages/plugins#readme",
+  "bugs": {
+    "url": "https://github.com/netzoio/netzo/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/netzoio/netzo.git"
+  },
+  "license": "MIT",
+  "author": "Asterisc GmbH",
+  "type": "module",
+  "exports": {
+    "import": "./plugins/index.js"
+  },
+  "main": "./plugins/index.js",
+  "scripts": {
+    "test": "jest",
+    "publish": "npm publish",
+    "postpublish": "node ./scripts/deploy-plugins.js"
+  },
+  "dependencies": {
+    "dotenv": "^8.6.0",
+    "jsonata": "^1.8.4",
+    "mustache": "^4.2.0"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  }
+}
