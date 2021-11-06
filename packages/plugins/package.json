@@ -30,7 +30,8 @@
   "scripts": {
     "test": "jest",
     "publish": "npm publish",
-    "postpublish": "node ./scripts/deploy-plugins.js"
+    "postpublish": "npm run deploy",
+    "deploy": "node ./scripts/deploy-plugins.js"
   },
   "dependencies": {
     "dotenv": "^8.6.0",
