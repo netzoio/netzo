@@ -85,6 +85,8 @@ jobs:
 
       - name: Format
         uses: actionsx/prettier@v2
+        with:
+          args: --write .
         continue-on-error: true
 
       - name: Check formatting
