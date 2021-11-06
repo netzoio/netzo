@@ -146,7 +146,6 @@ export function percentToHexColor(p, [r1, g1, b1], [r2, g2, b2]) {
 
   const hex = Number((rr << 16) + (rg << 8) + rb).toString(16)
 
-  console.log(p, '%  ', rr, rg, rb, '-->', hex)
   return `#${hex}${opacity}`
 }
 

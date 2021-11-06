@@ -202,8 +202,6 @@ export default {
             ? 1.0
             : getPercentageInRange(value, min, max) // between 0.0 and 1.0
 
-        console.log(percentage)
-
         const getColor = (hex) => [
           parseInt(hex.slice(1, 3), 16), // R
           parseInt(hex.slice(3, 5), 16), // G
