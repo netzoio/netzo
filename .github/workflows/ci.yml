@@ -84,7 +84,7 @@ jobs:
           node-version: 16
 
       - name: Format
-        run: npm run format
+        uses: actionsx/prettier@v2
         continue-on-error: true
 
       - name: Check formatting
