@@ -26,7 +26,7 @@
   ],
   "scripts": {
     "build": "npm run build --workspaces --if-present",
-    "format": "prettier --write .",
+    "format": "prettier --write . --ignore-path .gitignore",
     "lint": "npm run lint --silent --workspaces --if-present",
     "publish": "npm run publish --workspaces --if-present",
     "pretest": "npm run build",
