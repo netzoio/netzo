@@ -75,8 +75,15 @@ jobs:
     name: 'format: style code'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actionsx/prettier@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Format
+        run: npm run format
+        continue-on-error: true
+
+      - name: Check formatting
+        uses: actionsx/prettier@v2
         with:
           args: --check .
 
