@@ -82,17 +82,8 @@ export function useWotProperty(ctx, defaultValue, mode = 'latest-value') {
     wotListener = async (data) => {
       try {
         ctx.setLoading(true)
-        if (mode === 'latest-value') {
-          value.value = getValue(data)
-          $console.info(
-            `${topic} observeproperty handler (latest-value) ${value.value}`
-          )
-        } else if (mode === 'time-series') {
-          value.value.push(getValue(data))
-          $console.info(
-            `${topic} observeproperty handler (time-series) ${value.value}`
-          )
-        }
+        value.value = getValue(data)
+        $console.info(`${topic} readproperty: ${value.value}`)
       } catch (error) {
         $console.error(error)
       } finally {
@@ -146,7 +137,8 @@ export function useWotProperty(ctx, defaultValue, mode = 'latest-value') {
           : val // force type casting
       value.value = val // set locally
       try {
-        ctx.setLoading(true)(await thing.writeProperty(name, val, {})) // try remote write
+        ctx.setLoading(true)
+        await thing.writeProperty(name, val, {}) // try remote write
         $console.info(`${topic} writeproperty ${name} to ${val}`)
         return value.value
       } catch (error) {

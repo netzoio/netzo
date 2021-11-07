@@ -31,11 +31,18 @@ export default {
       options,
       // wot-property:
       isValidInput,
-      value,
+      value: latestValue,
       readProperty,
       writeProperty,
       observeProperty
-    } = useWotProperty(props.ctx, [], 'time-series')
+    } = useWotProperty(props.ctx, [])
+
+    const value = ref([])
+    watch(
+      latestValue,
+      (latestValue) => (value.value = [...value.value, latestValue]),
+      { deep: true, immediate: true }
+    )
 
     const attrs = computed(() => ({
       ...context.$attrs

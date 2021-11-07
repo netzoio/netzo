@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { computed } from '@vue/composition-api'
+import { ref, computed, watch } from '@vue/composition-api'
 import { useWidget, useWotEvent } from '../../use'
 
 export default {
@@ -37,10 +37,17 @@ export default {
       isValidData,
       isValidCancellation,
       // wot-event:
-      value,
+      value: latestValue,
       subscribeEvent,
       unsubscribeEvent
     } = useWotEvent(props.ctx)
+
+    const value = ref([])
+    watch(
+      latestValue,
+      (latestValue) => (value.value = [...value.value, latestValue]),
+      { deep: true, immediate: true }
+    )
 
     const attrs = computed(() => ({
       ...context.$attrs

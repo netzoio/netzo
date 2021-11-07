@@ -4,7 +4,7 @@
       {{ displayProps.label }}
     </v-card-subtitle>
     <v-spacer />
-    <div class="value-display pt-1 pl-4">
+    <div class="pt-1 pl-4 value-display">
       <span class="text-h3">
         {{ value[value.length - 1] }}
       </span>
@@ -13,7 +13,7 @@
       </span>
     </div>
     <v-sparkline
-      v-model="value"
+      :value="value"
       v-bind="{ ...attrs, ...displayProps }"
       v-on="listeners"
     >
@@ -44,11 +44,18 @@ export default {
       options,
       // wot-property:
       isValidInput,
-      value,
+      value: latestValue,
       readProperty,
       writeProperty,
       observeProperty
-    } = useWotProperty(props.ctx, [], 'time-series')
+    } = useWotProperty(props.ctx, [])
+
+    const value = ref([])
+    watch(
+      latestValue,
+      (latestValue) => (value.value = [...value.value, latestValue]),
+      { deep: true, immediate: true }
+    )
 
     const attrs = computed(() => ({
       ...context.$attrs

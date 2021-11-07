@@ -1,16 +1,11 @@
 <template>
-  <div class="u-webcontent" :style="style">
+  <div
+    class="u-webcontent"
+    :style="style"
+    :key="`${uid}-${i}-${optionsProps.src}`"
+  >
     <iframe
-      v-if="optionsProps.src"
       :src="optionsProps.src"
-      :title="optionsProps.title"
-      v-bind="{ ...attrs, ...displayProps }"
-      v-on="listeners"
-      seamless
-    />
-    <iframe
-      v-else-if="optionsProps.srcdoc"
-      :srcdoc="optionsProps.srcdoc"
       :title="optionsProps.title"
       v-bind="{ ...attrs, ...displayProps }"
       v-on="listeners"
@@ -20,8 +15,8 @@
 </template>
 
 <script>
-import { ref, computed, watch } from '@vue/composition-api'
-import { useWidget, useWotProperty } from '../../use'
+import { computed } from '@vue/composition-api'
+import { useWidget } from '../../use'
 
 export default {
   name: 'UWebcontent',
@@ -31,20 +26,6 @@ export default {
   emits: [],
   setup(props, context) {
     const { uid, i, _id, $console, topic } = useWidget(props.ctx)
-
-    const {
-      property,
-      // wot:
-      thing,
-      name,
-      options,
-      // wot-property:
-      isValidInput,
-      value,
-      readProperty,
-      writeProperty,
-      observeProperty
-    } = useWotProperty(props.ctx)
 
     const attrs = computed(() => ({
       ...context.$attrs
@@ -68,7 +49,7 @@ export default {
 
     const listeners = { ...context.$listeners }
 
-    return { value, attrs, style, displayProps, optionsProps, listeners }
+    return { uid, i, attrs, style, displayProps, optionsProps, listeners }
   }
 }
 </script>

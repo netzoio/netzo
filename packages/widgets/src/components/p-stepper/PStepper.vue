@@ -4,6 +4,7 @@
       v-model="value"
       v-bind="{ ...attrs, ...displayProps }"
       v-on="listeners"
+      @keydown.enter="writeProperty(Number(value))"
     />
   </div>
 </template>
@@ -62,7 +63,7 @@ export default {
       'click:append': async () => writeProperty(value.value + 1)
     }
 
-    return { value, attrs, style, displayProps, listeners }
+    return { value, attrs, style, displayProps, listeners, writeProperty }
   }
 }
 </script>

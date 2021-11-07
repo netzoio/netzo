@@ -1,5 +1,6 @@
 <template>
   <div class="p-chart" :style="style">
+    {{ value }}
     <vue-apexchart
       :options="chartOptions"
       :series="value"
@@ -32,14 +33,17 @@ export default {
       options,
       // wot-property:
       isValidInput,
-      value,
+      value: latestValue,
       readProperty,
       writeProperty,
       observeProperty
-    } = useWotProperty(
-      props.ctx,
-      [{ name: 'series-1', data: [30, 40, 45, 50, 49, 60, 70, 91] }],
-      'time-series'
+    } = useWotProperty(props.ctx, [])
+
+    const value = ref([])
+    watch(
+      latestValue,
+      (latestValue) => (value.value = [...value.value, latestValue]),
+      { deep: true, immediate: true }
     )
 
     const attrs = computed(() => ({
@@ -67,9 +71,6 @@ export default {
         height: '100%',
         toolbar: { show: false },
         animations: { enabled: false } // performance optimization
-      },
-      xaxis: {
-        categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
       }
     }))
 

@@ -82,8 +82,8 @@
 </template>
 
 <script>
-import { ref, computed, watch } from '@vue/composition-api'
-import { useWidget, useWotProperty } from '../../use'
+import { ref, computed } from '@vue/composition-api'
+import { useWidget } from '../../use'
 import { useFind } from 'feathers-vuex'
 
 /* eslint-disable */
@@ -101,19 +101,7 @@ export default {
   setup(props, context) {
     const { uid, i, _id, $console, topic } = useWidget(props.ctx)
 
-    const {
-      property,
-      // wot:
-      thing,
-      name,
-      options,
-      // wot-property:
-      isValidInput,
-      value,
-      readProperty,
-      writeProperty,
-      observeProperty
-    } = useWotProperty(props.ctx)
+    const value = ref([])
 
     const attrs = computed(() => ({
       ...context.$attrs

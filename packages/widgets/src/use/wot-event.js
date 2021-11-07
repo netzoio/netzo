@@ -58,12 +58,8 @@ export function useWotEvent(ctx, defaultValue, mode = 'latest-value') {
     wotListener = async (data) => {
       try {
         ctx.setLoading(true)
-        if (mode === 'latest-value') {
-          value.value = getValue(data)
-        } else if (mode === 'time-series') {
-          value.value.push(getValue(data))
-        }
-        $console.info(`${topic} readproperty: ${value.value}`)
+        value.value = getValue(data)
+        $console.info(`${topic} subscribeevent: ${value.value}`)
       } catch (error) {
         $console.error(error)
       } finally {

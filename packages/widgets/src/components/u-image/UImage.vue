@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import { ref, computed, watch } from '@vue/composition-api'
-import { useWidget, useWotProperty } from '../../use'
+import { computed } from '@vue/composition-api'
+import { useWidget } from '../../use'
 
 export default {
   name: 'UImage',
@@ -22,20 +22,6 @@ export default {
   emits: [],
   setup(props, context) {
     const { uid, i, _id, $console, topic } = useWidget(props.ctx)
-
-    const {
-      property,
-      // wot:
-      thing,
-      name,
-      options,
-      // wot-property:
-      isValidInput,
-      value,
-      readProperty,
-      writeProperty,
-      observeProperty
-    } = useWotProperty(props.ctx)
 
     const attrs = computed(() => ({
       ...context.$attrs
@@ -65,7 +51,6 @@ export default {
     const listeners = { ...context.$listeners }
 
     return {
-      value,
       attrs,
       style,
       styleImg,

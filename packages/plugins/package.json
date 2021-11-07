@@ -1,6 +1,6 @@
 {
   "name": "@netzoio/plugins",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "Plugin repository for Netzo, a Web of Things platform to interconnect IoT devices, platforms and services over the web.",
   "keywords": [
     "netzo",
