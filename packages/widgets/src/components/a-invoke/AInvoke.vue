@@ -1,6 +1,10 @@
 <template>
   <div class="a-invoke" :style="style">
-    <v-dialog v-model="dialog" width="500" :disabled="inputSchema === {}">
+    <v-dialog
+      v-model="dialog"
+      width="500"
+      :disabled="isObjectEmpty(inputSchema)"
+    >
       <template #activator="{ attrs, on }">
         <v-btn
           v-bind="{ ...attrs, ...displayProps }"
@@ -56,6 +60,7 @@
 <script>
 import { computed } from '@vue/composition-api'
 import { useWidget, useWotAction } from '../../use'
+import { isObjectEmpty } from '../../utils'
 
 export default {
   name: 'AInvoke',
@@ -102,11 +107,17 @@ export default {
 
     const displayProps = computed(() => ({
       ...context.$props,
+      loading: isSubmittingForm.value,
       label: props.ctx.widget.display.label,
       color: props.ctx.widget.display.color
     }))
 
-    const listeners = { ...context.$listeners }
+    const listeners = {
+      ...context.$listeners,
+      //  allow direct action invocation if inputSchema is empty
+      // (dialog will be disabled but can re-use resolve handler)
+      ...(isObjectEmpty(inputSchema) && { click: dialogResolve })
+    }
 
     return {
       inputSchema,
@@ -125,7 +136,9 @@ export default {
       attrs,
       style,
       displayProps,
-      listeners
+      listeners,
+      // utils:
+      isObjectEmpty
     }
   }
 }

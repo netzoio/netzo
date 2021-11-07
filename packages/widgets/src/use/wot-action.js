@@ -1,6 +1,6 @@
 import { ref, computed } from '@vue/composition-api'
 import { useWidget, useWot } from './index.js'
-import { ajv, isStrictFalsey } from '../utils/index.js'
+import { ajv, isStrictFalsey, isObjectEmpty } from '../utils/index.js'
 
 // IMPORTANT: destructure only static values (avoid loosing reactivity)
 
@@ -73,15 +73,22 @@ export function useWotAction(ctx, defaultValue, mode = 'latest-value') {
   const output = ref({}) // {undefined | InteractionOutput} - output from invokeaction
 
   const invokeAction = async (name, input, options) => {
-    const output = await thing.invokeAction(name, input, options)
-    $console.info(`${topic} invokeaction ${name} with input ${input}`, {
-      name,
-      input,
-      options,
-      output
-    })
-    console.log({ name, input, options, output })
-    return output.value
+    try {
+      isSubmittingForm.value = true
+      const output = await thing.invokeAction(name, input, options)
+      $console.info(`${topic} invokeaction ${name} with input ${input}`, {
+        name,
+        input,
+        options,
+        output
+      })
+      console.log({ name, input, options, output })
+      return output
+    } catch (error) {
+      $console.error(error)
+    } finally {
+      isSubmittingForm.value = false
+    }
   }
 
   // TODO: cancelAction, queryAction, queryActionInstance, ...
@@ -95,12 +102,10 @@ export function useWotAction(ctx, defaultValue, mode = 'latest-value') {
   const dialogResolve = async (event) => {
     try {
       isSubmittingForm.value = true
-      await invokeAction(name, input.value, options)
-      dialog.value = false
+      output.value = await invokeAction(name, input.value, options)
+      dialog.value = false // only close if invokeAction does not throw error
     } catch (error) {
-      $console.error(error)
-    } finally {
-      isSubmittingForm.value = false
+      // do nothing (error logged already by invokeAction)
     }
   }
 
