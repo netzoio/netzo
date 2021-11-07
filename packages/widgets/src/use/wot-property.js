@@ -77,7 +77,7 @@ export function useWotProperty(ctx, defaultValue, mode = 'latest-value') {
 
   // TODO: add optional-chaining support (tried adding babel/webpack but everything failed for app on cloudflare build)
   const thing = 'getThing' in property ? property.getThing() : null
-  const name = 'getThing' in property ? property.getName() : ''
+  const name = 'getName' in property ? property.getName() : ''
   const {
     wotListener = async (data) => {
       try {

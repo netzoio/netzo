@@ -50,7 +50,7 @@ export function useWotEvent(ctx, defaultValue, mode = 'latest-value') {
 
   // TODO: add optional-chaining support (tried adding babel/webpack but everything failed for app on cloudflare build)
   const thing = 'getThing' in event ? event.getThing() : null
-  const name = 'getThing' in event ? event.getName() : ''
+  const name = 'getName' in event ? event.getName() : ''
   const {
     subscription: subscriptionSchema = {},
     data: dataSchema = {},

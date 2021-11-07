@@ -50,7 +50,7 @@ export function useWotAction(ctx, defaultValue, mode = 'latest-value') {
 
   // TODO: add optional-chaining support (tried adding babel/webpack but everything failed for app on cloudflare build)
   const thing = 'getThing' in action ? action.getThing() : null
-  const name = 'getThing' in action ? action.getName() : ''
+  const name = 'getName' in action ? action.getName() : ''
   const {
     input: inputSchema = {},
     output: outputSchema = {},
@@ -80,6 +80,7 @@ export function useWotAction(ctx, defaultValue, mode = 'latest-value') {
       options,
       output
     })
+    console.log({ name, input, options, output })
     return output.value
   }
 

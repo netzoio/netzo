@@ -88,6 +88,28 @@ export default {
       vjsfOptions
     } = useWotAction(props.ctx)
 
+    console.log(
+      action,
+      // wot:
+      thing,
+      name,
+      inputSchema,
+      outputSchema,
+      options,
+      // wot-action:
+      isValidInput,
+      isValidOutput,
+      input,
+      output,
+      invokeAction,
+      dialog,
+      dialogReject,
+      dialogResolve,
+      isValidForm,
+      isSubmittingForm,
+      vjsfOptions
+    )
+
     // local:
 
     const attrs = computed(() => ({

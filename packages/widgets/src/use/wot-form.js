@@ -28,7 +28,7 @@ export function useWotForm(ctx, defaultValue, mode = 'latest-value') {
 
   // TODO: add optional-chaining support (tried adding babel/webpack but everything failed for app on cloudflare build)
   const thing = 'getThing' in form ? form.getThing() : null
-  const name = 'getThing' in form ? form.getName() : ''
+  const name = 'getName' in form ? form.getName() : ''
   const { options } = form
 
   const { contentType, getValue } = useWot(ctx)
