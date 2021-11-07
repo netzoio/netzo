@@ -112,51 +112,16 @@
         "options": {
           "type": "object",
           "title": "Options",
-          "allOf": [
-            {
-              "properties": {
-                "useCustomHtml": {
-                  "type": "boolean",
-                  "x-display": "switch",
-                  "title": "Custom HTML",
-                  "default": false
-                }
-              },
-              "if": {
-                "required": ["useCustomHtml"],
-                "properties": {
-                  "useCustomHtml": {
-                    "const": false
-                  }
-                }
-              },
-              "then": {
-                "properties": {
-                  "src": {
-                    "type": "string",
-                    "title": "Iframe URL"
-                  }
-                }
-              },
-              "else": {
-                "properties": {
-                  "srcdoc": {
-                    "type": "string",
-                    "title": "Custom HTML",
-                    "x-display": "textarea"
-                  }
-                }
-              }
+          "properties": {
+            "src": {
+              "type": "string",
+              "title": "Iframe URL"
             },
-            {
-              "properties": {
-                "title": {
-                  "type": "string",
-                  "title": "IFrame Title"
-                }
-              }
+            "title": {
+              "type": "string",
+              "title": "IFrame Title"
             }
-          ]
+          }
         }
       }
     },
