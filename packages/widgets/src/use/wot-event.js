@@ -91,10 +91,10 @@ export function useWotEvent(ctx, defaultValue, mode = 'latest-value') {
   const value = ref([]) // {InteractionInput} - data for subscribeevent
 
   const subscribeEvent = async (name, wotListener, options) => {
-    thing && (await thing.subscribeEvent(name, wotListener, options))
+    await thing.subscribeEvent(name, wotListener, options)
   }
 
-  const unsubscribeEvent = async (name) => thing && thing.unsubscribeEvent(name)
+  const unsubscribeEvent = async (name) => thing.unsubscribeEvent(name)
 
   // lifecycle:
 

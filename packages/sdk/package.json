@@ -1,6 +1,6 @@
 {
   "name": "@netzoio/sdk",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Open source software development kit (SDK) for the Netzo WoT Platform, a Web of Things platform to interconnect IoT devices, platforms and services over the web.",
   "keywords": [
     "netzo",
