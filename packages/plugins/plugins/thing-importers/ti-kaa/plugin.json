@@ -26,7 +26,7 @@
     },
     {
       "rel": "readme",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/core/thing-importers/ti-kaa/readme.md"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/thing-importers/ti-kaa/README.md"
     },
     {
       "rel": "license",

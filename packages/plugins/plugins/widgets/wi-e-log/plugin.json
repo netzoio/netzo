@@ -11,7 +11,7 @@
   "license": "MIT",
   "main": "@netzoio/plugins/plugins/widgets/wi-e-log/src/index.js",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/widgets/wi-e-log/src/assets/icon.svg",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/widgets/wi-e-log/src/assets/icon.png",
     "color": "",
     "screenshots": [
       {

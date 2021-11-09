@@ -30,7 +30,7 @@
     },
     {
       "rel": "readme",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/core/thing-importers/ti-blynk/readme.md"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/thing-importers/ti-blynk/README.md"
     },
     {
       "rel": "license",

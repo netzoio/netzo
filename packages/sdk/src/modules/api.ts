@@ -14,4 +14,8 @@ export const getApiUrl = (): string => {
 export const getToken = (): string | null =>
   window.localStorage.getItem('netzo-jwt')
 
+// for clever fetch + proxy usage see https://github.com/justjavac/proxy-www
+// and https://css-tricks.com/proxying-third-party-javascript-as-first-party-javascript-and-the-potential-effect-on-analytics/
+// e.g. const thing = await api.netzo.io/things/13123123123 (translates to fetch('https://api.netzo.io/things/13123123123'))
+
 export const api: NetzoApi = async () => ({ getApiUrl, getToken })

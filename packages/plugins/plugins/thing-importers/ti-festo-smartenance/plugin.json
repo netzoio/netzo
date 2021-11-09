@@ -30,7 +30,7 @@
     },
     {
       "rel": "readme",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/core/thing-importers/ti-festo-smartenance/readme.md"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/thing-importers/ti-festo-smartenance/README.md"
     },
     {
       "rel": "license",
