@@ -3,7 +3,7 @@
     <img height="50" src="https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/thing-models/tm-philips-hue-bridge/src/assets/icon.png" style="margin: 12px 0px" />
   </a>
 
-  <h1>tm-philips-hue-bridge</h1>
+  <h1 style="padding: 6px 0px 24px 0px">tm-philips-hue-bridge</h1>
 </div>
 
 An open source thing model for the Netzo WoT platform.

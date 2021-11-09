@@ -3,7 +3,7 @@
     <img height="50" src="https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/thing-importers/ti-webthings/src/assets/icon.png" style="margin: 12px 0px" />
   </a>
 
-  <h1>ti-webthings</h1>
+  <h1 style="padding: 6px 0px 24px 0px">ti-webthings</h1>
 </div>
 
 An open source thing importer for the Netzo WoT platform.

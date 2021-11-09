@@ -3,7 +3,7 @@
     <img height="50" src="https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/apps/app-p-counter/src/assets/icon.png" style="margin: 12px 0px" />
   </a>
 
-  <h1>app-p-counter</h1>
+  <h1 style="padding: 6px 0px 24px 0px">app-p-counter</h1>
 </div>
 
 An open source app for the Netzo WoT platform.

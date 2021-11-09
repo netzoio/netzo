@@ -3,7 +3,7 @@
     <img height="50" src="https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/widgets/wi-p-joystick/src/assets/icon.png" style="margin: 12px 0px" />
   </a>
 
-  <h1>wi-p-joystick</h1>
+  <h1 style="padding: 6px 0px 24px 0px">wi-p-joystick</h1>
 </div>
 
 An open source widget for the Netzo WoT platform.

@@ -3,7 +3,7 @@
     <img height="50" src="https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/_templates/tm-template/src/assets/icon.png" style="margin: 12px 0px" />
   </a>
 
-  <h1>tm-template</h1>
+  <h1 style="padding: 6px 0px 24px 0px">tm-template</h1>
 </div>
 
 An open source thing model for the Netzo WoT platform.
