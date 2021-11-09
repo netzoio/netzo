@@ -1,6 +1,6 @@
 {
   "name": "@netzoio/netzo",
-  "version": "0.3.5",
+  "version": "0.3.14",
   "description": "Plugin repository for Netzo, a Web of Things platform to interconnect IoT devices, platforms and services over the web.",
   "keywords": [
     "netzo",
@@ -28,9 +28,9 @@
     "build": "npm run build --workspaces --if-present",
     "format": "prettier --write . --ignore-path .gitignore",
     "lint": "npm run lint --silent --workspaces --if-present",
-    "publish": "npm run publish --workspaces --if-present",
     "pretest": "npm run build",
-    "test": "npm run test --silent --workspaces --if-present"
+    "test": "npm run test --silent --workspaces --if-present",
+    "publish": "npm run build && npm run publish --workspaces --if-present"
   },
   "husky": {
     "hooks": {

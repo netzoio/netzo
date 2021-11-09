@@ -1,6 +1,6 @@
 {
   "name": "@netzoio/widgets",
-  "version": "0.3.5",
+  "version": "0.3.14",
   "description": "Open source library of widgets for the Web of Things (WoT) and used by Netzo, a Web of Things platform to interconnect IoT devices, platforms and services over the web.",
   "keywords": [
     "netzo",
