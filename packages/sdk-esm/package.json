@@ -1,0 +1,47 @@
+{
+  "name": "@netzoio/sdk-esm",
+  "version": "0.3.19",
+  "description": "Open source software development kit (SDK) for the Netzo WoT Platform, a Web of Things platform to interconnect IoT devices, platforms and services over the web.",
+  "keywords": [
+    "netzo",
+    "wot",
+    "web-of-things",
+    "iot",
+    "internet-of-things",
+    "w3c",
+    "opensource",
+    "sdk",
+    "javascript",
+    "typescript"
+  ],
+  "homepage": "https://github.com/netzoio/netzo/tree/main/packages/sdk#readme",
+  "bugs": {
+    "url": "https://github.com/netzoio/netzo/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/netzoio/netzo.git"
+  },
+  "license": "MIT",
+  "author": "Asterisc GmbH",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/esm/index.js",
+  "browser": "dist/browser/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "ts-types": " tsc -p tsconfig.json",
+    "build": "rimraf dist && node --experimental-json-modules ./esbuild.js  && npm run ts-types"
+  },
+  "dependencies": {
+    "@node-wot/binding-http": "^0.7.8",
+    "@node-wot/binding-websockets": "^0.7.8",
+    "@node-wot/core": "^0.7.8",
+    "isomorphic-fetch": "^3.0.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.13.13",
+    "typescript": "^4.4.4",
+    "wot-typescript-definitions": "^0.8.0-SNAPSHOT.21"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "name": "@netzoio/plugins",
-  "version": "0.3.14",
+  "version": "0.3.19",
   "description": "Plugin repository for Netzo, a Web of Things platform to interconnect IoT devices, platforms and services over the web.",
   "keywords": [
     "netzo",
@@ -34,6 +34,7 @@
     "deploy": "node ./scripts/deploy-plugins.js"
   },
   "dependencies": {
+    "@netzoio/plugins": "^0.3.18",
     "dotenv": "^8.6.0",
     "jsonata": "^1.8.4",
     "mustache": "^4.2.0"

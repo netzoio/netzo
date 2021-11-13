@@ -1,0 +1,38 @@
+lockfileVersion: 5.3
+
+specifiers:
+  '@netzoio/plugins': ^0.3.18
+  dotenv: ^8.6.0
+  jsonata: ^1.8.4
+  mustache: ^4.2.0
+
+dependencies:
+  '@netzoio/plugins': 0.3.18
+  dotenv: 8.6.0
+  jsonata: 1.8.5
+  mustache: 4.2.0
+
+packages:
+
+  /@netzoio/plugins/0.3.18:
+    resolution: {integrity: sha512-2QC4O4eU6FaImcWzoQG7jdbpWjpc/UB+1jYX9HOCX7QPSPJV4qQIGfEO17ONFwrSUGmJdILyJ6DuRUW/3nWdWQ==}
+    dependencies:
+      dotenv: 8.6.0
+      jsonata: 1.8.5
+      mustache: 4.2.0
+    dev: false
+
+  /dotenv/8.6.0:
+    resolution: {integrity: sha512-IrPdXQsk2BbzvCBGBOTmmSH5SodmqZNt4ERAZDmW4CT+tL8VtvinqywuANaFu4bOMWki16nqf0e4oC0QIaDr/g==}
+    engines: {node: '>=10'}
+    dev: false
+
+  /jsonata/1.8.5:
+    resolution: {integrity: sha512-ilDyTBkg6qhNoNVr8PUPzz5GYvRK+REKOM5MdOGzH2y6V4yvPRMegSvbZLpbTtI0QAgz09QM7drDhSHUlwp9pA==}
+    engines: {node: '>= 8'}
+    dev: false
+
+  /mustache/4.2.0:
+    resolution: {integrity: sha512-71ippSywq5Yb7/tVYyGbkBggbU8H3u5Rz56fH60jGFgr8uHwxs+aSKeqmluIVzM0m0kB7xQjKS6qPfd0b2ZoqQ==}
+    hasBin: true
+    dev: false
