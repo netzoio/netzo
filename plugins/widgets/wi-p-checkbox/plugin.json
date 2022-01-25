@@ -13,7 +13,7 @@
     "miguel.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "/packages/widgets/components/p-checkbox/index.js",
+  "main": "components/p-checkbox/index.js",
   "display": {
     "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/wi-p-checkbox/src/assets/icon.png",
     "color": "",
