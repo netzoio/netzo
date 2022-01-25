@@ -13,7 +13,7 @@
     "miguel.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "~/packages/widgets/components/p-slider/index.js",
+  "main": "/src/packages/widgets/components/p-slider/index.js",
   "display": {
     "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/wi-p-slider/src/assets/icon.png",
     "color": "",
