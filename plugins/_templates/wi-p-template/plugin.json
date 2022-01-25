@@ -13,7 +13,7 @@
     "miguel.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "/src/packages/widgets/components/wi-p-template/index.js",
+  "main": "/packages/widgets/components/wi-p-template/index.js",
   "display": {
     "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/_templates/wi-p-template/src/assets/icon.png",
     "color": "#0080FF",
