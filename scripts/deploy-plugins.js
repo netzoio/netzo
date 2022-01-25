@@ -12,14 +12,14 @@ const apiBaseUrls = [
 let headers = { 'Content-Type': 'application/json', Accept: 'application/json' }
 
 /**
- * This script syncs all plugins from @netzoio/plugins repo to the dev, prod and demo mongodb
+ * This script syncs all plugins from @netzoio/netzo repo to the dev, prod and demo mongodb
  * databases. The 'deploy-plugins' action fetches links array, and maps them to an array
  * of plugin.json objects and either creats a new or updates an existing record in
  * the plugins collection of each of the mongodb databases hosting all plugins
  * for the Netzo APIs (dev, prod and demo) to consume.
  *
  * NOTE: this script is run once before each commit by 'pre-commit' lib (see package.json)
- * IMPORTANT: make sure to commit and push changes tto @netzoio/plugins repository before running this script
+ * IMPORTANT: make sure to commit and push changes tto @netzoio/netzo repository before running this script
  *
  * @returns {array} plugins - an array of the entire plugins collection
  */
@@ -28,15 +28,15 @@ async function main() {
     // GitHub:
 
     console.log(
-      `[deploy-plugins] NOTE: make sure to commit and push changes to @netzoio/plugins repository before running this script so that it fetches these latest changes from github during execution`
+      `[deploy-plugins] NOTE: make sure to commit and push changes to @netzoio/netzo repository before running this script so that it fetches these latest changes from github during execution`
     )
 
-    // 1) fetch array of plugin urls from plugins.json @netzoio/plugins repository in GitHub
+    // 1) fetch array of plugin urls from plugins.json @netzoio/netzo repository in GitHub
     const { data: urls } = await axios(`${repoBaseUrl}/plugins.json`, {
       headers
     })
     console.log(
-      `[deploy-plugins] fetched array of ${urls.length} urls from plugins.json in @netzoio/plugins repository`
+      `[deploy-plugins] fetched array of ${urls.length} urls from plugins.json in @netzoio/netzo repository`
     )
 
     // 2) map array of url pointers to each plugin.json to array of plugin objects
