@@ -13,7 +13,7 @@
     "miguel.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "@netzoio/widgets/components/a-invoke/index.js",
+  "main": "/packages/widgets/components/a-invoke/index.js",
   "display": {
     "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/wi-a-invoke/src/assets/icon.png",
     "color": "",
