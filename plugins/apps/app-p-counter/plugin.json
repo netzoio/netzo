@@ -6,12 +6,18 @@
   "category": "core",
   "name": "Property Counter",
   "description": "Basic counter (read/write) for numerical properties",
-  "keywords": ["p-counter", "readproperty", "writeproperty"],
-  "authors": ["miguel.romero@netzo.io"],
+  "keywords": [
+    "p-counter",
+    "readproperty",
+    "writeproperty"
+  ],
+  "authors": [
+    "miguel.romero@netzo.io"
+  ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/apps/app-p-counter/src/index.html",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/apps/app-p-counter/src/index.html",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/apps/app-p-counter/src/assets/icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/apps/app-p-counter/src/assets/icon.png",
     "color": "",
     "screenshots": []
   },
@@ -27,7 +33,7 @@
     },
     {
       "rel": "readme",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/apps/app-p-counter/README.md"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/apps/app-p-counter/README.md"
     },
     {
       "rel": "license",

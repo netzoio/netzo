@@ -6,12 +6,16 @@
   "category": "core",
   "name": "Philips HUE White Light",
   "description": "A Philips HUE White Light Bulb",
-  "keywords": ["philips-hue-white-light"],
-  "authors": ["miguel.romero@netzo.io"],
+  "keywords": [
+    "philips-hue-white-light"
+  ],
+  "authors": [
+    "miguel.romero@netzo.io"
+  ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/thing-models/tm-philips-hue-white-light/src/tm.json",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/thing-models/tm-philips-hue-white-light/src/tm.json",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/thing-models/tm-philips-hue-white-light/src/assets/icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/thing-models/tm-philips-hue-white-light/src/assets/icon.png",
     "color": "",
     "screenshots": []
   },
@@ -27,7 +31,7 @@
     },
     {
       "rel": "readme",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/thing-models/tm-philips-hue-white-light/README.md"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/thing-models/tm-philips-hue-white-light/README.md"
     },
     {
       "rel": "license",

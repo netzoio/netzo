@@ -112,7 +112,7 @@ Here's a reduced example of a `plugin.json` file. You can also always have a loo
   "license": "MIT",
   "main": "@netzoio/plugins/plugins/widgets/wi-p-button-toggle/src/index.js",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/widgets/wi-p-button-toggle/src/assets/icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/wi-p-button-toggle/src/assets/icon.png",
     "color": "",
     "screenshots": []
   },

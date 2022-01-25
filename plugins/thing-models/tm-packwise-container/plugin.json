@@ -6,12 +6,16 @@
   "category": "core",
   "name": "Packwise Container",
   "description": "A Packwise container is a container fitted with a Packwise Smart Cap",
-  "keywords": ["packwise-container"],
-  "authors": ["arturo.romero@netzo.io"],
+  "keywords": [
+    "packwise-container"
+  ],
+  "authors": [
+    "arturo.romero@netzo.io"
+  ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/thing-models/tm-packwise-container/src/tm.json",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/thing-models/tm-packwise-container/src/tm.json",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/thing-models/tm-packwise-container/src/assets/icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/thing-models/tm-packwise-container/src/assets/icon.png",
     "color": "",
     "screenshots": []
   },
@@ -27,7 +31,7 @@
     },
     {
       "rel": "readme",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/thing-models/tm-packwise-container/README.md"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/thing-models/tm-packwise-container/README.md"
     },
     {
       "rel": "license",

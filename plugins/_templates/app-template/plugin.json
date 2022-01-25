@@ -6,12 +6,16 @@
   "category": "core",
   "name": "Template",
   "description": "Template app for Netzo",
-  "keywords": ["template"],
-  "authors": ["miguel.romero@netzo.io"],
+  "keywords": [
+    "template"
+  ],
+  "authors": [
+    "miguel.romero@netzo.io"
+  ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/_templates/app-template/src/index.html",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/_templates/app-template/src/index.html",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/_templates/app-template/src/assets/icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/_templates/app-template/src/assets/icon.png",
     "color": "",
     "screenshots": []
   },
@@ -27,7 +31,7 @@
     },
     {
       "rel": "readme",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/_templates/app-template/README.md"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/_templates/app-template/README.md"
     },
     {
       "rel": "license",

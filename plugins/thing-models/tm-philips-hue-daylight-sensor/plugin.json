@@ -6,12 +6,16 @@
   "category": "core",
   "name": "Philips HUE Daylight Sensor",
   "description": "A Philips HUE Daylight Sensor",
-  "keywords": ["philips-hue-daylight-sensor"],
-  "authors": ["miguel.romero@netzo.io"],
+  "keywords": [
+    "philips-hue-daylight-sensor"
+  ],
+  "authors": [
+    "miguel.romero@netzo.io"
+  ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/thing-models/tm-philips-hue-daylight-sensor/src/tm.json",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/thing-models/tm-philips-hue-daylight-sensor/src/tm.json",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/thing-models/tm-philips-hue-daylight-sensor/src/assets/icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/thing-models/tm-philips-hue-daylight-sensor/src/assets/icon.png",
     "color": "",
     "screenshots": []
   },
@@ -27,7 +31,7 @@
     },
     {
       "rel": "readme",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/thing-models/tm-philips-hue-daylight-sensor/README.md"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/thing-models/tm-philips-hue-daylight-sensor/README.md"
     },
     {
       "rel": "license",

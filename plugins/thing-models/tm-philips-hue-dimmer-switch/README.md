@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://netzo.io" target="_blank" >
-    <img height="50" src="https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/thing-models/tm-philips-hue-dimmer-switch/src/assets/icon.png" style="margin: 12px 0px" />
+    <img height="50" src="https://raw.githubusercontent.com/netzoio/netzo/main/plugins/thing-models/tm-philips-hue-dimmer-switch/src/assets/icon.png" style="margin: 12px 0px" />
   </a>
 
   <h1 style="padding: 6px 0px 24px 0px">tm-philips-hue-dimmer-switch</h1>

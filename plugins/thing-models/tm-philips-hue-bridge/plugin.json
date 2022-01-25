@@ -6,12 +6,16 @@
   "category": "core",
   "name": "Philips HUE Bridge Simple",
   "description": "A Philips HUE Bridge, configured for lights, dimmer switch and a software-based daylight sensor",
-  "keywords": ["philips-hue-bridge"],
-  "authors": ["miguel.romero@netzo.io"],
+  "keywords": [
+    "philips-hue-bridge"
+  ],
+  "authors": [
+    "miguel.romero@netzo.io"
+  ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/thing-models/tm-philips-hue-bridge/src/tm.json",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/thing-models/tm-philips-hue-bridge/src/tm.json",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/thing-models/tm-philips-hue-bridge/src/assets/icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/thing-models/tm-philips-hue-bridge/src/assets/icon.png",
     "color": "",
     "screenshots": []
   },
@@ -27,7 +31,7 @@
     },
     {
       "rel": "readme",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/thing-models/tm-philips-hue-bridge/README.md"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/thing-models/tm-philips-hue-bridge/README.md"
     },
     {
       "rel": "license",

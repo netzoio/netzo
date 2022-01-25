@@ -6,12 +6,16 @@
   "category": "core",
   "name": "Template",
   "description": "Template widget for Netzo",
-  "keywords": ["button-toggle"],
-  "authors": ["miguel.romero@netzo.io"],
+  "keywords": [
+    "button-toggle"
+  ],
+  "authors": [
+    "miguel.romero@netzo.io"
+  ],
   "license": "MIT",
   "main": "@netzoio/plugins/plugins/widgets/wi-p-template/src/index.js",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/_templates/wi-p-template/src/assets/icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/_templates/wi-p-template/src/assets/icon.png",
     "color": "#0080FF",
     "screenshots": []
   },
@@ -27,7 +31,7 @@
     },
     {
       "rel": "readme",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/_templates/wi-p-template/README.md"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/_templates/wi-p-template/README.md"
     },
     {
       "rel": "license",
@@ -54,14 +58,29 @@
       "type": "object",
       "x-display": "expansion-panels",
       "x-props": {
-        "value": [0, 1]
+        "value": [
+          0,
+          1
+        ]
       },
       "properties": {
-        "_type": { "const": "widget" },
-        "uid": { "const": "wi-p-template" },
-        "w": { "const": 3 },
-        "h": { "const": 7 },
-        "name": { "type": "string", "title": "Display name", "required": true },
+        "_type": {
+          "const": "widget"
+        },
+        "uid": {
+          "const": "wi-p-template"
+        },
+        "w": {
+          "const": 3
+        },
+        "h": {
+          "const": 7
+        },
+        "name": {
+          "type": "string",
+          "title": "Display name",
+          "required": true
+        },
         "description": {
           "type": "string",
           "title": "Description",
@@ -71,11 +90,21 @@
           "type": "object",
           "title": "WoT Property",
           "properties": {
-            "thingId": { "type": "string" },
-            "tdKey": { "const": "properties" },
-            "name": { "type": "string" },
-            "title": { "type": "string" },
-            "description": { "type": "string" },
+            "thingId": {
+              "type": "string"
+            },
+            "tdKey": {
+              "const": "properties"
+            },
+            "name": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
             "type": {
               "type": "string",
               "enum": [
@@ -88,11 +117,22 @@
                 "null"
               ]
             },
-            "readOnly": { "type": "boolean" },
-            "writeOnly": { "type": "boolean" },
-            "observable": { "type": "boolean" }
+            "readOnly": {
+              "type": "boolean"
+            },
+            "writeOnly": {
+              "type": "boolean"
+            },
+            "observable": {
+              "type": "boolean"
+            }
           },
-          "required": ["thingId", "tdKey", "name", "type"],
+          "required": [
+            "thingId",
+            "tdKey",
+            "name",
+            "type"
+          ],
           "additionalProperties": true,
           "x-display": "custom-v-select-thing-wot-property",
           "examples": []
@@ -101,8 +141,14 @@
           "type": "object",
           "title": "Display",
           "properties": {
-            "transparent": { "type": "boolean", "title": "Transparent" },
-            "hideToolbar": { "type": "boolean", "title": "Hide Toolbar" },
+            "transparent": {
+              "type": "boolean",
+              "title": "Transparent"
+            },
+            "hideToolbar": {
+              "type": "boolean",
+              "title": "Hide Toolbar"
+            },
             "color": {
               "type": "string",
               "title": "Color",
@@ -118,7 +164,9 @@
               "title": "Background Image",
               "description": "The URL of an image to use as background image.",
               "contentMediaType": "image/*",
-              "x-props": { "clearable": true },
+              "x-props": {
+                "clearable": true
+              },
               "x-options": {
                 "filesAsDataUrl": true
               },

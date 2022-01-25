@@ -6,12 +6,16 @@
   "category": "core",
   "name": "Template",
   "description": "Template thing model for Netzo",
-  "keywords": ["template"],
-  "authors": ["miguel.romero@netzo.io"],
+  "keywords": [
+    "template"
+  ],
+  "authors": [
+    "miguel.romero@netzo.io"
+  ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/_templates/tm-template/src/tm.json",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/_templates/tm-template/src/tm.json",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/_templates/tm-template/src/assets/icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/_templates/tm-template/src/assets/icon.png",
     "color": "#0080FF",
     "screenshots": []
   },
@@ -27,7 +31,7 @@
     },
     {
       "rel": "readme",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/_templates/tm-template/README.md"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/_templates/tm-template/README.md"
     },
     {
       "rel": "license",

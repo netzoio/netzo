@@ -6,12 +6,16 @@
   "category": "core",
   "name": "Netzo API",
   "description": "The API for the Netzo WoT Platform",
-  "keywords": ["netzo-api"],
-  "authors": ["miguel.romero@netzo.io"],
+  "keywords": [
+    "netzo-api"
+  ],
+  "authors": [
+    "miguel.romero@netzo.io"
+  ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/apis/api-netzo-api/src/openapi.json",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/apis/api-netzo-api/src/openapi.json",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/apis/api-netzo-api/src/assets/icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/apis/api-netzo-api/src/assets/icon.png",
     "color": "",
     "screenshots": []
   },
@@ -27,7 +31,7 @@
     },
     {
       "rel": "readme",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/apis/api-netzo-api/README.md"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/apis/api-netzo-api/README.md"
     },
     {
       "rel": "license",

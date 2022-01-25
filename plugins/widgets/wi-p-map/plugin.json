@@ -15,12 +15,12 @@
   "license": "MIT",
   "main": "~/widgets/components/p-map/src/index.js",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/widgets/wi-p-map/src/assets/icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/wi-p-map/src/assets/icon.png",
     "color": "",
     "screenshots": [
       {
         "label": "Screenshot of the widget",
-        "src": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/widgets/wi-p-map/src/assets/images/screenshot.png"
+        "src": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/wi-p-map/src/assets/images/screenshot.png"
       }
     ]
   },
@@ -36,7 +36,7 @@
     },
     {
       "rel": "readme",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/widgets/wi-p-map/README.md"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/wi-p-map/README.md"
     },
     {
       "rel": "license",

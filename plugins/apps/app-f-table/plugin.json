@@ -6,12 +6,17 @@
   "category": "core",
   "name": "Form table",
   "description": "Basic table to display all properties",
-  "keywords": ["f-table", "readallproperties"],
-  "authors": ["miguel.romero@netzo.io"],
+  "keywords": [
+    "f-table",
+    "readallproperties"
+  ],
+  "authors": [
+    "miguel.romero@netzo.io"
+  ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/apps/app-f-table/src/index.html",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/apps/app-f-table/src/index.html",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/apps/app-f-table/src/assets/icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/apps/app-f-table/src/assets/icon.png",
     "color": "",
     "screenshots": []
   },
@@ -27,7 +32,7 @@
     },
     {
       "rel": "readme",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/apps/app-f-table/README.md"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/apps/app-f-table/README.md"
     },
     {
       "rel": "license",
