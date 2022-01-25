@@ -1,0 +1,22 @@
+use https://meyerweb.com/eric/tools/dencoder/ to encode/decode
+graphql queries into valid URL query strings
+see https://dgraph.io/docs/graphql/api/requests/
+
+ENCODED: the graphql query (as a string)
+
+{ getCompany(_id: "60b8ddc15751ba0009f707c4") { name } }
+
+DECODED:
+
+%7B%20getCompany(_id%3A%20%2260b8ddc15751ba0009f707c4%22)%20%7B%20name%20%7D%20%7D%0A
+
+EXAMPLE REQUEST:
+
+GET https://packwiseflow.de/api/data?query=%7B%20getCompany(_id%3A%20%2260b8ddc15751ba0009f707c4%22)%20%7B%20name%20%7D%20%7D
+with headers { 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjoiNjBlYzJkZmU0YTA1YzQwMDA4OTA0NDZkIiwibWZhIjpmYWxzZSwiaWF0IjoxNjI2MDkxMDA2fQ.D1m95nHJ3sMCgDHDcEOxwWRyIaiT7Xn6dv3FI_TKmoc' }
+
+CURL:
+
+curl --location --request GET 'https://packwiseflow.de/api/data?query=%7B%20getCompany(_id%3A%20%2260b8ddc15751ba0009f707c4%22)%20%7B%20name%20%7D%20%7D%0A' \
+--header 'x-api-key: dQzy4M4MwI1DRYqZ2Bk6a8PbvGI4E9bV7RJEAMwg' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjoiNjBlYzJkZmU0YTA1YzQwMDA4OTA0NDZkIiwibWZhIjpmYWxzZSwiaWF0IjoxNjI2MDkxMDA2fQ.D1m95nHJ3sMCgDHDcEOxwWRyIaiT7Xn6dv3FI_TKmoc'

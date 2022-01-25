@@ -1,0 +1,157 @@
+{
+  "uid": "wi-u-webcontent",
+  "type": "widget",
+  "version": "1.0.0",
+  "status": "alpha",
+  "category": "core",
+  "name": "Web Content",
+  "description": "Web content widget for Netzo",
+  "keywords": [
+    "webcontent"
+  ],
+  "authors": [
+    "miguel.romero@netzo.io"
+  ],
+  "license": "MIT",
+  "main": "~/widgets/components/u-webcontent/src/index.js",
+  "display": {
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/widgets/wi-u-webcontent/src/assets/icon.png",
+    "color": "",
+    "screenshots": [
+      {
+        "label": "Screenshot of the widget",
+        "src": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/widgets/wi-u-webcontent/src/assets/images/screenshot.png"
+      }
+    ]
+  },
+  "links": [
+    {
+      "rel": "author",
+      "href": "https://netzo.io",
+      "title": "Netzo"
+    },
+    {
+      "rel": "repository",
+      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/widgets/wi-u-webcontent"
+    },
+    {
+      "rel": "readme",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/widgets/wi-u-webcontent/README.md"
+    },
+    {
+      "rel": "license",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/LICENSE"
+    }
+  ],
+  "form": {
+    "model": {
+      "uid": "wi-u-webcontent",
+      "w": 8,
+      "h": 12,
+      "name": "",
+      "description": "",
+      "wot": {},
+      "display": {
+        "transparent": false,
+        "hideToolbar": false,
+        "color": "#0080FF",
+        "textColor": "#121212",
+        "bgImageUrl": ""
+      },
+      "options": {
+        "src": "https://netzo.io/img/netzo-symbol-grayscale-light.svg",
+        "title": "Netzo WoT Platform"
+      }
+    },
+    "schema": {
+      "type": "object",
+      "x-display": "expansion-panels",
+      "x-props": {
+        "value": [
+          0,
+          1
+        ]
+      },
+      "properties": {
+        "_type": {
+          "const": "widget"
+        },
+        "uid": {
+          "const": "wi-u-webcontent"
+        },
+        "w": {
+          "const": 8
+        },
+        "h": {
+          "const": 12
+        },
+        "name": {
+          "type": "string",
+          "title": "Display name",
+          "required": true
+        },
+        "description": {
+          "type": "string",
+          "title": "Description",
+          "x-display": "textarea"
+        },
+        "wot": {
+          "const": null,
+          "examples": []
+        },
+        "display": {
+          "type": "object",
+          "title": "Display",
+          "properties": {
+            "transparent": {
+              "type": "boolean",
+              "title": "Transparent"
+            },
+            "hideToolbar": {
+              "type": "boolean",
+              "title": "Hide Toolbar"
+            },
+            "color": {
+              "type": "string",
+              "title": "Color",
+              "format": "hexcolor"
+            },
+            "textColor": {
+              "type": "string",
+              "title": "Text color",
+              "format": "hexcolor"
+            },
+            "bgImageUrl": {
+              "type": "string",
+              "title": "Background Image",
+              "description": "The URL of an image to use as background image.",
+              "contentMediaType": "image/*",
+              "x-props": {
+                "clearable": true
+              },
+              "x-options": {
+                "filesAsDataUrl": true
+              },
+              "writeOnly": true
+            }
+          }
+        },
+        "options": {
+          "type": "object",
+          "title": "Options",
+          "properties": {
+            "src": {
+              "type": "string",
+              "title": "Iframe URL"
+            },
+            "title": {
+              "type": "string",
+              "title": "IFrame Title"
+            }
+          }
+        }
+      }
+    },
+    "options": {}
+  }
+}

@@ -1,0 +1,5662 @@
+{
+  "info": {
+    "title": "Netzo API",
+    "description": "Documentation for Netzo, the open Web platform to interconnect IoT devices, platforms and services.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/users": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Number of results to return",
+            "in": "query",
+            "name": "$limit",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Number of results to skip",
+            "in": "query",
+            "name": "$skip",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Property to sort results",
+            "in": "query",
+            "name": "$sort",
+            "style": "deepObject",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "description": "Query parameters to filter",
+            "in": "query",
+            "name": "filter",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/users"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/users_list"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a list of all resources from the service.",
+        "summary": "",
+        "tags": [
+          "users"
+        ],
+        "security": []
+      },
+      "post": {
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/users"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Creates a new resource with data.",
+        "summary": "",
+        "tags": [
+          "users"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/users"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/{_id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of users to return",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/users"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a single resource with the given id from the service.",
+        "summary": "",
+        "tags": [
+          "users"
+        ],
+        "security": []
+      },
+      "put": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of users to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/users"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "users"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/users"
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of users to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/users"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "users"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/users"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of users to remove",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/users"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Removes the resource with id.",
+        "summary": "",
+        "tags": [
+          "users"
+        ],
+        "security": []
+      }
+    },
+    "/workspaces": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Number of results to return",
+            "in": "query",
+            "name": "$limit",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Number of results to skip",
+            "in": "query",
+            "name": "$skip",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Property to sort results",
+            "in": "query",
+            "name": "$sort",
+            "style": "deepObject",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "description": "Query parameters to filter",
+            "in": "query",
+            "name": "filter",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/workspaces"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/workspaces_list"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a list of all resources from the service.",
+        "summary": "",
+        "tags": [
+          "workspaces"
+        ],
+        "security": []
+      },
+      "post": {
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/workspaces"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Creates a new resource with data.",
+        "summary": "",
+        "tags": [
+          "workspaces"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/workspaces"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/workspaces/{_id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of workspaces to return",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/workspaces"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a single resource with the given id from the service.",
+        "summary": "",
+        "tags": [
+          "workspaces"
+        ],
+        "security": []
+      },
+      "put": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of workspaces to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/workspaces"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "workspaces"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/workspaces"
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of workspaces to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/workspaces"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "workspaces"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/workspaces"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of workspaces to remove",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/workspaces"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Removes the resource with id.",
+        "summary": "",
+        "tags": [
+          "workspaces"
+        ],
+        "security": []
+      }
+    },
+    "/api-keys": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Number of results to return",
+            "in": "query",
+            "name": "$limit",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Number of results to skip",
+            "in": "query",
+            "name": "$skip",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Property to sort results",
+            "in": "query",
+            "name": "$sort",
+            "style": "deepObject",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "description": "Query parameters to filter",
+            "in": "query",
+            "name": "filter",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/api-keys"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api-keys_list"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a list of all resources from the service.",
+        "summary": "",
+        "tags": [
+          "api-keys"
+        ],
+        "security": []
+      },
+      "post": {
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api-keys"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Creates a new resource with data.",
+        "summary": "",
+        "tags": [
+          "api-keys"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/api-keys"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api-keys/{_id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of api-keys to return",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api-keys"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a single resource with the given id from the service.",
+        "summary": "",
+        "tags": [
+          "api-keys"
+        ],
+        "security": []
+      },
+      "put": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of api-keys to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api-keys"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "api-keys"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/api-keys"
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of api-keys to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api-keys"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "api-keys"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/api-keys"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of api-keys to remove",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api-keys"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Removes the resource with id.",
+        "summary": "",
+        "tags": [
+          "api-keys"
+        ],
+        "security": []
+      }
+    },
+    "/dashboards": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Number of results to return",
+            "in": "query",
+            "name": "$limit",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Number of results to skip",
+            "in": "query",
+            "name": "$skip",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Property to sort results",
+            "in": "query",
+            "name": "$sort",
+            "style": "deepObject",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "description": "Query parameters to filter",
+            "in": "query",
+            "name": "filter",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/dashboards"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dashboards_list"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a list of all resources from the service.",
+        "summary": "",
+        "tags": [
+          "dashboards"
+        ],
+        "security": []
+      },
+      "post": {
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dashboards"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Creates a new resource with data.",
+        "summary": "",
+        "tags": [
+          "dashboards"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/dashboards"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboards/{_id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of dashboards to return",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dashboards"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a single resource with the given id from the service.",
+        "summary": "",
+        "tags": [
+          "dashboards"
+        ],
+        "security": []
+      },
+      "put": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of dashboards to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dashboards"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "dashboards"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/dashboards"
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of dashboards to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dashboards"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "dashboards"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/dashboards"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of dashboards to remove",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dashboards"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Removes the resource with id.",
+        "summary": "",
+        "tags": [
+          "dashboards"
+        ],
+        "security": []
+      }
+    },
+    "/audit-logs": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Number of results to return",
+            "in": "query",
+            "name": "$limit",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Number of results to skip",
+            "in": "query",
+            "name": "$skip",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Property to sort results",
+            "in": "query",
+            "name": "$sort",
+            "style": "deepObject",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "description": "Query parameters to filter",
+            "in": "query",
+            "name": "filter",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/audit-logs"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/audit-logs_list"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a list of all resources from the service.",
+        "summary": "",
+        "tags": [
+          "audit-logs"
+        ],
+        "security": []
+      },
+      "post": {
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/audit-logs"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Creates a new resource with data.",
+        "summary": "",
+        "tags": [
+          "audit-logs"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/audit-logs"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/audit-logs/{_id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of audit-logs to return",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/audit-logs"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a single resource with the given id from the service.",
+        "summary": "",
+        "tags": [
+          "audit-logs"
+        ],
+        "security": []
+      },
+      "put": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of audit-logs to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/audit-logs"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "audit-logs"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/audit-logs"
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of audit-logs to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/audit-logs"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "audit-logs"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/audit-logs"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of audit-logs to remove",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/audit-logs"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Removes the resource with id.",
+        "summary": "",
+        "tags": [
+          "audit-logs"
+        ],
+        "security": []
+      }
+    },
+    "/things": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Number of results to return",
+            "in": "query",
+            "name": "$limit",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Number of results to skip",
+            "in": "query",
+            "name": "$skip",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Property to sort results",
+            "in": "query",
+            "name": "$sort",
+            "style": "deepObject",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "description": "Query parameters to filter",
+            "in": "query",
+            "name": "filter",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/things"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/things_list"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a list of all resources from the service.",
+        "summary": "",
+        "tags": [
+          "things"
+        ],
+        "security": []
+      },
+      "post": {
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/things"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Creates a new resource with data.",
+        "summary": "",
+        "tags": [
+          "things"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/things"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/things/{_id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of things to return",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/things"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a single resource with the given id from the service.",
+        "summary": "",
+        "tags": [
+          "things"
+        ],
+        "security": []
+      },
+      "put": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of things to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/things"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "things"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/things"
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of things to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/things"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "things"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/things"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of things to remove",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/things"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Removes the resource with id.",
+        "summary": "",
+        "tags": [
+          "things"
+        ],
+        "security": []
+      }
+    },
+    "/groups": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Number of results to return",
+            "in": "query",
+            "name": "$limit",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Number of results to skip",
+            "in": "query",
+            "name": "$skip",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Property to sort results",
+            "in": "query",
+            "name": "$sort",
+            "style": "deepObject",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "description": "Query parameters to filter",
+            "in": "query",
+            "name": "filter",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/groups"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/groups_list"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a list of all resources from the service.",
+        "summary": "",
+        "tags": [
+          "groups"
+        ],
+        "security": []
+      },
+      "post": {
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/groups"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Creates a new resource with data.",
+        "summary": "",
+        "tags": [
+          "groups"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/groups"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/groups/{_id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of groups to return",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/groups"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a single resource with the given id from the service.",
+        "summary": "",
+        "tags": [
+          "groups"
+        ],
+        "security": []
+      },
+      "put": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of groups to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/groups"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "groups"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/groups"
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of groups to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/groups"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "groups"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/groups"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of groups to remove",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/groups"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Removes the resource with id.",
+        "summary": "",
+        "tags": [
+          "groups"
+        ],
+        "security": []
+      }
+    },
+    "/plugins": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Number of results to return",
+            "in": "query",
+            "name": "$limit",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Number of results to skip",
+            "in": "query",
+            "name": "$skip",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Property to sort results",
+            "in": "query",
+            "name": "$sort",
+            "style": "deepObject",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "description": "Query parameters to filter",
+            "in": "query",
+            "name": "filter",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/plugins"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/plugins_list"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a list of all resources from the service.",
+        "summary": "",
+        "tags": [
+          "plugins"
+        ],
+        "security": []
+      },
+      "post": {
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/plugins"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Creates a new resource with data.",
+        "summary": "",
+        "tags": [
+          "plugins"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/plugins"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/plugins/{_id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of plugins to return",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/plugins"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a single resource with the given id from the service.",
+        "summary": "",
+        "tags": [
+          "plugins"
+        ],
+        "security": []
+      },
+      "put": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of plugins to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/plugins"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "plugins"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/plugins"
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of plugins to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/plugins"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "plugins"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/plugins"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of plugins to remove",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/plugins"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Removes the resource with id.",
+        "summary": "",
+        "tags": [
+          "plugins"
+        ],
+        "security": []
+      }
+    },
+    "/apis": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Number of results to return",
+            "in": "query",
+            "name": "$limit",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Number of results to skip",
+            "in": "query",
+            "name": "$skip",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Property to sort results",
+            "in": "query",
+            "name": "$sort",
+            "style": "deepObject",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "description": "Query parameters to filter",
+            "in": "query",
+            "name": "filter",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/apis"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/apis_list"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a list of all resources from the service.",
+        "summary": "",
+        "tags": [
+          "apis"
+        ],
+        "security": []
+      },
+      "post": {
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/apis"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Creates a new resource with data.",
+        "summary": "",
+        "tags": [
+          "apis"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/apis"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/apis/{_id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of apis to return",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/apis"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a single resource with the given id from the service.",
+        "summary": "",
+        "tags": [
+          "apis"
+        ],
+        "security": []
+      },
+      "put": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of apis to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/apis"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "apis"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/apis"
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of apis to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/apis"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "apis"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/apis"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of apis to remove",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/apis"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Removes the resource with id.",
+        "summary": "",
+        "tags": [
+          "apis"
+        ],
+        "security": []
+      }
+    },
+    "/apps": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Number of results to return",
+            "in": "query",
+            "name": "$limit",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Number of results to skip",
+            "in": "query",
+            "name": "$skip",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Property to sort results",
+            "in": "query",
+            "name": "$sort",
+            "style": "deepObject",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "description": "Query parameters to filter",
+            "in": "query",
+            "name": "filter",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/apps"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/apps_list"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a list of all resources from the service.",
+        "summary": "",
+        "tags": [
+          "apps"
+        ],
+        "security": []
+      },
+      "post": {
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/apps"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Creates a new resource with data.",
+        "summary": "",
+        "tags": [
+          "apps"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/apps"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/apps/{_id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of apps to return",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/apps"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a single resource with the given id from the service.",
+        "summary": "",
+        "tags": [
+          "apps"
+        ],
+        "security": []
+      },
+      "put": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of apps to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/apps"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "apps"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/apps"
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of apps to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/apps"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "apps"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/apps"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of apps to remove",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/apps"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Removes the resource with id.",
+        "summary": "",
+        "tags": [
+          "apps"
+        ],
+        "security": []
+      }
+    },
+    "/thing-models": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Number of results to return",
+            "in": "query",
+            "name": "$limit",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Number of results to skip",
+            "in": "query",
+            "name": "$skip",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Property to sort results",
+            "in": "query",
+            "name": "$sort",
+            "style": "deepObject",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "description": "Query parameters to filter",
+            "in": "query",
+            "name": "filter",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/thing-models"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/thing-models_list"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a list of all resources from the service.",
+        "summary": "",
+        "tags": [
+          "thing-models"
+        ],
+        "security": []
+      },
+      "post": {
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/thing-models"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Creates a new resource with data.",
+        "summary": "",
+        "tags": [
+          "thing-models"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/thing-models"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/thing-models/{_id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of thing-models to return",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/thing-models"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a single resource with the given id from the service.",
+        "summary": "",
+        "tags": [
+          "thing-models"
+        ],
+        "security": []
+      },
+      "put": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of thing-models to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/thing-models"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "thing-models"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/thing-models"
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of thing-models to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/thing-models"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "thing-models"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/thing-models"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of thing-models to remove",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/thing-models"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Removes the resource with id.",
+        "summary": "",
+        "tags": [
+          "thing-models"
+        ],
+        "security": []
+      }
+    },
+    "/widgets": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Number of results to return",
+            "in": "query",
+            "name": "$limit",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Number of results to skip",
+            "in": "query",
+            "name": "$skip",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Property to sort results",
+            "in": "query",
+            "name": "$sort",
+            "style": "deepObject",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "description": "Query parameters to filter",
+            "in": "query",
+            "name": "filter",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/widgets"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/widgets_list"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a list of all resources from the service.",
+        "summary": "",
+        "tags": [
+          "widgets"
+        ],
+        "security": []
+      },
+      "post": {
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/widgets"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Creates a new resource with data.",
+        "summary": "",
+        "tags": [
+          "widgets"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/widgets"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/widgets/{_id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of widgets to return",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/widgets"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a single resource with the given id from the service.",
+        "summary": "",
+        "tags": [
+          "widgets"
+        ],
+        "security": []
+      },
+      "put": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of widgets to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/widgets"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "widgets"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/widgets"
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of widgets to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/widgets"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "widgets"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/widgets"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of widgets to remove",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/widgets"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Removes the resource with id.",
+        "summary": "",
+        "tags": [
+          "widgets"
+        ],
+        "security": []
+      }
+    },
+    "/snippets": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Number of results to return",
+            "in": "query",
+            "name": "$limit",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Number of results to skip",
+            "in": "query",
+            "name": "$skip",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Property to sort results",
+            "in": "query",
+            "name": "$sort",
+            "style": "deepObject",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "description": "Query parameters to filter",
+            "in": "query",
+            "name": "filter",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/snippets"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/snippets_list"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a list of all resources from the service.",
+        "summary": "",
+        "tags": [
+          "snippets"
+        ],
+        "security": []
+      },
+      "post": {
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/snippets"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Creates a new resource with data.",
+        "summary": "",
+        "tags": [
+          "snippets"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/snippets"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/snippets/{_id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of snippets to return",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/snippets"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a single resource with the given id from the service.",
+        "summary": "",
+        "tags": [
+          "snippets"
+        ],
+        "security": []
+      },
+      "put": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of snippets to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/snippets"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "snippets"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/snippets"
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of snippets to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/snippets"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "snippets"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/snippets"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of snippets to remove",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/snippets"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Removes the resource with id.",
+        "summary": "",
+        "tags": [
+          "snippets"
+        ],
+        "security": []
+      }
+    },
+    "/web": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Number of results to return",
+            "in": "query",
+            "name": "$limit",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Number of results to skip",
+            "in": "query",
+            "name": "$skip",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Property to sort results",
+            "in": "query",
+            "name": "$sort",
+            "style": "deepObject",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "description": "Query parameters to filter",
+            "in": "query",
+            "name": "filter",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/web"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/web_list"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a list of all resources from the service.",
+        "summary": "",
+        "tags": [
+          "web"
+        ],
+        "security": []
+      },
+      "post": {
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/web"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Creates a new resource with data.",
+        "summary": "",
+        "tags": [
+          "web"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/web"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/web/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "ID of web to return",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/web"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a single resource with the given id from the service.",
+        "summary": "",
+        "tags": [
+          "web"
+        ],
+        "security": []
+      },
+      "put": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "ID of web to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/web"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "web"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/web"
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "ID of web to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/web"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "web"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/web"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "ID of web to remove",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/web"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Removes the resource with id.",
+        "summary": "",
+        "tags": [
+          "web"
+        ],
+        "security": []
+      }
+    },
+    "/workspace-users": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Number of results to return",
+            "in": "query",
+            "name": "$limit",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Number of results to skip",
+            "in": "query",
+            "name": "$skip",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Property to sort results",
+            "in": "query",
+            "name": "$sort",
+            "style": "deepObject",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "description": "Query parameters to filter",
+            "in": "query",
+            "name": "filter",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/workspace-users"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/workspace-users_list"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a list of all resources from the service.",
+        "summary": "",
+        "tags": [
+          "workspace-users"
+        ],
+        "security": []
+      },
+      "post": {
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/workspace-users"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Creates a new resource with data.",
+        "summary": "",
+        "tags": [
+          "workspace-users"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/workspace-users"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/workspace-users/{_id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of workspace-users to return",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/workspace-users"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a single resource with the given id from the service.",
+        "summary": "",
+        "tags": [
+          "workspace-users"
+        ],
+        "security": []
+      },
+      "put": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of workspace-users to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/workspace-users"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "workspace-users"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/workspace-users"
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of workspace-users to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/workspace-users"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "workspace-users"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/workspace-users"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of workspace-users to remove",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/workspace-users"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Removes the resource with id.",
+        "summary": "",
+        "tags": [
+          "workspace-users"
+        ],
+        "security": []
+      }
+    },
+    "/owners": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Number of results to return",
+            "in": "query",
+            "name": "$limit",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Number of results to skip",
+            "in": "query",
+            "name": "$skip",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Property to sort results",
+            "in": "query",
+            "name": "$sort",
+            "style": "deepObject",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "description": "Query parameters to filter",
+            "in": "query",
+            "name": "filter",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/owners"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/owners_list"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a list of all resources from the service.",
+        "summary": "",
+        "tags": [
+          "owners"
+        ],
+        "security": []
+      }
+    },
+    "/owners/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "ID of owners to return",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/owners"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a single resource with the given id from the service.",
+        "summary": "",
+        "tags": [
+          "owners"
+        ],
+        "security": []
+      }
+    },
+    "/search": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Number of results to return",
+            "in": "query",
+            "name": "$limit",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Number of results to skip",
+            "in": "query",
+            "name": "$skip",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Property to sort results",
+            "in": "query",
+            "name": "$sort",
+            "style": "deepObject",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "description": "Query parameters to filter",
+            "in": "query",
+            "name": "filter",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/search"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/search_list"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a list of all resources from the service.",
+        "summary": "",
+        "tags": [
+          "search"
+        ],
+        "security": []
+      }
+    },
+    "/items": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Number of results to return",
+            "in": "query",
+            "name": "$limit",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Number of results to skip",
+            "in": "query",
+            "name": "$skip",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Property to sort results",
+            "in": "query",
+            "name": "$sort",
+            "style": "deepObject",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "description": "Query parameters to filter",
+            "in": "query",
+            "name": "filter",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/items"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/items_list"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a list of all resources from the service.",
+        "summary": "",
+        "tags": [
+          "items"
+        ],
+        "security": []
+      }
+    },
+    "/items/{id}": {
+      "patch": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "ID of items to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/items"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "items"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/items"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/thing-attributes": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Number of results to return",
+            "in": "query",
+            "name": "$limit",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Number of results to skip",
+            "in": "query",
+            "name": "$skip",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Property to sort results",
+            "in": "query",
+            "name": "$sort",
+            "style": "deepObject",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "description": "Query parameters to filter",
+            "in": "query",
+            "name": "filter",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/thing-attributes"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/thing-attributes_list"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a list of all resources from the service.",
+        "summary": "",
+        "tags": [
+          "thing-attributes"
+        ],
+        "security": []
+      }
+    },
+    "/thing-attributes/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "ID of thing-attributes to return",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/thing-attributes"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a single resource with the given id from the service.",
+        "summary": "",
+        "tags": [
+          "thing-attributes"
+        ],
+        "security": []
+      }
+    },
+    "/usages": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Number of results to return",
+            "in": "query",
+            "name": "$limit",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Number of results to skip",
+            "in": "query",
+            "name": "$skip",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Property to sort results",
+            "in": "query",
+            "name": "$sort",
+            "style": "deepObject",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "description": "Query parameters to filter",
+            "in": "query",
+            "name": "filter",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/usages"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/usages_list"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a list of all resources from the service.",
+        "summary": "",
+        "tags": [
+          "usages"
+        ],
+        "security": []
+      }
+    },
+    "/usages/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "ID of usages to return",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/usages"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a single resource with the given id from the service.",
+        "summary": "",
+        "tags": [
+          "usages"
+        ],
+        "security": []
+      }
+    },
+    "/populates": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Number of results to return",
+            "in": "query",
+            "name": "$limit",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Number of results to skip",
+            "in": "query",
+            "name": "$skip",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Property to sort results",
+            "in": "query",
+            "name": "$sort",
+            "style": "deepObject",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "description": "Query parameters to filter",
+            "in": "query",
+            "name": "filter",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/populates"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/populates_list"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a list of all resources from the service.",
+        "summary": "",
+        "tags": [
+          "populates"
+        ],
+        "security": []
+      },
+      "post": {
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/populates"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Creates a new resource with data.",
+        "summary": "",
+        "tags": [
+          "populates"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/populates"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/populates/{_id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of populates to return",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/populates"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a single resource with the given id from the service.",
+        "summary": "",
+        "tags": [
+          "populates"
+        ],
+        "security": []
+      },
+      "put": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of populates to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/populates"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "populates"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/populates"
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of populates to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/populates"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "populates"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/populates"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of populates to remove",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/populates"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Removes the resource with id.",
+        "summary": "",
+        "tags": [
+          "populates"
+        ],
+        "security": []
+      }
+    },
+    "/workspace-plans": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Number of results to return",
+            "in": "query",
+            "name": "$limit",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Number of results to skip",
+            "in": "query",
+            "name": "$skip",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Property to sort results",
+            "in": "query",
+            "name": "$sort",
+            "style": "deepObject",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "description": "Query parameters to filter",
+            "in": "query",
+            "name": "filter",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/workspace-plans"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/workspace-plans_list"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a list of all resources from the service.",
+        "summary": "",
+        "tags": [
+          "workspace-plans"
+        ],
+        "security": []
+      },
+      "post": {
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/workspace-plans"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Creates a new resource with data.",
+        "summary": "",
+        "tags": [
+          "workspace-plans"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/workspace-plans"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/workspace-plans/{_id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of workspace-plans to return",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/workspace-plans"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Retrieves a single resource with the given id from the service.",
+        "summary": "",
+        "tags": [
+          "workspace-plans"
+        ],
+        "security": []
+      },
+      "put": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of workspace-plans to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/workspace-plans"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "workspace-plans"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/workspace-plans"
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of workspace-plans to update",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/workspace-plans"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Updates the resource identified by id using data.",
+        "summary": "",
+        "tags": [
+          "workspace-plans"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/workspace-plans"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "description": "ID of workspace-plans to remove",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/workspace-plans"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Removes the resource with id.",
+        "summary": "",
+        "tags": [
+          "workspace-plans"
+        ],
+        "security": []
+      }
+    },
+    "/batch": {
+      "post": {
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/batch"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          },
+          "500": {
+            "description": "general error"
+          }
+        },
+        "description": "Creates a new resource with data.",
+        "summary": "",
+        "tags": [
+          "batch"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/batch"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "users": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "workspaces": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "api-keys": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "dashboards": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "audit-logs": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "things": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "groups": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "plugins": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "apis": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "apps": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "thing-models": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "widgets": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "snippets": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "web": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "workspace-users": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "owners": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "search": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "thing-attributes": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "usages": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "populates": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "workspace-plans": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "batch": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "users_list": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "workspaces_list": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "api-keys_list": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "dashboards_list": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "audit-logs_list": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "things_list": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "groups_list": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "plugins_list": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "apis_list": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "apps_list": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "thing-models_list": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "widgets_list": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "snippets_list": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "web_list": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "workspace-users_list": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "owners_list": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "search_list": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "items_list": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "thing-attributes_list": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "usages_list": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "populates_list": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "workspace-plans_list": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "batch_list": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    }
+  },
+  "openapi": "3.0.2",
+  "tags": [
+    {
+      "name": "users",
+      "description": "A users service"
+    },
+    {
+      "name": "workspaces",
+      "description": "A workspaces service"
+    },
+    {
+      "name": "api-keys",
+      "description": "A api-keys service"
+    },
+    {
+      "name": "dashboards",
+      "description": "A dashboards service"
+    },
+    {
+      "name": "audit-logs",
+      "description": "A audit-logs service"
+    },
+    {
+      "name": "things",
+      "description": "A things service"
+    },
+    {
+      "name": "groups",
+      "description": "A groups service"
+    },
+    {
+      "name": "plugins",
+      "description": "A plugins service"
+    },
+    {
+      "name": "apis",
+      "description": "A apis service"
+    },
+    {
+      "name": "apps",
+      "description": "A apps service"
+    },
+    {
+      "name": "thing-models",
+      "description": "A thing-models service"
+    },
+    {
+      "name": "widgets",
+      "description": "A widgets service"
+    },
+    {
+      "name": "snippets",
+      "description": "A snippets service"
+    },
+    {
+      "name": "web",
+      "description": "A web service"
+    },
+    {
+      "name": "workspace-users",
+      "description": "A workspace-users service"
+    },
+    {
+      "name": "owners",
+      "description": "A owners service"
+    },
+    {
+      "name": "search",
+      "description": "A search service"
+    },
+    {
+      "name": "items",
+      "description": "A items service"
+    },
+    {
+      "name": "thing-attributes",
+      "description": "A thing-attributes service"
+    },
+    {
+      "name": "usages",
+      "description": "A usages service"
+    },
+    {
+      "name": "populates",
+      "description": "A populates service"
+    },
+    {
+      "name": "workspace-plans",
+      "description": "A workspace-plans service"
+    },
+    {
+      "name": "batch",
+      "description": "A batch service"
+    }
+  ]
+}

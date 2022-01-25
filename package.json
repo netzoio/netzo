@@ -1,0 +1,54 @@
+{
+  "name": "@netzoio/netzo",
+  "version": "0.4.0",
+  "description": "Central open source repository for Netzo, the open Web platform to unify IoT devices, applications and services.",
+  "keywords": [
+    "netzo",
+    "wot",
+    "web-of-things",
+    "iot",
+    "internet-of-things",
+    "w3c",
+    "opensource"
+  ],
+  "homepage": "https://github.com/netzoio/netzo/#readme",
+  "bugs": {
+    "url": "https://github.com/netzoio/netzo/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/netzoio/netzo.git"
+  },
+  "license": "MIT",
+  "author": "Asterisc GmbH",
+  "workspaces": [
+    "./packages/widgets"
+  ],
+  "type": "module",
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "lint": "npm run lint --silent --workspaces --if-present",
+    "pretest": "npm run build",
+    "test": "npm run test --silent --workspaces --if-present",
+    "publish": "npm run build && npm run publish --workspaces --if-present",
+    "deploy": "node ./scripts/deploy-plugins.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run format --workspaces --if-present && npm run lint --workspaces --if-present"
+    }
+  },
+  "dependencies": {
+    "axios": "^0.21.4"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.10.0",
+    "@types/jest": "^27.0.2",
+    "ajv": "^8.6.0",
+    "dotenv": "^8.6.0",
+    "eslint": "^7.32.0",
+    "husky": "^6.0.0",
+    "jest": "^27.0.4",
+    "vite": "^2.7.6"
+  }
+}

@@ -1,0 +1,103 @@
+<script src="https://unpkg.com/vue@next"></script>
+<script src="https://unpkg.com/@node-wot/browser-bundle"></script>
+<script src="https://unpkg.com/@netzoio/sdk@0.3.0"></script>
+
+<div id="app">
+  <div v-html="createHtmlTable(state)"></div>
+</div>
+
+<script>
+  const { ref, onMounted, createApp } = Vue
+
+  createApp({
+    setup() {
+      const state = ref({})
+
+      onMounted(async () => {
+        const wot = await Netzo.wot()
+
+        // TODO: keep either (1) or (2), replace the placeholder value and remove the other
+
+        // 1: fetch thing WoT Thing Description (td) from URL and consume it directly
+        const THING_TD_URL =
+          'http://plugfest.thingweb.io:8083/smart-coffee-machine'
+        const res = await fetch(THING_TD_URL)
+        const td = await res.json()
+        const thing = await wot.consume(td)
+
+        // 2: consume the thing by its Netzo ID directly (no need to fetch the TD)
+        // const THING_ID = '...' // TIP: copy it from left drawer
+        // const thing = await wot.consumeThing(THING_ID)
+
+        state.value = await thing.readAllProperties()
+        setInterval(async () => {
+          state.value = await thing.readAllProperties()
+        }, 3000)
+      })
+
+      return { state, createHtmlTable }
+    }
+  }).mount('#app')
+
+  function createHtmlTable(obj) {
+    var html = '<table>'
+    for (var key in obj) {
+      var item = obj[key]
+      var value =
+        typeof item === 'object' ? createHtmlTable(item) : item.toString()
+      html += '<tr><td class="key">' + key + '</td><td>' + value + '</tr>'
+    }
+    html += '</table>'
+    return html
+  }
+</script>
+
+<style>
+  html,
+  body {
+    display: grid;
+    place-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  #app {
+    display: flex;
+    align-items: center;
+    margin: auto;
+  }
+
+  table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  table td,
+  table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    max-height: 250px;
+    overflow: auto;
+  }
+
+  table td.key {
+    font-weight: bold;
+  }
+
+  table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  table tr:hover {
+    background-color: #ddd;
+  }
+
+  table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04aa6d;
+    color: white;
+  }
+</style>

@@ -1,0 +1,199 @@
+{
+  "uid": "wi-l-display",
+  "type": "widget",
+  "version": "1.0.0",
+  "status": "alpha",
+  "category": "core",
+  "name": "Display Link",
+  "description": "Display Link widget for Netzo",
+  "keywords": [
+    "display"
+  ],
+  "authors": [
+    "miguel.romero@netzo.io"
+  ],
+  "license": "MIT",
+  "main": "~/widgets/components/l-display/src/index.js",
+  "display": {
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/widgets/wi-l-display/src/assets/icon.png",
+    "color": "",
+    "screenshots": [
+      {
+        "label": "Screenshot of the widget",
+        "src": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/widgets/wi-l-display/src/assets/images/screenshot.png"
+      }
+    ]
+  },
+  "links": [
+    {
+      "rel": "author",
+      "href": "https://netzo.io",
+      "title": "Netzo"
+    },
+    {
+      "rel": "repository",
+      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/widgets/wi-l-display"
+    },
+    {
+      "rel": "readme",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/widgets/wi-l-display/README.md"
+    },
+    {
+      "rel": "license",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/LICENSE"
+    }
+  ],
+  "form": {
+    "model": {
+      "uid": "wi-l-display",
+      "w": 8,
+      "h": 12,
+      "name": "",
+      "description": "",
+      "wot": {},
+      "display": {
+        "transparent": false,
+        "hideToolbar": false,
+        "color": "#0080FF",
+        "textColor": "#121212",
+        "imagePadding": "8px",
+        "imageObjectFit": "contain",
+        "bgImageUrl": ""
+      }
+    },
+    "schema": {
+      "type": "object",
+      "x-display": "expansion-panels",
+      "x-props": {
+        "value": [
+          0,
+          1
+        ]
+      },
+      "properties": {
+        "_type": {
+          "const": "widget"
+        },
+        "uid": {
+          "const": "wi-l-display"
+        },
+        "w": {
+          "const": 8
+        },
+        "h": {
+          "const": 12
+        },
+        "name": {
+          "type": "string",
+          "title": "Display name",
+          "required": true
+        },
+        "description": {
+          "type": "string",
+          "title": "Description",
+          "x-display": "textarea"
+        },
+        "wot": {
+          "type": "object",
+          "title": "WoT Property",
+          "properties": {
+            "thingId": {
+              "type": "string"
+            },
+            "tdKey": {
+              "const": "links"
+            },
+            "name": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "href": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "rel": {
+              "type": "string"
+            },
+            "anchor": {
+              "type": "string"
+            },
+            "sizes": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "thingId",
+            "tdKey",
+            "name",
+            "type"
+          ],
+          "additionalProperties": true,
+          "x-display": "custom-v-select-thing-wot-link",
+          "examples": []
+        },
+        "display": {
+          "type": "object",
+          "title": "Display",
+          "properties": {
+            "transparent": {
+              "type": "boolean",
+              "title": "Transparent"
+            },
+            "hideToolbar": {
+              "type": "boolean",
+              "title": "Hide Toolbar"
+            },
+            "color": {
+              "type": "string",
+              "title": "Color",
+              "format": "hexcolor"
+            },
+            "textColor": {
+              "type": "string",
+              "title": "Text color",
+              "format": "hexcolor"
+            },
+            "imagePadding": {
+              "type": "number",
+              "title": "Padding [px]",
+              "description": "Sets image padding in pixels."
+            },
+            "imageObjectFit": {
+              "type": "string",
+              "title": "Image object fit",
+              "description": "Sets how the content should be resized to fit its container.",
+              "enum": [
+                "contain",
+                "cover",
+                "fill",
+                "none",
+                "scale-down"
+              ]
+            },
+            "bgImageUrl": {
+              "type": "string",
+              "title": "Background Image",
+              "description": "The URL of an image to use as background image.",
+              "contentMediaType": "image/*",
+              "x-props": {
+                "clearable": true
+              },
+              "x-options": {
+                "filesAsDataUrl": true
+              },
+              "writeOnly": true
+            }
+          }
+        }
+      }
+    },
+    "options": {}
+  }
+}

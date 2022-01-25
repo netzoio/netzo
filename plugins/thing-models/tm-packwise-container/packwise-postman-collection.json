@@ -1,0 +1,129 @@
+{
+  "info": {
+    "_postman_id": "217a5cf1-6b70-4823-bdc3-44f729ce711f",
+    "name": "Packwise",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "POST with query in body as graphql",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjoiNjBlYzJkZmU0YTA1YzQwMDA4OTA0NDZkIiwibWZhIjpmYWxzZSwiaWF0IjoxNjI2MDkxMDA2fQ.D1m95nHJ3sMCgDHDcEOxwWRyIaiT7Xn6dv3FI_TKmoc",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "dQzy4M4MwI1DRYqZ2Bk6a8PbvGI4E9bV7RJEAMwg",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query {\n  getCompany(_id: \"60b8ddc15751ba0009f707c4\") {\n    name\n    # address\n    # settings\n    # higherSettings\n    isDemo\n    deviceAmountIndex\n    # meta\n  }\n  getContainer(_id: \"60ba6e4f86641e0009709aa0\") {\n    _id\n    name\n    userDefinedId\n    orderNumber\n    # product\n    # containerType\n    # currentState\n    # company\n    # device\n    # containerGroups\n    archived\n  }\n  getDevice(_id: \"5fd8508304b8e8000906d4fc\") {\n    _id\n    name\n    type\n    internalDeviceId\n    providerDeviceId\n    customerDeviceId\n    gatewayId\n    # container\n    # company\n    latestSignal\n    state\n    radarCalibrationState\n    # meta\n    forwardDiehlUpdatesToStaging\n    # latestMeasurement\n    # configurations\n  }\n}\n",
+            "variables": ""
+          },
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://packwiseflow.de/api/data",
+          "protocol": "https",
+          "host": ["packwiseflow", "de"],
+          "path": ["api", "data"]
+        },
+        "description": "IMPORTANT: it expects POST request\n\nNOTE: it needs a Bearear Token AND an 'x-api-key' header"
+      },
+      "response": []
+    },
+    {
+      "name": "POST with query in body as json",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjoiNjBlYzJkZmU0YTA1YzQwMDA4OTA0NDZkIiwibWZhIjpmYWxzZSwiaWF0IjoxNjI2MDkxMDA2fQ.D1m95nHJ3sMCgDHDcEOxwWRyIaiT7Xn6dv3FI_TKmoc",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "dQzy4M4MwI1DRYqZ2Bk6a8PbvGI4E9bV7RJEAMwg",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query\": \"query { getCompany(_id: \\\"60b8ddc15751ba0009f707c4\\\") { name } getContainer(_id: \\\"60ba6e4f86641e0009709aa0\\\") { name device { name } } getDevice(_id: \\\"5fd8508304b8e8000906d4fc\\\") { name gatewayId container { name } } }\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://packwiseflow.de/api/data",
+          "protocol": "https",
+          "host": ["packwiseflow", "de"],
+          "path": ["api", "data"]
+        },
+        "description": "Use vscode 'GraphQL to REST' extension to convert graphql query syntax to valid JSON\n\nIMPORTANT: it expects POST request\n\nNOTE: it needs a Bearear Token AND an 'x-api-key' header"
+      },
+      "response": []
+    },
+    {
+      "name": "GET with query in url query string (URL-encoded string)",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjoiNjBlYzJkZmU0YTA1YzQwMDA4OTA0NDZkIiwibWZhIjpmYWxzZSwiaWF0IjoxNjI2MDkxMDA2fQ.D1m95nHJ3sMCgDHDcEOxwWRyIaiT7Xn6dv3FI_TKmoc",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "dQzy4M4MwI1DRYqZ2Bk6a8PbvGI4E9bV7RJEAMwg",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://packwiseflow.de/api/data?query=%7B%20getCompany(_id%3A%20%2260b8ddc15751ba0009f707c4%22)%20%7B%20name%20%7D%20%7D\n",
+          "protocol": "https",
+          "host": ["packwiseflow", "de"],
+          "path": ["api", "data"],
+          "query": [
+            {
+              "key": "query",
+              "value": "%7B%20getCompany(_id%3A%20%2260b8ddc15751ba0009f707c4%22)%20%7B%20name%20%7D%20%7D\n"
+            }
+          ]
+        },
+        "description": "Use https://meyerweb.com/eric/tools/dencoder/ to encode URL\n\nIMPORTANT: it expects GET and not POST request\n\nNOTE: it needs a Bearear Token AND an 'x-api-key' header"
+      },
+      "response": []
+    }
+  ]
+}

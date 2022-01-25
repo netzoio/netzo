@@ -1,0 +1,251 @@
+{
+  "uid": "wi-f-multi-events",
+  "type": "widget",
+  "version": "1.0.0",
+  "status": "alpha",
+  "category": "core",
+  "name": "Multi-events Form",
+  "description": "Multi-events Form widget for Netzo",
+  "keywords": [
+    "multi-events"
+  ],
+  "authors": [
+    "miguel.romero@netzo.io"
+  ],
+  "license": "MIT",
+  "main": "~/widgets/components/f-multi-events/src/index.js",
+  "display": {
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/widgets/wi-f-multi-events/src/assets/icon.png",
+    "color": "",
+    "screenshots": [
+      {
+        "label": "Screenshot of the widget",
+        "src": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/widgets/wi-f-multi-events/src/assets/images/screenshot.png"
+      }
+    ]
+  },
+  "links": [
+    {
+      "rel": "author",
+      "href": "https://netzo.io",
+      "title": "Netzo"
+    },
+    {
+      "rel": "repository",
+      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/widgets/wi-f-multi-events"
+    },
+    {
+      "rel": "readme",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/widgets/wi-f-multi-events/README.md"
+    },
+    {
+      "rel": "license",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/LICENSE"
+    }
+  ],
+  "form": {
+    "model": {
+      "uid": "wi-f-multi-events",
+      "w": 8,
+      "h": 12,
+      "name": "",
+      "description": "",
+      "wot": {},
+      "display": {
+        "transparent": false,
+        "hideToolbar": false,
+        "color": "#0080FF",
+        "textColor": "#121212",
+        "bgImageUrl": ""
+      }
+    },
+    "schema": {
+      "type": "object",
+      "x-display": "expansion-panels",
+      "x-props": {
+        "value": [
+          0,
+          1
+        ]
+      },
+      "properties": {
+        "_type": {
+          "const": "widget"
+        },
+        "uid": {
+          "const": "wi-f-multi-events"
+        },
+        "w": {
+          "const": 8
+        },
+        "h": {
+          "const": 12
+        },
+        "name": {
+          "type": "string",
+          "title": "Display name",
+          "required": true
+        },
+        "description": {
+          "type": "string",
+          "title": "Description",
+          "x-display": "textarea"
+        },
+        "wot": {
+          "type": "object",
+          "title": "WoT Property",
+          "properties": {
+            "thingId": {
+              "type": "string"
+            },
+            "tdKey": {
+              "const": "forms"
+            },
+            "name": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "op": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "subscribeallevents",
+                    "unsubscribeallevents"
+                  ]
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "subscribeallevents",
+                      "unsubscribeallevents"
+                    ]
+                  }
+                }
+              ]
+            },
+            "href": {
+              "type": "string"
+            },
+            "contentType": {
+              "type": "string"
+            },
+            "contentCoding": {
+              "type": "string"
+            },
+            "subprotocol": {
+              "type": "string",
+              "enum": [
+                "longpoll",
+                "websub",
+                "sse"
+              ]
+            },
+            "security": {
+              "oneOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            "scopes": {
+              "oneOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            "response": {
+              "type": "object",
+              "properties": {
+                "contentType": {
+                  "type": "string"
+                }
+              }
+            },
+            "additionalResponses": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "contentType": {
+                    "type": "string"
+                  },
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required": [
+            "thingId",
+            "tdKey",
+            "name",
+            "type"
+          ],
+          "additionalProperties": true,
+          "x-display": "custom-v-select-thing-wot-form",
+          "examples": []
+        },
+        "display": {
+          "type": "object",
+          "title": "Display",
+          "properties": {
+            "transparent": {
+              "type": "boolean",
+              "title": "Transparent"
+            },
+            "hideToolbar": {
+              "type": "boolean",
+              "title": "Hide Toolbar"
+            },
+            "color": {
+              "type": "string",
+              "title": "Color",
+              "format": "hexcolor"
+            },
+            "textColor": {
+              "type": "string",
+              "title": "Text color",
+              "format": "hexcolor"
+            },
+            "bgImageUrl": {
+              "type": "string",
+              "title": "Background Image",
+              "description": "The URL of an image to use as background image.",
+              "contentMediaType": "image/*",
+              "x-props": {
+                "clearable": true
+              },
+              "x-options": {
+                "filesAsDataUrl": true
+              },
+              "writeOnly": true
+            }
+          }
+        }
+      }
+    },
+    "options": {}
+  }
+}
