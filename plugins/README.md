@@ -110,7 +110,7 @@ Here's a reduced example of a `plugin.json` file. You can also always have a loo
   "keywords": ["button-toggle"],
   "authors": ["miguel.romero@netzo.io"],
   "license": "MIT",
-  "main": "components/wi-p-button-toggle/index.js",
+  "main": "widgets/components/wi-p-button-toggle/index.js",
   "display": {
     "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/wi-p-button-toggle/src/assets/icon.png",
     "color": "",
