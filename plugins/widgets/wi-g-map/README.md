@@ -1,15 +1,15 @@
 <div align="center">
   <a href="https://netzo.io" target="_blank" >
-    <img height="50" src="https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/wi-p-map/src/assets/icon.png" style="margin: 12px 0px" />
+    <img height="50" src="https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/wi-g-map/src/assets/icon.png" style="margin: 12px 0px" />
   </a>
 
-  <h1 style="padding: 6px 0px 24px 0px">wi-p-map</h1>
+  <h1 style="padding: 6px 0px 24px 0px">wi-g-map</h1>
 </div>
 
 An open source widget plugin for the Netzo WoT platform.
 
 ```showcase
-  <p-map></p-map>
+  <g-map></g-map>
 ```
 
 ### Links
