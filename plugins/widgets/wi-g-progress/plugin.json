@@ -1,0 +1,230 @@
+{
+  "uid": "wi-g-progress",
+  "type": "widget",
+  "version": "1.0.0",
+  "status": "beta",
+  "category": "core",
+  "name": "Progress",
+  "description": "Progress widget for Netzo",
+  "keywords": [
+    "progress"
+  ],
+  "authors": [
+    "miguel.romero@netzo.io"
+  ],
+  "license": "MIT",
+  "main": "widgets/components/g-progress/index.js",
+  "display": {
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/wi-g-progress/src/assets/icon.png",
+    "color": "",
+    "screenshots": [
+      {
+        "label": "Screenshot of the widget",
+        "src": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/wi-g-progress/src/assets/images/screenshot.png"
+      }
+    ]
+  },
+  "links": [
+    {
+      "rel": "author",
+      "href": "https://netzo.io",
+      "title": "Netzo"
+    },
+    {
+      "rel": "repository",
+      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/widgets/wi-g-progress"
+    },
+    {
+      "rel": "readme",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/wi-g-progress/README.md"
+    },
+    {
+      "rel": "license",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/LICENSE"
+    }
+  ],
+  "form": {
+    "model": {
+      "uid": "wi-g-progress",
+      "w": 3,
+      "h": 8,
+      "name": "",
+      "description": "",
+      "wot": {},
+      "display": {
+        "transparent": false,
+        "hideToolbar": false,
+        "label": "",
+        "color": "#0080FF",
+        "textColor": "#121212",
+        "bgImageUrl": "",
+        "circular": true,
+        "rotate": 90,
+        "size": 100,
+        "width": 15,
+        "asPercentage": false
+      }
+    },
+    "schema": {
+      "type": "object",
+      "x-display": "expansion-panels",
+      "x-props": {
+        "value": [
+          0,
+          1
+        ]
+      },
+      "properties": {
+        "_type": {
+          "const": "widget"
+        },
+        "uid": {
+          "const": "wi-g-progress"
+        },
+        "w": {
+          "const": 3
+        },
+        "h": {
+          "const": 8
+        },
+        "name": {
+          "type": "string",
+          "title": "Display name",
+          "required": true
+        },
+        "description": {
+          "type": "string",
+          "title": "Description",
+          "x-display": "textarea"
+        },
+        "wot": {
+          "type": "object",
+          "title": "WoT Property",
+          "properties": {
+            "thingId": {
+              "type": "string"
+            },
+            "tdKey": {
+              "const": "properties"
+            },
+            "name": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "integer",
+                "number"
+              ]
+            },
+            "readOnly": {
+              "type": "boolean"
+            },
+            "writeOnly": {
+              "type": "boolean"
+            },
+            "observable": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "thingId",
+            "tdKey",
+            "name",
+            "type"
+          ],
+          "additionalProperties": true,
+          "x-display": "custom-v-select-thing-wot-property",
+          "examples": [],
+          "valueExamples": [
+            {
+              "text": "Integer",
+              "value": 73
+            },
+            {
+              "text": "Number",
+              "value": 28.7
+            }
+          ]
+        },
+        "display": {
+          "type": "object",
+          "title": "Display",
+          "properties": {
+            "transparent": {
+              "type": "boolean",
+              "title": "Transparent"
+            },
+            "hideToolbar": {
+              "type": "boolean",
+              "title": "Hide Toolbar"
+            },
+            "label": {
+              "type": "string",
+              "title": "Label"
+            },
+            "color": {
+              "type": "string",
+              "title": "Color",
+              "format": "hexcolor"
+            },
+            "textColor": {
+              "type": "string",
+              "title": "Text color",
+              "format": "hexcolor"
+            },
+            "bgImageUrl": {
+              "type": "string",
+              "title": "Background Image",
+              "description": "The URL of an image to use as background image.",
+              "contentMediaType": "image/*",
+              "x-props": {
+                "clearable": true
+              },
+              "x-options": {
+                "filesAsDataUrl": true
+              },
+              "writeOnly": true
+            },
+            "circular": {
+              "type": "boolean",
+              "title": "Circular",
+              "description": "Renders circular bar instead of linear bar"
+            },
+            "rotate": {
+              "type": "integer",
+              "title": "Rotate [deg]",
+              "description": "Rotates the circle start point in deg",
+              "minimum": -360,
+              "maximum": 360
+            },
+            "size": {
+              "type": "integer",
+              "title": "Size [px]",
+              "description": "Sets the diameter of the circle in pixels",
+              "minimum": 0
+            },
+            "width": {
+              "type": "integer",
+              "title": "Width [px]",
+              "description": "Sets the stroke of the circle in pixels",
+              "minimum": 0
+            },
+            "asPercentage": {
+              "type": "boolean",
+              "title": "As Percentage [%]",
+              "description": "Prepends a '%' symbol to value display"
+            }
+          }
+        }
+      }
+    },
+    "options": {}
+  }
+}
