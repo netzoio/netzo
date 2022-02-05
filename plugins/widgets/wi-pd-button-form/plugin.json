@@ -50,7 +50,7 @@
       "h": 5,
       "name": "",
       "description": "",
-      "wot": {},
+      "web": {},
       "display": {
         "transparent": false,
         "hideToolbar": false,
@@ -92,18 +92,26 @@
           "title": "Description",
           "x-display": "textarea"
         },
-        "wot": {
+        "web": {
           "type": "object",
-          "title": "WoT Action",
+          "title": "Web Action",
           "properties": {
-            "thingId": {
+            "itemId": {
               "type": "string"
             },
-            "tdKey": {
-              "const": "actions"
+            "docKey": {
+              "const": "paths"
             },
-            "name": {
+            "path": {
               "type": "string"
+            },
+            "operations": {
+              "type": "string",
+              "enum": [
+                "post",
+                "put",
+                "delete"
+              ]
             },
             "title": {
               "type": "string"
@@ -125,13 +133,13 @@
             }
           },
           "required": [
-            "thingId",
-            "tdKey",
+            "itemId",
+            "docKey",
             "name",
             "type"
           ],
           "additionalProperties": true,
-          "x-display": "custom-v-select-thing-wot-action",
+          "x-display": "custom-v-select-item-web-operation",
           "examples": [],
           "valueExamples": [
             {

@@ -50,7 +50,7 @@
       "h": 6,
       "name": "",
       "description": "",
-      "wot": {},
+      "web": {},
       "display": {
         "transparent": false,
         "hideToolbar": false,
@@ -92,18 +92,26 @@
           "title": "Description",
           "x-display": "textarea"
         },
-        "wot": {
+        "web": {
           "type": "object",
-          "title": "WoT Property",
+          "title": "Web Property",
           "properties": {
-            "thingId": {
+            "itemId": {
               "type": "string"
             },
-            "tdKey": {
-              "const": "properties"
+            "docKey": {
+              "const": "paths"
             },
-            "name": {
+            "path": {
               "type": "string"
+            },
+            "operations": {
+              "type": "string",
+              "enum": [
+                "get",
+                "post",
+                "put"
+              ]
             },
             "title": {
               "type": "string"
@@ -129,13 +137,13 @@
             }
           },
           "required": [
-            "thingId",
-            "tdKey",
+            "itemId",
+            "docKey",
             "name",
             "type"
           ],
           "additionalProperties": true,
-          "x-display": "custom-v-select-thing-wot-property",
+          "x-display": "custom-v-select-item-web-operation",
           "examples": [],
           "valueExamples": [
             {

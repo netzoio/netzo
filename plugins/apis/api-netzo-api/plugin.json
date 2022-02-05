@@ -5,7 +5,7 @@
   "status": "beta",
   "category": "core",
   "name": "Netzo API",
-  "description": "The API for the Netzo WoT Platform",
+  "description": "API of the Netzo Web Platform",
   "keywords": [
     "netzo-api"
   ],

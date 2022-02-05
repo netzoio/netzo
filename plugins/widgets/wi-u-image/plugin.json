@@ -50,7 +50,7 @@
       "h": 10,
       "name": "",
       "description": "",
-      "wot": {},
+      "web": {},
       "display": {
         "transparent": false,
         "hideToolbar": false,
@@ -62,7 +62,7 @@
       },
       "options": {
         "src": "https://netzo.io/img/netzo-symbol-light.svg",
-        "alt": "Netzo WoT Platform",
+        "alt": "Netzo Web Platform",
         "href": "https://netzo.io"
       }
     },
@@ -98,7 +98,7 @@
           "title": "Description",
           "x-display": "textarea"
         },
-        "wot": {
+        "web": {
           "const": null,
           "examples": []
         },
