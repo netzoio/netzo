@@ -110,12 +110,6 @@
               "type": "string",
               "enum": []
             },
-            "title": {
-              "type": "string"
-            },
-            "description": {
-              "type": "string"
-            },
             "href": {
               "type": "string"
             },

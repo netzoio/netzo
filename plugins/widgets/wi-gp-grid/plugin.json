@@ -114,12 +114,6 @@
                 "put"
               ]
             },
-            "title": {
-              "type": "string"
-            },
-            "description": {
-              "type": "string"
-            },
             "type": {
               "const": "array"
             },
@@ -240,15 +234,6 @@
                   "additionalProperties": true
                 }
               ]
-            },
-            "readOnly": {
-              "type": "boolean"
-            },
-            "writeOnly": {
-              "type": "boolean"
-            },
-            "observable": {
-              "type": "boolean"
             }
           },
           "required": [

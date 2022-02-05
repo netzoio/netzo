@@ -113,12 +113,6 @@
                 "delete"
               ]
             },
-            "title": {
-              "type": "string"
-            },
-            "description": {
-              "type": "string"
-            },
             "input": {
               "type": "object"
             },

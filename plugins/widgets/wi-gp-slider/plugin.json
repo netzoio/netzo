@@ -114,27 +114,12 @@
                 "put"
               ]
             },
-            "title": {
-              "type": "string"
-            },
-            "description": {
-              "type": "string"
-            },
             "type": {
               "type": "string",
               "enum": [
                 "integer",
                 "number"
               ]
-            },
-            "readOnly": {
-              "type": "boolean"
-            },
-            "writeOnly": {
-              "type": "boolean"
-            },
-            "observable": {
-              "type": "boolean"
             }
           },
           "required": [

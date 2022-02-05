@@ -111,12 +111,6 @@
                 "get"
               ]
             },
-            "title": {
-              "type": "string"
-            },
-            "description": {
-              "type": "string"
-            },
             "data": {
               "type": "object"
             },
