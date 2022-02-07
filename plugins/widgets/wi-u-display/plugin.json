@@ -106,7 +106,7 @@
             "operations": {
               "type": "string",
               "enum": [
-                "get"
+                "util"
               ]
             },
             "href": {
