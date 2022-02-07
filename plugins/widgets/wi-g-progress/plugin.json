@@ -127,11 +127,12 @@
           "required": [
             "itemId",
             "docKey",
-            "name",
+            "path",
+            "operations",
             "type"
           ],
           "additionalProperties": true,
-          "x-display": "custom-v-select-item-web-operation",
+          "x-display": "custom-vjs-select-item-web-operation",
           "examples": [],
           "valueExamples": [
             {
