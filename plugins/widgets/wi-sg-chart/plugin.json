@@ -101,9 +101,6 @@
             "itemId": {
               "type": "string"
             },
-            "docKey": {
-              "const": "paths"
-            },
             "path": {
               "type": "string"
             },
