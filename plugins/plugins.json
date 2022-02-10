@@ -1,7 +1,7 @@
 [
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/apis/api-netzo-api/plugin.json",
-  "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/apps/app-f-table/plugin.json",
-  "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/apps/app-p-counter/plugin.json",
+  "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/apps/app-table/plugin.json",
+  "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/apps/app-counter/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/thing-models/tm-packwise-container/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/thing-models/tm-philips-hue-bridge/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/thing-models/tm-philips-hue-daylight-sensor/plugin.json",

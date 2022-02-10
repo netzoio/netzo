@@ -94,7 +94,7 @@
         },
         "web": {
           "type": "object",
-          "title": "Web Property",
+          "title": "Web Operation",
           "properties": {
             "itemId": {
               "type": "string"
