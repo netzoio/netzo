@@ -107,12 +107,6 @@
             "path": {
               "type": "string"
             },
-            "operations": {
-              "type": "string",
-              "enum": [
-                "get"
-              ]
-            },
             "type": {
               "type": "string",
               "enum": [
@@ -125,8 +119,8 @@
             "itemId",
             "docKey",
             "path",
-            "operations",
-            "type"
+            "type",
+            "get"
           ],
           "additionalProperties": true,
           "x-display": "custom-vjs-select-item-web-operation",

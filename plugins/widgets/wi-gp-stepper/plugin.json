@@ -102,14 +102,6 @@
             "path": {
               "type": "string"
             },
-            "operations": {
-              "type": "string",
-              "enum": [
-                "get",
-                "post",
-                "put"
-              ]
-            },
             "type": {
               "type": "string",
               "enum": [
@@ -122,8 +114,10 @@
             "itemId",
             "docKey",
             "path",
-            "operations",
-            "type"
+            "type",
+            "get",
+            "post",
+            "put"
           ],
           "additionalProperties": true,
           "x-display": "custom-vjs-select-item-web-operation",

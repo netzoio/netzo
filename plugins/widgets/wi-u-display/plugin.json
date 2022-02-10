@@ -103,12 +103,6 @@
             "path": {
               "type": "string"
             },
-            "operations": {
-              "type": "string",
-              "enum": [
-                "util"
-              ]
-            },
             "href": {
               "type": "string"
             },
@@ -129,7 +123,6 @@
             "itemId",
             "docKey",
             "path",
-            "operations",
             "type"
           ],
           "additionalProperties": true,
