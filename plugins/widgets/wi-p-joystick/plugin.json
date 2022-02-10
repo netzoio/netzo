@@ -134,7 +134,6 @@
             "itemId",
             "docKey",
             "path",
-            "type",
             "post",
             "put"
           ],

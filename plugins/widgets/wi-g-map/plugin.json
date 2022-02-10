@@ -113,7 +113,6 @@
             "itemId",
             "docKey",
             "path",
-            "type",
             "get"
           ],
           "additionalProperties": true,

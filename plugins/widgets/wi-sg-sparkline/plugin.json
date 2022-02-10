@@ -119,7 +119,6 @@
             "itemId",
             "docKey",
             "path",
-            "type",
             "sub",
             "get"
           ],

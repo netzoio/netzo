@@ -110,7 +110,6 @@
             "itemId",
             "docKey",
             "path",
-            "type",
             "get",
             "post",
             "put"
