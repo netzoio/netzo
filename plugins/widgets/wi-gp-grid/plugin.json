@@ -50,7 +50,8 @@
       "h": 12,
       "name": "",
       "description": "",
-      "web": {},
+      "datasources": [],
+      "actions": [],
       "display": {
         "transparent": false,
         "hideToolbar": false,
@@ -93,216 +94,250 @@
           "title": "Description",
           "x-display": "textarea"
         },
-        "web": {
-          "type": "object",
-          "title": "Web Operation",
-          "properties": {
-            "itemId": {
-              "type": "string"
-            },
-            "path": {
-              "type": "string"
-            },
-            "type": {
-              "const": "array"
-            },
-            "items": {
-              "oneOf": [
-                {
-                  "type": "object",
-                  "required": [
-                    "type",
-                    "items"
-                  ],
-                  "properties": {
-                    "type": {
-                      "const": "array"
-                    },
-                    "items": {
-                      "type": "object",
-                      "required": [
-                        "type"
-                      ],
-                      "properties": {
-                        "type": {
-                          "type": "string"
-                        }
+        "datasources": {
+          "type": "array",
+          "title": "Datasources",
+          "items": {
+            "type": "object",
+            "properties": {
+              "itemId": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "method": {
+                "type": "string",
+                "enum": [
+                  "get",
+                  "post",
+                  "put",
+                  "patch"
+                ]
+              },
+              "type": {
+                "const": "array"
+              },
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "type",
+                      "items"
+                    ],
+                    "properties": {
+                      "type": {
+                        "const": "array"
                       },
-                      "additionalProperties": true
-                    }
-                  },
-                  "additionalProperties": true
-                },
-                {
-                  "type": "object",
-                  "required": [
-                    "type",
-                    "items"
-                  ],
-                  "properties": {
-                    "type": {
-                      "const": "array"
-                    },
-                    "items": {
-                      "type": "object",
-                      "required": [
-                        "type",
-                        "items"
-                      ],
-                      "properties": {
-                        "type": {
-                          "const": "array"
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          }
                         },
-                        "items": {
-                          "type": "object",
-                          "required": [
-                            "type"
-                          ],
-                          "properties": {
-                            "type": {
-                              "type": "string"
-                            }
+                        "additionalProperties": true
+                      }
+                    },
+                    "additionalProperties": true
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "type",
+                      "items"
+                    ],
+                    "properties": {
+                      "type": {
+                        "const": "array"
+                      },
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "type",
+                          "items"
+                        ],
+                        "properties": {
+                          "type": {
+                            "const": "array"
                           },
-                          "additionalProperties": true
-                        }
-                      },
-                      "additionalProperties": true
-                    }
-                  },
-                  "additionalProperties": true
-                },
-                {
-                  "type": "object",
-                  "required": [
-                    "type",
-                    "items"
-                  ],
-                  "properties": {
-                    "type": {
-                      "const": "array"
-                    },
-                    "items": {
-                      "type": "object",
-                      "required": [
-                        "type",
-                        "items"
-                      ],
-                      "properties": {
-                        "type": {
-                          "const": "array"
-                        },
-                        "items": {
-                          "type": "object",
-                          "required": [
-                            "type",
-                            "items"
-                          ],
-                          "properties": {
-                            "type": {
-                              "const": "array"
+                          "items": {
+                            "type": "object",
+                            "required": [
+                              "type"
+                            ],
+                            "properties": {
+                              "type": {
+                                "type": "string"
+                              }
                             },
-                            "items": {
-                              "type": "object",
-                              "required": [
-                                "type"
-                              ],
-                              "properties": {
-                                "type": {
-                                  "type": "string"
-                                }
-                              },
-                              "additionalProperties": true
-                            }
-                          },
-                          "additionalProperties": true
-                        }
-                      },
-                      "additionalProperties": true
-                    }
+                            "additionalProperties": true
+                          }
+                        },
+                        "additionalProperties": true
+                      }
+                    },
+                    "additionalProperties": true
                   },
-                  "additionalProperties": true
-                }
-              ]
-            }
-          },
-          "required": [
-            "itemId",
-            "docKey",
-            "path",
-            "get",
-            "post",
-            "put"
-          ],
-          "additionalProperties": true,
-          "x-display": "custom-vjs-select-item-web-operation",
-          "examples": [],
-          "valueExamples": [
-            {
-              "text": "1D",
-              "value": [
-                true,
-                false
-              ]
+                  {
+                    "type": "object",
+                    "required": [
+                      "type",
+                      "items"
+                    ],
+                    "properties": {
+                      "type": {
+                        "const": "array"
+                      },
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "type",
+                          "items"
+                        ],
+                        "properties": {
+                          "type": {
+                            "const": "array"
+                          },
+                          "items": {
+                            "type": "object",
+                            "required": [
+                              "type",
+                              "items"
+                            ],
+                            "properties": {
+                              "type": {
+                                "const": "array"
+                              },
+                              "items": {
+                                "type": "object",
+                                "required": [
+                                  "type"
+                                ],
+                                "properties": {
+                                  "type": {
+                                    "type": "string"
+                                  }
+                                },
+                                "additionalProperties": true
+                              }
+                            },
+                            "additionalProperties": true
+                          }
+                        },
+                        "additionalProperties": true
+                      }
+                    },
+                    "additionalProperties": true
+                  }
+                ]
+              }
             },
-            {
-              "text": "2D",
-              "value": [
-                [
+            "required": [
+              "itemId",
+              "path",
+              "method"
+            ],
+            "additionalProperties": true,
+            "x-display": "custom-vjs-select-item-web-operation",
+            "examples": [],
+            "valueExamples": [
+              {
+                "text": "1D",
+                "value": [
                   true,
                   false
-                ],
-                [
-                  false,
-                  false
                 ]
-              ]
+              },
+              {
+                "text": "2D",
+                "value": [
+                  [
+                    true,
+                    false
+                  ],
+                  [
+                    false,
+                    false
+                  ]
+                ]
+              },
+              {
+                "text": "3D",
+                "value": [
+                  [
+                    [
+                      true,
+                      false
+                    ],
+                    [
+                      false,
+                      false
+                    ]
+                  ],
+                  [
+                    [
+                      false,
+                      true
+                    ],
+                    [
+                      true,
+                      false
+                    ]
+                  ],
+                  [
+                    [
+                      true,
+                      false
+                    ],
+                    [
+                      true,
+                      true
+                    ]
+                  ],
+                  [
+                    [
+                      false,
+                      false
+                    ],
+                    [
+                      true,
+                      false
+                    ]
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        "actions": {
+          "type": "object",
+          "title": "Actions",
+          "items": {
+            "type": "object",
+            "properties": {
+              "itemId": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "method": {
+                "type": "string"
+              }
             },
-            {
-              "text": "3D",
-              "value": [
-                [
-                  [
-                    true,
-                    false
-                  ],
-                  [
-                    false,
-                    false
-                  ]
-                ],
-                [
-                  [
-                    false,
-                    true
-                  ],
-                  [
-                    true,
-                    false
-                  ]
-                ],
-                [
-                  [
-                    true,
-                    false
-                  ],
-                  [
-                    true,
-                    true
-                  ]
-                ],
-                [
-                  [
-                    false,
-                    false
-                  ],
-                  [
-                    true,
-                    false
-                  ]
-                ]
-              ]
-            }
-          ]
+            "required": [
+              "itemId",
+              "path",
+              "method"
+            ],
+            "additionalProperties": true,
+            "x-display": "custom-vjs-select-item-web-operation"
+          }
         },
         "display": {
           "type": "object",

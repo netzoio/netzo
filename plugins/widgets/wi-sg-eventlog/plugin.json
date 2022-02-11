@@ -50,7 +50,8 @@
       "h": 12,
       "name": "",
       "description": "",
-      "web": {},
+      "datasources": [],
+      "actions": [],
       "display": {
         "transparent": false,
         "hideToolbar": false,
@@ -91,29 +92,29 @@
           "title": "Description",
           "x-display": "textarea"
         },
-        "web": {
-          "type": "object",
-          "title": "Web Event",
-          "properties": {
-            "itemId": {
-              "type": "string"
-            },
-            "path": {
-              "type": "string"
-            },
-            "data": {
-              "type": "object"
-            },
-            "cancellation": {
-              "type": "object"
-            },
-            "subscription": {
-              "type": "object"
+        "datasources": {
+          "type": "array",
+          "title": "Datasources",
+          "items": {
+            "type": "object",
+            "properties": {
+              "itemId": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "method": {
+                "type": "string",
+                "enum": [
+                  "sub",
+                  "get"
+                ]
+              }
             }
           },
           "required": [
             "itemId",
-            "docKey",
             "path",
             "sub",
             "get"
@@ -131,6 +132,31 @@
               "value": null
             }
           ]
+        },
+        "actions": {
+          "type": "object",
+          "title": "Actions",
+          "items": {
+            "type": "object",
+            "properties": {
+              "itemId": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "method": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "itemId",
+              "path",
+              "method"
+            ],
+            "additionalProperties": true,
+            "x-display": "custom-vjs-select-item-web-operation"
+          }
         },
         "display": {
           "type": "object",

@@ -50,7 +50,7 @@
       "h": 12,
       "name": "",
       "description": "",
-      "web": {},
+      "actions": [],
       "display": {
         "transparent": false,
         "hideToolbar": false,
@@ -95,9 +95,44 @@
           "title": "Description",
           "x-display": "textarea"
         },
-        "web": {
-          "const": null,
-          "examples": []
+        "options": {
+          "type": "object",
+          "title": "Options",
+          "properties": {
+            "src": {
+              "type": "string",
+              "title": "Iframe URL"
+            },
+            "title": {
+              "type": "string",
+              "title": "IFrame Title"
+            }
+          }
+        },
+        "actions": {
+          "type": "object",
+          "title": "Actions",
+          "items": {
+            "type": "object",
+            "properties": {
+              "itemId": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "method": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "itemId",
+              "path",
+              "method"
+            ],
+            "additionalProperties": true,
+            "x-display": "custom-vjs-select-item-web-operation"
+          }
         },
         "display": {
           "type": "object",
@@ -133,20 +168,6 @@
                 "filesAsDataUrl": true
               },
               "writeOnly": true
-            }
-          }
-        },
-        "options": {
-          "type": "object",
-          "title": "Options",
-          "properties": {
-            "src": {
-              "type": "string",
-              "title": "Iframe URL"
-            },
-            "title": {
-              "type": "string",
-              "title": "IFrame Title"
             }
           }
         }

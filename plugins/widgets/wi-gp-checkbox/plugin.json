@@ -50,7 +50,8 @@
       "h": 5,
       "name": "",
       "description": "",
-      "web": {},
+      "datasources": [],
+      "actions": [],
       "display": {
         "transparent": false,
         "hideToolbar": false,
@@ -92,32 +93,66 @@
           "title": "Description",
           "x-display": "textarea"
         },
-        "web": {
+        "datasources": {
+          "type": "array",
+          "title": "Datasources",
+          "items": {
+            "type": "object",
+            "properties": {
+              "itemId": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "method": {
+                "type": "string",
+                "enum": [
+                  "get",
+                  "post",
+                  "put",
+                  "patch"
+                ]
+              },
+              "type": {
+                "const": "boolean"
+              }
+            },
+            "required": [
+              "itemId",
+              "path",
+              "method"
+            ],
+            "additionalProperties": true,
+            "x-display": "custom-vjs-select-item-web-operation",
+            "examples": [],
+            "valueExamples": true
+          }
+        },
+        "actions": {
           "type": "object",
-          "title": "Web Operation",
-          "properties": {
-            "itemId": {
-              "type": "string"
+          "title": "Actions",
+          "items": {
+            "type": "object",
+            "properties": {
+              "itemId": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "method": {
+                "type": "string"
+              }
             },
-            "path": {
-              "type": "string"
-            },
-            "type": {
-              "const": "boolean"
-            }
-          },
-          "required": [
-            "itemId",
-            "docKey",
-            "path",
-            "get",
-            "post",
-            "put"
-          ],
-          "additionalProperties": true,
-          "x-display": "custom-vjs-select-item-web-operation",
-          "examples": [],
-          "valueExamples": true
+            "required": [
+              "itemId",
+              "path",
+              "method"
+            ],
+            "additionalProperties": true,
+            "x-display": "custom-vjs-select-item-web-operation"
+          }
         },
         "display": {
           "type": "object",

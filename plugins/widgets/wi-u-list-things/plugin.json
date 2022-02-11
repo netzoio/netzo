@@ -50,7 +50,7 @@
       "h": 18,
       "name": "",
       "description": "",
-      "web": {},
+      "actions": [],
       "display": {
         "transparent": false,
         "hideToolbar": false,
@@ -91,9 +91,30 @@
           "title": "Description",
           "x-display": "textarea"
         },
-        "web": {
-          "const": null,
-          "examples": []
+        "actions": {
+          "type": "object",
+          "title": "Actions",
+          "items": {
+            "type": "object",
+            "properties": {
+              "itemId": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "method": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "itemId",
+              "path",
+              "method"
+            ],
+            "additionalProperties": true,
+            "x-display": "custom-vjs-select-item-web-operation"
+          }
         },
         "display": {
           "type": "object",

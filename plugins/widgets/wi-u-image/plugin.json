@@ -50,7 +50,7 @@
       "h": 10,
       "name": "",
       "description": "",
-      "web": {},
+      "actions": [],
       "display": {
         "transparent": false,
         "hideToolbar": false,
@@ -98,9 +98,60 @@
           "title": "Description",
           "x-display": "textarea"
         },
-        "web": {
-          "const": null,
-          "examples": []
+        "options": {
+          "type": "object",
+          "title": "Options",
+          "properties": {
+            "imageUrl": {
+              "type": "string",
+              "title": "Image",
+              "description": "The image to display.",
+              "contentMediaType": "image/*",
+              "x-props": {
+                "clearable": true
+              },
+              "x-options": {
+                "filesAsDataUrl": true
+              },
+              "writeOnly": true
+            },
+            "alt": {
+              "type": "string",
+              "title": "Image Alt Text",
+              "description": "Alternate text for an image, if the image cannot be displayed.",
+              "x-display": "textarea"
+            },
+            "href": {
+              "type": "string",
+              "title": "Link URL",
+              "description": "The URL to redirect to on image click."
+            }
+          }
+        },
+        "actions": {
+          "type": "object",
+          "title": "Actions",
+          "items": {
+            "type": "object",
+            "properties": {
+              "itemId": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "method": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "itemId",
+              "path",
+              "method"
+            ],
+            "additionalProperties": true,
+            "x-display": "custom-vjs-select-item-web-operation"
+          }
         },
         "display": {
           "type": "object",
@@ -153,36 +204,6 @@
                 "filesAsDataUrl": true
               },
               "writeOnly": true
-            }
-          }
-        },
-        "options": {
-          "type": "object",
-          "title": "Options",
-          "properties": {
-            "imageUrl": {
-              "type": "string",
-              "title": "Image",
-              "description": "The image to display.",
-              "contentMediaType": "image/*",
-              "x-props": {
-                "clearable": true
-              },
-              "x-options": {
-                "filesAsDataUrl": true
-              },
-              "writeOnly": true
-            },
-            "alt": {
-              "type": "string",
-              "title": "Image Alt Text",
-              "description": "Alternate text for an image, if the image cannot be displayed.",
-              "x-display": "textarea"
-            },
-            "href": {
-              "type": "string",
-              "title": "Link URL",
-              "description": "The URL to redirect to on image click."
             }
           }
         }

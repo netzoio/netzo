@@ -50,7 +50,8 @@
       "h": 5,
       "name": "",
       "description": "",
-      "web": {},
+      "datasources": [],
+      "actions": [],
       "display": {
         "transparent": false,
         "hideToolbar": false,
@@ -92,50 +93,72 @@
           "title": "Description",
           "x-display": "textarea"
         },
-        "web": {
+        "datasources": {
+          "type": "array",
+          "title": "Datasources",
+          "items": {
+            "type": "object",
+            "properties": {
+              "itemId": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "method": {
+                "type": "string",
+                "enum": [
+                  "post",
+                  "put",
+                  "patch",
+                  "delete"
+                ]
+              }
+            },
+            "required": [
+              "itemId",
+              "path",
+              "method"
+            ],
+            "additionalProperties": true,
+            "x-display": "custom-vjs-select-item-web-operation",
+            "examples": [],
+            "valueExamples": [
+              {
+                "text": "Basic",
+                "value": null
+              },
+              {
+                "text": "With Input",
+                "value": null
+              }
+            ]
+          }
+        },
+        "actions": {
           "type": "object",
-          "title": "Web Action",
-          "properties": {
-            "itemId": {
-              "type": "string"
+          "title": "Actions",
+          "items": {
+            "type": "object",
+            "properties": {
+              "itemId": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "method": {
+                "type": "string"
+              }
             },
-            "path": {
-              "type": "string"
-            },
-            "input": {
-              "type": "object"
-            },
-            "output": {
-              "type": "object"
-            },
-            "safe": {
-              "type": "boolean"
-            },
-            "idempotent": {
-              "type": "boolean"
-            }
-          },
-          "required": [
-            "itemId",
-            "docKey",
-            "path",
-            "post",
-            "put",
-            "delete"
-          ],
-          "additionalProperties": true,
-          "x-display": "custom-vjs-select-item-web-operation",
-          "examples": [],
-          "valueExamples": [
-            {
-              "text": "Basic",
-              "value": null
-            },
-            {
-              "text": "With Input",
-              "value": null
-            }
-          ]
+            "required": [
+              "itemId",
+              "path",
+              "method"
+            ],
+            "additionalProperties": true,
+            "x-display": "custom-vjs-select-item-web-operation"
+          }
         },
         "display": {
           "type": "object",

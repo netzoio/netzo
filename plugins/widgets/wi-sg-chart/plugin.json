@@ -50,7 +50,8 @@
       "h": 12,
       "name": "",
       "description": "",
-      "web": {},
+      "datasources": [],
+      "actions": [],
       "display": {
         "transparent": false,
         "hideToolbar": false,
@@ -94,68 +95,101 @@
           "title": "Description",
           "x-display": "textarea"
         },
-        "web": {
+        "datasources": {
+          "type": "array",
+          "title": "Datasources",
+          "items": {
+            "type": "object",
+            "properties": {
+              "itemId": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "method": {
+                "type": "string",
+                "enum": [
+                  "sub",
+                  "get"
+                ]
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "array",
+                  "object"
+                ]
+              }
+            },
+            "required": [
+              "itemId",
+              "path",
+              "method"
+            ],
+            "additionalProperties": true,
+            "x-display": "custom-vjs-select-item-web-operation",
+            "examples": [],
+            "valueExamples": [
+              {
+                "text": "Single",
+                "value": 23
+              },
+              {
+                "text": "Paired",
+                "value": [
+                  1,
+                  34
+                ]
+              },
+              {
+                "text": "XY Paired",
+                "value": {
+                  "x": 20,
+                  "y": 54
+                }
+              },
+              {
+                "text": "Timestamps",
+                "value": [
+                  1324508400000,
+                  34
+                ]
+              },
+              {
+                "text": "Date Strings",
+                "value": {
+                  "x": "05/06/2014",
+                  "y": 54
+                }
+              }
+            ]
+          }
+        },
+        "actions": {
           "type": "object",
-          "title": "Web Operation",
-          "properties": {
-            "itemId": {
-              "type": "string"
-            },
-            "path": {
-              "type": "string"
-            },
-            "type": {
-              "type": "string",
-              "enum": [
-                "array",
-                "object"
-              ]
-            }
-          },
-          "required": [
-            "itemId",
-            "docKey",
-            "path",
-            "sub",
-            "get"
-          ],
-          "additionalProperties": true,
-          "x-display": "custom-vjs-select-item-web-operation",
-          "examples": [],
-          "valueExamples": [
-            {
-              "text": "Single",
-              "value": 23
-            },
-            {
-              "text": "Paired",
-              "value": [
-                1,
-                34
-              ]
-            },
-            {
-              "text": "XY Paired",
-              "value": {
-                "x": 20,
-                "y": 54
+          "title": "Actions",
+          "items": {
+            "type": "object",
+            "properties": {
+              "itemId": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "method": {
+                "type": "string"
               }
             },
-            {
-              "text": "Timestamps",
-              "value": [
-                1324508400000,
-                34
-              ]
-            },
-            {
-              "text": "Date Strings",
-              "value": {
-                "x": "05/06/2014",
-                "y": 54
-              }
-            }
-          ]
+            "required": [
+              "itemId",
+              "path",
+              "method"
+            ],
+            "additionalProperties": true,
+            "x-display": "custom-vjs-select-item-web-operation"
+          }
         },
         "display": {
           "type": "object",

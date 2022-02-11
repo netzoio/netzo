@@ -50,7 +50,8 @@
       "h": 6,
       "name": "",
       "description": "",
-      "web": {},
+      "datasources": [],
+      "actions": [],
       "display": {
         "transparent": false,
         "hideToolbar": false,
@@ -92,45 +93,79 @@
           "title": "Description",
           "x-display": "textarea"
         },
-        "web": {
+        "datasources": {
+          "type": "array",
+          "title": "Datasources",
+          "items": {
+            "type": "object",
+            "properties": {
+              "itemId": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "method": {
+                "type": "string",
+                "enum": [
+                  "get",
+                  "post",
+                  "put",
+                  "patch"
+                ]
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "integer",
+                  "number"
+                ]
+              }
+            },
+            "required": [
+              "itemId",
+              "path",
+              "method"
+            ],
+            "additionalProperties": true,
+            "x-display": "custom-vjs-select-item-web-operation",
+            "examples": [],
+            "valueExamples": [
+              {
+                "text": "Integer",
+                "value": 73
+              },
+              {
+                "text": "Number",
+                "value": 28.7
+              }
+            ]
+          }
+        },
+        "actions": {
           "type": "object",
-          "title": "Web Operation",
-          "properties": {
-            "itemId": {
-              "type": "string"
+          "title": "Actions",
+          "items": {
+            "type": "object",
+            "properties": {
+              "itemId": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "method": {
+                "type": "string"
+              }
             },
-            "path": {
-              "type": "string"
-            },
-            "type": {
-              "type": "string",
-              "enum": [
-                "integer",
-                "number"
-              ]
-            }
-          },
-          "required": [
-            "itemId",
-            "docKey",
-            "path",
-            "get",
-            "post",
-            "put"
-          ],
-          "additionalProperties": true,
-          "x-display": "custom-vjs-select-item-web-operation",
-          "examples": [],
-          "valueExamples": [
-            {
-              "text": "Integer",
-              "value": 73
-            },
-            {
-              "text": "Number",
-              "value": 28.7
-            }
-          ]
+            "required": [
+              "itemId",
+              "path",
+              "method"
+            ],
+            "additionalProperties": true,
+            "x-display": "custom-vjs-select-item-web-operation"
+          }
         },
         "display": {
           "type": "object",
