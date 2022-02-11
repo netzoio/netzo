@@ -1,26 +1,26 @@
 {
-  "uid": "wi-sg-sparkline",
+  "uid": "wi-g-eventlog",
   "type": "widget",
   "version": "1.0.0",
   "status": "alpha",
   "category": "core",
-  "name": "Sparkline",
-  "description": "Sparkline widget for Netzo",
+  "name": "Eventlog",
+  "description": "Eventlog widget for Netzo",
   "keywords": [
-    "sparkline"
+    "eventlog"
   ],
   "authors": [
     "miguel.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "widgets/components/sg-sparkline/index.js",
+  "main": "widgets/components/g-eventlog/index.js",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/wi-sg-sparkline/src/assets/icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/wi-g-eventlog/src/assets/icon.png",
     "color": "",
     "screenshots": [
       {
         "label": "Screenshot of the widget",
-        "src": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/wi-sg-sparkline/src/assets/images/screenshot.png"
+        "src": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/wi-g-eventlog/src/assets/images/screenshot.png"
       }
     ]
   },
@@ -32,11 +32,11 @@
     },
     {
       "rel": "repository",
-      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/widgets/wi-sg-sparkline"
+      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/widgets/wi-g-eventlog"
     },
     {
       "rel": "readme",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/wi-sg-sparkline/README.md"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/wi-g-eventlog/README.md"
     },
     {
       "rel": "license",
@@ -45,9 +45,9 @@
   ],
   "form": {
     "model": {
-      "uid": "wi-sg-sparkline",
-      "w": 5,
-      "h": 10,
+      "uid": "wi-g-eventlog",
+      "w": 8,
+      "h": 12,
       "name": "",
       "description": "",
       "datasources": [],
@@ -55,15 +55,9 @@
       "display": {
         "transparent": false,
         "hideToolbar": false,
-        "label": "",
         "color": "#0080FF",
         "textColor": "#121212",
-        "bgImageUrl": "",
-        "fill": false,
-        "lineWidth": 4,
-        "smooth": false,
-        "autoDraw": true,
-        "unit": ""
+        "bgImageUrl": ""
       }
     },
     "schema": {
@@ -80,13 +74,13 @@
           "const": "widget"
         },
         "uid": {
-          "const": "wi-sg-sparkline"
+          "const": "wi-g-eventlog"
         },
         "w": {
-          "const": 5
+          "const": 8
         },
         "h": {
-          "const": 10
+          "const": 12
         },
         "name": {
           "type": "string",
@@ -116,58 +110,55 @@
                   "sub",
                   "get"
                 ]
-              },
-              "type": {
-                "type": "string",
-                "enum": [
-                  "integer",
-                  "number"
-                ]
               }
+            }
+          },
+          "required": [
+            "itemId",
+            "path",
+            "sub",
+            "get"
+          ],
+          "additionalProperties": true,
+          "x-display": "custom-vjs-select-item-web-operation",
+          "examples": [],
+          "valueExamples": [
+            {
+              "text": "Basic",
+              "value": null
             },
-            "required": [
-              "itemId",
-              "path",
-              "method"
-            ],
-            "additionalProperties": true,
-            "x-display": "custom-vjs-select-item-web-operation",
-            "examples": [],
-            "valueExamples": [
-              {
-                "text": "Integer",
-                "value": 73
-              },
-              {
-                "text": "Number",
-                "value": 28.7
-              }
-            ]
-          }
+            {
+              "text": "With Data",
+              "value": null
+            }
+          ]
         },
         "actions": {
           "type": "object",
           "title": "Actions",
-          "items": {
-            "type": "object",
-            "properties": {
-              "itemId": {
-                "type": "string"
+          "properties": {
+            "click": {
+              "type": "object",
+              "title": "Click",
+              "properties": {
+                "itemId": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "method": {
+                  "type": "string"
+                }
               },
-              "path": {
-                "type": "string"
-              },
-              "method": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "itemId",
-              "path",
-              "method"
-            ],
-            "additionalProperties": true,
-            "x-display": "custom-vjs-select-item-web-operation"
+              "required": [
+                "itemId",
+                "path",
+                "method"
+              ],
+              "additionalProperties": true,
+              "x-display": "custom-vjs-select-item-web-operation"
+            }
           }
         },
         "display": {
@@ -181,10 +172,6 @@
             "hideToolbar": {
               "type": "boolean",
               "title": "Hide Toolbar"
-            },
-            "label": {
-              "type": "string",
-              "title": "Label"
             },
             "color": {
               "type": "string",
@@ -209,32 +196,27 @@
               },
               "writeOnly": true
             },
-            "fill": {
+            "autoColumns": {
               "type": "boolean",
-              "title": "Fill",
-              "description": "Using the fill property allows you to better customize the look and feel of your sparkline."
+              "title": "Auto-columns",
+              "x-props": {
+                "textOn": "On",
+                "textOff": "Off"
+              },
+              "default": true
             },
-            "lineWidth": {
-              "type": "integer",
-              "title": "Line width [px]",
-              "description": "The thickness of the line in pixels",
-              "minimum": 0
-            },
-            "smooth": {
-              "type": "integer",
-              "title": "Radius [px]",
-              "description": "Number of px to use as a corner radius. true defaults to 8, false is 0.",
-              "minimum": 0,
-              "x-display": "slider"
-            },
-            "autoDraw": {
+            "dense": {
               "type": "boolean",
-              "title": "Auto Draw",
-              "description": "Trace the length of the line when first rendered."
+              "title": "Dense",
+              "x-props": {
+                "textOn": "On",
+                "textOff": "Off"
+              },
+              "default": true
             },
-            "unit": {
+            "cols": {
               "type": "string",
-              "title": "Unit"
+              "title": "Columns"
             }
           }
         }

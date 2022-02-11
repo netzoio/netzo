@@ -112,26 +112,29 @@
         "actions": {
           "type": "object",
           "title": "Actions",
-          "items": {
-            "type": "object",
-            "properties": {
-              "itemId": {
-                "type": "string"
+          "properties": {
+            "click": {
+              "type": "object",
+              "title": "Click",
+              "properties": {
+                "itemId": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "method": {
+                  "type": "string"
+                }
               },
-              "path": {
-                "type": "string"
-              },
-              "method": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "itemId",
-              "path",
-              "method"
-            ],
-            "additionalProperties": true,
-            "x-display": "custom-vjs-select-item-web-operation"
+              "required": [
+                "itemId",
+                "path",
+                "method"
+              ],
+              "additionalProperties": true,
+              "x-display": "custom-vjs-select-item-web-operation"
+            }
           }
         },
         "display": {

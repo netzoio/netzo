@@ -1,5 +1,5 @@
 {
-  "uid": "wi-sg-chart",
+  "uid": "wi-g-chart",
   "type": "widget",
   "version": "1.0.0",
   "status": "alpha",
@@ -13,14 +13,14 @@
     "miguel.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "widgets/components/sg-chart/index.js",
+  "main": "widgets/components/g-chart/index.js",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/wi-sg-chart/src/assets/icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/wi-g-chart/src/assets/icon.png",
     "color": "",
     "screenshots": [
       {
         "label": "Screenshot of the widget",
-        "src": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/wi-sg-chart/src/assets/images/screenshot.png"
+        "src": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/wi-g-chart/src/assets/images/screenshot.png"
       }
     ]
   },
@@ -32,11 +32,11 @@
     },
     {
       "rel": "repository",
-      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/widgets/wi-sg-chart"
+      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/widgets/wi-g-chart"
     },
     {
       "rel": "readme",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/wi-sg-chart/README.md"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/wi-g-chart/README.md"
     },
     {
       "rel": "license",
@@ -45,7 +45,7 @@
   ],
   "form": {
     "model": {
-      "uid": "wi-sg-chart",
+      "uid": "wi-g-chart",
       "w": 8,
       "h": 12,
       "name": "",
@@ -77,7 +77,7 @@
           "const": "widget"
         },
         "uid": {
-          "const": "wi-sg-chart"
+          "const": "wi-g-chart"
         },
         "w": {
           "const": 8
@@ -169,26 +169,29 @@
         "actions": {
           "type": "object",
           "title": "Actions",
-          "items": {
-            "type": "object",
-            "properties": {
-              "itemId": {
-                "type": "string"
+          "properties": {
+            "click": {
+              "type": "object",
+              "title": "Click",
+              "properties": {
+                "itemId": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "method": {
+                  "type": "string"
+                }
               },
-              "path": {
-                "type": "string"
-              },
-              "method": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "itemId",
-              "path",
-              "method"
-            ],
-            "additionalProperties": true,
-            "x-display": "custom-vjs-select-item-web-operation"
+              "required": [
+                "itemId",
+                "path",
+                "method"
+              ],
+              "additionalProperties": true,
+              "x-display": "custom-vjs-select-item-web-operation"
+            }
           }
         },
         "display": {
@@ -253,12 +256,12 @@
               {
                 "const": "heatmap",
                 "title": "Heat Map",
-                "icon": "heatmasg-chart"
+                "icon": "heatmap-chart"
               },
               {
                 "const": "treemap",
                 "title": "Tree Map",
-                "icon": "treemasg-chart"
+                "icon": "treemap-chart"
               },
               {
                 "const": "donut",
@@ -288,7 +291,7 @@
               {
                 "const": "treemap",
                 "title": "Tree Map",
-                "icon": "treemasg-chart"
+                "icon": "treemap-chart"
               },
               {
                 "const": "radar",
