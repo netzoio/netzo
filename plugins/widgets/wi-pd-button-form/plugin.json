@@ -94,46 +94,43 @@
           "x-display": "textarea"
         },
         "datasources": {
-          "type": "array",
-          "title": "Datasources",
-          "items": {
-            "type": "object",
-            "properties": {
-              "itemId": {
-                "type": "string"
-              },
-              "path": {
-                "type": "string"
-              },
-              "method": {
-                "type": "string",
-                "enum": [
-                  "post",
-                  "put",
-                  "patch",
-                  "delete"
-                ]
-              }
+          "type": "object",
+          "title": "State",
+          "properties": {
+            "itemId": {
+              "type": "string"
             },
-            "required": [
-              "itemId",
-              "path",
-              "method"
-            ],
-            "additionalProperties": true,
-            "x-display": "custom-vjs-select-item-web-operation",
-            "examples": [],
-            "valueExamples": [
-              {
-                "text": "Basic",
-                "value": null
-              },
-              {
-                "text": "With Input",
-                "value": null
-              }
-            ]
-          }
+            "path": {
+              "type": "string"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "post",
+                "put",
+                "patch",
+                "delete"
+              ]
+            }
+          },
+          "required": [
+            "itemId",
+            "path",
+            "method"
+          ],
+          "additionalProperties": true,
+          "x-display": "custom-vjs-select-item-web-operation",
+          "examples": [],
+          "valueExamples": [
+            {
+              "text": "Basic",
+              "value": null
+            },
+            {
+              "text": "With Input",
+              "value": null
+            }
+          ]
         },
         "actions": {
           "type": "object",

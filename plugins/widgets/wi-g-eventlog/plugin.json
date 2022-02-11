@@ -93,10 +93,51 @@
           "x-display": "textarea"
         },
         "datasources": {
-          "type": "array",
-          "title": "Datasources",
-          "items": {
+          "type": "object",
+          "title": "State",
+          "properties": {
+            "itemId": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "sub",
+                "get"
+              ]
+            }
+          }
+        },
+        "required": [
+          "itemId",
+          "path",
+          "sub",
+          "get"
+        ],
+        "additionalProperties": true,
+        "x-display": "custom-vjs-select-item-web-operation",
+        "examples": [],
+        "valueExamples": [
+          {
+            "text": "Basic",
+            "value": null
+          },
+          {
+            "text": "With Data",
+            "value": null
+          }
+        ]
+      },
+      "actions": {
+        "type": "object",
+        "title": "Actions",
+        "properties": {
+          "click": {
             "type": "object",
+            "title": "Click",
             "properties": {
               "itemId": {
                 "type": "string"
@@ -105,123 +146,80 @@
                 "type": "string"
               },
               "method": {
-                "type": "string",
-                "enum": [
-                  "sub",
-                  "get"
-                ]
+                "type": "string"
               }
-            }
-          },
-          "required": [
-            "itemId",
-            "path",
-            "sub",
-            "get"
-          ],
-          "additionalProperties": true,
-          "x-display": "custom-vjs-select-item-web-operation",
-          "examples": [],
-          "valueExamples": [
-            {
-              "text": "Basic",
-              "value": null
             },
-            {
-              "text": "With Data",
-              "value": null
-            }
-          ]
-        },
-        "actions": {
-          "type": "object",
-          "title": "Actions",
-          "properties": {
-            "click": {
-              "type": "object",
-              "title": "Click",
-              "properties": {
-                "itemId": {
-                  "type": "string"
-                },
-                "path": {
-                  "type": "string"
-                },
-                "method": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "itemId",
-                "path",
-                "method"
-              ],
-              "additionalProperties": true,
-              "x-display": "custom-vjs-select-item-web-operation"
-            }
+            "required": [
+              "itemId",
+              "path",
+              "method"
+            ],
+            "additionalProperties": true,
+            "x-display": "custom-vjs-select-item-web-operation"
           }
-        },
-        "display": {
-          "type": "object",
-          "title": "Display",
-          "properties": {
-            "transparent": {
-              "type": "boolean",
-              "title": "Transparent"
+        }
+      },
+      "display": {
+        "type": "object",
+        "title": "Display",
+        "properties": {
+          "transparent": {
+            "type": "boolean",
+            "title": "Transparent"
+          },
+          "hideToolbar": {
+            "type": "boolean",
+            "title": "Hide Toolbar"
+          },
+          "color": {
+            "type": "string",
+            "title": "Color",
+            "format": "hexcolor"
+          },
+          "textColor": {
+            "type": "string",
+            "title": "Text color",
+            "format": "hexcolor"
+          },
+          "bgImageUrl": {
+            "type": "string",
+            "title": "Background Image",
+            "description": "The URL of an image to use as background image.",
+            "contentMediaType": "image/*",
+            "x-props": {
+              "clearable": true
             },
-            "hideToolbar": {
-              "type": "boolean",
-              "title": "Hide Toolbar"
+            "x-options": {
+              "filesAsDataUrl": true
             },
-            "color": {
-              "type": "string",
-              "title": "Color",
-              "format": "hexcolor"
+            "writeOnly": true
+          },
+          "autoColumns": {
+            "type": "boolean",
+            "title": "Auto-columns",
+            "x-props": {
+              "textOn": "On",
+              "textOff": "Off"
             },
-            "textColor": {
-              "type": "string",
-              "title": "Text color",
-              "format": "hexcolor"
+            "default": true
+          },
+          "dense": {
+            "type": "boolean",
+            "title": "Dense",
+            "x-props": {
+              "textOn": "On",
+              "textOff": "Off"
             },
-            "bgImageUrl": {
-              "type": "string",
-              "title": "Background Image",
-              "description": "The URL of an image to use as background image.",
-              "contentMediaType": "image/*",
-              "x-props": {
-                "clearable": true
-              },
-              "x-options": {
-                "filesAsDataUrl": true
-              },
-              "writeOnly": true
-            },
-            "autoColumns": {
-              "type": "boolean",
-              "title": "Auto-columns",
-              "x-props": {
-                "textOn": "On",
-                "textOff": "Off"
-              },
-              "default": true
-            },
-            "dense": {
-              "type": "boolean",
-              "title": "Dense",
-              "x-props": {
-                "textOn": "On",
-                "textOff": "Off"
-              },
-              "default": true
-            },
-            "cols": {
-              "type": "string",
-              "title": "Columns"
-            }
+            "default": true
+          },
+          "cols": {
+            "type": "string",
+            "title": "Columns"
           }
         }
       }
-    },
-    "options": {}
-  }
+    }
+  },
+  "options": {}
+}
 }

@@ -95,40 +95,37 @@
           "x-display": "textarea"
         },
         "datasources": {
-          "type": "array",
-          "title": "Datasources",
-          "items": {
-            "type": "object",
-            "properties": {
-              "itemId": {
-                "type": "string"
-              },
-              "path": {
-                "type": "string"
-              },
-              "method": {
-                "type": "string",
-                "enum": [
-                  "get",
-                  "post",
-                  "put",
-                  "patch"
-                ]
-              },
-              "type": {
-                "const": "boolean"
-              }
+          "type": "object",
+          "title": "State",
+          "properties": {
+            "itemId": {
+              "type": "string"
             },
-            "required": [
-              "itemId",
-              "path",
-              "method"
-            ],
-            "additionalProperties": true,
-            "x-display": "custom-vjs-select-item-web-operation",
-            "examples": [],
-            "valueExamples": true
-          }
+            "path": {
+              "type": "string"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "get",
+                "post",
+                "put",
+                "patch"
+              ]
+            },
+            "type": {
+              "const": "boolean"
+            }
+          },
+          "required": [
+            "itemId",
+            "path",
+            "method"
+          ],
+          "additionalProperties": true,
+          "x-display": "custom-vjs-select-item-web-operation",
+          "examples": [],
+          "valueExamples": true
         },
         "actions": {
           "type": "object",

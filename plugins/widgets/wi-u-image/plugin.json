@@ -126,92 +126,91 @@
               "title": "Link URL",
               "description": "The URL to redirect to on image click."
             }
-          }
-        },
-        "actions": {
-          "type": "object",
-          "title": "Actions",
-          "properties": {
-            "click": {
-              "type": "object",
-              "title": "Click",
-              "properties": {
-                "itemId": {
-                  "type": "string"
+          },
+          "actions": {
+            "type": "object",
+            "title": "Actions",
+            "properties": {
+              "click": {
+                "type": "object",
+                "title": "Click",
+                "properties": {
+                  "itemId": {
+                    "type": "string"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "method": {
+                    "type": "string"
+                  }
                 },
-                "path": {
-                  "type": "string"
-                },
-                "method": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "itemId",
-                "path",
-                "method"
-              ],
-              "additionalProperties": true,
-              "x-display": "custom-vjs-select-item-web-operation"
+                "required": [
+                  "itemId",
+                  "path",
+                  "method"
+                ],
+                "additionalProperties": true,
+                "x-display": "custom-vjs-select-item-web-operation"
+              }
             }
-          }
-        },
-        "display": {
-          "type": "object",
-          "title": "Display",
-          "properties": {
-            "transparent": {
-              "type": "boolean",
-              "title": "Transparent"
-            },
-            "hideToolbar": {
-              "type": "boolean",
-              "title": "Hide Toolbar"
-            },
-            "color": {
-              "type": "string",
-              "title": "Color",
-              "format": "hexcolor"
-            },
-            "textColor": {
-              "type": "string",
-              "title": "Text color",
-              "format": "hexcolor"
-            },
-            "imagePadding": {
-              "type": "number",
-              "title": "Padding [px]",
-              "description": "Sets image padding in pixels."
-            },
-            "imageObjectFit": {
-              "type": "string",
-              "title": "Image object fit",
-              "description": "Sets how the content should be resized to fit its container.",
-              "enum": [
-                "contain",
-                "cover",
-                "fill",
-                "none",
-                "scale-down"
-              ]
-            },
-            "bgImageUrl": {
-              "type": "string",
-              "title": "Background Image",
-              "description": "The URL of an image to use as background image.",
-              "contentMediaType": "image/*",
-              "x-props": {
-                "clearable": true
+          },
+          "display": {
+            "type": "object",
+            "title": "Display",
+            "properties": {
+              "transparent": {
+                "type": "boolean",
+                "title": "Transparent"
               },
-              "x-options": {
-                "filesAsDataUrl": true
+              "hideToolbar": {
+                "type": "boolean",
+                "title": "Hide Toolbar"
               },
-              "writeOnly": true
+              "color": {
+                "type": "string",
+                "title": "Color",
+                "format": "hexcolor"
+              },
+              "textColor": {
+                "type": "string",
+                "title": "Text color",
+                "format": "hexcolor"
+              },
+              "imagePadding": {
+                "type": "number",
+                "title": "Padding [px]",
+                "description": "Sets image padding in pixels."
+              },
+              "imageObjectFit": {
+                "type": "string",
+                "title": "Image object fit",
+                "description": "Sets how the content should be resized to fit its container.",
+                "enum": [
+                  "contain",
+                  "cover",
+                  "fill",
+                  "none",
+                  "scale-down"
+                ]
+              },
+              "bgImageUrl": {
+                "type": "string",
+                "title": "Background Image",
+                "description": "The URL of an image to use as background image.",
+                "contentMediaType": "image/*",
+                "x-props": {
+                  "clearable": true
+                },
+                "x-options": {
+                  "filesAsDataUrl": true
+                },
+                "writeOnly": true
+              }
             }
           }
         }
-      }
-    },
-    "options": {}
+      },
+      "options": {}
+    }
   }
-}

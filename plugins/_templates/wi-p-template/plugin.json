@@ -87,47 +87,44 @@
           "title": "Description",
           "x-display": "textarea"
         },
-        "datasources": {
-          "type": "array",
-          "title": "Datasources",
-          "items": {
-            "type": "object",
-            "properties": {
-              "itemId": {
-                "type": "string"
-              },
-              "path": {
-                "type": "string"
-              },
-              "method": {
-                "type": "string",
-                "enum": [
-                  "sub",
-                  "get"
-                ]
-              },
-              "type": {
-                "type": "string",
-                "enum": [
-                  "object",
-                  "array",
-                  "boolean",
-                  "integer",
-                  "number",
-                  "string",
-                  "null"
-                ]
-              }
+        "web": {
+          "type": "object",
+          "title": "Web Operations",
+          "properties": {
+            "itemId": {
+              "type": "string"
             },
-            "required": [
-              "itemId",
-              "path",
-              "method"
-            ],
-            "additionalProperties": true,
-            "x-display": "custom-vjs-select-item-web-operation",
-            "examples": []
-          }
+            "path": {
+              "type": "string"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "sub",
+                "get"
+              ]
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "object",
+                "array",
+                "boolean",
+                "integer",
+                "number",
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "itemId",
+            "path",
+            "method"
+          ],
+          "additionalProperties": true,
+          "x-display": "custom-vjs-select-item-web-operation",
+          "examples": []
         },
         "actions": {
           "type": "object",

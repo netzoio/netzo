@@ -93,55 +93,52 @@
           "x-display": "textarea"
         },
         "datasources": {
-          "type": "array",
-          "title": "Datasources",
-          "items": {
-            "type": "object",
-            "properties": {
-              "itemId": {
-                "type": "string"
-              },
-              "path": {
-                "type": "string"
-              },
-              "method": {
-                "type": "string",
-                "enum": [
-                  "get"
-                ]
-              },
-              "type": {
-                "type": "string",
-                "enum": [
-                  "object",
-                  "array",
-                  "boolean",
-                  "integer",
-                  "number",
-                  "string",
-                  "null"
-                ]
-              },
-              "get": {
-                "type": "object",
-                "properties": {},
-                "x-display": "custom-vjs-select-item-web-operation-get"
-              },
-              "post": {
-                "type": "object",
-                "properties": {},
-                "x-display": "custom-vjs-select-item-web-operation-get"
-              }
+          "type": "object",
+          "title": "State",
+          "properties": {
+            "itemId": {
+              "type": "string"
             },
-            "required": [
-              "itemId",
-              "path",
-              "method"
-            ],
-            "additionalProperties": true,
-            "x-display": "custom-vjs-select-item-web-operation",
-            "examples": []
-          }
+            "path": {
+              "type": "string"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "get"
+              ]
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "object",
+                "array",
+                "boolean",
+                "integer",
+                "number",
+                "string",
+                "null"
+              ]
+            },
+            "get": {
+              "type": "object",
+              "properties": {},
+              "x-display": "custom-vjs-select-item-web-operation-get"
+            },
+            "post": {
+              "type": "object",
+              "properties": {},
+              "x-display": "custom-vjs-select-item-web-operation-get"
+            }
+          },
+          "required": [
+            "itemId",
+            "path",
+            "method"
+          ],
+          "additionalProperties": true,
+          "x-display": "custom-vjs-select-item-web-operation",
+          "examples": []
         },
         "actions": {
           "type": "object",

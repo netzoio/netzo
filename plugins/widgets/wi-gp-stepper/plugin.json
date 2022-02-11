@@ -94,53 +94,50 @@
           "x-display": "textarea"
         },
         "datasources": {
-          "type": "array",
-          "title": "Datasources",
-          "items": {
-            "type": "object",
-            "properties": {
-              "itemId": {
-                "type": "string"
-              },
-              "path": {
-                "type": "string"
-              },
-              "method": {
-                "type": "string",
-                "enum": [
-                  "get",
-                  "post",
-                  "put",
-                  "patch"
-                ]
-              },
-              "type": {
-                "type": "string",
-                "enum": [
-                  "integer",
-                  "number"
-                ]
-              }
+          "type": "object",
+          "title": "State",
+          "properties": {
+            "itemId": {
+              "type": "string"
             },
-            "required": [
-              "itemId",
-              "path",
-              "method"
-            ],
-            "additionalProperties": true,
-            "x-display": "custom-vjs-select-item-web-operation",
-            "examples": [],
-            "valueExamples": [
-              {
-                "text": "Integer",
-                "value": 73
-              },
-              {
-                "text": "Number",
-                "value": 28.7
-              }
-            ]
-          }
+            "path": {
+              "type": "string"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "get",
+                "post",
+                "put",
+                "patch"
+              ]
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "integer",
+                "number"
+              ]
+            }
+          },
+          "required": [
+            "itemId",
+            "path",
+            "method"
+          ],
+          "additionalProperties": true,
+          "x-display": "custom-vjs-select-item-web-operation",
+          "examples": [],
+          "valueExamples": [
+            {
+              "text": "Integer",
+              "value": 73
+            },
+            {
+              "text": "Number",
+              "value": 28.7
+            }
+          ]
         },
         "actions": {
           "type": "object",

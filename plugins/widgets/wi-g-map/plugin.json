@@ -93,49 +93,46 @@
           "x-display": "textarea"
         },
         "datasources": {
-          "type": "array",
-          "title": "Datasources",
-          "items": {
-            "type": "object",
-            "properties": {
-              "itemId": {
-                "type": "string"
-              },
-              "path": {
-                "type": "string"
-              },
-              "method": {
-                "type": "string",
-                "enum": [
-                  "get"
-                ]
-              },
-              "type": {
-                "type": "string",
-                "enum": [
-                  "array",
-                  "object"
-                ]
-              }
+          "type": "object",
+          "title": "State",
+          "properties": {
+            "itemId": {
+              "type": "string"
             },
-            "required": [
-              "itemId",
-              "path",
-              "method"
-            ],
-            "additionalProperties": true,
-            "x-display": "custom-vjs-select-item-web-operation",
-            "examples": [],
-            "valueExamples": [
-              {
-                "text": "Basic",
-                "value": [
-                  32,
-                  17
-                ]
-              }
-            ]
-          }
+            "path": {
+              "type": "string"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "get"
+              ]
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "array",
+                "object"
+              ]
+            }
+          },
+          "required": [
+            "itemId",
+            "path",
+            "method"
+          ],
+          "additionalProperties": true,
+          "x-display": "custom-vjs-select-item-web-operation",
+          "examples": [],
+          "valueExamples": [
+            {
+              "text": "Basic",
+              "value": [
+                32,
+                17
+              ]
+            }
+          ]
         },
         "actions": {
           "type": "object",
