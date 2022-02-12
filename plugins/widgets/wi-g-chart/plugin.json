@@ -51,7 +51,6 @@
       "name": "",
       "description": "",
       "web": {},
-      "actions": [],
       "display": {
         "transparent": false,
         "hideToolbar": false,
@@ -95,81 +94,13 @@
           "title": "Description",
           "x-display": "textarea"
         },
-        "web": {
+        "on": {
           "type": "object",
           "title": "Web Operations",
           "properties": {
-            "itemId": {
-              "type": "string"
-            },
-            "path": {
-              "type": "string"
-            },
-            "method": {
-              "type": "string",
-              "enum": [
-                "sub",
-                "get"
-              ]
-            },
-            "type": {
-              "type": "string",
-              "enum": [
-                "array",
-                "object"
-              ]
-            }
-          },
-          "required": [
-            "itemId",
-            "path",
-            "method"
-          ],
-          "additionalProperties": true,
-          "x-display": "custom-vjs-select-item-web-operation",
-          "examples": [],
-          "valueExamples": [
-            {
-              "text": "Single",
-              "value": 23
-            },
-            {
-              "text": "Paired",
-              "value": [
-                1,
-                34
-              ]
-            },
-            {
-              "text": "XY Paired",
-              "value": {
-                "x": 20,
-                "y": 54
-              }
-            },
-            {
-              "text": "Timestamps",
-              "value": [
-                1324508400000,
-                34
-              ]
-            },
-            {
-              "text": "Date Strings",
-              "value": {
-                "x": "05/06/2014",
-                "y": 54
-              }
-            }
-          ]
-        },
-        "actions": {
-          "type": "object",
-          "title": "Actions",
-          "properties": {
-            "click": {
+            "data": {
               "type": "object",
-              "title": "Click",
+              "title": "Data",
               "properties": {
                 "itemId": {
                   "type": "string"
@@ -178,7 +109,18 @@
                   "type": "string"
                 },
                 "method": {
-                  "type": "string"
+                  "type": "string",
+                  "enum": [
+                    "sub",
+                    "get"
+                  ]
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "array",
+                    "object"
+                  ]
                 }
               },
               "required": [
@@ -187,7 +129,88 @@
                 "method"
               ],
               "additionalProperties": true,
-              "x-display": "custom-vjs-select-item-web-operation"
+              "x-display": "custom-vjs-select-item-web-operation",
+              "examples": [],
+              "valueExamples": [
+                {
+                  "text": "Single",
+                  "value": 23
+                },
+                {
+                  "text": "Paired",
+                  "value": [
+                    1,
+                    34
+                  ]
+                },
+                {
+                  "text": "XY Paired",
+                  "value": {
+                    "x": 20,
+                    "y": 54
+                  }
+                },
+                {
+                  "text": "Timestamps",
+                  "value": [
+                    1324508400000,
+                    34
+                  ]
+                },
+                {
+                  "text": "Date Strings",
+                  "value": {
+                    "x": "05/06/2014",
+                    "y": 54
+                  }
+                }
+              ]
+            },
+            "change": {
+              "type": "object",
+              "title": "Change",
+              "properties": {
+                "itemId": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "method": {
+                  "type": "string",
+                  "enum": [
+                    "get",
+                    "post",
+                    "put",
+                    "patch"
+                  ]
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "integer",
+                    "number"
+                  ]
+                }
+              },
+              "required": [
+                "itemId",
+                "path",
+                "method"
+              ],
+              "additionalProperties": true,
+              "x-display": "custom-vjs-select-item-web-operation",
+              "examples": [],
+              "valueExamples": [
+                {
+                  "text": "Integer",
+                  "value": 73
+                },
+                {
+                  "text": "Number",
+                  "value": 28.7
+                }
+              ]
             }
           }
         },

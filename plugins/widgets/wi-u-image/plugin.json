@@ -50,7 +50,6 @@
       "h": 10,
       "name": "",
       "description": "",
-      "actions": [],
       "display": {
         "transparent": false,
         "hideToolbar": false,
@@ -125,34 +124,6 @@
               "type": "string",
               "title": "Link URL",
               "description": "The URL to redirect to on image click."
-            }
-          }
-        },
-        "actions": {
-          "type": "object",
-          "title": "Actions",
-          "properties": {
-            "click": {
-              "type": "object",
-              "title": "Click",
-              "properties": {
-                "itemId": {
-                  "type": "string"
-                },
-                "path": {
-                  "type": "string"
-                },
-                "method": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "itemId",
-                "path",
-                "method"
-              ],
-              "additionalProperties": true,
-              "x-display": "custom-vjs-select-item-web-operation"
             }
           }
         },

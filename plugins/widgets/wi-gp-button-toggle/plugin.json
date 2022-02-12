@@ -51,7 +51,6 @@
       "name": "",
       "description": "",
       "web": {},
-      "actions": [],
       "display": {
         "transparent": false,
         "hideToolbar": false,
@@ -94,46 +93,13 @@
           "title": "Description",
           "x-display": "textarea"
         },
-        "web": {
+        "on": {
           "type": "object",
           "title": "Web Operations",
           "properties": {
-            "itemId": {
-              "type": "string"
-            },
-            "path": {
-              "type": "string"
-            },
-            "method": {
-              "type": "string",
-              "enum": [
-                "get",
-                "post",
-                "put",
-                "patch"
-              ]
-            },
-            "type": {
-              "const": "boolean"
-            }
-          },
-          "required": [
-            "itemId",
-            "path",
-            "method"
-          ],
-          "additionalProperties": true,
-          "x-display": "custom-vjs-select-item-web-operation",
-          "examples": [],
-          "valueExamples": true
-        },
-        "actions": {
-          "type": "object",
-          "title": "Actions",
-          "properties": {
-            "click": {
+            "data": {
               "type": "object",
-              "title": "Click",
+              "title": "Data",
               "properties": {
                 "itemId": {
                   "type": "string"
@@ -142,7 +108,16 @@
                   "type": "string"
                 },
                 "method": {
-                  "type": "string"
+                  "type": "string",
+                  "enum": [
+                    "get",
+                    "post",
+                    "put",
+                    "patch"
+                  ]
+                },
+                "type": {
+                  "const": "boolean"
                 }
               },
               "required": [
@@ -151,7 +126,55 @@
                 "method"
               ],
               "additionalProperties": true,
-              "x-display": "custom-vjs-select-item-web-operation"
+              "x-display": "custom-vjs-select-item-web-operation",
+              "examples": [],
+              "valueExamples": true
+            },
+            "change": {
+              "type": "object",
+              "title": "Change",
+              "properties": {
+                "itemId": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "method": {
+                  "type": "string",
+                  "enum": [
+                    "get",
+                    "post",
+                    "put",
+                    "patch"
+                  ]
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "integer",
+                    "number"
+                  ]
+                }
+              },
+              "required": [
+                "itemId",
+                "path",
+                "method"
+              ],
+              "additionalProperties": true,
+              "x-display": "custom-vjs-select-item-web-operation",
+              "examples": [],
+              "valueExamples": [
+                {
+                  "text": "Integer",
+                  "value": 73
+                },
+                {
+                  "text": "Number",
+                  "value": 28.7
+                }
+              ]
             }
           }
         },

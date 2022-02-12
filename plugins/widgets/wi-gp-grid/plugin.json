@@ -51,7 +51,6 @@
       "name": "",
       "description": "",
       "web": {},
-      "actions": [],
       "display": {
         "transparent": false,
         "hideToolbar": false,
@@ -94,66 +93,35 @@
           "title": "Description",
           "x-display": "textarea"
         },
-        "web": {
+        "on": {
           "type": "object",
           "title": "Web Operations",
           "properties": {
-            "itemId": {
-              "type": "string"
-            },
-            "path": {
-              "type": "string"
-            },
-            "method": {
-              "type": "string",
-              "enum": [
-                "get",
-                "post",
-                "put",
-                "patch"
-              ]
-            },
-            "type": {
-              "const": "array"
-            },
-            "items": {
-              "oneOf": [
-                {
-                  "type": "object",
-                  "required": [
-                    "type",
-                    "items"
-                  ],
-                  "properties": {
-                    "type": {
-                      "const": "array"
-                    },
-                    "items": {
-                      "type": "object",
-                      "required": [
-                        "type"
-                      ],
-                      "properties": {
-                        "type": {
-                          "type": "string"
-                        }
-                      },
-                      "additionalProperties": true
-                    }
-                  },
-                  "additionalProperties": true
+            "data": {
+              "type": "object",
+              "title": "Data",
+              "properties": {
+                "itemId": {
+                  "type": "string"
                 },
-                {
-                  "type": "object",
-                  "required": [
-                    "type",
-                    "items"
-                  ],
-                  "properties": {
-                    "type": {
-                      "const": "array"
-                    },
-                    "items": {
+                "path": {
+                  "type": "string"
+                },
+                "method": {
+                  "type": "string",
+                  "enum": [
+                    "get",
+                    "post",
+                    "put",
+                    "patch"
+                  ]
+                },
+                "type": {
+                  "const": "array"
+                },
+                "items": {
+                  "oneOf": [
+                    {
                       "type": "object",
                       "required": [
                         "type",
@@ -177,21 +145,8 @@
                         }
                       },
                       "additionalProperties": true
-                    }
-                  },
-                  "additionalProperties": true
-                },
-                {
-                  "type": "object",
-                  "required": [
-                    "type",
-                    "items"
-                  ],
-                  "properties": {
-                    "type": {
-                      "const": "array"
                     },
-                    "items": {
+                    {
                       "type": "object",
                       "required": [
                         "type",
@@ -228,105 +183,59 @@
                         }
                       },
                       "additionalProperties": true
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "type",
+                        "items"
+                      ],
+                      "properties": {
+                        "type": {
+                          "const": "array"
+                        },
+                        "items": {
+                          "type": "object",
+                          "required": [
+                            "type",
+                            "items"
+                          ],
+                          "properties": {
+                            "type": {
+                              "const": "array"
+                            },
+                            "items": {
+                              "type": "object",
+                              "required": [
+                                "type",
+                                "items"
+                              ],
+                              "properties": {
+                                "type": {
+                                  "const": "array"
+                                },
+                                "items": {
+                                  "type": "object",
+                                  "required": [
+                                    "type"
+                                  ],
+                                  "properties": {
+                                    "type": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "additionalProperties": true
+                                }
+                              },
+                              "additionalProperties": true
+                            }
+                          },
+                          "additionalProperties": true
+                        }
+                      },
+                      "additionalProperties": true
                     }
-                  },
-                  "additionalProperties": true
-                }
-              ]
-            }
-          },
-          "required": [
-            "itemId",
-            "path",
-            "method"
-          ],
-          "additionalProperties": true,
-          "x-display": "custom-vjs-select-item-web-operation",
-          "examples": [],
-          "valueExamples": [
-            {
-              "text": "1D",
-              "value": [
-                true,
-                false
-              ]
-            },
-            {
-              "text": "2D",
-              "value": [
-                [
-                  true,
-                  false
-                ],
-                [
-                  false,
-                  false
-                ]
-              ]
-            },
-            {
-              "text": "3D",
-              "value": [
-                [
-                  [
-                    true,
-                    false
-                  ],
-                  [
-                    false,
-                    false
                   ]
-                ],
-                [
-                  [
-                    false,
-                    true
-                  ],
-                  [
-                    true,
-                    false
-                  ]
-                ],
-                [
-                  [
-                    true,
-                    false
-                  ],
-                  [
-                    true,
-                    true
-                  ]
-                ],
-                [
-                  [
-                    false,
-                    false
-                  ],
-                  [
-                    true,
-                    false
-                  ]
-                ]
-              ]
-            }
-          ]
-        },
-        "actions": {
-          "type": "object",
-          "title": "Actions",
-          "properties": {
-            "click": {
-              "type": "object",
-              "title": "Click",
-              "properties": {
-                "itemId": {
-                  "type": "string"
-                },
-                "path": {
-                  "type": "string"
-                },
-                "method": {
-                  "type": "string"
                 }
               },
               "required": [
@@ -335,7 +244,121 @@
                 "method"
               ],
               "additionalProperties": true,
-              "x-display": "custom-vjs-select-item-web-operation"
+              "x-display": "custom-vjs-select-item-web-operation",
+              "examples": [],
+              "valueExamples": [
+                {
+                  "text": "1D",
+                  "value": [
+                    true,
+                    false
+                  ]
+                },
+                {
+                  "text": "2D",
+                  "value": [
+                    [
+                      true,
+                      false
+                    ],
+                    [
+                      false,
+                      false
+                    ]
+                  ]
+                },
+                {
+                  "text": "3D",
+                  "value": [
+                    [
+                      [
+                        true,
+                        false
+                      ],
+                      [
+                        false,
+                        false
+                      ]
+                    ],
+                    [
+                      [
+                        false,
+                        true
+                      ],
+                      [
+                        true,
+                        false
+                      ]
+                    ],
+                    [
+                      [
+                        true,
+                        false
+                      ],
+                      [
+                        true,
+                        true
+                      ]
+                    ],
+                    [
+                      [
+                        false,
+                        false
+                      ],
+                      [
+                        true,
+                        false
+                      ]
+                    ]
+                  ]
+                }
+              ]
+            },
+            "change": {
+              "type": "object",
+              "title": "Change",
+              "properties": {
+                "itemId": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "method": {
+                  "type": "string",
+                  "enum": [
+                    "get",
+                    "post",
+                    "put",
+                    "patch"
+                  ]
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "integer",
+                    "number"
+                  ]
+                }
+              },
+              "required": [
+                "itemId",
+                "path",
+                "method"
+              ],
+              "additionalProperties": true,
+              "x-display": "custom-vjs-select-item-web-operation",
+              "examples": [],
+              "valueExamples": [
+                {
+                  "text": "Integer",
+                  "value": 73
+                },
+                {
+                  "text": "Number",
+                  "value": 28.7
+                }
+              ]
             }
           }
         },
