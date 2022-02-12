@@ -95,123 +95,78 @@
           "x-display": "textarea"
         },
         "on": {
-          "type": "object",
+          "type": "array",
           "title": "Web Operations",
-          "properties": {
-            "data": {
-              "type": "object",
-              "title": "Data",
-              "properties": {
-                "itemId": {
-                  "type": "string"
-                },
-                "path": {
-                  "type": "string"
-                },
-                "method": {
-                  "type": "string",
-                  "enum": [
-                    "sub",
-                    "get"
-                  ]
-                },
-                "type": {
-                  "type": "string",
-                  "enum": [
-                    "array",
-                    "object"
-                  ]
-                }
+          "items": {
+            "type": "object",
+            "title": "Data",
+            "properties": {
+              "event": {
+                "type": "string",
+                "enum": [
+                  "data",
+                  "change"
+                ]
               },
-              "required": [
-                "itemId",
-                "path",
-                "method"
-              ],
-              "additionalProperties": true,
-              "x-display": "custom-vjs-select-item-web-operation",
-              "examples": [],
-              "valueExamples": [
-                {
-                  "text": "Single",
-                  "value": 23
-                },
-                {
-                  "text": "Paired",
-                  "value": [
-                    1,
-                    34
-                  ]
-                },
-                {
-                  "text": "XY Paired",
-                  "value": {
-                    "x": 20,
-                    "y": 54
-                  }
-                },
-                {
-                  "text": "Timestamps",
-                  "value": [
-                    1324508400000,
-                    34
-                  ]
-                },
-                {
-                  "text": "Date Strings",
-                  "value": {
-                    "x": "05/06/2014",
-                    "y": 54
-                  }
-                }
-              ]
+              "itemId": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "method": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "array",
+                  "object"
+                ]
+              }
             },
-            "change": {
-              "type": "object",
-              "title": "Change",
-              "properties": {
-                "itemId": {
-                  "type": "string"
-                },
-                "path": {
-                  "type": "string"
-                },
-                "method": {
-                  "type": "string",
-                  "enum": [
-                    "get",
-                    "post",
-                    "put",
-                    "patch"
-                  ]
-                },
-                "type": {
-                  "type": "string",
-                  "enum": [
-                    "integer",
-                    "number"
-                  ]
+            "required": [
+              "itemId",
+              "path",
+              "method"
+            ],
+            "additionalProperties": true,
+            "x-display": "custom-vjs-select-item-web-operation",
+            "examples": [],
+            "valueExamples": [
+              {
+                "text": "Single",
+                "value": 23
+              },
+              {
+                "text": "Paired",
+                "value": [
+                  1,
+                  34
+                ]
+              },
+              {
+                "text": "XY Paired",
+                "value": {
+                  "x": 20,
+                  "y": 54
                 }
               },
-              "required": [
-                "itemId",
-                "path",
-                "method"
-              ],
-              "additionalProperties": true,
-              "x-display": "custom-vjs-select-item-web-operation",
-              "examples": [],
-              "valueExamples": [
-                {
-                  "text": "Integer",
-                  "value": 73
-                },
-                {
-                  "text": "Number",
-                  "value": 28.7
+              {
+                "text": "Timestamps",
+                "value": [
+                  1324508400000,
+                  34
+                ]
+              },
+              {
+                "text": "Date Strings",
+                "value": {
+                  "x": "05/06/2014",
+                  "y": 54
                 }
-              ]
-            }
+              }
+            ]
           }
         },
         "display": {

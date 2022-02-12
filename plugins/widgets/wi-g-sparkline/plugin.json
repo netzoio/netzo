@@ -98,99 +98,54 @@
           "x-display": "textarea"
         },
         "on": {
-          "type": "object",
+          "type": "array",
           "title": "Web Operations",
-          "properties": {
-            "data": {
-              "type": "object",
-              "title": "Data",
-              "properties": {
-                "itemId": {
-                  "type": "string"
-                },
-                "path": {
-                  "type": "string"
-                },
-                "method": {
-                  "type": "string",
-                  "enum": [
-                    "sub",
-                    "get"
-                  ]
-                },
-                "type": {
-                  "type": "string",
-                  "enum": [
-                    "integer",
-                    "number"
-                  ]
-                }
+          "items": {
+            "type": "object",
+            "title": "Data",
+            "properties": {
+              "event": {
+                "type": "string",
+                "enum": [
+                  "data",
+                  "change"
+                ]
               },
-              "required": [
-                "itemId",
-                "path",
-                "method"
-              ],
-              "additionalProperties": true,
-              "x-display": "custom-vjs-select-item-web-operation",
-              "examples": [],
-              "valueExamples": [
-                {
-                  "text": "Integer",
-                  "value": 73
-                },
-                {
-                  "text": "Number",
-                  "value": 28.7
-                }
-              ]
+              "itemId": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "method": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "integer",
+                  "number"
+                ]
+              }
             },
-            "change": {
-              "type": "object",
-              "title": "Change",
-              "properties": {
-                "itemId": {
-                  "type": "string"
-                },
-                "path": {
-                  "type": "string"
-                },
-                "method": {
-                  "type": "string",
-                  "enum": [
-                    "get",
-                    "post",
-                    "put",
-                    "patch"
-                  ]
-                },
-                "type": {
-                  "type": "string",
-                  "enum": [
-                    "integer",
-                    "number"
-                  ]
-                }
+            "required": [
+              "itemId",
+              "path",
+              "method"
+            ],
+            "additionalProperties": true,
+            "x-display": "custom-vjs-select-item-web-operation",
+            "examples": [],
+            "valueExamples": [
+              {
+                "text": "Integer",
+                "value": 73
               },
-              "required": [
-                "itemId",
-                "path",
-                "method"
-              ],
-              "additionalProperties": true,
-              "x-display": "custom-vjs-select-item-web-operation",
-              "examples": [],
-              "valueExamples": [
-                {
-                  "text": "Integer",
-                  "value": 73
-                },
-                {
-                  "text": "Number",
-                  "value": 28.7
-                }
-              ]
-            }
+              {
+                "text": "Number",
+                "value": 28.7
+              }
+            ]
           }
         },
         "display": {

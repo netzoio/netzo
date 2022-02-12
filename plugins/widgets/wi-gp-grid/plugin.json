@@ -94,169 +94,183 @@
           "x-display": "textarea"
         },
         "on": {
-          "type": "object",
+          "type": "array",
           "title": "Web Operations",
-          "properties": {
-            "data": {
-              "type": "object",
-              "title": "Data",
-              "properties": {
-                "itemId": {
-                  "type": "string"
-                },
-                "path": {
-                  "type": "string"
-                },
-                "method": {
-                  "type": "string",
-                  "enum": [
-                    "get",
-                    "post",
-                    "put",
-                    "patch"
-                  ]
-                },
-                "type": {
-                  "const": "array"
-                },
-                "items": {
-                  "oneOf": [
-                    {
-                      "type": "object",
-                      "required": [
-                        "type",
-                        "items"
-                      ],
-                      "properties": {
-                        "type": {
-                          "const": "array"
-                        },
-                        "items": {
-                          "type": "object",
-                          "required": [
-                            "type"
-                          ],
-                          "properties": {
-                            "type": {
-                              "type": "string"
-                            }
-                          },
-                          "additionalProperties": true
-                        }
-                      },
-                      "additionalProperties": true
-                    },
-                    {
-                      "type": "object",
-                      "required": [
-                        "type",
-                        "items"
-                      ],
-                      "properties": {
-                        "type": {
-                          "const": "array"
-                        },
-                        "items": {
-                          "type": "object",
-                          "required": [
-                            "type",
-                            "items"
-                          ],
-                          "properties": {
-                            "type": {
-                              "const": "array"
-                            },
-                            "items": {
-                              "type": "object",
-                              "required": [
-                                "type"
-                              ],
-                              "properties": {
-                                "type": {
-                                  "type": "string"
-                                }
-                              },
-                              "additionalProperties": true
-                            }
-                          },
-                          "additionalProperties": true
-                        }
-                      },
-                      "additionalProperties": true
-                    },
-                    {
-                      "type": "object",
-                      "required": [
-                        "type",
-                        "items"
-                      ],
-                      "properties": {
-                        "type": {
-                          "const": "array"
-                        },
-                        "items": {
-                          "type": "object",
-                          "required": [
-                            "type",
-                            "items"
-                          ],
-                          "properties": {
-                            "type": {
-                              "const": "array"
-                            },
-                            "items": {
-                              "type": "object",
-                              "required": [
-                                "type",
-                                "items"
-                              ],
-                              "properties": {
-                                "type": {
-                                  "const": "array"
-                                },
-                                "items": {
-                                  "type": "object",
-                                  "required": [
-                                    "type"
-                                  ],
-                                  "properties": {
-                                    "type": {
-                                      "type": "string"
-                                    }
-                                  },
-                                  "additionalProperties": true
-                                }
-                              },
-                              "additionalProperties": true
-                            }
-                          },
-                          "additionalProperties": true
-                        }
-                      },
-                      "additionalProperties": true
-                    }
-                  ]
-                }
+          "items": {
+            "type": "object",
+            "title": "Data",
+            "properties": {
+              "event": {
+                "type": "string",
+                "enum": [
+                  "data",
+                  "change"
+                ]
               },
-              "required": [
-                "itemId",
-                "path",
-                "method"
-              ],
-              "additionalProperties": true,
-              "x-display": "custom-vjs-select-item-web-operation",
-              "examples": [],
-              "valueExamples": [
-                {
-                  "text": "1D",
-                  "value": [
+              "itemId": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "method": {
+                "type": "string"
+              },
+              "type": {
+                "const": "array"
+              },
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "type",
+                      "items"
+                    ],
+                    "properties": {
+                      "type": {
+                        "const": "array"
+                      },
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          }
+                        },
+                        "additionalProperties": true
+                      }
+                    },
+                    "additionalProperties": true
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "type",
+                      "items"
+                    ],
+                    "properties": {
+                      "type": {
+                        "const": "array"
+                      },
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "type",
+                          "items"
+                        ],
+                        "properties": {
+                          "type": {
+                            "const": "array"
+                          },
+                          "items": {
+                            "type": "object",
+                            "required": [
+                              "type"
+                            ],
+                            "properties": {
+                              "type": {
+                                "type": "string"
+                              }
+                            },
+                            "additionalProperties": true
+                          }
+                        },
+                        "additionalProperties": true
+                      }
+                    },
+                    "additionalProperties": true
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "type",
+                      "items"
+                    ],
+                    "properties": {
+                      "type": {
+                        "const": "array"
+                      },
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "type",
+                          "items"
+                        ],
+                        "properties": {
+                          "type": {
+                            "const": "array"
+                          },
+                          "items": {
+                            "type": "object",
+                            "required": [
+                              "type",
+                              "items"
+                            ],
+                            "properties": {
+                              "type": {
+                                "const": "array"
+                              },
+                              "items": {
+                                "type": "object",
+                                "required": [
+                                  "type"
+                                ],
+                                "properties": {
+                                  "type": {
+                                    "type": "string"
+                                  }
+                                },
+                                "additionalProperties": true
+                              }
+                            },
+                            "additionalProperties": true
+                          }
+                        },
+                        "additionalProperties": true
+                      }
+                    },
+                    "additionalProperties": true
+                  }
+                ]
+              }
+            },
+            "required": [
+              "itemId",
+              "path",
+              "method"
+            ],
+            "additionalProperties": true,
+            "x-display": "custom-vjs-select-item-web-operation",
+            "examples": [],
+            "valueExamples": [
+              {
+                "text": "1D",
+                "value": [
+                  true,
+                  false
+                ]
+              },
+              {
+                "text": "2D",
+                "value": [
+                  [
                     true,
                     false
+                  ],
+                  [
+                    false,
+                    false
                   ]
-                },
-                {
-                  "text": "2D",
-                  "value": [
+                ]
+              },
+              {
+                "text": "3D",
+                "value": [
+                  [
                     [
                       true,
                       false
@@ -265,101 +279,40 @@
                       false,
                       false
                     ]
-                  ]
-                },
-                {
-                  "text": "3D",
-                  "value": [
+                  ],
+                  [
                     [
-                      [
-                        true,
-                        false
-                      ],
-                      [
-                        false,
-                        false
-                      ]
+                      false,
+                      true
                     ],
                     [
-                      [
-                        false,
-                        true
-                      ],
-                      [
-                        true,
-                        false
-                      ]
+                      true,
+                      false
+                    ]
+                  ],
+                  [
+                    [
+                      true,
+                      false
                     ],
                     [
-                      [
-                        true,
-                        false
-                      ],
-                      [
-                        true,
-                        true
-                      ]
+                      true,
+                      true
+                    ]
+                  ],
+                  [
+                    [
+                      false,
+                      false
                     ],
                     [
-                      [
-                        false,
-                        false
-                      ],
-                      [
-                        true,
-                        false
-                      ]
+                      true,
+                      false
                     ]
                   ]
-                }
-              ]
-            },
-            "change": {
-              "type": "object",
-              "title": "Change",
-              "properties": {
-                "itemId": {
-                  "type": "string"
-                },
-                "path": {
-                  "type": "string"
-                },
-                "method": {
-                  "type": "string",
-                  "enum": [
-                    "get",
-                    "post",
-                    "put",
-                    "patch"
-                  ]
-                },
-                "type": {
-                  "type": "string",
-                  "enum": [
-                    "integer",
-                    "number"
-                  ]
-                }
-              },
-              "required": [
-                "itemId",
-                "path",
-                "method"
-              ],
-              "additionalProperties": true,
-              "x-display": "custom-vjs-select-item-web-operation",
-              "examples": [],
-              "valueExamples": [
-                {
-                  "text": "Integer",
-                  "value": 73
-                },
-                {
-                  "text": "Number",
-                  "value": 28.7
-                }
-              ]
-            }
+                ]
+              }
+            ]
           }
         },
         "display": {

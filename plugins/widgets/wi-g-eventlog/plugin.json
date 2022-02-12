@@ -92,93 +92,48 @@
           "x-display": "textarea"
         },
         "on": {
-          "type": "object",
+          "type": "array",
           "title": "Web Operations",
-          "properties": {
-            "data": {
-              "type": "object",
-              "title": "Data",
-              "properties": {
-                "itemId": {
-                  "type": "string"
-                },
-                "path": {
-                  "type": "string"
-                },
-                "method": {
-                  "type": "string",
-                  "enum": [
-                    "sub",
-                    "get"
-                  ]
-                }
+          "items": {
+            "type": "object",
+            "title": "Data",
+            "properties": {
+              "event": {
+                "type": "string",
+                "enum": [
+                  "data",
+                  "change"
+                ]
               },
-              "required": [
-                "itemId",
-                "path",
-                "sub",
-                "get"
-              ],
-              "additionalProperties": true,
-              "x-display": "custom-vjs-select-item-web-operation",
-              "examples": [],
-              "valueExamples": [
-                {
-                  "text": "Basic",
-                  "value": null
-                },
-                {
-                  "text": "With Data",
-                  "value": null
-                }
-              ]
+              "itemId": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "method": {
+                "type": "string"
+              }
             },
-            "change": {
-              "type": "object",
-              "title": "Change",
-              "properties": {
-                "itemId": {
-                  "type": "string"
-                },
-                "path": {
-                  "type": "string"
-                },
-                "method": {
-                  "type": "string",
-                  "enum": [
-                    "get",
-                    "post",
-                    "put",
-                    "patch"
-                  ]
-                },
-                "type": {
-                  "type": "string",
-                  "enum": [
-                    "integer",
-                    "number"
-                  ]
-                }
+            "required": [
+              "itemId",
+              "path",
+              "sub",
+              "get"
+            ],
+            "additionalProperties": true,
+            "x-display": "custom-vjs-select-item-web-operation",
+            "examples": [],
+            "valueExamples": [
+              {
+                "text": "Basic",
+                "value": null
               },
-              "required": [
-                "itemId",
-                "path",
-                "method"
-              ],
-              "additionalProperties": true,
-              "x-display": "custom-vjs-select-item-web-operation",
-              "examples": [],
-              "valueExamples": [
-                {
-                  "text": "Integer",
-                  "value": 73
-                },
-                {
-                  "text": "Number",
-                  "value": 28.7
-                }
-              ]
-            }
+              {
+                "text": "With Data",
+                "value": null
+              }
+            ]
           }
         },
         "display": {
