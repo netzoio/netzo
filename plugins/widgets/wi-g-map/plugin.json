@@ -128,7 +128,6 @@
               "method"
             ],
             "additionalProperties": true,
-            "x-display": "custom-vjs-select-item-web-operation",
             "examples": [],
             "valueExamples": [
               {
@@ -140,7 +139,7 @@
               }
             ]
           },
-          "x-display": "custom-vjs-array"
+          "x-display": "custom-vjs-select-item-web-operations"
         },
         "display": {
           "type": "object",
