@@ -167,7 +167,8 @@
                 }
               }
             ]
-          }
+          },
+          "x-display": "custom-vjs-array"
         },
         "display": {
           "type": "object",

@@ -146,7 +146,8 @@
                 "value": 28.7
               }
             ]
-          }
+          },
+          "x-display": "custom-vjs-array"
         },
         "display": {
           "type": "object",

@@ -134,7 +134,8 @@
                 "value": null
               }
             ]
-          }
+          },
+          "x-display": "custom-vjs-array"
         },
         "display": {
           "type": "object",
