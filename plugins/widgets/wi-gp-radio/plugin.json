@@ -50,7 +50,7 @@
       "h": 6,
       "name": "",
       "description": "",
-      "datasources": [],
+      "web": {},
       "actions": [],
       "display": {
         "transparent": false,
@@ -95,9 +95,9 @@
           "title": "Description",
           "x-display": "textarea"
         },
-        "datasources": {
+        "web": {
           "type": "object",
-          "title": "State",
+          "title": "Web Operations",
           "properties": {
             "itemId": {
               "type": "string"

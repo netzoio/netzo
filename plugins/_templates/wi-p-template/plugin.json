@@ -45,7 +45,7 @@
       "h": 7,
       "name": "",
       "description": "",
-      "datasources": [],
+      "web": {},
       "actions": [],
       "display": {
         "transparent": false,
