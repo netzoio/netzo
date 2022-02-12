@@ -122,6 +122,7 @@
               "get"
             ],
             "additionalProperties": true,
+            "x-display": "custom-vjs-select-item-web-operation",
             "examples": [],
             "valueExamples": [
               {
