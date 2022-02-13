@@ -57,7 +57,7 @@
         "showValues": true,
         "colorTrueOrMax": "#44C47D",
         "colorFalseOrMin": "#d73a49",
-        "textColor": "#121212",
+        "textColor": "",
         "bgImageUrl": ""
       }
     },

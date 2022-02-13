@@ -54,7 +54,7 @@
         "transparent": false,
         "hideToolbar": false,
         "color": "#0080FF",
-        "textColor": "#121212",
+        "textColor": "",
         "bgImageUrl": ""
       },
       "options": {

@@ -56,7 +56,7 @@
         "hideToolbar": false,
         "label": "",
         "color": "#0080FF",
-        "textColor": "#121212",
+        "textColor": "",
         "bgImageUrl": ""
       }
     },
