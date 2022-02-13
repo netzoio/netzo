@@ -122,7 +122,7 @@
               "get"
             ],
             "additionalProperties": true,
-            "x-display": "custom-vjs-select-item-web-operation",
+            "x-display": "custom-vjs-select-web-operation",
             "examples": [],
             "valueExamples": [
               {
@@ -135,7 +135,7 @@
               }
             ]
           },
-          "x-display": "custom-vjs-select-item-web-operations"
+          "x-display": "custom-vjs-select-web-operations"
         },
         "display": {
           "type": "object",

@@ -129,12 +129,12 @@
               "get": {
                 "type": "object",
                 "properties": {},
-                "x-display": "custom-vjs-select-item-web-operation-get"
+                "x-display": "custom-vjs-select-web-operation-get"
               },
               "post": {
                 "type": "object",
                 "properties": {},
-                "x-display": "custom-vjs-select-item-web-operation-get"
+                "x-display": "custom-vjs-select-web-operation-get"
               }
             },
             "required": [
@@ -143,10 +143,10 @@
               "method"
             ],
             "additionalProperties": true,
-            "x-display": "custom-vjs-select-item-web-operation",
+            "x-display": "custom-vjs-select-web-operation",
             "examples": []
           },
-          "x-display": "custom-vjs-select-item-web-operations"
+          "x-display": "custom-vjs-select-web-operations"
         },
         "display": {
           "type": "object",
