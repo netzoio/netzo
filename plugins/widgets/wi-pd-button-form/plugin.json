@@ -93,27 +93,32 @@
           "x-display": "textarea"
         },
         "actions": {
-          "type": "array",
+          "type": "object",
           "title": "Actions",
-          "items": {
-            "source": {
-              "type": "string",
-              "enum": [
-                "window"
-              ]
-            },
-            "event": {
-              "type": "string",
-              "enum": [
-                "data"
-              ]
-            },
-            "action": {
-              "type": "object",
-              "properties": {},
-              "x-display": "custom-vjs-action"
-            },
-            "x-display": "custom-vjs-actions"
+          "properties": {
+            "actions": {
+              "type": "array",
+              "items": {
+                "source": {
+                  "type": "string",
+                  "enum": [
+                    "window"
+                  ]
+                },
+                "event": {
+                  "type": "string",
+                  "enum": [
+                    "data"
+                  ]
+                },
+                "action": {
+                  "type": "object",
+                  "properties": {},
+                  "x-display": "custom-vjs-action"
+                },
+                "x-display": "custom-vjs-actions"
+              }
+            }
           }
         },
         "display": {

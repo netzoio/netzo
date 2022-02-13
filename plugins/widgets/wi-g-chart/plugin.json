@@ -99,12 +99,6 @@
           "type": "object",
           "title": "Data",
           "properties": {
-            "type": {
-              "enum": [
-                "latest-value",
-                "time-series"
-              ]
-            },
             "variables": {
               "type": "array",
               "items": {
@@ -113,71 +107,76 @@
                 "x-display": "custom-vjs-variable"
               },
               "x-display": "custom-vjs-variables"
-            },
-            "schema": {
-              "x-types": [
-                "array",
-                "object"
-              ],
-              "x-examples": [
-                {
-                  "text": "Single",
-                  "value": 23
-                },
-                {
-                  "text": "Paired",
-                  "value": [
-                    1,
-                    34
-                  ]
-                },
-                {
-                  "text": "XY Paired",
-                  "value": {
-                    "x": 20,
-                    "y": 54
-                  }
-                },
-                {
-                  "text": "Timestamps",
-                  "value": [
-                    1324508400000,
-                    34
-                  ]
-                },
-                {
-                  "text": "Date Strings",
-                  "value": {
-                    "x": "05/06/2014",
-                    "y": 54
-                  }
-                }
-              ]
             }
+          },
+          "x-schema": {
+            "x-types": [
+              "array",
+              "object"
+            ],
+            "x-examples": [
+              {
+                "text": "Single",
+                "value": 23
+              },
+              {
+                "text": "Paired",
+                "value": [
+                  1,
+                  34
+                ]
+              },
+              {
+                "text": "XY Paired",
+                "value": {
+                  "x": 20,
+                  "y": 54
+                }
+              },
+              {
+                "text": "Timestamps",
+                "value": [
+                  1324508400000,
+                  34
+                ]
+              },
+              {
+                "text": "Date Strings",
+                "value": {
+                  "x": "05/06/2014",
+                  "y": 54
+                }
+              }
+            ]
           }
         },
         "actions": {
-          "type": "array",
+          "type": "object",
           "title": "Actions",
-          "items": {
-            "source": {
-              "type": "string",
-              "enum": [
-                "window"
-              ]
-            },
-            "event": {
-              "type": "string",
-              "enum": [
-                "data"
-              ]
-            },
-            "action": {
-              "type": "object",
-              "properties": {},
-              "x-display": "custom-vjs-action"
-            },
-            "x-display": "custom-vjs-actions"
+          "properties": {
+            "actions": {
+              "type": "array",
+              "items": {
+                "source": {
+                  "type": "string",
+                  "enum": [
+                    "window"
+                  ]
+                },
+                "event": {
+                  "type": "string",
+                  "enum": [
+                    "data"
+                  ]
+                },
+                "action": {
+                  "type": "object",
+                  "properties": {},
+                  "x-display": "custom-vjs-action"
+                },
+                "x-display": "custom-vjs-actions"
+              }
+            }
           }
         },
         "display": {

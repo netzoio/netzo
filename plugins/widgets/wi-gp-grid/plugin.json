@@ -98,12 +98,6 @@
           "type": "object",
           "title": "Data",
           "properties": {
-            "type": {
-              "enum": [
-                "latest-value",
-                "time-series"
-              ]
-            },
             "variables": {
               "type": "array",
               "items": {
@@ -112,141 +106,156 @@
                 "x-display": "custom-vjs-variable"
               },
               "x-display": "custom-vjs-variables"
-            },
-            "schema": {
-              "type": "array",
-              "items": {
-                "oneOf": [
-                  {
-                    "type": "object",
-                    "required": [
-                      "type",
-                      "items"
-                    ],
-                    "properties": {
-                      "type": {
-                        "const": "array"
-                      },
-                      "items": {
-                        "type": "object",
-                        "required": [
-                          "type"
-                        ],
-                        "properties": {
-                          "type": {
-                            "type": "string"
-                          }
-                        },
-                        "additionalProperties": true
-                      }
-                    },
-                    "additionalProperties": true
-                  },
-                  {
-                    "type": "object",
-                    "required": [
-                      "type",
-                      "items"
-                    ],
-                    "properties": {
-                      "type": {
-                        "const": "array"
-                      },
-                      "items": {
-                        "type": "object",
-                        "required": [
-                          "type",
-                          "items"
-                        ],
-                        "properties": {
-                          "type": {
-                            "const": "array"
-                          },
-                          "items": {
-                            "type": "object",
-                            "required": [
-                              "type"
-                            ],
-                            "properties": {
-                              "type": {
-                                "type": "string"
-                              }
-                            },
-                            "additionalProperties": true
-                          }
-                        },
-                        "additionalProperties": true
-                      }
-                    },
-                    "additionalProperties": true
-                  },
-                  {
-                    "type": "object",
-                    "required": [
-                      "type",
-                      "items"
-                    ],
-                    "properties": {
-                      "type": {
-                        "const": "array"
-                      },
-                      "items": {
-                        "type": "object",
-                        "required": [
-                          "type",
-                          "items"
-                        ],
-                        "properties": {
-                          "type": {
-                            "const": "array"
-                          },
-                          "items": {
-                            "type": "object",
-                            "required": [
-                              "type",
-                              "items"
-                            ],
-                            "properties": {
-                              "type": {
-                                "const": "array"
-                              },
-                              "items": {
-                                "type": "object",
-                                "required": [
-                                  "type"
-                                ],
-                                "properties": {
-                                  "type": {
-                                    "type": "string"
-                                  }
-                                },
-                                "additionalProperties": true
-                              }
-                            },
-                            "additionalProperties": true
-                          }
-                        },
-                        "additionalProperties": true
-                      }
-                    },
-                    "additionalProperties": true
-                  }
-                ]
-              },
-              "x-types": [
-                "array"
-              ],
-              "x-examples": [
+            }
+          },
+          "x-schema": {
+            "type": "array",
+            "items": {
+              "oneOf": [
                 {
-                  "text": "1D",
-                  "value": [
-                    true,
-                    false
-                  ]
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "items"
+                  ],
+                  "properties": {
+                    "type": {
+                      "const": "array"
+                    },
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "type"
+                      ],
+                      "properties": {
+                        "type": {
+                          "type": "string"
+                        }
+                      },
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": true
                 },
                 {
-                  "text": "2D",
-                  "value": [
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "items"
+                  ],
+                  "properties": {
+                    "type": {
+                      "const": "array"
+                    },
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "type",
+                        "items"
+                      ],
+                      "properties": {
+                        "type": {
+                          "const": "array"
+                        },
+                        "items": {
+                          "type": "object",
+                          "required": [
+                            "type"
+                          ],
+                          "properties": {
+                            "type": {
+                              "type": "string"
+                            }
+                          },
+                          "additionalProperties": true
+                        }
+                      },
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": true
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "items"
+                  ],
+                  "properties": {
+                    "type": {
+                      "const": "array"
+                    },
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "type",
+                        "items"
+                      ],
+                      "properties": {
+                        "type": {
+                          "const": "array"
+                        },
+                        "items": {
+                          "type": "object",
+                          "required": [
+                            "type",
+                            "items"
+                          ],
+                          "properties": {
+                            "type": {
+                              "const": "array"
+                            },
+                            "items": {
+                              "type": "object",
+                              "required": [
+                                "type"
+                              ],
+                              "properties": {
+                                "type": {
+                                  "type": "string"
+                                }
+                              },
+                              "additionalProperties": true
+                            }
+                          },
+                          "additionalProperties": true
+                        }
+                      },
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              ]
+            },
+            "x-types": [
+              "array"
+            ],
+            "x-examples": [
+              {
+                "text": "1D",
+                "value": [
+                  true,
+                  false
+                ]
+              },
+              {
+                "text": "2D",
+                "value": [
+                  [
+                    true,
+                    false
+                  ],
+                  [
+                    false,
+                    false
+                  ]
+                ]
+              },
+              {
+                "text": "3D",
+                "value": [
+                  [
                     [
                       true,
                       false
@@ -255,79 +264,69 @@
                       false,
                       false
                     ]
-                  ]
-                },
-                {
-                  "text": "3D",
-                  "value": [
+                  ],
+                  [
                     [
-                      [
-                        true,
-                        false
-                      ],
-                      [
-                        false,
-                        false
-                      ]
+                      false,
+                      true
                     ],
                     [
-                      [
-                        false,
-                        true
-                      ],
-                      [
-                        true,
-                        false
-                      ]
+                      true,
+                      false
+                    ]
+                  ],
+                  [
+                    [
+                      true,
+                      false
                     ],
                     [
-                      [
-                        true,
-                        false
-                      ],
-                      [
-                        true,
-                        true
-                      ]
+                      true,
+                      true
+                    ]
+                  ],
+                  [
+                    [
+                      false,
+                      false
                     ],
                     [
-                      [
-                        false,
-                        false
-                      ],
-                      [
-                        true,
-                        false
-                      ]
+                      true,
+                      false
                     ]
                   ]
-                }
-              ]
-            }
+                ]
+              }
+            ]
           }
         },
         "actions": {
-          "type": "array",
+          "type": "object",
           "title": "Actions",
-          "items": {
-            "source": {
-              "type": "string",
-              "enum": [
-                "window"
-              ]
-            },
-            "event": {
-              "type": "string",
-              "enum": [
-                "data"
-              ]
-            },
-            "action": {
-              "type": "object",
-              "properties": {},
-              "x-display": "custom-vjs-action"
-            },
-            "x-display": "custom-vjs-actions"
+          "properties": {
+            "actions": {
+              "type": "array",
+              "items": {
+                "source": {
+                  "type": "string",
+                  "enum": [
+                    "window"
+                  ]
+                },
+                "event": {
+                  "type": "string",
+                  "enum": [
+                    "data"
+                  ]
+                },
+                "action": {
+                  "type": "object",
+                  "properties": {},
+                  "x-display": "custom-vjs-action"
+                },
+                "x-display": "custom-vjs-actions"
+              }
+            }
           }
         },
         "display": {
