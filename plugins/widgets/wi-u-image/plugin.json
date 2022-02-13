@@ -50,6 +50,7 @@
       "h": 10,
       "name": "",
       "description": "",
+      "actions": {},
       "display": {
         "transparent": false,
         "hideToolbar": false,
@@ -124,7 +125,32 @@
               "type": "string",
               "title": "Link URL",
               "description": "The URL to redirect to on image click."
-            }
+            },
+            "schema": {}
+          }
+        },
+        "actions": {
+          "type": "array",
+          "title": "Actions",
+          "items": {
+            "source": {
+              "type": "string",
+              "enum": [
+                "window"
+              ]
+            },
+            "event": {
+              "type": "string",
+              "enum": [
+                "data"
+              ]
+            },
+            "action": {
+              "type": "object",
+              "properties": {},
+              "x-display": "custom-vjs-action"
+            },
+            "x-display": "custom-vjs-actions"
           }
         },
         "display": {

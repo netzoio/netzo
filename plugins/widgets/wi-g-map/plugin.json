@@ -50,7 +50,8 @@
       "h": 12,
       "name": "",
       "description": "",
-      "web": {},
+      "data": {},
+      "actions": {},
       "display": {
         "transparent": false,
         "hideToolbar": false,
@@ -91,56 +92,65 @@
           "title": "Description",
           "x-display": "textarea"
         },
-        "on": {
-          "type": "array",
-          "title": "Web Operations",
-          "items": {
-            "type": "object",
-            "title": "Data",
-            "properties": {
-              "event": {
-                "type": "string",
-                "enum": [
-                  "data",
-                  "change"
-                ]
-              },
-              "itemId": {
-                "type": "string"
-              },
-              "path": {
-                "type": "string"
-              },
-              "method": {
-                "type": "string"
-              },
-              "type": {
-                "type": "string",
-                "enum": [
-                  "array",
-                  "object"
-                ]
-              }
+        "data": {
+          "type": "object",
+          "title": "Data",
+          "properties": {
+            "type": {
+              "enum": [
+                "latest-value",
+                "time-series"
+              ]
             },
-            "required": [
-              "itemId",
-              "path",
-              "method"
-            ],
-            "additionalProperties": true,
-            "x-display": "custom-vjs-web-operation",
-            "examples": [],
-            "valueExamples": [
-              {
-                "text": "Basic",
-                "value": [
-                  32,
-                  17
-                ]
-              }
-            ]
-          },
-          "x-display": "custom-vjs-web-operations"
+            "variables": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "x-display": "custom-vjs-variable"
+              },
+              "x-display": "custom-vjs-variables"
+            },
+            "schema": {
+              "x-types": [
+                "array",
+                "object"
+              ],
+              "x-examples": [
+                {
+                  "text": "Basic",
+                  "value": [
+                    32,
+                    17
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "actions": {
+          "type": "array",
+          "title": "Actions",
+          "items": {
+            "source": {
+              "type": "string",
+              "enum": [
+                "window"
+              ]
+            },
+            "event": {
+              "type": "string",
+              "enum": [
+                "data"
+              ]
+            },
+            "action": {
+              "type": "object",
+              "properties": {},
+              "x-display": "custom-vjs-action"
+            },
+            "x-display": "custom-vjs-actions"
+          }
         },
         "display": {
           "type": "object",

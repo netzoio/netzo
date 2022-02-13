@@ -50,6 +50,7 @@
       "h": 18,
       "name": "",
       "description": "",
+      "actions": {},
       "display": {
         "transparent": false,
         "hideToolbar": false,
@@ -89,6 +90,30 @@
           "type": "string",
           "title": "Description",
           "x-display": "textarea"
+        },
+        "actions": {
+          "type": "array",
+          "title": "Actions",
+          "items": {
+            "source": {
+              "type": "string",
+              "enum": [
+                "window"
+              ]
+            },
+            "event": {
+              "type": "string",
+              "enum": [
+                "data"
+              ]
+            },
+            "action": {
+              "type": "object",
+              "properties": {},
+              "x-display": "custom-vjs-action"
+            },
+            "x-display": "custom-vjs-actions"
+          }
         },
         "display": {
           "type": "object",
