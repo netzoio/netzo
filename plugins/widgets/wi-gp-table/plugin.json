@@ -133,7 +133,7 @@
               "method"
             ],
             "additionalProperties": true,
-            "x-display": "custom-vjs-select-web-operation",
+            "x-display": "custom-vjs-web-operation",
             "examples": [],
             "valueExamples": [
               {
@@ -145,7 +145,7 @@
               }
             ]
           },
-          "x-display": "custom-vjs-select-web-operations"
+          "x-display": "custom-vjs-web-operations"
         },
         "display": {
           "type": "object",

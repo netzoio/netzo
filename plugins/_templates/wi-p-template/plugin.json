@@ -128,10 +128,10 @@
               "method"
             ],
             "additionalProperties": true,
-            "x-display": "custom-vjs-select-web-operation",
+            "x-display": "custom-vjs-web-operation",
             "examples": []
           },
-          "x-display": "custom-vjs-select-web-operations"
+          "x-display": "custom-vjs-web-operations"
         },
         "display": {
           "type": "object",
