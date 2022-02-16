@@ -6,7 +6,7 @@
   <h1 style="padding: 6px 0px 24px 0px">wi-u-webcontent</h1>
 </div>
 
-An open source widget plugin for the Netzo WoT platform.
+An open source widget plugin for the Netzo Web Platform.
 
 ```showcase
   <u-webcontent></u-webcontent>

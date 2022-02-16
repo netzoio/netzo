@@ -6,7 +6,7 @@
   <h1 style="padding: 6px 0px 24px 0px">app-f-table</h1>
 </div>
 
-An open source app plugin for the Netzo WoT platform.
+An open source app plugin for the Netzo Web Platform.
 
 ### Links
 

@@ -1,15 +1,15 @@
 <div align="center">
   <a href="https://netzo.io" target="_blank" >
-    <img height="50" src="https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/wi-g-sparkline/src/assets/icon.png" style="margin: 12px 0px" />
+    <img height="50" src="https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/wi-u-list/src/assets/icon.png" style="margin: 12px 0px" />
   </a>
 
-  <h1 style="padding: 6px 0px 24px 0px">wi-g-sparkline</h1>
+  <h1 style="padding: 6px 0px 24px 0px">wi-u-list</h1>
 </div>
 
 An open source widget plugin for the Netzo Web Platform.
 
 ```showcase
-  <g-sparkline></g-sparkline>
+  <u-list></u-list>
 ```
 
 ### Links

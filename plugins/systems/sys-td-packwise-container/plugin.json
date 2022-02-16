@@ -1,0 +1,41 @@
+{
+  "uid": "sys-td-packwise-container",
+  "type": "system",
+  "version": "1.0.0",
+  "status": "beta",
+  "category": "core",
+  "name": "Packwise Container",
+  "description": "A Packwise container is a container fitted with a Packwise Smart Cap",
+  "keywords": [
+    "packwise-container"
+  ],
+  "authors": [
+    "arturo.romero@netzo.io"
+  ],
+  "license": "MIT",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/systems/sys-td-packwise-container/src/td.json",
+  "display": {
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/systems/sys-td-packwise-container/src/assets/icon.png",
+    "color": "",
+    "screenshots": []
+  },
+  "links": [
+    {
+      "rel": "author",
+      "href": "https://netzo.io",
+      "title": "Netzo"
+    },
+    {
+      "rel": "repository",
+      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/systems/sys-td-packwise-container"
+    },
+    {
+      "rel": "readme",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/systems/sys-td-packwise-container/README.md"
+    },
+    {
+      "rel": "license",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/LICENSE"
+    }
+  ]
+}

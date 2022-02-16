@@ -1,0 +1,41 @@
+{
+  "uid": "sys-openapi-netzo-api",
+  "type": "api",
+  "version": "1.0.0",
+  "status": "beta",
+  "category": "core",
+  "name": "Netzo API",
+  "description": "API of the Netzo Web Platform",
+  "keywords": [
+    "netzo-api"
+  ],
+  "authors": [
+    "miguel.romero@netzo.io"
+  ],
+  "license": "MIT",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/systems/sys-openapi-netzo-api/src/openapi.json",
+  "display": {
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/systems/sys-openapi-netzo-api/src/assets/icon.png",
+    "color": "",
+    "screenshots": []
+  },
+  "links": [
+    {
+      "rel": "author",
+      "href": "https://netzo.io",
+      "title": "Netzo"
+    },
+    {
+      "rel": "repository",
+      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/systems/sys-openapi-netzo-api"
+    },
+    {
+      "rel": "readme",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/systems/sys-openapi-netzo-api/README.md"
+    },
+    {
+      "rel": "license",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/LICENSE"
+    }
+  ]
+}

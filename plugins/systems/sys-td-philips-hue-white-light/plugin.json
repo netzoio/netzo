@@ -1,0 +1,41 @@
+{
+  "uid": "sys-td-philips-hue-white-light",
+  "type": "system",
+  "version": "1.0.0",
+  "status": "beta",
+  "category": "core",
+  "name": "Philips HUE White Light",
+  "description": "A Philips HUE White Light Bulb",
+  "keywords": [
+    "philips-hue-white-light"
+  ],
+  "authors": [
+    "miguel.romero@netzo.io"
+  ],
+  "license": "MIT",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/systems/sys-td-philips-hue-white-light/src/td.json",
+  "display": {
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/systems/sys-td-philips-hue-white-light/src/assets/icon.png",
+    "color": "",
+    "screenshots": []
+  },
+  "links": [
+    {
+      "rel": "author",
+      "href": "https://netzo.io",
+      "title": "Netzo"
+    },
+    {
+      "rel": "repository",
+      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/systems/sys-td-philips-hue-white-light"
+    },
+    {
+      "rel": "readme",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/systems/sys-td-philips-hue-white-light/README.md"
+    },
+    {
+      "rel": "license",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/LICENSE"
+    }
+  ]
+}

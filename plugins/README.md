@@ -36,7 +36,7 @@ To submit a plugin for review:
 4. Add the URL of the `plugin.json` file to `plugins.json`
 5. Create a pull request
 
-> Feel free to contribute plugin requests. We continuously select popular plugin requests (based on upvotes and other factors) to implement them and make them available in the marketplace as core plugins. The source code for `thing-models` and `app` plugins is available directly at the plugin's directory, feel free to contribute the plugin implementation as well. After a quick review they would also appear in the marketplace as community plugins.
+> Feel free to contribute plugin requests. We continuously select popular plugin requests (based on upvotes and other factors) to implement them and make them available in the marketplace as core plugins. The source code for relevant plugins (those with a `main` field in its `plugin.json` file) can be stored directly at the plugin's directory, feel free to contribute the plugin implementation as well. After a quick review they would also appear in the marketplace as community plugins.
 
 ## plugin.json
 
@@ -44,8 +44,8 @@ To be valid, a `plugin.json` file must validate against the [plugin.schema.json]
 
 | Property      | Type                | Requried | Description                                                                                                      |
 | ------------- | ------------------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
-| `uid`         | String              | true     | A unique ID (camel-case) prefixed by the initials of its the plugin type (`app-`, `tm-` or `wi`)                  |
-| `type`        | String              | true     | Plugin type, one of `app`, `thing-model`, or `widget`                                          |
+| `uid`         | String              | true     | A unique ID (camel-case) prefixed by the initials of its the plugin type (`app-`, `sys-` or `wi`)                  |
+| `type`        | String              | true     | Plugin type, one of `app`, `system`, or `widget`                                          |
 | `version`     | String              | true     | Plugin version in [semantic version](https://semver.org/) format                                                 |
 | `status`      | String              | true     | Marks the current development status of the plugin. One of `alpha`, `beta`, `stable`, `requested`, `deprecated`  |
 | `category`    | String              | true     | Marks the category of the plugin. One of `core`, `community`, `enterprise`                                       |

@@ -6,7 +6,7 @@
   <h1 style="padding: 6px 0px 24px 0px">wi-pd-button-form</h1>
 </div>
 
-An open source widget plugin for the Netzo WoT platform.
+An open source widget plugin for the Netzo Web Platform.
 
 ```showcase
   <pd-button-form></pd-button-form>
