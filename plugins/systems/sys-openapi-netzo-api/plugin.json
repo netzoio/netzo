@@ -1,6 +1,6 @@
 {
   "uid": "sys-openapi-netzo-api",
-  "type": "api",
+  "type": "system",
   "version": "1.0.0",
   "status": "beta",
   "category": "core",
