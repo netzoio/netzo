@@ -133,12 +133,12 @@
                   },
                   "action": {
                     "type": "object",
-                    "properties": {},
-                    "x-display": "custom-vjs-action"
-                  },
-                  "x-display": "custom-vjs-actions"
-                }
-              }
+                    "properties": {}
+                  }
+                },
+                "x-display": "custom-vjs-action"
+              },
+              "x-display": "custom-vjs-actions"
             }
           }
         },
