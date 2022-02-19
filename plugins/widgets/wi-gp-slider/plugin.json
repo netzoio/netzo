@@ -50,7 +50,7 @@
       "h": 5,
       "name": "",
       "description": "",
-      "data": {},
+      "variables": {},
       "actions": {},
       "display": {
         "transparent": false,
@@ -94,7 +94,7 @@
           "title": "Description",
           "x-display": "textarea"
         },
-        "data": {
+        "variables": {
           "type": "object",
           "title": "Data",
           "properties": {
@@ -108,22 +108,21 @@
               "x-display": "custom-vjs-variables"
             }
           },
-          "x-schema": {
-            "x-types": [
-              "integer",
-              "number"
-            ],
-            "x-examples": [
-              {
-                "text": "Integer",
-                "value": 73
-              },
-              {
-                "text": "Number",
-                "value": 28.7
-              }
-            ]
-          }
+          "x-schema": {},
+          "x-types": [
+            "integer",
+            "number"
+          ],
+          "x-examples": [
+            {
+              "text": "Integer",
+              "value": 73
+            },
+            {
+              "text": "Number",
+              "value": 28.7
+            }
+          ]
         },
         "actions": {
           "type": "object",

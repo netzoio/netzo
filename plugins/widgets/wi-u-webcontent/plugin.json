@@ -108,62 +108,61 @@
               "title": "IFrame Title"
             },
             "schema": {}
-          }
-        },
-        "actions": {
-          "type": "object",
-          "title": "Actions",
-          "properties": {
-            "actions": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {},
-                "x-display": "custom-vjs-action"
-              },
-              "x-display": "custom-vjs-actions"
+          },
+          "actions": {
+            "type": "object",
+            "title": "Actions",
+            "properties": {
+              "actions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {},
+                  "x-display": "custom-vjs-action"
+                },
+                "x-display": "custom-vjs-actions"
+              }
             }
-          }
-        },
-        "display": {
-          "type": "object",
-          "title": "Display",
-          "properties": {
-            "transparent": {
-              "type": "boolean",
-              "title": "Transparent"
-            },
-            "hideToolbar": {
-              "type": "boolean",
-              "title": "Hide Toolbar"
-            },
-            "color": {
-              "type": "string",
-              "title": "Color",
-              "format": "hexcolor"
-            },
-            "textColor": {
-              "type": "string",
-              "title": "Text color",
-              "format": "hexcolor"
-            },
-            "bgImageUrl": {
-              "type": "string",
-              "title": "Background Image",
-              "description": "The URL of an image to use as background image.",
-              "contentMediaType": "image/*",
-              "x-props": {
-                "clearable": true
+          },
+          "display": {
+            "type": "object",
+            "title": "Display",
+            "properties": {
+              "transparent": {
+                "type": "boolean",
+                "title": "Transparent"
               },
-              "x-options": {
-                "filesAsDataUrl": true
+              "hideToolbar": {
+                "type": "boolean",
+                "title": "Hide Toolbar"
               },
-              "writeOnly": true
+              "color": {
+                "type": "string",
+                "title": "Color",
+                "format": "hexcolor"
+              },
+              "textColor": {
+                "type": "string",
+                "title": "Text color",
+                "format": "hexcolor"
+              },
+              "bgImageUrl": {
+                "type": "string",
+                "title": "Background Image",
+                "description": "The URL of an image to use as background image.",
+                "contentMediaType": "image/*",
+                "x-props": {
+                  "clearable": true
+                },
+                "x-options": {
+                  "filesAsDataUrl": true
+                },
+                "writeOnly": true
+              }
             }
           }
         }
-      }
-    },
-    "options": {}
+      },
+      "options": {}
+    }
   }
-}

@@ -50,7 +50,7 @@
       "h": 5,
       "name": "",
       "description": "",
-      "data": {},
+      "variables": {},
       "actions": {},
       "display": {
         "transparent": false,
@@ -93,7 +93,7 @@
           "title": "Description",
           "x-display": "textarea"
         },
-        "data": {
+        "variables": {
           "type": "object",
           "title": "Data",
           "properties": {
@@ -107,12 +107,11 @@
               "x-display": "custom-vjs-variables"
             }
           },
-          "x-schema": {
-            "x-types": [
-              "boolean"
-            ],
-            "x-examples": true
-          }
+          "x-schema": {},
+          "x-types": [
+            "boolean"
+          ],
+          "x-examples": true
         },
         "actions": {
           "type": "object",

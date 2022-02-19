@@ -50,7 +50,7 @@
       "h": 12,
       "name": "",
       "description": "",
-      "data": {},
+      "variables": {},
       "actions": {},
       "display": {
         "transparent": false,
@@ -94,7 +94,7 @@
           "title": "Description",
           "x-display": "textarea"
         },
-        "data": {
+        "variables": {
           "type": "object",
           "title": "Data",
           "properties": {
@@ -228,20 +228,35 @@
                 }
               ]
             },
-            "x-types": [
-              "array"
-            ],
-            "x-examples": [
-              {
-                "text": "1D",
-                "value": [
+          },
+          "x-types": [
+            "array"
+          ],
+          "x-examples": [
+            {
+              "text": "1D",
+              "value": [
+                true,
+                false
+              ]
+            },
+            {
+              "text": "2D",
+              "value": [
+                [
                   true,
                   false
+                ],
+                [
+                  false,
+                  false
                 ]
-              },
-              {
-                "text": "2D",
-                "value": [
+              ]
+            },
+            {
+              "text": "3D",
+              "value": [
+                [
                   [
                     true,
                     false
@@ -250,55 +265,40 @@
                     false,
                     false
                   ]
-                ]
-              },
-              {
-                "text": "3D",
-                "value": [
+                ],
+                [
                   [
-                    [
-                      true,
-                      false
-                    ],
-                    [
-                      false,
-                      false
-                    ]
+                    false,
+                    true
                   ],
                   [
-                    [
-                      false,
-                      true
-                    ],
-                    [
-                      true,
-                      false
-                    ]
+                    true,
+                    false
+                  ]
+                ],
+                [
+                  [
+                    true,
+                    false
                   ],
                   [
-                    [
-                      true,
-                      false
-                    ],
-                    [
-                      true,
-                      true
-                    ]
+                    true,
+                    true
+                  ]
+                ],
+                [
+                  [
+                    false,
+                    false
                   ],
                   [
-                    [
-                      false,
-                      false
-                    ],
-                    [
-                      true,
-                      false
-                    ]
+                    true,
+                    false
                   ]
                 ]
-              }
-            ]
-          }
+              ]
+            }
+          ]
         },
         "actions": {
           "type": "object",
