@@ -1,0 +1,202 @@
+{
+  "uid": "wi-eventlog",
+  "type": "widget",
+  "version": "1.0.0",
+  "status": "alpha",
+  "category": "core",
+  "name": "Eventlog",
+  "description": "Eventlog widget for Netzo",
+  "keywords": [
+    "eventlog"
+  ],
+  "authors": [
+    "miguel.romero@netzo.io"
+  ],
+  "license": "MIT",
+  "main": "widgets/components/eventlog/index.js",
+  "display": {
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/wi-eventlog/src/assets/icon.png",
+    "color": "",
+    "screenshots": [
+      {
+        "label": "Screenshot of the widget",
+        "src": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/wi-eventlog/src/assets/images/screenshot.png"
+      }
+    ]
+  },
+  "links": [
+    {
+      "rel": "author",
+      "href": "https://netzo.io",
+      "title": "Netzo"
+    },
+    {
+      "rel": "repository",
+      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/widgets/wi-eventlog"
+    },
+    {
+      "rel": "readme",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/wi-eventlog/README.md"
+    },
+    {
+      "rel": "license",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/LICENSE"
+    }
+  ],
+  "form": {
+    "model": {
+      "uid": "wi-eventlog",
+      "w": 8,
+      "h": 12,
+      "name": "",
+      "description": "",
+      "variables": {},
+      "actions": {},
+      "display": {
+        "transparent": false,
+        "hideToolbar": false,
+        "color": "#0080FF",
+        "textColor": "",
+        "bgImageUrl": ""
+      }
+    },
+    "schema": {
+      "type": "object",
+      "x-display": "expansion-panels",
+      "x-props": {
+        "value": [
+          0,
+          1
+        ]
+      },
+      "properties": {
+        "_type": {
+          "const": "widget"
+        },
+        "uid": {
+          "const": "wi-eventlog"
+        },
+        "w": {
+          "const": 8
+        },
+        "h": {
+          "const": 12
+        },
+        "name": {
+          "type": "string",
+          "title": "Display name",
+          "required": true
+        },
+        "description": {
+          "type": "string",
+          "title": "Description",
+          "x-display": "textarea"
+        },
+        "variables": {
+          "type": "object",
+          "title": "Data",
+          "properties": {
+            "variables": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "x-display": "custom-vjs-variable"
+              },
+              "x-display": "custom-vjs-variables"
+            }
+          },
+          "x-schema": {},
+          "x-types": [
+            "array"
+          ],
+          "x-examples": [
+            {
+              "text": "Basic",
+              "value": null
+            },
+            {
+              "text": "With Data",
+              "value": null
+            }
+          ]
+        },
+        "actions": {
+          "type": "object",
+          "title": "Actions",
+          "properties": {
+            "actions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "x-display": "custom-vjs-action"
+              },
+              "x-display": "custom-vjs-actions"
+            }
+          }
+        },
+        "display": {
+          "type": "object",
+          "title": "Display",
+          "properties": {
+            "transparent": {
+              "type": "boolean",
+              "title": "Transparent"
+            },
+            "hideToolbar": {
+              "type": "boolean",
+              "title": "Hide Toolbar"
+            },
+            "color": {
+              "type": "string",
+              "title": "Color",
+              "format": "hexcolor"
+            },
+            "textColor": {
+              "type": "string",
+              "title": "Text color",
+              "format": "hexcolor"
+            },
+            "bgImageUrl": {
+              "type": "string",
+              "title": "Background Image",
+              "description": "The URL of an image to use as background image.",
+              "contentMediaType": "image/*",
+              "x-props": {
+                "clearable": true
+              },
+              "x-options": {
+                "filesAsDataUrl": true
+              },
+              "writeOnly": true
+            },
+            "autoColumns": {
+              "type": "boolean",
+              "title": "Auto-columns",
+              "x-props": {
+                "textOn": "On",
+                "textOff": "Off"
+              },
+              "default": true
+            },
+            "dense": {
+              "type": "boolean",
+              "title": "Dense",
+              "x-props": {
+                "textOn": "On",
+                "textOff": "Off"
+              },
+              "default": true
+            },
+            "cols": {
+              "type": "string",
+              "title": "Columns"
+            }
+          }
+        }
+      }
+    },
+    "options": {}
+  }
+}
