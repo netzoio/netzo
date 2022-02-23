@@ -125,8 +125,7 @@
               "type": "string",
               "title": "Link URL",
               "description": "The URL to redirect to on image click."
-            },
-            "schema": {}
+            }
           }
         },
         "actions": {

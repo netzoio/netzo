@@ -98,17 +98,44 @@
         "options": {
           "type": "object",
           "title": "Options",
-          "properties": {
-            "src": {
-              "type": "string",
-              "title": "Iframe URL"
-            },
-            "title": {
-              "type": "string",
-              "title": "IFrame Title"
-            },
-            "schema": {}
-          }
+          "allOf": [
+            {
+              "properties": {
+                "isSrcdoc": {
+                  "type": "boolean",
+                  "x-display": "switch",
+                  "title": "Use custom HTML code"
+                }
+              },
+              "if": {
+                "required": [
+                  "isSrcdoc"
+                ],
+                "properties": {
+                  "isSrcdoc": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "srcdoc": {
+                    "type": "string",
+                    "title": "Custom HTML code",
+                    "x-display": "textarea"
+                  }
+                }
+              },
+              "else": {
+                "properties": {
+                  "src": {
+                    "type": "string",
+                    "title": "Iframe URL"
+                  }
+                }
+              }
+            }
+          ]
         },
         "actions": {
           "type": "object",
