@@ -60,8 +60,8 @@
         "bgImageUrl": ""
       },
       "grid": {
-        "autoFlow": "row",
-        "gap": 12
+        "autoFlow": "column",
+        "gap": 24
       }
     },
     "schema": {

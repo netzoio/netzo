@@ -63,7 +63,7 @@
       },
       "grid": {
         "autoFlow": "row",
-        "gap": 12
+        "gap": 24
       }
     },
     "schema": {
