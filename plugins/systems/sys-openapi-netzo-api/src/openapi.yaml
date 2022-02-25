@@ -2570,7 +2570,7 @@ paths:
           application/json:
             schema:
               "$ref": "#/components/schemas/items"
-  "/web-operations":
+  "/operations":
     get:
       parameters:
       - description: Number of results to return
@@ -2595,14 +2595,14 @@ paths:
         style: form
         explode: true
         schema:
-          "$ref": "#/components/schemas/web-operations"
+          "$ref": "#/components/schemas/operations"
       responses:
         '200':
           description: success
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/web-operations_list"
+                "$ref": "#/components/schemas/operations_list"
         '401':
           description: not authenticated
         '500':
@@ -2610,14 +2610,14 @@ paths:
       description: Retrieves a list of all resources from the service.
       summary: ''
       tags:
-      - web-operations
+      - operations
       security: []
-  "/web-operations/{id}":
+  "/operations/{id}":
     get:
       parameters:
       - in: path
         name: id
-        description: ID of web-operations to return
+        description: ID of operations to return
         schema:
           type: integer
         required: true
@@ -2627,7 +2627,7 @@ paths:
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/web-operations"
+                "$ref": "#/components/schemas/operations"
         '401':
           description: not authenticated
         '404':
@@ -2637,7 +2637,7 @@ paths:
       description: Retrieves a single resource with the given id from the service.
       summary: ''
       tags:
-      - web-operations
+      - operations
       security: []
   "/usages":
     get:
@@ -3149,7 +3149,7 @@ components:
     items:
       type: object
       additionalProperties: true
-    web-operations:
+    operations:
       type: object
       additionalProperties: true
     usages:
@@ -3212,7 +3212,7 @@ components:
     items_list:
       type: object
       additionalProperties: true
-    web-operations_list:
+    operations_list:
       type: object
       additionalProperties: true
     usages_list:
@@ -3261,8 +3261,8 @@ tags:
   description: A search service
 - name: items
   description: A items service
-- name: web-operations
-  description: A web-operations service
+- name: operations
+  description: A operations service
 - name: usages
   description: A usages service
 - name: populates
