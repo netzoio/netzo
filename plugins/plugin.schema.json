@@ -4,7 +4,7 @@
   "properties": {
     "uid": {
       "type": "string",
-      "pattern": "^(app-|service-|wi-).*"
+      "pattern": "^(app-|service-|widget-).*"
     },
     "type": {
       "type": "string",

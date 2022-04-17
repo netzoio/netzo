@@ -54,7 +54,7 @@ To be valid, a `plugin.json` file must validate against the [plugin.schema.json]
 | `keywords`    | String[]            | false    | An array of relevant keywords (camel-case)                                                                       |
 | `authors`     | String[]            | false    | An array of emails of plugin authors or owners (e.g. `first.last@sample.com`)                                    |
 | `license`     | String              | false    | A string indicating licensing information (e.g. `MIT`)                                                           |
-| `main`        | String              | false    | URL to the plugin's main entry point (e.g. `@netzoio/plugins/plugins/widgets/wi-button-toggle/src/index.js`)   |
+| `main`        | String              | false    | URL to the plugin's main entry point (e.g. `@netzoio/plugins/plugins/widgets/widget-button-toggle/src/index.js`)   |
 | `display`     | [Display](#display) | true     | A `Display` object specifying relevant details for rendering the plugin in the UI                                |
 | `links`       | [Link](#display)[]  | false    | An array of [link relations](https://www.w3.org/TR/image-resource/#sizes-member) to related web resources        |
 | `form`        | [Form](#form)       | false    | A `Form` object specifiying the `model`, `schema` and `options` to be used in the plugin settings form by the UI |
@@ -100,7 +100,7 @@ Here's a reduced example of a `plugin.json` file. You can also always have a loo
 
 ```json
 {
-  "uid": "wi-button-toggle",
+  "uid": "widget-button-toggle",
   "type": "widget",
   "version": "1.0.0",
   "status": "beta",
@@ -110,9 +110,9 @@ Here's a reduced example of a `plugin.json` file. You can also always have a loo
   "keywords": ["button-toggle"],
   "authors": ["miguel.romero@netzo.io"],
   "license": "MIT",
-  "main": "widgets/components/wi-button-toggle/index.js",
+  "main": "widgets/components/widget-button-toggle/index.js",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/wi-button-toggle/src/assets/icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/widget-button-toggle/src/assets/icon.png",
     "color": "",
     "screenshots": []
   },
