@@ -4,13 +4,13 @@
   "properties": {
     "uid": {
       "type": "string",
-      "pattern": "^(app-|service-|widget-).*"
+      "pattern": "^(service-|web-module-|widget-).*"
     },
     "type": {
       "type": "string",
       "enum": [
-        "app",
         "service",
+        "web-module",
         "widget"
       ]
     },

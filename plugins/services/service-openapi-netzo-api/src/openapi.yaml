@@ -1469,7 +1469,7 @@ paths:
       tags:
       - plugins
       security: []
-  "/apps":
+  "/web-modules":
     get:
       parameters:
       - description: Number of results to return
@@ -1494,14 +1494,14 @@ paths:
         style: form
         explode: true
         schema:
-          "$ref": "#/components/schemas/apps"
+          "$ref": "#/components/schemas/web-modules"
       responses:
         '200':
           description: success
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/apps_list"
+                "$ref": "#/components/schemas/web-modules_list"
         '401':
           description: not authenticated
         '500':
@@ -1509,7 +1509,7 @@ paths:
       description: Retrieves a list of all resources from the service.
       summary: ''
       tags:
-      - apps
+      - web-modules
       security: []
     post:
       parameters: []
@@ -1519,7 +1519,7 @@ paths:
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/apps"
+                "$ref": "#/components/schemas/web-modules"
         '401':
           description: not authenticated
         '500':
@@ -1527,20 +1527,20 @@ paths:
       description: Creates a new resource with data.
       summary: ''
       tags:
-      - apps
+      - web-modules
       security: []
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              "$ref": "#/components/schemas/apps"
-  "/apps/{_id}":
+              "$ref": "#/components/schemas/web-modules"
+  "/web-modules/{_id}":
     get:
       parameters:
       - in: path
         name: _id
-        description: ID of apps to return
+        description: ID of web-modules to return
         schema:
           type: integer
         required: true
@@ -1550,7 +1550,7 @@ paths:
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/apps"
+                "$ref": "#/components/schemas/web-modules"
         '401':
           description: not authenticated
         '404':
@@ -1560,13 +1560,13 @@ paths:
       description: Retrieves a single resource with the given id from the service.
       summary: ''
       tags:
-      - apps
+      - web-modules
       security: []
     put:
       parameters:
       - in: path
         name: _id
-        description: ID of apps to update
+        description: ID of web-modules to update
         schema:
           type: integer
         required: true
@@ -1576,7 +1576,7 @@ paths:
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/apps"
+                "$ref": "#/components/schemas/web-modules"
         '401':
           description: not authenticated
         '404':
@@ -1586,19 +1586,19 @@ paths:
       description: Updates the resource identified by id using data.
       summary: ''
       tags:
-      - apps
+      - web-modules
       security: []
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              "$ref": "#/components/schemas/apps"
+              "$ref": "#/components/schemas/web-modules"
     patch:
       parameters:
       - in: path
         name: _id
-        description: ID of apps to update
+        description: ID of web-modules to update
         schema:
           type: integer
         required: true
@@ -1608,7 +1608,7 @@ paths:
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/apps"
+                "$ref": "#/components/schemas/web-modules"
         '401':
           description: not authenticated
         '404':
@@ -1618,19 +1618,19 @@ paths:
       description: Updates the resource identified by id using data.
       summary: ''
       tags:
-      - apps
+      - web-modules
       security: []
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              "$ref": "#/components/schemas/apps"
+              "$ref": "#/components/schemas/web-modules"
     delete:
       parameters:
       - in: path
         name: _id
-        description: ID of apps to remove
+        description: ID of web-modules to remove
         schema:
           type: integer
         required: true
@@ -1640,7 +1640,7 @@ paths:
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/apps"
+                "$ref": "#/components/schemas/web-modules"
         '401':
           description: not authenticated
         '404':
@@ -1650,7 +1650,7 @@ paths:
       description: Removes the resource with id.
       summary: ''
       tags:
-      - apps
+      - web-modules
       security: []
   "/widgets":
     get:
@@ -3125,7 +3125,7 @@ components:
     plugins:
       type: object
       additionalProperties: true
-    apps:
+    web-modules:
       type: object
       additionalProperties: true
     widgets:
@@ -3188,7 +3188,7 @@ components:
     plugins_list:
       type: object
       additionalProperties: true
-    apps_list:
+    web-modules_list:
       type: object
       additionalProperties: true
     widgets_list:
@@ -3245,8 +3245,8 @@ tags:
   description: A groups service
 - name: plugins
   description: A plugins service
-- name: apps
-  description: A apps service
+- name: web-modules
+  description: A web-modules service
 - name: widgets
   description: A widgets service
 - name: snippets

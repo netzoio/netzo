@@ -1,5 +1,5 @@
 {
-  "uid": "app-table",
+  "uid": "web-module-table",
   "type": "app",
   "version": "1.0.0",
   "status": "beta",
@@ -13,9 +13,9 @@
     "miguel.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/apps/app-table/src/index.html",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/web-modules/web-module-table/src/index.html",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/apps/app-table/src/assets/icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/web-modules/web-module-table/src/assets/icon.png",
     "color": "",
     "screenshots": []
   },
@@ -27,11 +27,11 @@
     },
     {
       "rel": "repository",
-      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/apps/app-table"
+      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/web-modules/web-module-table"
     },
     {
       "rel": "readme",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/apps/app-table/README.md"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/web-modules/web-module-table/README.md"
     },
     {
       "rel": "license",

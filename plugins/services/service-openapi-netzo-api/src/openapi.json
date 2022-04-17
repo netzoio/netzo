@@ -2277,7 +2277,7 @@
         "security": []
       }
     },
-    "/apps": {
+    "/web-modules": {
       "get": {
         "parameters": [
           {
@@ -2312,7 +2312,7 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "$ref": "#/components/schemas/apps"
+              "$ref": "#/components/schemas/web-modules"
             }
           }
         ],
@@ -2322,7 +2322,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/apps_list"
+                  "$ref": "#/components/schemas/web-modules_list"
                 }
               }
             }
@@ -2337,7 +2337,7 @@
         "description": "Retrieves a list of all resources from the service.",
         "summary": "",
         "tags": [
-          "apps"
+          "web-modules"
         ],
         "security": []
       },
@@ -2349,7 +2349,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/apps"
+                  "$ref": "#/components/schemas/web-modules"
                 }
               }
             }
@@ -2364,7 +2364,7 @@
         "description": "Creates a new resource with data.",
         "summary": "",
         "tags": [
-          "apps"
+          "web-modules"
         ],
         "security": [],
         "requestBody": {
@@ -2372,20 +2372,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/apps"
+                "$ref": "#/components/schemas/web-modules"
               }
             }
           }
         }
       }
     },
-    "/apps/{_id}": {
+    "/web-modules/{_id}": {
       "get": {
         "parameters": [
           {
             "in": "path",
             "name": "_id",
-            "description": "ID of apps to return",
+            "description": "ID of web-modules to return",
             "schema": {
               "type": "integer"
             },
@@ -2398,7 +2398,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/apps"
+                  "$ref": "#/components/schemas/web-modules"
                 }
               }
             }
@@ -2416,7 +2416,7 @@
         "description": "Retrieves a single resource with the given id from the service.",
         "summary": "",
         "tags": [
-          "apps"
+          "web-modules"
         ],
         "security": []
       },
@@ -2425,7 +2425,7 @@
           {
             "in": "path",
             "name": "_id",
-            "description": "ID of apps to update",
+            "description": "ID of web-modules to update",
             "schema": {
               "type": "integer"
             },
@@ -2438,7 +2438,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/apps"
+                  "$ref": "#/components/schemas/web-modules"
                 }
               }
             }
@@ -2456,7 +2456,7 @@
         "description": "Updates the resource identified by id using data.",
         "summary": "",
         "tags": [
-          "apps"
+          "web-modules"
         ],
         "security": [],
         "requestBody": {
@@ -2464,7 +2464,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/apps"
+                "$ref": "#/components/schemas/web-modules"
               }
             }
           }
@@ -2475,7 +2475,7 @@
           {
             "in": "path",
             "name": "_id",
-            "description": "ID of apps to update",
+            "description": "ID of web-modules to update",
             "schema": {
               "type": "integer"
             },
@@ -2488,7 +2488,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/apps"
+                  "$ref": "#/components/schemas/web-modules"
                 }
               }
             }
@@ -2506,7 +2506,7 @@
         "description": "Updates the resource identified by id using data.",
         "summary": "",
         "tags": [
-          "apps"
+          "web-modules"
         ],
         "security": [],
         "requestBody": {
@@ -2514,7 +2514,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/apps"
+                "$ref": "#/components/schemas/web-modules"
               }
             }
           }
@@ -2525,7 +2525,7 @@
           {
             "in": "path",
             "name": "_id",
-            "description": "ID of apps to remove",
+            "description": "ID of web-modules to remove",
             "schema": {
               "type": "integer"
             },
@@ -2538,7 +2538,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/apps"
+                  "$ref": "#/components/schemas/web-modules"
                 }
               }
             }
@@ -2556,7 +2556,7 @@
         "description": "Removes the resource with id.",
         "summary": "",
         "tags": [
-          "apps"
+          "web-modules"
         ],
         "security": []
       }
@@ -4842,7 +4842,7 @@
         "type": "object",
         "additionalProperties": true
       },
-      "apps": {
+      "web-modules": {
         "type": "object",
         "additionalProperties": true
       },
@@ -4926,7 +4926,7 @@
         "type": "object",
         "additionalProperties": true
       },
-      "apps_list": {
+      "web-modules_list": {
         "type": "object",
         "additionalProperties": true
       },
@@ -5015,8 +5015,8 @@
       "description": "A plugins service"
     },
     {
-      "name": "apps",
-      "description": "A apps service"
+      "name": "web-modules",
+      "description": "A web-modules service"
     },
     {
       "name": "widgets",

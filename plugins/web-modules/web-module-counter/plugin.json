@@ -1,5 +1,5 @@
 {
-  "uid": "app-counter",
+  "uid": "web-module-counter",
   "type": "app",
   "version": "1.0.0",
   "status": "beta",
@@ -13,9 +13,9 @@
     "miguel.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/apps/app-counter/src/index.html",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/web-modules/web-module-counter/src/index.html",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/apps/app-counter/src/assets/icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/web-modules/web-module-counter/src/assets/icon.png",
     "color": "",
     "screenshots": []
   },
@@ -27,11 +27,11 @@
     },
     {
       "rel": "repository",
-      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/apps/app-counter"
+      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/web-modules/web-module-counter"
     },
     {
       "rel": "readme",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/apps/app-counter/README.md"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/web-modules/web-module-counter/README.md"
     },
     {
       "rel": "license",
