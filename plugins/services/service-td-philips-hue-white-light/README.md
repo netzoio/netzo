@@ -1,9 +1,9 @@
 <div align="center">
   <a href="https://netzo.io" target="_blank" >
-    <img height="50" src="https://raw.githubusercontent.com/netzoio/netzo/main/plugins/systems/sys-td-philips-hue-white-light/src/assets/icon.png" style="margin: 12px 0px" />
+    <img height="50" src="https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-td-philips-hue-white-light/src/assets/icon.png" style="margin: 12px 0px" />
   </a>
 
-  <h1 style="padding: 6px 0px 24px 0px">sys-td-philips-hue-white-light</h1>
+  <h1 style="padding: 6px 0px 24px 0px">service-td-philips-hue-white-light</h1>
 </div>
 
 An open source Thing Model plugin for the Netzo Web Platform.
@@ -59,7 +59,7 @@ Before you can control your Philips Hue devices with Netzo you will need to crea
 2. Navigate to your profile at the top left corner of the logged in user area and select **Remote Hue API appids**
 
 <p align="center">
-<img width="600" src="https://raw.githubusercontent.com/netzoio/netzo/main/plugins/systems/sys-td-philips-hue-white-light/src/assets/create-developer-hue-account.png" style="margin: 12px 0px" />
+<img width="600" src="https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-td-philips-hue-white-light/src/assets/create-developer-hue-account.png" style="margin: 12px 0px" />
 </p>
 
 3. Create a new HUE Remote API app with the following configuration, since we will be using the Postman Desktop Client (see next step), we will setup our callback URL accordingly.
@@ -67,7 +67,7 @@ Before you can control your Philips Hue devices with Netzo you will need to crea
 - If you're using the desktop app use - https://oauth.pstmn.io/v1/callback
 - If you're using the web app use - https://oauth.pstmn.io/v1/browser-callback
 <p align="center">
-<img width="600" src="https://raw.githubusercontent.com/netzoio/netzo/main/plugins/systems/sys-td-philips-hue-white-light/src/assets/create-new-hue-remote-api-app.png" style="margin: 12px 0px" />
+<img width="600" src="https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-td-philips-hue-white-light/src/assets/create-new-hue-remote-api-app.png" style="margin: 12px 0px" />
  </p>
 
 Once you have created your Philips HUE API App you can review its credentials for the next steps. Here you will retrieve:
@@ -77,21 +77,21 @@ Once you have created your Philips HUE API App you can review its credentials fo
 - **ClientSecret** = {{ ClientSecret }}
 
 <p align="center">
-<img width="600" src="https://raw.githubusercontent.com/netzoio/netzo/main/plugins/systems/sys-td-philips-hue-white-light/src/assets/create-new-hue-remote-api-app.png" style="margin: 12px 0px" />
+<img width="600" src="https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-td-philips-hue-white-light/src/assets/create-new-hue-remote-api-app.png" style="margin: 12px 0px" />
 </p>
 
 4. For the following steps you will need to download [Postman](https://www.postman.com/). Setup is easy, even for beginners. You may use any other API request tool to fetch your tokens. For this we recommend checking out the [Official Philips HUE API Docs](https://developers.meethue.com/develop/hue-api/remote-authentication-oauth/) or the more advanced guides in the acknowledgements section.
-5. Download the [Philips HUE Postman Collection](plugins/systems/sys-td-philips-hue-white-light/philips-hue-postmann-collection.json) and import it into your Postman client.
+5. Download the [Philips HUE Postman Collection](plugins/services/service-td-philips-hue-white-light/philips-hue-postmann-collection.json) and import it into your Postman client.
 6. Navigate into the collection settings by hovering over the collection and clicking on the 3 dots. Go to Edit > Variables and fill out the initial values with the id's you have. In this step you should already be able to complete the value displayed in the image below.
 
 <p align="center">
-<img width="600" src="https://raw.githubusercontent.com/netzoio/netzo/main/plugins/systems/sys-td-philips-hue-white-light/src/assets/postman-add-variables.png" style="margin: 12px 0px" />
+<img width="600" src="https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-td-philips-hue-white-light/src/assets/postman-add-variables.png" style="margin: 12px 0px" />
 </p>
 
 7. Go ahead and send a "GET Get Authorization Request" request (1) . If you have configured everything correctly you should recieve a response like the one below (2). However, Postman cannot read HTML. Try this workaround, find the "Code" button (3) and copy the request URL (eg. from the cURL). This should already contain the variables you set up before. Paste this in your browser and navigate to the link.
 
 <p align="center">
-<img width="1000" src="https://raw.githubusercontent.com/netzoio/netzo/main/plugins/systems/sys-td-philips-hue-white-light/src/assets/get-authorization-request-error.png" style="margin: 12px 0px" />
+<img width="1000" src="https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-td-philips-hue-white-light/src/assets/get-authorization-request-error.png" style="margin: 12px 0px" />
 </p>
 
 8. You wil now be asked to "Grant Permision to the previously configured API app to control your devices. Select "Yes" amd wait for the page to reload. You should recieve a verification like the one below. IMPORTANT: Now take a lok at the address bar in your browser and look for the **AuthorizationCode**. Copy the code and add it to your your Postman variables.
@@ -99,7 +99,7 @@ Once you have created your Philips HUE API App you can review its credentials fo
 NOTE: Every time you send a "GET Authorization Request" request, a new AuthroizationCode will be created and you will have to update the Postman variables.
 
 <p align="center">
-<img width="600" src="https://raw.githubusercontent.com/netzoio/netzo/main/plugins/systems/sys-td-philips-hue-white-light/src/assets/get-authorization-code.png" style="margin: 12px 0px" />
+<img width="600" src="https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-td-philips-hue-white-light/src/assets/get-authorization-code.png" style="margin: 12px 0px" />
 </p>
 
 9. Go ahead and send a "GET Get Token (Basic) request. If you have configured everything correctly you should recieve a response like the one below. Copy both **access_token** and **refresh_token** and add them to your Postman variables. You should only be missing {{ username }} and eventually your HUE Bridges IP address.

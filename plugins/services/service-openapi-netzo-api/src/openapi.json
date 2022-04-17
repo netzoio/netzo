@@ -1425,7 +1425,7 @@
         "security": []
       }
     },
-    "/systems": {
+    "/services": {
       "get": {
         "parameters": [
           {
@@ -1460,7 +1460,7 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "$ref": "#/components/schemas/systems"
+              "$ref": "#/components/schemas/services"
             }
           }
         ],
@@ -1470,7 +1470,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/systems_list"
+                  "$ref": "#/components/schemas/services_list"
                 }
               }
             }
@@ -1485,7 +1485,7 @@
         "description": "Retrieves a list of all resources from the service.",
         "summary": "",
         "tags": [
-          "systems"
+          "services"
         ],
         "security": []
       },
@@ -1497,7 +1497,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/systems"
+                  "$ref": "#/components/schemas/services"
                 }
               }
             }
@@ -1512,7 +1512,7 @@
         "description": "Creates a new resource with data.",
         "summary": "",
         "tags": [
-          "systems"
+          "services"
         ],
         "security": [],
         "requestBody": {
@@ -1520,20 +1520,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/systems"
+                "$ref": "#/components/schemas/services"
               }
             }
           }
         }
       }
     },
-    "/systems/{_id}": {
+    "/services/{_id}": {
       "get": {
         "parameters": [
           {
             "in": "path",
             "name": "_id",
-            "description": "ID of systems to return",
+            "description": "ID of services to return",
             "schema": {
               "type": "integer"
             },
@@ -1546,7 +1546,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/systems"
+                  "$ref": "#/components/schemas/services"
                 }
               }
             }
@@ -1564,7 +1564,7 @@
         "description": "Retrieves a single resource with the given id from the service.",
         "summary": "",
         "tags": [
-          "systems"
+          "services"
         ],
         "security": []
       },
@@ -1573,7 +1573,7 @@
           {
             "in": "path",
             "name": "_id",
-            "description": "ID of systems to update",
+            "description": "ID of services to update",
             "schema": {
               "type": "integer"
             },
@@ -1586,7 +1586,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/systems"
+                  "$ref": "#/components/schemas/services"
                 }
               }
             }
@@ -1604,7 +1604,7 @@
         "description": "Updates the resource identified by id using data.",
         "summary": "",
         "tags": [
-          "systems"
+          "services"
         ],
         "security": [],
         "requestBody": {
@@ -1612,7 +1612,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/systems"
+                "$ref": "#/components/schemas/services"
               }
             }
           }
@@ -1623,7 +1623,7 @@
           {
             "in": "path",
             "name": "_id",
-            "description": "ID of systems to update",
+            "description": "ID of services to update",
             "schema": {
               "type": "integer"
             },
@@ -1636,7 +1636,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/systems"
+                  "$ref": "#/components/schemas/services"
                 }
               }
             }
@@ -1654,7 +1654,7 @@
         "description": "Updates the resource identified by id using data.",
         "summary": "",
         "tags": [
-          "systems"
+          "services"
         ],
         "security": [],
         "requestBody": {
@@ -1662,7 +1662,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/systems"
+                "$ref": "#/components/schemas/services"
               }
             }
           }
@@ -1673,7 +1673,7 @@
           {
             "in": "path",
             "name": "_id",
-            "description": "ID of systems to remove",
+            "description": "ID of services to remove",
             "schema": {
               "type": "integer"
             },
@@ -1686,7 +1686,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/systems"
+                  "$ref": "#/components/schemas/services"
                 }
               }
             }
@@ -1704,7 +1704,7 @@
         "description": "Removes the resource with id.",
         "summary": "",
         "tags": [
-          "systems"
+          "services"
         ],
         "security": []
       }
@@ -4830,7 +4830,7 @@
         "type": "object",
         "additionalProperties": true
       },
-      "systems": {
+      "services": {
         "type": "object",
         "additionalProperties": true
       },
@@ -4914,7 +4914,7 @@
         "type": "object",
         "additionalProperties": true
       },
-      "systems_list": {
+      "services_list": {
         "type": "object",
         "additionalProperties": true
       },
@@ -5003,8 +5003,8 @@
       "description": "A audit-logs service"
     },
     {
-      "name": "systems",
-      "description": "A systems service"
+      "name": "services",
+      "description": "A services service"
     },
     {
       "name": "groups",

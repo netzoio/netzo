@@ -920,7 +920,7 @@ paths:
       tags:
       - audit-logs
       security: []
-  "/systems":
+  "/services":
     get:
       parameters:
       - description: Number of results to return
@@ -945,14 +945,14 @@ paths:
         style: form
         explode: true
         schema:
-          "$ref": "#/components/schemas/systems"
+          "$ref": "#/components/schemas/services"
       responses:
         '200':
           description: success
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/systems_list"
+                "$ref": "#/components/schemas/services_list"
         '401':
           description: not authenticated
         '500':
@@ -960,7 +960,7 @@ paths:
       description: Retrieves a list of all resources from the service.
       summary: ''
       tags:
-      - systems
+      - services
       security: []
     post:
       parameters: []
@@ -970,7 +970,7 @@ paths:
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/systems"
+                "$ref": "#/components/schemas/services"
         '401':
           description: not authenticated
         '500':
@@ -978,20 +978,20 @@ paths:
       description: Creates a new resource with data.
       summary: ''
       tags:
-      - systems
+      - services
       security: []
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              "$ref": "#/components/schemas/systems"
-  "/systems/{_id}":
+              "$ref": "#/components/schemas/services"
+  "/services/{_id}":
     get:
       parameters:
       - in: path
         name: _id
-        description: ID of systems to return
+        description: ID of services to return
         schema:
           type: integer
         required: true
@@ -1001,7 +1001,7 @@ paths:
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/systems"
+                "$ref": "#/components/schemas/services"
         '401':
           description: not authenticated
         '404':
@@ -1011,13 +1011,13 @@ paths:
       description: Retrieves a single resource with the given id from the service.
       summary: ''
       tags:
-      - systems
+      - services
       security: []
     put:
       parameters:
       - in: path
         name: _id
-        description: ID of systems to update
+        description: ID of services to update
         schema:
           type: integer
         required: true
@@ -1027,7 +1027,7 @@ paths:
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/systems"
+                "$ref": "#/components/schemas/services"
         '401':
           description: not authenticated
         '404':
@@ -1037,19 +1037,19 @@ paths:
       description: Updates the resource identified by id using data.
       summary: ''
       tags:
-      - systems
+      - services
       security: []
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              "$ref": "#/components/schemas/systems"
+              "$ref": "#/components/schemas/services"
     patch:
       parameters:
       - in: path
         name: _id
-        description: ID of systems to update
+        description: ID of services to update
         schema:
           type: integer
         required: true
@@ -1059,7 +1059,7 @@ paths:
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/systems"
+                "$ref": "#/components/schemas/services"
         '401':
           description: not authenticated
         '404':
@@ -1069,19 +1069,19 @@ paths:
       description: Updates the resource identified by id using data.
       summary: ''
       tags:
-      - systems
+      - services
       security: []
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              "$ref": "#/components/schemas/systems"
+              "$ref": "#/components/schemas/services"
     delete:
       parameters:
       - in: path
         name: _id
-        description: ID of systems to remove
+        description: ID of services to remove
         schema:
           type: integer
         required: true
@@ -1091,7 +1091,7 @@ paths:
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/systems"
+                "$ref": "#/components/schemas/services"
         '401':
           description: not authenticated
         '404':
@@ -1101,7 +1101,7 @@ paths:
       description: Removes the resource with id.
       summary: ''
       tags:
-      - systems
+      - services
       security: []
   "/groups":
     get:
@@ -3116,7 +3116,7 @@ components:
     audit-logs:
       type: object
       additionalProperties: true
-    systems:
+    services:
       type: object
       additionalProperties: true
     groups:
@@ -3179,7 +3179,7 @@ components:
     audit-logs_list:
       type: object
       additionalProperties: true
-    systems_list:
+    services_list:
       type: object
       additionalProperties: true
     groups_list:
@@ -3239,8 +3239,8 @@ tags:
   description: A dashboards service
 - name: audit-logs
   description: A audit-logs service
-- name: systems
-  description: A systems service
+- name: services
+  description: A services service
 - name: groups
   description: A groups service
 - name: plugins

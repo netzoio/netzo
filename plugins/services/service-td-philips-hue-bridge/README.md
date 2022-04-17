@@ -1,12 +1,12 @@
 <div align="center">
   <a href="https://netzo.io" target="_blank" >
-    <img height="50" src="https://raw.githubusercontent.com/netzoio/netzo/main/plugins/systems/sys-td-philips-hue-dimmer-switch/src/assets/icon.png" style="margin: 12px 0px" />
+    <img height="50" src="https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-td-philips-hue-bridge/src/assets/icon.png" style="margin: 12px 0px" />
   </a>
 
-  <h1 style="padding: 6px 0px 24px 0px">sys-td-philips-hue-dimmer-switch</h1>
+  <h1 style="padding: 6px 0px 24px 0px">service-td-philips-hue-bridge</h1>
 </div>
 
-An open source system plugin for the Netzo Web Platform.
+An open source service plugin for the Netzo Web Platform.
 
 ### Get it running
 
@@ -15,7 +15,7 @@ An open source system plugin for the Netzo Web Platform.
 - The base URI is using our API Key and Sensor number, replace them with yours:
   - Look for the base URI in the TD
   - Replace the part between `/api/` and `/sensors/` with your API key.
-  - This TD is representing the sensor number 2. You should replace the part after `/sensors/` with your sensor's number.
+  - This TD is representing the sensor number 1. You should replace the part after `/sensors/` with your sensor's number.
   - This TD uses `Philips-hue` as hostname, in case you have multiple Philips HUE Bridges, you will need to change this in the base URI as well
 
 ### Links

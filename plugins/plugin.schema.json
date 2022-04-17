@@ -4,13 +4,13 @@
   "properties": {
     "uid": {
       "type": "string",
-      "pattern": "^(app-|sys-|wi-).*"
+      "pattern": "^(app-|service-|wi-).*"
     },
     "type": {
       "type": "string",
       "enum": [
         "app",
-        "system",
+        "service",
         "widget"
       ]
     },

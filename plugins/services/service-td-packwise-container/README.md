@@ -1,12 +1,12 @@
 <div align="center">
   <a href="https://netzo.io" target="_blank" >
-    <img height="50" src="https://raw.githubusercontent.com/netzoio/netzo/main/plugins/systems/sys-td-packwise-container/src/assets/icon.png" style="margin: 12px 0px" />
+    <img height="50" src="https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-td-packwise-container/src/assets/icon.png" style="margin: 12px 0px" />
   </a>
 
-  <h1 style="padding: 6px 0px 24px 0px">sys-td-packwise-container</h1>
+  <h1 style="padding: 6px 0px 24px 0px">service-td-packwise-container</h1>
 </div>
 
-An open source system plugin for the Netzo Web Platform.
+An open source service plugin for the Netzo Web Platform.
 
 ## What you will need
 
@@ -49,7 +49,7 @@ SUCCESS: You have all you need to connect your Packwise devices with Netzo.
 NOTE: Packwise API design pattern is built using GraphQL. This means, queries to the API must be converted from the GraphQL body to a URL Query String in order to better align with Web of Things standards.
 
 1. For the following steps you will need to download [Postman](https://www.postman.com/). Setup is easy, even for beginners. A Packwise Postman collection is available for fast setup.
-2. Download the [Packwise Postman Collection](plugins/systems/sys-td-packwise-container/packwise-postmann-collection.json) and import it into your Postman client.
+2. Download the [Packwise Postman Collection](plugins/services/service-td-packwise-container/packwise-postmann-collection.json) and import it into your Postman client.
 3. Navigate into the collection settings by hovering over the collection and clicking on the 3 dots. Go to Edit > Variables and fill out the initial values with your security credentials
 
 SUCCESS: You have sucessfully created a new query string to fetch data from the Packwise API via a Web of Things standard Thing description.
