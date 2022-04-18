@@ -68,7 +68,7 @@ async function main() {
             axios(`${apiBaseUrl}/plugins?uid=${pluginJson.uid}`, {
               headers
             }).then(({ data: paginatedResponse }) => ({
-              ...paginatedResponse.data[0],
+              ...paginatedResponse.data?.[0],
               ...pluginJson
             }))
           )
