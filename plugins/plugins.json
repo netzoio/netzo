@@ -1,6 +1,6 @@
 [
-  "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/web-modules/web-module-table/plugin.json",
-  "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/web-modules/web-module-counter/plugin.json",
+  "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/modules/module-table/plugin.json",
+  "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/modules/module-counter/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-netzo-api/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-td-packwise-container/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-td-philips-hue-bridge/plugin.json",
