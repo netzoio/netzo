@@ -6,7 +6,7 @@
   <h1 style="padding: 6px 0px 24px 0px">service-td-philips-hue-white-light</h1>
 </div>
 
-An open source Thing Model plugin for the Netzo Web Platform.
+An open source Thing Model plugin for Netzo.
 
 ## What you will need
 

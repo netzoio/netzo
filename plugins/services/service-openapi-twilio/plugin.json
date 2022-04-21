@@ -1,0 +1,41 @@
+{
+  "uid": "service-openapi-twilio",
+  "type": "service",
+  "version": "1.0.0",
+  "status": "soon",
+  "category": "core",
+  "name": "Twilio",
+  "description": "API for Twilio",
+  "keywords": [
+    "twilio"
+  ],
+  "authors": [
+    "miguel.romero@netzo.io"
+  ],
+  "license": "MIT",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-twilio/src/openapi.json",
+  "display": {
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-twilio/src/assets/icon.png",
+    "color": "",
+    "screenshots": []
+  },
+  "links": [
+    {
+      "rel": "author",
+      "href": "https://netzo.io",
+      "title": "Netzo"
+    },
+    {
+      "rel": "repository",
+      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/services/service-openapi-twilio"
+    },
+    {
+      "rel": "readme",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-twilio/README.md"
+    },
+    {
+      "rel": "license",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/LICENSE"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "uid": "service-openapi-link-preview",
+  "type": "service",
+  "version": "1.0.0",
+  "status": "soon",
+  "category": "core",
+  "name": "Link Preview",
+  "description": "API for Link Preview",
+  "keywords": [
+    "link-preview"
+  ],
+  "authors": [
+    "miguel.romero@netzo.io"
+  ],
+  "license": "MIT",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-link-preview/src/openapi.json",
+  "display": {
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-link-preview/src/assets/icon.png",
+    "color": "",
+    "screenshots": []
+  },
+  "links": [
+    {
+      "rel": "author",
+      "href": "https://netzo.io",
+      "title": "Netzo"
+    },
+    {
+      "rel": "repository",
+      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/services/service-openapi-link-preview"
+    },
+    {
+      "rel": "readme",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-link-preview/README.md"
+    },
+    {
+      "rel": "license",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/LICENSE"
+    }
+  ]
+}

@@ -7,7 +7,7 @@
 <h1 align="center">Netzo Plugin Repository</h1>
 
 <p align="center">
-  Open source plugins for the <a href="https://app.netzo.io" target="_blank">Netzo WoT Platform</a>, a Web of Things platform to interconnect IoT devices, platforms and services over the web.
+  Open source plugins for the <a href="https://app.netzo.io" target="_blank">Netzo Web Platform</a>, a Web of Things platform to interconnect IoT devices, platforms and services over the web.
 </p>
 
 <div align="center">
@@ -24,15 +24,15 @@
 
 ## Quick Start
 
-This repository lists all officially supported plugins listed on [netzo.io](https://netzo.io/plugins) and used by the [Netzo WoT Platform](https://app.netzo.io).
+This repository lists all officially supported plugins listed on [netzo.io](https://netzo.io/plugins) and used by the [Netzo Web Platform](https://app.netzo.io).
 
 We review all plugins before they are published. This means that it may take some time before we can review your plugin.
 
 To submit a plugin for review:
 
 1. Fork this repository
-2. Copy a starting template from `/_templates` into `/plugins`
-3. Develop your plugin by modifying the copied files accordingly
+2. Select and copy any other plugin as a starting template
+3. Develop the plugin by modifying the copied files accordingly
 4. Add the URL of the `plugin.json` file to `plugins.json`
 5. Create a pull request
 

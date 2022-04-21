@@ -6,7 +6,7 @@
   <h1 style="padding: 6px 0px 24px 0px">service-td-philips-hue-dimmer-switch</h1>
 </div>
 
-An open source service plugin for the Netzo Web Platform.
+An open source service plugin for Netzo.
 
 ### Get it running
 

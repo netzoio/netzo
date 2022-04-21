@@ -16,7 +16,7 @@ let headers = { 'Content-Type': 'application/json', Accept: 'application/json' }
  * databases. The 'deploy-plugins' action fetches links array, and maps them to an array
  * of plugin.json objects and either creats a new or updates an existing record in
  * the plugins collection of each of the mongodb databases hosting all plugins
- * for the Netzo APIs (dev, prod and demo) to consume.
+ * for api.netzo.io (dev, prod and demo) to consume.
  *
  * NOTE: this script is run once before each commit by 'pre-commit' lib (see package.json)
  * IMPORTANT: make sure to commit and push changes tto @netzoio/netzo repository before running this script

@@ -6,7 +6,7 @@
   <h1 style="padding: 6px 0px 24px 0px">widget-stepper</h1>
 </div>
 
-An open source widget plugin for the Netzo Web Platform.
+An open source widget plugin for Netzo.
 
 ### Links
 
