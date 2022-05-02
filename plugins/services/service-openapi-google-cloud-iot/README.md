@@ -13,9 +13,8 @@ Unlock insights from your global device network with an intelligent IoT platform
 
 ### Links
 
-- [App](https://app.netzo.io)
-- [Website](https://netzo.io)
-- [Docs](https://netzo.io/docs/introduction)
+- [Marketplace](https://app.netzo.io/marketplace/service-openapi-google-cloud-iot)
+- [Google Cloud IoT for Developers](https://developers.google.com/iot)
 - [Source](https://api.apis.guru/v2/specs/googleapis.com/cloudiot/v1/openapi.json)
 
 <div align="center">
