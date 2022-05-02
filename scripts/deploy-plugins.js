@@ -5,9 +5,9 @@ import axios from 'axios'
 
 const repoBaseUrl = 'https://raw.githubusercontent.com/netzoio/netzo/main/plugins'
 const apiBaseUrls = [
-  'http://localhost:4321',
+  // 'http://localhost:4321',
   'https://api.netzo.io',
-  'https://demo-api.netzo.io'
+  // 'https://demo-api.netzo.io'
 ]
 let headers = { 'Content-Type': 'application/json', Accept: 'application/json' }
 
@@ -35,7 +35,6 @@ async function main() {
     const { data: urls } = await axios(`${repoBaseUrl}/plugins.json`, {
       headers
     })
-    console.log({ urls })
     console.log(
       `[deploy-plugins] fetched array of ${urls.length} urls from plugins.json in @netzoio/netzo repository`
     )
@@ -44,6 +43,7 @@ async function main() {
     const pluginsJson = await Promise.all(
       urls.map((url) => axios(url, { headers }).then((res) => res.data))
     )
+    console.log(pluginsJson.map(p => p.name))
     console.log(
       `[deploy-plugins] mapped ${pluginsJson.length} urls to plugin objects (from plugin.json file)`
     )
