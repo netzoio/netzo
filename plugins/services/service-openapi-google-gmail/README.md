@@ -11,8 +11,8 @@ An open source service plugin for Google Gmail.
 ### Links
 
 - [App](https://app.netzo.io)
-- [Website](https://netzo.io)
-- [Docs](https://docs.netzo.io)
+- [Gmail for Developers](https://developers.google.com/gmail/api)
+- [Gmail Reference](https://developers.google.com/gmail/api/reference/rest)
 
 <div align="center">
   <h4>© Netzo Plugin</h4>
