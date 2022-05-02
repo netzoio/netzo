@@ -7,7 +7,8 @@
   "name": "Google Cloud IoT",
   "description": "API for Google Cloud IoT",
   "keywords": [
-    "google-cloud-iot"
+    "google-cloud-iot",
+    "internet-of-things"
   ],
   "authors": [
     "gabriel.romero@netzo.io"
