@@ -6,7 +6,7 @@
   <h1 style="padding: 6px 0px 24px 0px">service-td-philips-hue-bridge</h1>
 </div>
 
-An open source service plugin for Netzo.
+An open-source service plugin for Netzo.
 
 ### Get it running
 

@@ -6,7 +6,7 @@
   <h1 style="padding: 6px 0px 24px 0px">service-openapi-stripe</h1>
 </div>
 
-An open source service plugin for Stripe.
+An open-source service plugin for Stripe.
 
 ### Links
 

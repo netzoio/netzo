@@ -6,7 +6,7 @@
   <h1 style="padding: 6px 0px 24px 0px">service-openapi-shopify</h1>
 </div>
 
-An open source service plugin for Shopify.
+An open-source service plugin for Shopify.
 
 ### Links
 

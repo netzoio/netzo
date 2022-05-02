@@ -6,7 +6,7 @@
   <h1 style="padding: 6px 0px 24px 0px">service-openapi-open-weather-map</h1>
 </div>
 
-An open source service plugin for Open Weather Map.
+An open-source service plugin for Open Weather Map.
 
 ### Links
 

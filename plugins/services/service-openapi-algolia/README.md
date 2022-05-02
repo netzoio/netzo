@@ -6,7 +6,7 @@
   <h1 style="padding: 6px 0px 24px 0px">service-openapi-algolia</h1>
 </div>
 
-An open source service plugin for Algolia.
+An open-source service plugin for Algolia.
 
 ### Links
 

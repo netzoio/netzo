@@ -6,7 +6,7 @@
   <h1 style="padding: 6px 0px 24px 0px">service-openapi-webflow</h1>
 </div>
 
-An open source service plugin for Webflow.
+An open-source service plugin for Webflow.
 
 ### Links
 

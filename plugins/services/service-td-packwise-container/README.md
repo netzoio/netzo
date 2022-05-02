@@ -6,7 +6,7 @@
   <h1 style="padding: 6px 0px 24px 0px">service-td-packwise-container</h1>
 </div>
 
-An open source service plugin for Netzo.
+An open-source service plugin for Netzo.
 
 ## What you will need
 

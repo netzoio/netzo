@@ -6,7 +6,7 @@
   <h1 style="padding: 6px 0px 24px 0px">service-openapi-mailerlite</h1>
 </div>
 
-An open source service plugin for Mailerlite.
+An open-source service plugin for Mailerlite.
 
 ### Links
 
