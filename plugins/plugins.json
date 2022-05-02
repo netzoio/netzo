@@ -13,6 +13,7 @@
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-google-cloud-iot/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-google-youtube-reporting/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-netzo/plugin.json",
+  "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-purpleair/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-stripe/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-twitter/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-td-packwise-container/plugin.json",

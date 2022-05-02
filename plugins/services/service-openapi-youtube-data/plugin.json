@@ -1,21 +1,21 @@
 {
-  "uid": "service-openapi-google-youtube-data",
+  "uid": "service-openapi-youtube-data",
   "type": "service",
   "version": "1.0.0",
   "status": "beta",
   "category": "core",
   "name": "YouTube Data API",
-  "description": "API for Google YouTube Data",
+  "description": "API for YouTube Data",
   "keywords": [
-    "google-youtube-data"
+    "youtube-data"
   ],
   "authors": [
     "arturo.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-google-youtube-data/src/openapi.json",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-youtube-data/src/openapi.json",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-google-youtube-data/src/assets/icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-youtube-data/src/assets/icon.png",
     "color": "",
     "screenshots": []
   },
@@ -27,11 +27,11 @@
     },
     {
       "rel": "repository",
-      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/services/service-openapi-google-youtube-data"
+      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/services/service-openapi-youtube-data"
     },
     {
       "rel": "readme",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-google-youtube-data/README.md"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-youtube-data/README.md"
     },
     {
       "rel": "license",

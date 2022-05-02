@@ -1,0 +1,614 @@
+{}{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "Purple Air API",
+        "description": "A RESTful API for PurpleAir sensors following the OpenAPI 3.0 specification.\n\nSome useful links:\n- [Website](https://www2.purpleair.com/)\n- [API Documentation](https://api.purpleair.com)",
+        "termsOfService": "https://www2.purpleair.com/policies/terms-of-service",
+        "contact": {
+            "email": "contact@purpleair.com"
+        },
+        "version": "1.0.10"
+    },
+    "externalDocs": {
+        "description": "Find out more about Swagger",
+        "url": "http://swagger.io"
+    },
+    "servers": [
+        {
+            "url": "https://api.purpleair.com/v1"
+        }
+    ],
+    "security": [
+        {
+            "apiKey": []
+        },
+        {
+            "apiKeyQuery": []
+        }
+    ],
+    "tags": [
+        {
+            "name": "sensor",
+            "description": "A Purple Air sensor",
+            "externalDocs": {
+                "description": "Read the API documentation",
+                "url": "https://api.purpleair.com"
+            }
+        }
+    ],
+    "paths": {
+        "/sensors": {
+            "get": {
+                "tags": [
+                    "sensor"
+                ],
+                "summary": "Get Sensors Data",
+                "description": "Retrieves a list with the latest data of multiple sensors matching the provided parameters.",
+                "operationId": "getSensorsData",
+                "parameters": [
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "description": "The 'Fields' parameter specifies which 'sensor data fields' to include in the response. It is a comma separated list of fields.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "name,icon,humidity,latitude,longitude"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SensorsData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/sensors/{sensorIndex}": {
+            "get": {
+                "tags": [
+                    "sensor"
+                ],
+                "summary": "Get Sensor Data",
+                "description": "Retrieves the latest data of a single sensor matching the provided sensor_index.",
+                "operationId": "getSensorDataById",
+                "parameters": [
+                    {
+                        "name": "sensorIndex",
+                        "in": "path",
+                        "description": "The sensor_index as found in the JSON for this specific sensor.",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "example": 47855
+                        }
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "description": "The 'Fields' parameter specifies which 'sensor data fields' to include in the response. It is a comma separated list of fields.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "name,icon,humidity,latitude,longitude"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SensorData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "SensorsData": {
+                "type": "object",
+                "properties": {
+                    "api_version": {
+                        "type": "string",
+                        "example": "V1.0.10-0.0.12"
+                    },
+                    "time_stamp": {
+                        "type": "number",
+                        "example": 1645523960
+                    },
+                    "data_time_stamp": {
+                        "type": "number",
+                        "example": 1645523938
+                    },
+                    "max_age": {
+                        "type": "number",
+                        "example": 604800
+                    },
+                    "firmware_default_version": {
+                        "type": "string",
+                        "example": "6.01"
+                    },
+                    "fields": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": [
+                            "sensor_index",
+                            "name",
+                            "icon",
+                            "humidity",
+                            "latitude",
+                            "longitude"
+                        ]
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "example": [
+                                131075,
+                                "Mariners Bluff",
+                                0,
+                                53,
+                                33.51511,
+                                -117.67972
+                            ]
+                        },
+                        "example": [
+                            [
+                                131075,
+                                "Mariners Bluff",
+                                0,
+                                53,
+                                33.51511,
+                                -117.67972
+                            ],
+                            [
+                                131079,
+                                "BRSKBV-outside",
+                                0,
+                                55,
+                                37.75315,
+                                -122.44364
+                            ]
+                        ]
+                    }
+                }
+            },
+            "SensorData": {
+                "type": "object",
+                "properties": {
+                    "api_version": {
+                        "type": "string",
+                        "example": "V1.0.10-0.0.12"
+                    },
+                    "time_stamp": {
+                        "type": "number",
+                        "example": 1645523960
+                    },
+                    "data_time_stamp": {
+                        "type": "number",
+                        "example": 1645523938
+                    },
+                    "sensor": {
+                        "type": "object",
+                        "properties": {
+                            "sensor_index": {
+                                "type": "integer"
+                            },
+                            "last_modified": {
+                                "type": "integer"
+                            },
+                            "date_created": {
+                                "type": "integer"
+                            },
+                            "last_seen": {
+                                "type": "integer"
+                            },
+                            "private": {
+                                "type": "integer"
+                            },
+                            "is_owner": {
+                                "type": "integer"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "icon": {
+                                "type": "integer"
+                            },
+                            "location_type": {
+                                "type": "integer"
+                            },
+                            "model": {
+                                "type": "string"
+                            },
+                            "hardware": {
+                                "type": "string"
+                            },
+                            "led_brightness": {
+                                "type": "integer"
+                            },
+                            "firmware_version": {
+                                "type": "string"
+                            },
+                            "rssi": {
+                                "type": "integer"
+                            },
+                            "uptime": {
+                                "type": "integer"
+                            },
+                            "pa_latency": {
+                                "type": "integer"
+                            },
+                            "memory": {
+                                "type": "integer"
+                            },
+                            "position_rating": {
+                                "type": "integer"
+                            },
+                            "latitude": {
+                                "type": "number"
+                            },
+                            "longitude": {
+                                "type": "number"
+                            },
+                            "altitude": {
+                                "type": "integer"
+                            },
+                            "channel_state": {
+                                "type": "integer"
+                            },
+                            "channel_flags": {
+                                "type": "integer"
+                            },
+                            "channel_flags_manual": {
+                                "type": "integer"
+                            },
+                            "channel_flags_auto": {
+                                "type": "integer"
+                            },
+                            "confidence": {
+                                "type": "integer"
+                            },
+                            "confidence_auto": {
+                                "type": "integer"
+                            },
+                            "confidence_manual": {
+                                "type": "integer"
+                            },
+                            "humidity": {
+                                "type": "integer"
+                            },
+                            "humidity_a": {
+                                "type": "integer"
+                            },
+                            "temperature": {
+                                "type": "integer"
+                            },
+                            "temperature_a": {
+                                "type": "integer"
+                            },
+                            "pressure": {
+                                "type": "number"
+                            },
+                            "pressure_a": {
+                                "type": "number"
+                            },
+                            "analog_input": {
+                                "type": "number"
+                            },
+                            "pm1.0": {
+                                "type": "number"
+                            },
+                            "pm1.0_a": {
+                                "type": "number"
+                            },
+                            "pm1.0_b": {
+                                "type": "number"
+                            },
+                            "pm1.0_atm": {
+                                "type": "number"
+                            },
+                            "pm1.0_cf_1": {
+                                "type": "number"
+                            },
+                            "pm2.5": {
+                                "type": "number"
+                            },
+                            "pm2.5_a": {
+                                "type": "number"
+                            },
+                            "pm2.5_b": {
+                                "type": "number"
+                            },
+                            "pm2.5_atm": {
+                                "type": "number"
+                            },
+                            "pm2.5_cf_1": {
+                                "type": "number"
+                            },
+                            "pm2.5_alt": {
+                                "type": "number"
+                            },
+                            "pm2.5_alt_a": {
+                                "type": "number"
+                            },
+                            "pm2.5_alt_b": {
+                                "type": "number"
+                            },
+                            "pm10.0": {
+                                "type": "number"
+                            },
+                            "pm10.0_a": {
+                                "type": "number"
+                            },
+                            "pm10.0_b": {
+                                "type": "number"
+                            },
+                            "pm10.0_atm": {
+                                "type": "number"
+                            },
+                            "pm10.0_cf_1": {
+                                "type": "number"
+                            },
+                            "scattering_coefficient": {
+                                "type": "number"
+                            },
+                            "scattering_coefficient_a": {
+                                "type": "number"
+                            },
+                            "scattering_coefficient_b": {
+                                "type": "number"
+                            },
+                            "deciviews": {
+                                "type": "number"
+                            },
+                            "deciviews_a": {
+                                "type": "number"
+                            },
+                            "deciviews_b": {
+                                "type": "number"
+                            },
+                            "visual_range": {
+                                "type": "number"
+                            },
+                            "visual_range_a": {
+                                "type": "number"
+                            },
+                            "visual_range_b": {
+                                "type": "number"
+                            },
+                            "0.3_um_count": {
+                                "type": "integer"
+                            },
+                            "0.3_um_count_a": {
+                                "type": "integer"
+                            },
+                            "0.3_um_count_b": {
+                                "type": "integer"
+                            },
+                            "0.5_um_count": {
+                                "type": "integer"
+                            },
+                            "0.5_um_count_a": {
+                                "type": "integer"
+                            },
+                            "0.5_um_count_b": {
+                                "type": "integer"
+                            },
+                            "1.0_um_count": {
+                                "type": "integer"
+                            },
+                            "1.0_um_count_a": {
+                                "type": "integer"
+                            },
+                            "1.0_um_count_b": {
+                                "type": "integer"
+                            },
+                            "2.5_um_count": {
+                                "type": "integer"
+                            },
+                            "2.5_um_count_a": {
+                                "type": "integer"
+                            },
+                            "2.5_um_count_b": {
+                                "type": "integer"
+                            },
+                            "5.0_um_count": {
+                                "type": "integer"
+                            },
+                            "5.0_um_count_a": {
+                                "type": "integer"
+                            },
+                            "5.0_um_count_b": {
+                                "type": "integer"
+                            },
+                            "10.0_um_count": {
+                                "type": "integer"
+                            },
+                            "10.0_um_count_a": {
+                                "type": "integer"
+                            },
+                            "10.0_um_count_b": {
+                                "type": "integer"
+                            },
+                            "pm1.0_atm_a": {
+                                "type": "number"
+                            },
+                            "pm2.5_atm_a": {
+                                "type": "number"
+                            },
+                            "pm10.0_atm_a": {
+                                "type": "number"
+                            },
+                            "pm1.0_cf_1_a": {
+                                "type": "number"
+                            },
+                            "pm2.5_cf_1_a": {
+                                "type": "number"
+                            },
+                            "pm10.0_cf_1_a": {
+                                "type": "number"
+                            },
+                            "pm1.0_atm_b": {
+                                "type": "number"
+                            },
+                            "pm2.5_atm_b": {
+                                "type": "number"
+                            },
+                            "pm10.0_atm_b": {
+                                "type": "number"
+                            },
+                            "pm1.0_cf_1_b": {
+                                "type": "number"
+                            },
+                            "pm2.5_cf_1_b": {
+                                "type": "number"
+                            },
+                            "pm10.0_cf_1_b": {
+                                "type": "number"
+                            },
+                            "primary_id_a": {
+                                "type": "integer"
+                            },
+                            "primary_key_a": {
+                                "type": "string"
+                            },
+                            "primary_id_b": {
+                                "type": "integer"
+                            },
+                            "primary_key_b": {
+                                "type": "string"
+                            },
+                            "secondary_id_a": {
+                                "type": "integer"
+                            },
+                            "secondary_key_a": {
+                                "type": "string"
+                            },
+                            "secondary_id_b": {
+                                "type": "integer"
+                            },
+                            "secondary_key_b": {
+                                "type": "string"
+                            },
+                            "stats": {
+                                "type": "object",
+                                "properties": {
+                                    "pm2.5": {
+                                        "type": "number"
+                                    },
+                                    "pm2.5_10minute": {
+                                        "type": "number"
+                                    },
+                                    "pm2.5_30minute": {
+                                        "type": "number"
+                                    },
+                                    "pm2.5_60minute": {
+                                        "type": "number"
+                                    },
+                                    "pm2.5_6hour": {
+                                        "type": "number"
+                                    },
+                                    "pm2.5_24hour": {
+                                        "type": "number"
+                                    },
+                                    "pm2.5_1week": {
+                                        "type": "number"
+                                    },
+                                    "time_stamp": {
+                                        "type": "integer"
+                                    }
+                                }
+                            },
+                            "stats_a": {
+                                "type": "object",
+                                "properties": {
+                                    "pm2.5": {
+                                        "type": "number"
+                                    },
+                                    "pm2.5_10minute": {
+                                        "type": "number"
+                                    },
+                                    "pm2.5_30minute": {
+                                        "type": "number"
+                                    },
+                                    "pm2.5_60minute": {
+                                        "type": "number"
+                                    },
+                                    "pm2.5_6hour": {
+                                        "type": "number"
+                                    },
+                                    "pm2.5_24hour": {
+                                        "type": "number"
+                                    },
+                                    "pm2.5_1week": {
+                                        "type": "number"
+                                    },
+                                    "time_stamp": {
+                                        "type": "integer"
+                                    }
+                                }
+                            },
+                            "stats_b": {
+                                "type": "object",
+                                "properties": {
+                                    "pm2.5": {
+                                        "type": "number"
+                                    },
+                                    "pm2.5_10minute": {
+                                        "type": "number"
+                                    },
+                                    "pm2.5_30minute": {
+                                        "type": "number"
+                                    },
+                                    "pm2.5_60minute": {
+                                        "type": "number"
+                                    },
+                                    "pm2.5_6hour": {
+                                        "type": "number"
+                                    },
+                                    "pm2.5_24hour": {
+                                        "type": "number"
+                                    },
+                                    "pm2.5_1week": {
+                                        "type": "number"
+                                    },
+                                    "time_stamp": {
+                                        "type": "integer"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "apiKey": {
+                "type": "apiKey",
+                "name": "X-API-Key",
+                "in": "header"
+            },
+            "apiKeyQuery": {
+                "type": "apiKey",
+                "name": "api_key",
+                "in": "query"
+            }
+        }
+    }
+}
