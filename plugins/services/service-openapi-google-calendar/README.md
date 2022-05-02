@@ -12,7 +12,7 @@ The Calendar API lets you integrate your app with Google Calendar, creating new 
 
 ### Links
 
-- [App](https://app.netzo.io)
+- [Marketplace](https://app.netzo.io/marketplace/service-standard-servicename)
 - [Website](https://netzo.io)
 - [Docs](https://netzo.io/docs/introduction)
 - [Source](https://api.apis.guru/v2/specs/googleapis.com/calendar/v3/openapi.json)

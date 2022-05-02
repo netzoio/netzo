@@ -10,9 +10,9 @@ An open-source service plugin for Twitter.
 
 ### Links
 
-- [App](https://app.netzo.io)
-- [Website](https://netzo.io)
-- [Docs](https://netzo.io/docs/introduction)
+- [Marketplace](https://app.netzo.io/marketplace/service-standard-servicename)
+- [Twitter for Developers](https://developer.twitter.com/en/products/twitter-api)
+- [Source](https://api.apis.guru/v2/specs/twitter.com/current/2.21/openapi.json)
 
 <div align="center">
   <h4>© Netzo Plugin</h4>

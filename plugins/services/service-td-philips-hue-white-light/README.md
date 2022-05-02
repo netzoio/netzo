@@ -164,7 +164,7 @@ SUCCESS: You have sucessfully created a username for your remote API app and can
 
 ### Links
 
-- [App](https://app.netzo.io)
+- [Marketplace](https://app.netzo.io/marketplace/service-standard-servicename)
 - [Website](https://netzo.io)
 - [Docs](https://netzo.io/docs/introduction)
 
