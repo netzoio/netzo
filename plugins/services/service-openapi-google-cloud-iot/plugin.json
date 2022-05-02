@@ -1,0 +1,41 @@
+{
+  "uid": "service-openapi-google-cloud-iot",
+  "type": "service",
+  "version": "1.0.0",
+  "status": "beta",
+  "category": "core",
+  "name": "Google Cloud IoT",
+  "description": "API for Google Cloud IoT",
+  "keywords": [
+    "google-cloud-iot"
+  ],
+  "authors": [
+    "gabriel.romero@netzo.io"
+  ],
+  "license": "MIT",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-google-cloud-iot/src/openapi.json",
+  "display": {
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-google-cloud-iot/src/assets/icon.png",
+    "color": "",
+    "screenshots": []
+  },
+  "links": [
+    {
+      "rel": "author",
+      "href": "https://netzo.io",
+      "title": "Netzo"
+    },
+    {
+      "rel": "repository",
+      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/services/service-openapi-google-cloud-iot"
+    },
+    {
+      "rel": "readme",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-google-cloud-iot/README.md"
+    },
+    {
+      "rel": "license",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/LICENSE"
+    }
+  ]
+}

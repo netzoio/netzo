@@ -13,9 +13,8 @@ The Drive API is used to interact with Google Drive storage, and supports severa
 
 ### Links
 
-- [Marketplace](https://app.netzo.io/marketplace/service-standard-servicename)
-- [Website](https://netzo.io)
-- [Docs](https://netzo.io/docs/introduction)
+- [Marketplace](https://app.netzo.io/marketplace/service-openapi-google-drive)
+- [Google Drive for Developers](https://developers.google.com/drive/api)
 - [Source](https://api.apis.guru/v2/specs/googleapis.com/drive/v3/openapi.json)
 
 <div align="center">

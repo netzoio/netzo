@@ -2,7 +2,7 @@
   "uid": "service-openapi-google-drive",
   "type": "service",
   "version": "1.0.0",
-  "status": "soon",
+  "status": "beta",
   "category": "core",
   "name": "Google Drive",
   "description": "API for Google Drive",
@@ -10,7 +10,7 @@
     "google-drive"
   ],
   "authors": [
-    "miguel.romero@netzo.io"
+    "gabriel.romero@netzo.io"
   ],
   "license": "MIT",
   "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-google-drive/src/openapi.json",
