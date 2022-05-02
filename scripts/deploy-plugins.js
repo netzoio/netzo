@@ -5,9 +5,9 @@ import axios from 'axios'
 
 const repoBaseUrl = 'https://raw.githubusercontent.com/netzoio/netzo/main/plugins'
 const apiBaseUrls = [
-  // 'http://localhost:4321',
+  'http://localhost:4321',
   'https://api.netzo.io',
-  // 'https://demo-api.netzo.io'
+  'https://demo-api.netzo.io'
 ]
 let headers = { 'Content-Type': 'application/json', Accept: 'application/json' }
 
