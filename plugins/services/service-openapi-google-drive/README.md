@@ -8,6 +8,9 @@
 
 An open-source service plugin for Google Drive.
 
+The Drive API is used to interact with Google Drive storage, and supports several popular programming languages, such as Java, JavaScript, and Python.
+
+
 ### Links
 
 - [App](https://app.netzo.io)
