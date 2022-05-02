@@ -35,6 +35,7 @@ async function main() {
     const { data: urls } = await axios(`${repoBaseUrl}/plugins.json`, {
       headers
     })
+    console.log({ urls })
     console.log(
       `[deploy-plugins] fetched array of ${urls.length} urls from plugins.json in @netzoio/netzo repository`
     )

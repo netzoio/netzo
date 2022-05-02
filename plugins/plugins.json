@@ -3,7 +3,7 @@
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/modules/module-table/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-google-calendar/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-google-drive/plugin.json",
-  "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-gmail/plugin.json"
+  "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-gmail/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-youtube-analytics/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-youtube-data/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-youtube-reporting/plugin.json",
