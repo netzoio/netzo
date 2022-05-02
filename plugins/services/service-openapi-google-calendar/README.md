@@ -8,11 +8,14 @@
 
 An open-source service plugin for Google Calendar.
 
+The Calendar API lets you integrate your app with Google Calendar, creating new ways for you to engage your users.
+
 ### Links
 
 - [Marketplace](https://app.netzo.io/marketplace/service-standard-servicename)
 - [Website](https://netzo.io)
 - [Docs](https://netzo.io/docs/introduction)
+- [Source](https://api.apis.guru/v2/specs/googleapis.com/calendar/v3/openapi.json)
 
 <div align="center">
   <h4>© Netzo Plugin</h4>
