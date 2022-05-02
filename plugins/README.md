@@ -51,7 +51,7 @@ To be valid, a `plugin.json` file must validate against the [plugin.schema.json]
 | `category`    | String              | true     | Marks the category of the plugin. One of `core`, `community`, `enterprise`                                       |
 | `name`        | String              | true     | A human-friendly display name for the plugin                                                                     |
 | `description` | String              | true     | A brief description of the plugin                                                                                |
-| `keywords`    | String[]            | false    | An array of relevant keywords (camel-case)                                                                       |
+| `keywords`    | String[]            | false    | An array of relevant keywords (kebab-case)                                                                       |
 | `authors`     | String[]            | false    | An array of emails of plugin authors or owners (e.g. `first.last@sample.com`)                                    |
 | `license`     | String              | false    | A string indicating licensing information (e.g. `MIT`)                                                           |
 | `main`        | String              | false    | URL to the plugin's main entry point (e.g. `@netzoio/plugins/plugins/widgets/widget-button-toggle/src/index.js`)   |
