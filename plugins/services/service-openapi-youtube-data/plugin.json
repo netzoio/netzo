@@ -2,7 +2,7 @@
   "uid": "service-openapi-google-youtube-data",
   "type": "service",
   "version": "1.0.0",
-  "status": "soon",
+  "status": "beta",
   "category": "core",
   "name": "YouTube Data API",
   "description": "API for Google YouTube Data",
