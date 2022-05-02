@@ -2,7 +2,7 @@
   "uid": "service-openapi-twitter",
   "type": "service",
   "version": "1.0.0",
-  "status": "soon",
+  "status": "beta",
   "category": "core",
   "name": "Twitter",
   "description": "API for Twitter",

@@ -2,7 +2,7 @@
   "uid": "service-openapi-github",
   "type": "service",
   "version": "1.0.0",
-  "status": "soon",
+  "status": "beta",
   "category": "core",
   "name": "GitHub",
   "description": "API for GitHub",
@@ -10,7 +10,7 @@
     "github"
   ],
   "authors": [
-    "miguel.romero@netzo.io"
+    "arturo.romero@netzo.io"
   ],
   "license": "MIT",
   "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-github/src/openapi.json",

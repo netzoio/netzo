@@ -2,7 +2,7 @@
   "uid": "service-openapi-slack-web",
   "type": "service",
   "version": "1.0.0",
-  "status": "soon",
+  "status": "beta",
   "category": "core",
   "name": "Slack Web",
   "description": "API for Slack Web",
