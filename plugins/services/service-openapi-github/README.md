@@ -10,9 +10,9 @@ An open-source service plugin for GitHub.
 
 ### Links
 
-- [Marketplace](https://app.netzo.io/marketplace/service-standard-servicename)
-- [Website](https://netzo.io)
-- [Docs](https://netzo.io/docs/introduction)
+- [Marketplace](https://app.netzo.io/marketplace/service-openapi-github)
+- [Github for Developers](https://docs.github.com/en/rest)
+- [Source](https://raw.githubusercontent.com/github/rest-api-description/main/descriptions/ghes-3.4/ghes-3.4.json)
 
 <div align="center">
   <h4>© Netzo Plugin</h4>
