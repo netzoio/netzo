@@ -4,6 +4,7 @@
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-google-bigquery/plugin.json",
 
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-google-calendar/plugin.json",
+  "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-aws-iot-core/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-google-drive/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-gmail/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-youtube-analytics/plugin.json",
