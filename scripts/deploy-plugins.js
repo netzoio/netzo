@@ -43,7 +43,6 @@ async function main() {
     const pluginsJson = await Promise.all(
       urls.map((url) => axios(url, { headers }).then((res) => res.data))
     )
-    console.log(pluginsJson.map(p => p.name))
     console.log(
       `[deploy-plugins] mapped ${pluginsJson.length} urls to plugin objects (from plugin.json file)`
     )
