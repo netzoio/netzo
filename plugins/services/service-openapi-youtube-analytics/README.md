@@ -1,9 +1,9 @@
 <div align="center">
   <a href="https://netzo.io" target="_blank" >
-    <img height="50" src="https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-google-youtube-analytics/src/assets/icon.png" style="margin: 12px 0px" />
+    <img height="50" src="https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-youtube-analytics/src/assets/icon.png" style="margin: 12px 0px" />
   </a>
 
-  <h1 style="padding: 6px 0px 24px 0px">service-openapi-google-youtube-analytics</h1>
+  <h1 style="padding: 6px 0px 24px 0px">service-openapi-youtube-analytics</h1>
 </div>
 
 An open-source service plugin for YouTube Analytics.
@@ -14,7 +14,7 @@ Each API request specifies the date range for which data will be returned. The A
 
 ### Links
 
-- [Marketplace](https://app.netzo.io/marketplace/service-openapi-google-youtube-analytics)
+- [Marketplace](https://app.netzo.io/marketplace/service-openapi-youtube-analytics)
 - [YouTube Analytics for Developers](https://developers.google.com/youtube/analytics)
 - [Source](https://api.apis.guru/v2/specs/googleapis.com/youtubeAnalytics/v1/openapi.json)
 
