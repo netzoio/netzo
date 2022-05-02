@@ -1,11 +1,11 @@
 {
-  "uid": "widget-button-form",
-  "type": "widget",
+  "uid": "component-button-form",
+  "type": "component",
   "version": "1.0.0",
   "status": "alpha",
   "category": "core",
   "name": "Button Form",
-  "description": "Button form widget for Netzo",
+  "description": "Button form component for Netzo",
   "keywords": [
     "button-form"
   ],
@@ -13,14 +13,14 @@
     "miguel.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "widgets/components/button-form/index.js",
+  "main": "components/components/button-form/index.js",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/widget-button-form/src/assets/icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-button-form/src/assets/icon.png",
     "color": "",
     "screenshots": [
       {
-        "label": "Screenshot of the widget",
-        "src": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/widget-button-form/src/assets/images/screenshot.png"
+        "label": "Screenshot of the component",
+        "src": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-button-form/src/assets/images/screenshot.png"
       }
     ]
   },
@@ -32,11 +32,11 @@
     },
     {
       "rel": "repository",
-      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/widgets/widget-button-form"
+      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/components/component-button-form"
     },
     {
       "rel": "readme",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/widget-button-form/README.md"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-button-form/README.md"
     },
     {
       "rel": "license",
@@ -45,7 +45,7 @@
   ],
   "form": {
     "model": {
-      "uid": "widget-button-form",
+      "uid": "component-button-form",
       "w": 4,
       "h": 5,
       "name": "",
@@ -75,10 +75,10 @@
       },
       "properties": {
         "_type": {
-          "const": "widget"
+          "const": "component"
         },
         "uid": {
-          "const": "widget-button-form"
+          "const": "component-button-form"
         },
         "w": {
           "const": 4

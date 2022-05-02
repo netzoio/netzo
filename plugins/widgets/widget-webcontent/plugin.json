@@ -1,11 +1,11 @@
 {
-  "uid": "widget-webcontent",
-  "type": "widget",
+  "uid": "component-webcontent",
+  "type": "component",
   "version": "1.0.0",
   "status": "alpha",
   "category": "core",
   "name": "Web Content",
-  "description": "Web content widget for Netzo",
+  "description": "Web content component for Netzo",
   "keywords": [
     "webcontent"
   ],
@@ -13,14 +13,14 @@
     "miguel.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "widgets/components/webcontent/index.js",
+  "main": "components/components/webcontent/index.js",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/widget-webcontent/src/assets/icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-webcontent/src/assets/icon.png",
     "color": "",
     "screenshots": [
       {
-        "label": "Screenshot of the widget",
-        "src": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/widget-webcontent/src/assets/images/screenshot.png"
+        "label": "Screenshot of the component",
+        "src": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-webcontent/src/assets/images/screenshot.png"
       }
     ]
   },
@@ -32,11 +32,11 @@
     },
     {
       "rel": "repository",
-      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/widgets/widget-webcontent"
+      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/components/component-webcontent"
     },
     {
       "rel": "readme",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/widget-webcontent/README.md"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-webcontent/README.md"
     },
     {
       "rel": "license",
@@ -45,7 +45,7 @@
   ],
   "form": {
     "model": {
-      "uid": "widget-webcontent",
+      "uid": "component-webcontent",
       "w": 8,
       "h": 12,
       "name": "",
@@ -78,10 +78,10 @@
       },
       "properties": {
         "_type": {
-          "const": "widget"
+          "const": "component"
         },
         "uid": {
-          "const": "widget-webcontent"
+          "const": "component-webcontent"
         },
         "w": {
           "const": 8

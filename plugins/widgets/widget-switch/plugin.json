@@ -1,11 +1,11 @@
 {
-  "uid": "widget-switch",
-  "type": "widget",
+  "uid": "component-switch",
+  "type": "component",
   "version": "1.0.0",
   "status": "beta",
   "category": "core",
   "name": "Switch",
-  "description": "Switch widget for Netzo",
+  "description": "Switch component for Netzo",
   "keywords": [
     "switch"
   ],
@@ -13,14 +13,14 @@
     "miguel.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "widgets/components/switch/index.js",
+  "main": "components/components/switch/index.js",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/widget-switch/src/assets/icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-switch/src/assets/icon.png",
     "color": "",
     "screenshots": [
       {
-        "label": "Screenshot of the widget",
-        "src": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/widget-switch/src/assets/images/screenshot.png"
+        "label": "Screenshot of the component",
+        "src": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-switch/src/assets/images/screenshot.png"
       }
     ]
   },
@@ -32,11 +32,11 @@
     },
     {
       "rel": "repository",
-      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/widgets/widget-switch"
+      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/components/component-switch"
     },
     {
       "rel": "readme",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/widget-switch/README.md"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-switch/README.md"
     },
     {
       "rel": "license",
@@ -45,7 +45,7 @@
   ],
   "form": {
     "model": {
-      "uid": "widget-switch",
+      "uid": "component-switch",
       "w": 4,
       "h": 6,
       "name": "",
@@ -76,10 +76,10 @@
       },
       "properties": {
         "_type": {
-          "const": "widget"
+          "const": "component"
         },
         "uid": {
-          "const": "widget-switch"
+          "const": "component-switch"
         },
         "w": {
           "const": 4

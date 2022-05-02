@@ -1,11 +1,11 @@
 {
-  "uid": "widget-checkbox",
-  "type": "widget",
+  "uid": "component-checkbox",
+  "type": "component",
   "version": "1.0.0",
   "status": "beta",
   "category": "core",
   "name": "Checkbox",
-  "description": "Checkbox widget for Netzo",
+  "description": "Checkbox component for Netzo",
   "keywords": [
     "checkbox"
   ],
@@ -13,14 +13,14 @@
     "miguel.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "widgets/components/checkbox/index.js",
+  "main": "components/components/checkbox/index.js",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/widget-checkbox/src/assets/icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-checkbox/src/assets/icon.png",
     "color": "",
     "screenshots": [
       {
-        "label": "Screenshot of the widget",
-        "src": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/widget-checkbox/src/assets/images/screenshot.png"
+        "label": "Screenshot of the component",
+        "src": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-checkbox/src/assets/images/screenshot.png"
       }
     ]
   },
@@ -32,11 +32,11 @@
     },
     {
       "rel": "repository",
-      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/widgets/widget-checkbox"
+      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/components/component-checkbox"
     },
     {
       "rel": "readme",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/widget-checkbox/README.md"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-checkbox/README.md"
     },
     {
       "rel": "license",
@@ -45,7 +45,7 @@
   ],
   "form": {
     "model": {
-      "uid": "widget-checkbox",
+      "uid": "component-checkbox",
       "w": 4,
       "h": 5,
       "name": "",
@@ -76,10 +76,10 @@
       },
       "properties": {
         "_type": {
-          "const": "widget"
+          "const": "component"
         },
         "uid": {
-          "const": "widget-checkbox"
+          "const": "component-checkbox"
         },
         "w": {
           "const": 4

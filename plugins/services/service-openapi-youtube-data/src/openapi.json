@@ -11248,10 +11248,10 @@
                 "type": "object"
             },
             "InvideoPosition": {
-                "description": "Describes the spatial position of a visual widget inside a video. It is a union of various position types, out of which only will be set one.",
+                "description": "Describes the spatial position of a visual component inside a video. It is a union of various position types, out of which only will be set one.",
                 "properties": {
                     "cornerPosition": {
-                        "description": "Describes in which corner of the video the visual widget will appear.",
+                        "description": "Describes in which corner of the video the visual component will appear.",
                         "enum": [
                             "topLeft",
                             "topRight",
@@ -11271,7 +11271,7 @@
                 "type": "object"
             },
             "InvideoTiming": {
-                "description": "Describes a temporal position of a visual widget inside a video.",
+                "description": "Describes a temporal position of a visual component inside a video.",
                 "properties": {
                     "durationMs": {
                         "description": "Defines the duration in milliseconds for which the promotion should be displayed. If missing, the client should use the default.",

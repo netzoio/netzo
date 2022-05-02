@@ -1,11 +1,11 @@
 {
-  "uid": "widget-list",
-  "type": "widget",
+  "uid": "component-list",
+  "type": "component",
   "version": "1.0.0",
   "status": "stable",
   "category": "core",
   "name": "List",
-  "description": "List widget for Netzo",
+  "description": "List component for Netzo",
   "keywords": [
     "list"
   ],
@@ -13,14 +13,14 @@
     "miguel.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "widgets/components/list/index.js",
+  "main": "components/components/list/index.js",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/widget-list/src/assets/icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-list/src/assets/icon.png",
     "color": "",
     "screenshots": [
       {
-        "label": "Screenshot of the widget",
-        "src": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/widget-list/src/assets/images/screenshot.png"
+        "label": "Screenshot of the component",
+        "src": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-list/src/assets/images/screenshot.png"
       }
     ]
   },
@@ -32,11 +32,11 @@
     },
     {
       "rel": "repository",
-      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/widgets/widget-list"
+      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/components/component-list"
     },
     {
       "rel": "readme",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/widget-list/README.md"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-list/README.md"
     },
     {
       "rel": "license",
@@ -45,7 +45,7 @@
   ],
   "form": {
     "model": {
-      "uid": "widget-list",
+      "uid": "component-list",
       "w": 6,
       "h": 18,
       "name": "",
@@ -74,10 +74,10 @@
       },
       "properties": {
         "_type": {
-          "const": "widget"
+          "const": "component"
         },
         "uid": {
-          "const": "widget-list"
+          "const": "component-list"
         },
         "w": {
           "const": 6

@@ -1,11 +1,11 @@
 {
-  "uid": "widget-raw",
-  "type": "widget",
+  "uid": "component-raw",
+  "type": "component",
   "version": "1.0.0",
   "status": "beta",
   "category": "core",
   "name": "Raw",
-  "description": "Raw widget for Netzo",
+  "description": "Raw component for Netzo",
   "keywords": [
     "raw"
   ],
@@ -13,14 +13,14 @@
     "miguel.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "widgets/components/raw/index.js",
+  "main": "components/components/raw/index.js",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/widget-raw/src/assets/icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-raw/src/assets/icon.png",
     "color": "",
     "screenshots": [
       {
-        "label": "Screenshot of the widget",
-        "src": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/widget-raw/src/assets/images/screenshot.png"
+        "label": "Screenshot of the component",
+        "src": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-raw/src/assets/images/screenshot.png"
       }
     ]
   },
@@ -32,11 +32,11 @@
     },
     {
       "rel": "repository",
-      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/widgets/widget-raw"
+      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/components/component-raw"
     },
     {
       "rel": "readme",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/widget-raw/README.md"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-raw/README.md"
     },
     {
       "rel": "license",
@@ -45,7 +45,7 @@
   ],
   "form": {
     "model": {
-      "uid": "widget-raw",
+      "uid": "component-raw",
       "w": 8,
       "h": 12,
       "name": "",
@@ -75,10 +75,10 @@
       },
       "properties": {
         "_type": {
-          "const": "widget"
+          "const": "component"
         },
         "uid": {
-          "const": "widget-raw"
+          "const": "component-raw"
         },
         "w": {
           "const": 8

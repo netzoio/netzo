@@ -1,11 +1,11 @@
 {
-  "uid": "widget-joystick",
-  "type": "widget",
+  "uid": "component-joystick",
+  "type": "component",
   "version": "1.0.0",
   "status": "alpha",
   "category": "core",
   "name": "Joystick",
-  "description": "Joystick widget for Netzo",
+  "description": "Joystick component for Netzo",
   "keywords": [
     "joystick"
   ],
@@ -13,14 +13,14 @@
     "miguel.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "widgets/components/joystick/index.js",
+  "main": "components/components/joystick/index.js",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/widget-joystick/src/assets/icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-joystick/src/assets/icon.png",
     "color": "",
     "screenshots": [
       {
-        "label": "Screenshot of the widget",
-        "src": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/widget-joystick/src/assets/images/screenshot.png"
+        "label": "Screenshot of the component",
+        "src": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-joystick/src/assets/images/screenshot.png"
       }
     ]
   },
@@ -32,11 +32,11 @@
     },
     {
       "rel": "repository",
-      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/widgets/widget-joystick"
+      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/components/component-joystick"
     },
     {
       "rel": "readme",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/widget-joystick/README.md"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-joystick/README.md"
     },
     {
       "rel": "license",
@@ -45,7 +45,7 @@
   ],
   "form": {
     "model": {
-      "uid": "widget-joystick",
+      "uid": "component-joystick",
       "w": 4,
       "h": 8,
       "name": "",
@@ -96,10 +96,10 @@
       },
       "properties": {
         "_type": {
-          "const": "widget"
+          "const": "component"
         },
         "uid": {
-          "const": "widget-joystick"
+          "const": "component-joystick"
         },
         "w": {
           "const": 4

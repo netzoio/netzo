@@ -1,11 +1,11 @@
 {
-  "uid": "widget-image",
-  "type": "widget",
+  "uid": "component-image",
+  "type": "component",
   "version": "1.0.0",
   "status": "beta",
   "category": "core",
   "name": "Image",
-  "description": "Image widget for Netzo",
+  "description": "Image component for Netzo",
   "keywords": [
     "image"
   ],
@@ -13,14 +13,14 @@
     "miguel.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "widgets/components/image/index.js",
+  "main": "components/components/image/index.js",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/widget-image/src/assets/icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-image/src/assets/icon.png",
     "color": "",
     "screenshots": [
       {
-        "label": "Screenshot of the widget",
-        "src": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/widget-image/src/assets/images/screenshot.png"
+        "label": "Screenshot of the component",
+        "src": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-image/src/assets/images/screenshot.png"
       }
     ]
   },
@@ -32,11 +32,11 @@
     },
     {
       "rel": "repository",
-      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/widgets/widget-image"
+      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/components/component-image"
     },
     {
       "rel": "readme",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/widget-image/README.md"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-image/README.md"
     },
     {
       "rel": "license",
@@ -45,7 +45,7 @@
   ],
   "form": {
     "model": {
-      "uid": "widget-image",
+      "uid": "component-image",
       "w": 5,
       "h": 10,
       "name": "",
@@ -81,10 +81,10 @@
       },
       "properties": {
         "_type": {
-          "const": "widget"
+          "const": "component"
         },
         "uid": {
-          "const": "widget-image"
+          "const": "component-image"
         },
         "w": {
           "const": 8

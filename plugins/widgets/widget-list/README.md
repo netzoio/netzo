@@ -1,12 +1,12 @@
 <div align="center">
   <a href="https://netzo.io" target="_blank" >
-    <img height="50" src="https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/widget-list/src/assets/icon.png" style="margin: 12px 0px" />
+    <img height="50" src="https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-list/src/assets/icon.png" style="margin: 12px 0px" />
   </a>
 
-  <h1 style="padding: 6px 0px 24px 0px">widget-list</h1>
+  <h1 style="padding: 6px 0px 24px 0px">component-list</h1>
 </div>
 
-An open source widget plugin for Netzo.
+An open source component plugin for Netzo.
 
 ### Links
 
