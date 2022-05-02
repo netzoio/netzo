@@ -20,6 +20,8 @@
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-td-philips-hue-daylight-sensor/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-td-philips-hue-dimmer-switch/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-td-philips-hue-white-light/plugin.json",
+  "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-td-smart-coffee-machine/plugin.json",
+
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/widget-button-form/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/widget-button-toggle/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/widget-chart/plugin.json",
