@@ -56,7 +56,7 @@ SUCCESS: You have sucessfully created a new query string to fetch data from the 
 
 ### Links
 
-- [App](https://app.netzo.io)
+- [Marketplace](https://app.netzo.io/marketplace/service-standard-servicename)
 - [Website](https://netzo.io)
 - [Docs](https://netzo.io/docs/introduction)
 

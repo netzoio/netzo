@@ -10,7 +10,7 @@ An open-source service plugin for Google Gmail.
 
 ### Links
 
-- [App](https://app.netzo.io)
+- [Marketplace](https://app.netzo.io/marketplace/service-standard-servicename)
 - [Gmail for Developers](https://developers.google.com/gmail/api)
 - [Gmail Reference](https://developers.google.com/gmail/api/reference/rest)
 
