@@ -10,7 +10,7 @@
     "twitter"
   ],
   "authors": [
-    "miguel.romero@netzo.io"
+    "arturo.romero@netzo.io"
   ],
   "license": "MIT",
   "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-twitter/src/openapi.json",
