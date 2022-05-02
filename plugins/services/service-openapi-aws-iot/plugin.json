@@ -1,0 +1,41 @@
+{
+  "uid": "service-openapi-aws-iot-core",
+  "type": "service",
+  "version": "1.0.0",
+  "status": "beta",
+  "category": "core",
+  "name": "AWS IoT Core",
+  "description": "API for AWS IoT Core",
+  "keywords": [
+    "aws-iot-core"
+  ],
+  "authors": [
+    "arturo.romero@netzo.io"
+  ],
+  "license": "MIT",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-aws-iot-core/src/openapi.json",
+  "display": {
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-aws-iot-core/src/assets/icon.png",
+    "color": "",
+    "screenshots": []
+  },
+  "links": [
+    {
+      "rel": "author",
+      "href": "https://netzo.io",
+      "title": "Netzo"
+    },
+    {
+      "rel": "repository",
+      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/services/service-openapi-aws-iot-core"
+    },
+    {
+      "rel": "readme",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-aws-iot-core/README.md"
+    },
+    {
+      "rel": "license",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/LICENSE"
+    }
+  ]
+}
