@@ -58,7 +58,7 @@ SUCCESS: You have sucessfully created a new query string to fetch data from the 
 
 - [App](https://app.netzo.io)
 - [Website](https://netzo.io)
-- [Docs](https://docs.netzo.io)
+- [Docs](https://netzo.io/docs/introduction)
 
 <div align="center">
   <h4>© Netzo Plugin</h4>

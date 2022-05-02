@@ -12,7 +12,7 @@ An open source service plugin for IP Geolocation.
 
 - [App](https://app.netzo.io)
 - [Website](https://netzo.io)
-- [Docs](https://docs.netzo.io)
+- [Docs](https://netzo.io/docs/introduction)
 
 <div align="center">
   <h4>© Netzo Plugin</h4>
