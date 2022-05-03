@@ -2,7 +2,7 @@
   "uid": "service-openapi-hubspot",
   "type": "service",
   "version": "1.0.0",
-  "status": "soon",
+  "status": "requested",
   "category": "core",
   "name": "HubSpot",
   "description": "API for HubSpot",
