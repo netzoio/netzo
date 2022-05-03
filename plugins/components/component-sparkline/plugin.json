@@ -1,0 +1,246 @@
+{
+  "uid": "component-sparkline",
+  "type": "component",
+  "version": "1.0.0",
+  "status": "alpha",
+  "category": "core",
+  "name": "Sparkline",
+  "description": "Sparkline component for Netzo",
+  "keywords": [
+    "sparkline"
+  ],
+  "authors": [
+    "miguel.romero@netzo.io"
+  ],
+  "license": "MIT",
+  "main": "components/components/sparkline/index.js",
+  "display": {
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-sparkline/src/assets/icon.png",
+    "color": "",
+    "screenshots": [
+      {
+        "label": "Screenshot of the component",
+        "src": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-sparkline/src/assets/images/screenshot.png"
+      }
+    ]
+  },
+  "links": [
+    {
+      "rel": "author",
+      "href": "https://netzo.io",
+      "title": "Netzo"
+    },
+    {
+      "rel": "repository",
+      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/components/component-sparkline"
+    },
+    {
+      "rel": "readme",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-sparkline/README.md"
+    },
+    {
+      "rel": "license",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/LICENSE"
+    }
+  ],
+  "form": {
+    "model": {
+      "uid": "component-sparkline",
+      "w": 5,
+      "h": 10,
+      "name": "",
+      "description": "",
+      "variables": {},
+      "actions": {},
+      "display": {
+        "transparent": false,
+        "hideToolbar": false,
+        "label": "",
+        "color": "#0080FF",
+        "textColor": "",
+        "bgImageUrl": "",
+        "fill": false,
+        "lineWidth": 4,
+        "smooth": false,
+        "autoDraw": true,
+        "unit": ""
+      },
+      "grid": {
+        "autoFlow": "row",
+        "gap": 24
+      }
+    },
+    "schema": {
+      "type": "object",
+      "x-display": "expansion-panels",
+      "x-props": {
+        "value": [
+          0,
+          1
+        ]
+      },
+      "properties": {
+        "_type": {
+          "const": "component"
+        },
+        "uid": {
+          "const": "component-sparkline"
+        },
+        "w": {
+          "const": 5
+        },
+        "h": {
+          "const": 10
+        },
+        "name": {
+          "type": "string",
+          "title": "Display name",
+          "required": true
+        },
+        "description": {
+          "type": "string",
+          "title": "Description",
+          "x-display": "textarea"
+        },
+        "variables": {
+          "type": "object",
+          "title": "Data",
+          "properties": {
+            "variables": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "x-display": "custom-vjs-variable"
+              },
+              "x-display": "custom-vjs-variables"
+            }
+          },
+          "x-schema": {},
+          "x-types": [
+            "integer",
+            "number"
+          ],
+          "x-examples": [
+            {
+              "text": "Integer",
+              "value": 73
+            },
+            {
+              "text": "Number",
+              "value": 28.7
+            }
+          ]
+        },
+        "actions": {
+          "type": "object",
+          "title": "Actions",
+          "properties": {
+            "actions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "x-display": "custom-vjs-action"
+              },
+              "x-display": "custom-vjs-actions"
+            }
+          }
+        },
+        "display": {
+          "type": "object",
+          "title": "Display",
+          "properties": {
+            "transparent": {
+              "type": "boolean",
+              "title": "Transparent"
+            },
+            "hideToolbar": {
+              "type": "boolean",
+              "title": "Hide Toolbar"
+            },
+            "label": {
+              "type": "string",
+              "title": "Label"
+            },
+            "color": {
+              "type": "string",
+              "title": "Color",
+              "format": "hexcolor"
+            },
+            "textColor": {
+              "type": "string",
+              "title": "Text color",
+              "format": "hexcolor"
+            },
+            "bgImageUrl": {
+              "type": "string",
+              "title": "Background Image",
+              "description": "The URL of an image to use as background image.",
+              "contentMediaType": "image/*",
+              "x-props": {
+                "clearable": true
+              },
+              "x-options": {
+                "filesAsDataUrl": true
+              },
+              "writeOnly": true
+            },
+            "fill": {
+              "type": "boolean",
+              "title": "Fill",
+              "description": "Using the fill property allows you to better customize the look and feel of your sparkline."
+            },
+            "lineWidth": {
+              "type": "integer",
+              "title": "Line width [px]",
+              "description": "The thickness of the line in pixels",
+              "minimum": 0
+            },
+            "smooth": {
+              "type": "integer",
+              "title": "Radius [px]",
+              "description": "Number of px to use as a corner radius. true defaults to 8, false is 0.",
+              "minimum": 0,
+              "x-display": "slider"
+            },
+            "autoDraw": {
+              "type": "boolean",
+              "title": "Auto Draw",
+              "description": "Trace the length of the line when first rendered."
+            },
+            "unit": {
+              "type": "string",
+              "title": "Unit"
+            }
+          }
+        },
+        "grid": {
+          "type": "object",
+          "title": "Grid",
+          "properties": {
+            "autoFlow": {
+              "type": "string",
+              "title": "Auto flow",
+              "description": "The grid-auto-flow CSS property controls how the auto-placement algorithm works, specifying exactly how auto-placed items get flowed into the grid.",
+              "enum": [
+                "column",
+                "dense",
+                "row",
+                "column dense",
+                "row dense"
+              ]
+            },
+            "gap": {
+              "type": "integer",
+              "title": "Gap [px]",
+              "description": "The gap CSS property sets the gaps (gutters) between rows and columns. It is a shorthand for row-gap and column-gap.",
+              "minimum": 0
+            }
+          }
+        }
+      }
+    },
+    "options": {}
+  }
+}

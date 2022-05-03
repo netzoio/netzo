@@ -44,8 +44,8 @@ To be valid, a `plugin.json` file must validate against the [plugin.schema.json]
 
 | Property      | Type                | Requried | Description                                                                                                      |
 | ------------- | ------------------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
-| `uid`         | String              | true     | A unique ID (camel-case) prefixed by the initials of its the plugin type (`service-`, `module` or `widget`)                  |
-| `type`        | String              | true     | Plugin type, one of `service`, `module` or `widget`                                          |
+| `uid`         | String              | true     | A unique ID (camel-case) prefixed by the initials of its the plugin type (`service-`, `module` or `component`)                  |
+| `type`        | String              | true     | Plugin type, one of `service`, `module` or `component`                                          |
 | `version`     | String              | true     | Plugin version in [semantic version](https://semver.org/) format                                                 |
 | `status`      | String              | true     | Marks the current development status of the plugin. One of `alpha`, `beta`, `stable`, `requested`, `deprecated`  |
 | `category`    | String              | true     | Marks the category of the plugin. One of `core`, `community`, `enterprise`                                       |
@@ -54,7 +54,7 @@ To be valid, a `plugin.json` file must validate against the [plugin.schema.json]
 | `keywords`    | String[]            | false    | An array of relevant keywords (kebab-case)                                                                       |
 | `authors`     | String[]            | false    | An array of emails of plugin authors or owners (e.g. `first.last@sample.com`)                                    |
 | `license`     | String              | false    | A string indicating licensing information (e.g. `MIT`)                                                           |
-| `main`        | String              | false    | URL to the plugin's main entry point (e.g. `@netzoio/plugins/plugins/widgets/widget-button-toggle/src/index.js`)   |
+| `main`        | String              | false    | URL to the plugin's main entry point (e.g. `@netzoio/plugins/plugins/components/component-button-toggle/src/index.js`)   |
 | `display`     | [Display](#display) | true     | A `Display` object specifying relevant details for rendering the plugin in the UI                                |
 | `links`       | [Link](#display)[]  | false    | An array of [link relations](https://www.w3.org/TR/image-resource/#sizes-member) to related web resources        |
 | `form`        | [Form](#form)       | false    | A `Form` object specifiying the `model`, `schema` and `options` to be used in the plugin settings form by the UI |
@@ -100,19 +100,19 @@ Here's a reduced example of a `plugin.json` file. You can also always have a loo
 
 ```json
 {
-  "uid": "widget-button-toggle",
-  "type": "widget",
+  "uid": "component-button-toggle",
+  "type": "component",
   "version": "1.0.0",
   "status": "beta",
   "category": "core",
   "name": "Toggle Button",
-  "description": "Toggle Button widget for Netzo",
+  "description": "Toggle Button component for Netzo",
   "keywords": ["button-toggle"],
   "authors": ["miguel.romero@netzo.io"],
   "license": "MIT",
-  "main": "widgets/components/widget-button-toggle/index.js",
+  "main": "components/components/component-button-toggle/index.js",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/widgets/widget-button-toggle/src/assets/icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-button-toggle/src/assets/icon.png",
     "color": "",
     "screenshots": []
   },

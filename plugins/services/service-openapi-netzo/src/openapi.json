@@ -2561,7 +2561,7 @@
         "security": []
       }
     },
-    "/widgets": {
+    "/components": {
       "get": {
         "parameters": [
           {
@@ -2596,7 +2596,7 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "$ref": "#/components/schemas/widgets"
+              "$ref": "#/components/schemas/components"
             }
           }
         ],
@@ -2606,7 +2606,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/widgets_list"
+                  "$ref": "#/components/schemas/components_list"
                 }
               }
             }
@@ -2621,7 +2621,7 @@
         "description": "Retrieves a list of all resources from the service.",
         "summary": "",
         "tags": [
-          "widgets"
+          "components"
         ],
         "security": []
       },
@@ -2633,7 +2633,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/widgets"
+                  "$ref": "#/components/schemas/components"
                 }
               }
             }
@@ -2648,7 +2648,7 @@
         "description": "Creates a new resource with data.",
         "summary": "",
         "tags": [
-          "widgets"
+          "components"
         ],
         "security": [],
         "requestBody": {
@@ -2656,20 +2656,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/widgets"
+                "$ref": "#/components/schemas/components"
               }
             }
           }
         }
       }
     },
-    "/widgets/{_id}": {
+    "/components/{_id}": {
       "get": {
         "parameters": [
           {
             "in": "path",
             "name": "_id",
-            "description": "ID of widgets to return",
+            "description": "ID of components to return",
             "schema": {
               "type": "integer"
             },
@@ -2682,7 +2682,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/widgets"
+                  "$ref": "#/components/schemas/components"
                 }
               }
             }
@@ -2700,7 +2700,7 @@
         "description": "Retrieves a single resource with the given id from the service.",
         "summary": "",
         "tags": [
-          "widgets"
+          "components"
         ],
         "security": []
       },
@@ -2709,7 +2709,7 @@
           {
             "in": "path",
             "name": "_id",
-            "description": "ID of widgets to update",
+            "description": "ID of components to update",
             "schema": {
               "type": "integer"
             },
@@ -2722,7 +2722,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/widgets"
+                  "$ref": "#/components/schemas/components"
                 }
               }
             }
@@ -2740,7 +2740,7 @@
         "description": "Updates the resource identified by id using data.",
         "summary": "",
         "tags": [
-          "widgets"
+          "components"
         ],
         "security": [],
         "requestBody": {
@@ -2748,7 +2748,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/widgets"
+                "$ref": "#/components/schemas/components"
               }
             }
           }
@@ -2759,7 +2759,7 @@
           {
             "in": "path",
             "name": "_id",
-            "description": "ID of widgets to update",
+            "description": "ID of components to update",
             "schema": {
               "type": "integer"
             },
@@ -2772,7 +2772,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/widgets"
+                  "$ref": "#/components/schemas/components"
                 }
               }
             }
@@ -2790,7 +2790,7 @@
         "description": "Updates the resource identified by id using data.",
         "summary": "",
         "tags": [
-          "widgets"
+          "components"
         ],
         "security": [],
         "requestBody": {
@@ -2798,7 +2798,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/widgets"
+                "$ref": "#/components/schemas/components"
               }
             }
           }
@@ -2809,7 +2809,7 @@
           {
             "in": "path",
             "name": "_id",
-            "description": "ID of widgets to remove",
+            "description": "ID of components to remove",
             "schema": {
               "type": "integer"
             },
@@ -2822,7 +2822,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/widgets"
+                  "$ref": "#/components/schemas/components"
                 }
               }
             }
@@ -2840,7 +2840,7 @@
         "description": "Removes the resource with id.",
         "summary": "",
         "tags": [
-          "widgets"
+          "components"
         ],
         "security": []
       }
@@ -4846,7 +4846,7 @@
         "type": "object",
         "additionalProperties": true
       },
-      "widgets": {
+      "components": {
         "type": "object",
         "additionalProperties": true
       },
@@ -4930,7 +4930,7 @@
         "type": "object",
         "additionalProperties": true
       },
-      "widgets_list": {
+      "components_list": {
         "type": "object",
         "additionalProperties": true
       },
@@ -5019,8 +5019,8 @@
       "description": "A modules service"
     },
     {
-      "name": "widgets",
-      "description": "A widgets service"
+      "name": "components",
+      "description": "A components service"
     },
     {
       "name": "snippets",

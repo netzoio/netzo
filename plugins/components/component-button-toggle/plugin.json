@@ -1,0 +1,210 @@
+{
+  "uid": "component-button-toggle",
+  "type": "component",
+  "version": "1.0.0",
+  "status": "beta",
+  "category": "core",
+  "name": "Toggle Button",
+  "description": "Toggle Button component for Netzo",
+  "keywords": [
+    "button-toggle"
+  ],
+  "authors": [
+    "miguel.romero@netzo.io"
+  ],
+  "license": "MIT",
+  "main": "components/components/button-toggle/index.js",
+  "display": {
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-button-toggle/src/assets/icon.png",
+    "color": "",
+    "screenshots": [
+      {
+        "label": "Screenshot of the component",
+        "src": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-button-toggle/src/assets/images/screenshot.png"
+      }
+    ]
+  },
+  "links": [
+    {
+      "rel": "author",
+      "href": "https://netzo.io",
+      "title": "Netzo"
+    },
+    {
+      "rel": "repository",
+      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/components/component-button-toggle"
+    },
+    {
+      "rel": "readme",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-button-toggle/README.md"
+    },
+    {
+      "rel": "license",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/LICENSE"
+    }
+  ],
+  "form": {
+    "model": {
+      "uid": "component-button-toggle",
+      "w": 3,
+      "h": 7,
+      "name": "",
+      "description": "",
+      "variables": {},
+      "actions": {},
+      "display": {
+        "transparent": false,
+        "hideToolbar": false,
+        "label": "",
+        "colorTrue": "#44C47D",
+        "colorFalse": "#d73a49",
+        "textColor": "",
+        "bgImageUrl": ""
+      },
+      "grid": {
+        "autoFlow": "row",
+        "gap": 24
+      }
+    },
+    "schema": {
+      "type": "object",
+      "x-display": "expansion-panels",
+      "x-props": {
+        "value": [
+          0,
+          1
+        ]
+      },
+      "properties": {
+        "_type": {
+          "const": "component"
+        },
+        "uid": {
+          "const": "component-button-toggle"
+        },
+        "w": {
+          "const": 3
+        },
+        "h": {
+          "const": 7
+        },
+        "name": {
+          "type": "string",
+          "title": "Display name",
+          "required": true
+        },
+        "description": {
+          "type": "string",
+          "title": "Description",
+          "x-display": "textarea"
+        },
+        "variables": {
+          "type": "object",
+          "title": "Data",
+          "properties": {
+            "variables": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "x-display": "custom-vjs-variable"
+              },
+              "x-display": "custom-vjs-variables"
+            }
+          },
+          "x-schema": {},
+          "x-types": [
+            "boolean"
+          ],
+          "x-examples": true
+        },
+        "actions": {
+          "type": "object",
+          "title": "Actions",
+          "properties": {
+            "actions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "x-display": "custom-vjs-action"
+              },
+              "x-display": "custom-vjs-actions"
+            }
+          }
+        },
+        "display": {
+          "type": "object",
+          "title": "Display",
+          "properties": {
+            "transparent": {
+              "type": "boolean",
+              "title": "Transparent"
+            },
+            "hideToolbar": {
+              "type": "boolean",
+              "title": "Hide Toolbar"
+            },
+            "label": {
+              "type": "string",
+              "title": "Label"
+            },
+            "colorTrue": {
+              "type": "string",
+              "title": "Color when true",
+              "format": "hexcolor"
+            },
+            "colorFalse": {
+              "type": "string",
+              "title": "Color when false",
+              "format": "hexcolor"
+            },
+            "textColor": {
+              "type": "string",
+              "title": "Text color",
+              "format": "hexcolor"
+            },
+            "bgImageUrl": {
+              "type": "string",
+              "title": "Background Image",
+              "description": "The URL of an image to use as background image.",
+              "contentMediaType": "image/*",
+              "x-props": {
+                "clearable": true
+              },
+              "x-options": {
+                "filesAsDataUrl": true
+              },
+              "writeOnly": true
+            }
+          }
+        },
+        "grid": {
+          "type": "object",
+          "title": "Grid",
+          "properties": {
+            "autoFlow": {
+              "type": "string",
+              "title": "Auto flow",
+              "description": "The grid-auto-flow CSS property controls how the auto-placement algorithm works, specifying exactly how auto-placed items get flowed into the grid.",
+              "enum": [
+                "column",
+                "dense",
+                "row",
+                "column dense",
+                "row dense"
+              ]
+            },
+            "gap": {
+              "type": "integer",
+              "title": "Gap [px]",
+              "description": "The gap CSS property sets the gaps (gutters) between rows and columns. It is a shorthand for row-gap and column-gap.",
+              "minimum": 0
+            }
+          }
+        }
+      }
+    },
+    "options": {}
+  }
+}

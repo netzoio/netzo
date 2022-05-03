@@ -1,0 +1,42 @@
+{
+  "uid": "service-openapi-personio-personnel-data",
+  "type": "service",
+  "version": "1.0.0",
+  "status": "beta",
+  "category": "core",
+  "name": "Personio Personnel Data",
+  "description": "API for Personio Personnel Data",
+  "keywords": [
+    "personio",
+    "personio personnel data"
+  ],
+  "authors": [
+    "gabriel.romero@netzo.io"
+  ],
+  "license": "MIT",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-personio-personnel-data/src/openapi.json",
+  "display": {
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-personio-personnel-data/src/assets/icon.png",
+    "color": "",
+    "screenshots": []
+  },
+  "links": [
+    {
+      "rel": "author",
+      "href": "https://netzo.io",
+      "title": "Netzo"
+    },
+    {
+      "rel": "repository",
+      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/services/service-openapi-personio-personnel-data"
+    },
+    {
+      "rel": "readme",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-personio-personnel-data/README.md"
+    },
+    {
+      "rel": "license",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/LICENSE"
+    }
+  ]
+}
