@@ -8,6 +8,15 @@
 
 An open-source service plugin for DHL Location Finder API.
 
+Best for:
+
+- Finding all DHL pick-up and drop-off points to send and receive packages
+- Integrating multiple types of Deutsche Post DHL locations
+- Locations in Germany and many countries worldwide
+
+Region: Global
+Used for: Location
+
 ### Links
 
 - [Marketplace](https://app.netzo.io/marketplace/service-openapi-dhl-location-finder)

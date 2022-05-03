@@ -8,13 +8,14 @@
 
 An open-source service plugin for the DHL Shipment Tracking - Unified API.
 
-The DHL Shipment Tracking - Unified API provides up-to-the-minute shipment status reports. Users of this API can:
+Best for:
 
-- Retrieve tracking information for shipments.
-- Identify the Deutsche Post DHL (DPDHL) service provider involved with the shipment.
-- Verify DPDHL is using the correct delivery address. This can reduce the number of misdelivered shipments.
+- Providing access to the shipment status at any time
+- Integrating all types of Deutsche Post DHL shipments
+- Multiple shipments (e.g. eCommerce, Express, Freight, Letter, Parcel, etc.)
 
-You must have an eligible tracking code for the shipment and an API subscription key (this key needs to be either passed through a query string parameter or specified in the request header).
+Region: Global
+Used for: Tracking
 
 ### Links
 
