@@ -1,0 +1,41 @@
+{
+  "uid": "service-openapi-somfy-tahoma",
+  "type": "service",
+  "version": "1.0.0",
+  "status": "beta",
+  "category": "core",
+  "name": "Somfy TaHoma",
+  "description": "API for Somfy TaHoma",
+  "keywords": [
+    "somfy-tahoma"
+  ],
+  "authors": [
+    "arturo.romero@netzo.io"
+  ],
+  "license": "MIT",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-somfy-tahoma/src/openapi.json",
+  "display": {
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-somfy-tahoma/src/assets/icon.png",
+    "color": "",
+    "screenshots": []
+  },
+  "links": [
+    {
+      "rel": "author",
+      "href": "https://netzo.io",
+      "title": "Netzo"
+    },
+    {
+      "rel": "repository",
+      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/services/service-openapi-somfy-tahoma"
+    },
+    {
+      "rel": "readme",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-somfy-tahoma/README.md"
+    },
+    {
+      "rel": "license",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/LICENSE"
+    }
+  ]
+}

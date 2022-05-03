@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "status": "beta",
   "category": "core",
-  "name": "Smart Coffee Machine Simulation",
+  "name": "Smart Coffee Machine",
   "description": "A simulated smart coffee machine with a range of capabilities. It is exposed as a virtual Thing to demonstrate the capabilities of Web of Things and, particularly, the node-wot runtime environment.",
   "keywords": [
     "smart-coffee-machine",
