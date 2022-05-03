@@ -22,7 +22,7 @@
   "license": "MIT",
   "author": "Asterisc GmbH",
   "workspaces": [
-    "./packages/widgets"
+    "./packages/components"
   ],
   "type": "module",
   "scripts": {
