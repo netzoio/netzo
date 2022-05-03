@@ -1,0 +1,5452 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "Salesforce Connect API",
+      "description": "",
+      "version": "44.0-2018.10.30.10.7"
+    },
+    "servers": [
+      {
+        "url": "/services/data/v44.0"
+      }
+    ],
+    "paths": {
+      "/iot/activities": {
+        "get": {
+          "description": "Get a list of all activities correlating to matching filter parameters. This endpoint will return a list of all the activities matching the filter designations. Optional source record IDs can be an array.",
+          "parameters": [
+            {
+              "name": "activityType",
+              "in": "query",
+              "description": "Type of Activity.",
+              "schema": {
+                "type": "string",
+                "enum": [
+                  "ContextActivate",
+                  "ContextDelete",
+                  "ContextSave",
+                  "DatasetError",
+                  "DatasetLoad",
+                  "DatasetRefresh",
+                  "EventAllocationsExceeded",
+                  "EventLimitNotification",
+                  "InstanceAllocationsExceeded",
+                  "LoggingStopped",
+                  "LostEventNotification",
+                  "OrchestrationActivate",
+                  "OrchestrationDeactivate",
+                  "OrchestrationDelete",
+                  "OrchestrationInstanceLimitNotification",
+                  "OrchestrationSave",
+                  "OutputError",
+                  "TransitionToErrorState",
+                  "UnexpectedError"
+                ]
+              }
+            },
+            {
+              "name": "endTime",
+              "in": "query",
+              "description": "Activity log end time filter.",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "instanceKey",
+              "in": "query",
+              "description": "Event instance key.",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "level",
+              "in": "query",
+              "description": "Activity log level.",
+              "schema": {
+                "type": "string",
+                "enum": [
+                  "Error",
+                  "Info"
+                ]
+              }
+            },
+            {
+              "name": "page",
+              "in": "query",
+              "description": "For internal use only.",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "pageSize",
+              "in": "query",
+              "description": "Number of items returned in the response.",
+              "schema": {
+                "type": "integer"
+              }
+            },
+            {
+              "name": "search",
+              "in": "query",
+              "description": "Simplistic single-word term search.",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "sourceIds",
+              "in": "query",
+              "description": "IDs of source objects to be retrieved.",
+              "style": "form",
+              "explode": false,
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "name": "startTime",
+              "in": "query",
+              "description": "Activity log start time filter.",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ActivityLogCollectionRepresentation"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/iot/activities/{id}": {
+        "get": {
+          "description": "Single activity record matching ID. This endpoint will return ancillary activity information associated with the activity for the parameterized ID.",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "Unique identifier for log entry.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ActivityInfoRepresentation"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/iot/contexts": {
+        "get": {
+          "description": "List all contexts that have been defined in your org.",
+          "parameters": [
+            {
+              "name": "page",
+              "in": "query",
+              "description": "For internal use only.",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "pageSize",
+              "in": "query",
+              "description": "The number of contexts returned per page. When one page is returned, it contains the URL in the nextPageUrl property that you use to get the next page of results.",
+              "schema": {
+                "type": "integer"
+              }
+            },
+            {
+              "name": "runtime",
+              "in": "query",
+              "description": "The Salesforce IoT runtime used.",
+              "schema": {
+                "type": "string",
+                "enum": [
+                  "HighVolume",
+                  "Standard"
+                ]
+              }
+            },
+            {
+              "name": "sort",
+              "in": "query",
+              "description": "Sorting direction, either ascending or descending.",
+              "schema": {
+                "type": "string",
+                "enum": [
+                  "ContextLabel",
+                  "Label",
+                  "LastModified",
+                  "Status"
+                ]
+              }
+            },
+            {
+              "name": "sortDirection",
+              "in": "query",
+              "description": "Field name to be sorted.",
+              "schema": {
+                "type": "string",
+                "enum": [
+                  "Ascending",
+                  "Descending"
+                ]
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ContextCollectionRepresentation"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "description": "Creates a context.",
+          "requestBody": {
+            "description": "Context definition",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContextInputRepresentation"
+                }
+              }
+            },
+            "required": false
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ContextDetailRepresentation"
+                  }
+                }
+              }
+            }
+          },
+          "x-codegen-request-body-name": "contextInput"
+        }
+      },
+      "/iot/contexts/{contextId}": {
+        "get": {
+          "description": "Get the specified context.",
+          "parameters": [
+            {
+              "name": "contextId",
+              "in": "path",
+              "description": "ID of the context to update.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ContextDetailRepresentation"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "description": "Update the designated context using the full context definition specified.",
+          "parameters": [
+            {
+              "name": "contextId",
+              "in": "path",
+              "description": "ID of the context to update.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "description": "Full context definition to replace previous context.",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContextInputRepresentation"
+                }
+              }
+            },
+            "required": false
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ContextDetailRepresentation"
+                  }
+                }
+              }
+            }
+          },
+          "x-codegen-request-body-name": "contextInput"
+        },
+        "delete": {
+          "description": "Delete the specified context.",
+          "parameters": [
+            {
+              "name": "contextId",
+              "in": "path",
+              "description": "ID of the context to update.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {}
+            }
+          }
+        }
+      },
+      "/iot/contexts/{contextId}/activations": {
+        "get": {
+          "description": "List the history of context activations.",
+          "parameters": [
+            {
+              "name": "contextId",
+              "in": "path",
+              "description": "Context ID",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "page",
+              "in": "query",
+              "description": "Page token",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "pageSize",
+              "in": "query",
+              "description": "Size of response list",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ContextActivationCollectionRepresentation"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "description": "Activates the context definition for the current context, optionally using activation options.",
+          "parameters": [
+            {
+              "name": "contextId",
+              "in": "path",
+              "description": "Context ID",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "description": "Optional activation options. Otherwise, an empty body ({}).",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContextActivationInputRepresentation"
+                }
+              }
+            },
+            "required": false
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ContextActivationDetailRepresentation"
+                  }
+                }
+              }
+            }
+          },
+          "x-codegen-request-body-name": "activationInput"
+        }
+      },
+      "/iot/contexts/{contextId}/activations/active": {
+        "get": {
+          "description": "Get the active context activation for the context ID.",
+          "parameters": [
+            {
+              "name": "contextId",
+              "in": "path",
+              "description": "Context ID.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ContextActivationDetailRepresentation"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/iot/contexts/{contextId}/activations/last": {
+        "get": {
+          "description": "Get the context activation most recently created for the context ID.",
+          "parameters": [
+            {
+              "name": "contextId",
+              "in": "path",
+              "description": "Context ID.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ContextActivationDetailRepresentation"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/iot/contexts/{contextId}/activations/{activationId}": {
+        "get": {
+          "description": "Get the context activation for the specified IDs.",
+          "parameters": [
+            {
+              "name": "activationId",
+              "in": "path",
+              "description": "Activation ID.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "contextId",
+              "in": "path",
+              "description": "Context ID.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ContextActivationDetailRepresentation"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/iot/contexts/{contextId}/events": {
+        "get": {
+          "description": "Get a list of orchestration context events.",
+          "parameters": [
+            {
+              "name": "contextId",
+              "in": "path",
+              "description": "Context ID.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "eventType",
+              "in": "query",
+              "description": "Event type.",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "instanceKey",
+              "in": "query",
+              "description": "Instance key.",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "page",
+              "in": "query",
+              "description": "For internal use only.",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "pageSize",
+              "in": "query",
+              "description": "Page size.",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/OrchestrationContextRuntimeEventCollectionRepresentation"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/iot/events/{eventApiName}/{runtime}": {
+        "post": {
+          "description": "Publish a platform event message to the provided runtime.",
+          "parameters": [
+            {
+              "name": "eventApiName",
+              "in": "path",
+              "description": "Platform event API name.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "runtime",
+              "in": "path",
+              "description": "Runtime to which the event will be sent.",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "enum": [
+                  "HighVolume",
+                  "Standard"
+                ]
+              }
+            }
+          ],
+          "requestBody": {
+            "description": "Platform events list.",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlatformEventCollectionRepresentation"
+                }
+              }
+            },
+            "required": false
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PlatformEventResponseRepresentation"
+                  }
+                }
+              }
+            }
+          },
+          "x-codegen-request-body-name": "eventsInput"
+        }
+      },
+      "/iot/orchestrations": {
+        "get": {
+          "description": "Get a list of Salesforce IoT orchestrations.",
+          "parameters": [
+            {
+              "name": "contextId",
+              "in": "query",
+              "description": "ID of the context to retrieve.",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "page",
+              "in": "query",
+              "description": "For internal use only.",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "pageSize",
+              "in": "query",
+              "description": "The number of contexts returned per page. When one page is returned, it contains the URL in the nextPageUrl property that you use to get the next page of contexts.",
+              "schema": {
+                "type": "integer"
+              }
+            },
+            {
+              "name": "runtime",
+              "in": "query",
+              "description": "The Salesforce IoT runtime used.",
+              "schema": {
+                "type": "string",
+                "enum": [
+                  "HighVolume",
+                  "Standard"
+                ]
+              }
+            },
+            {
+              "name": "sort",
+              "in": "query",
+              "description": "Sorting direction, either ascending or descending.",
+              "schema": {
+                "type": "string",
+                "enum": [
+                  "ContextLabel",
+                  "Label",
+                  "LastModified",
+                  "Status"
+                ]
+              }
+            },
+            {
+              "name": "sortDirection",
+              "in": "query",
+              "description": "Field name to be sorted.",
+              "schema": {
+                "type": "string",
+                "enum": [
+                  "Ascending",
+                  "Descending"
+                ]
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/OrchestrationCollectionRepresentation"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "description": "Create an IoT orchestration.",
+          "requestBody": {
+            "description": "Orchestration definition.",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrchestrationInputRepresentation"
+                }
+              }
+            },
+            "required": false
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/OrchestrationDetailRepresentation"
+                  }
+                }
+              }
+            }
+          },
+          "x-codegen-request-body-name": "OrchestrationInput"
+        }
+      },
+      "/iot/orchestrations/{orchestrationId}": {
+        "get": {
+          "description": "Get the orchestration for the designated ID.",
+          "parameters": [
+            {
+              "name": "orchestrationId",
+              "in": "path",
+              "description": "ID of the orchestration to retrieve.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/OrchestrationDetailRepresentation"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "description": "Update the specified orchestration using the full orchestration definition.",
+          "parameters": [
+            {
+              "name": "orchestrationId",
+              "in": "path",
+              "description": "ID of the orchestration to retrieve.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "description": "The full orchestration definition with which to replace the current orchestration.",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrchestrationInputRepresentation"
+                }
+              }
+            },
+            "required": false
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/OrchestrationDetailRepresentation"
+                  }
+                }
+              }
+            }
+          },
+          "x-codegen-request-body-name": "orchestrationInput"
+        },
+        "delete": {
+          "description": "Delete the orchestration with the specified ID.",
+          "parameters": [
+            {
+              "name": "orchestrationId",
+              "in": "path",
+              "description": "ID of the orchestration to retrieve.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {}
+            }
+          }
+        }
+      },
+      "/iot/orchestrations/{orchestrationId}/activations": {
+        "get": {
+          "description": "Get the activation history for the specified orchestration. The activations are sorted by creation date in descending order.",
+          "parameters": [
+            {
+              "name": "orchestrationId",
+              "in": "path",
+              "description": "ID of the orchestration for which to get the activation history.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "page",
+              "in": "query",
+              "description": "For internal use only.",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "pageSize",
+              "in": "query",
+              "description": "The number of activations returned per page. When a page of the response is returned, it contains the nextPageUrl property which is the URL that you use to get the next page of results.",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/OrchestrationActivationCollectionRepresentation"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "description": "Activate the specified orchestration, optionally using activation options.",
+          "parameters": [
+            {
+              "name": "orchestrationId",
+              "in": "path",
+              "description": "ID of the orchestration for which to get the activation history.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "description": "Optional activation options. Otherwise, an empty body ({}).",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrchestrationActivationInputRepresentation"
+                }
+              }
+            },
+            "required": false
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/OrchestrationActivationDetailRepresentation"
+                  }
+                }
+              }
+            }
+          },
+          "x-codegen-request-body-name": "activationInput"
+        }
+      },
+      "/iot/orchestrations/{orchestrationId}/activations/last": {
+        "get": {
+          "description": "Get the orchestration activation that was most recently created for this orchestration ID.",
+          "parameters": [
+            {
+              "name": "orchestrationId",
+              "in": "path",
+              "description": "ID of the orchestration to deactivate.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/OrchestrationActivationDetailRepresentation"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "patch": {
+          "description": "Deactivate the specified orchestration. Use only to deactivate an active orchestration.",
+          "parameters": [
+            {
+              "name": "orchestrationId",
+              "in": "path",
+              "description": "ID of the orchestration to deactivate.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "description": "The body must include the status property with a value of Inactive. Optionally, you can specify whether to delete running orchestration instances by including the resetInstancesOnActivation option.",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrchestrationActivationInputRepresentation"
+                }
+              }
+            },
+            "required": false
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/OrchestrationActivationDetailRepresentation"
+                  }
+                }
+              }
+            }
+          },
+          "x-codegen-request-body-name": "activationInput"
+        }
+      },
+      "/iot/orchestrations/{orchestrationId}/activations/{activationId}": {
+        "get": {
+          "description": "Get activation information for the specified orchestration and activation.",
+          "parameters": [
+            {
+              "name": "activationId",
+              "in": "path",
+              "description": "ID of the activation for which to get details.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "orchestrationId",
+              "in": "path",
+              "description": "ID of the orchestration for which to get activation information.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/OrchestrationActivationDetailRepresentation"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "patch": {
+          "description": "Deactivate the specified orchestration activation. No other updates are supported.",
+          "parameters": [
+            {
+              "name": "activationId",
+              "in": "path",
+              "description": "ID of the activation for which to get details.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "orchestrationId",
+              "in": "path",
+              "description": "ID of the orchestration for which to get activation information.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "description": "The body must include the status property with a value of Inactive. Optionally, you can specify whether to delete running orchestration instances by including the resetInstancesOnActivation option.",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrchestrationActivationInputRepresentation"
+                }
+              }
+            },
+            "required": false
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/OrchestrationActivationDetailRepresentation"
+                  }
+                }
+              }
+            }
+          },
+          "x-codegen-request-body-name": "activationInput"
+        }
+      },
+      "/iot/orchestrations/{orchestrationId}/instances": {
+        "get": {
+          "description": "Get the orchestration instances, which can be filtered by state.",
+          "parameters": [
+            {
+              "name": "orchestrationId",
+              "in": "path",
+              "description": "Orchestration ID.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "page",
+              "in": "query",
+              "description": "Page token.",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "pageSize",
+              "in": "query",
+              "description": "The number of contexts returned per page. When one page is returned, it contains the URL in the nextPageUrl property that you use to get the next page of results.",
+              "schema": {
+                "type": "integer"
+              }
+            },
+            {
+              "name": "stateId",
+              "in": "query",
+              "description": "State ID.",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/OrchestrationInstanceCollectionRepresentation"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/iot/orchestrations/{orchestrationId}/instances/{instanceKey}": {
+        "get": {
+          "description": "Get the orchestration instance corresponding to the specified orchestration and instance key.",
+          "parameters": [
+            {
+              "name": "instanceKey",
+              "in": "path",
+              "description": "The orchestration instance key. The instanceKey is the value of the event key field.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "orchestrationId",
+              "in": "path",
+              "description": "The orchestration instance ID.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/OrchestrationInstanceDetailRepresentation"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "description": "Delete the orchestration instance corresponding to the specified orchestration and instance key.",
+          "parameters": [
+            {
+              "name": "instanceKey",
+              "in": "path",
+              "description": "The orchestration instance key. The instanceKey is the value of the event key field.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "orchestrationId",
+              "in": "path",
+              "description": "The orchestration instance ID.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {}
+            }
+          }
+        }
+      },
+      "/iot/orchestrations/{orchestrationId}/instances/{instanceKey}/log": {
+        "get": {
+          "description": "Get a list of orchestration log events.",
+          "parameters": [
+            {
+              "name": "instanceKey",
+              "in": "path",
+              "description": "Orchestration instance key.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "orchestrationId",
+              "in": "path",
+              "description": "Orchestration ID.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "fromDate",
+              "in": "query",
+              "description": "Collect log events, which timestamp is higher than fromDate.",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "page",
+              "in": "query",
+              "description": "Page token.",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "pageSize",
+              "in": "query",
+              "description": "The number of contexts returned per page. When one page is returned, it contains the URL in the nextPageUrl property that you use to get the next page of results.",
+              "schema": {
+                "type": "integer"
+              }
+            },
+            {
+              "name": "sortDirection",
+              "in": "query",
+              "description": "Field name to be sorted.",
+              "schema": {
+                "type": "string",
+                "enum": [
+                  "Ascending",
+                  "Descending"
+                ]
+              }
+            },
+            {
+              "name": "toDate",
+              "in": "query",
+              "description": "Collect log events, which timestamp is lower than toDate.",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/OrchestrationLogEventCollectionRepresentation"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/iot/orchestrations/{orchestrationId}/metrics/transitions": {
+        "get": {
+          "description": "Get state transition counts for the specified orchestration.",
+          "parameters": [
+            {
+              "name": "orchestrationId",
+              "in": "path",
+              "description": "ID of the orchestration to get transition counts for.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/OrchestrationTransitionCountCollectionRepresentation"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/iot/orchestrations/{orchestrationId}/states": {
+        "get": {
+          "description": "Get the orchestration states for the specified orchestration ID.",
+          "parameters": [
+            {
+              "name": "orchestrationId",
+              "in": "path",
+              "description": "Orchestration ID.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/OrchestrationStateCollectionRepresentation"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/iot/orchestrations/{orchestrationId}/trackers": {
+        "get": {
+          "description": "Get a list of trackers that have been set up for this orchestration.",
+          "parameters": [
+            {
+              "name": "orchestrationId",
+              "in": "path",
+              "description": "Orchestration ID.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "page",
+              "in": "query",
+              "description": "Page Token",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "pageSize",
+              "in": "query",
+              "description": "The number of contexts returned per page. When one page is returned, it contains the URL in the nextPageUrl property that you use to get the next page of results.",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/OrchestrationTrackerCollectionRepresentation"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "description": "Create a new orchestration tracker.",
+          "parameters": [
+            {
+              "name": "orchestrationId",
+              "in": "path",
+              "description": "Orchestration ID.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "description": "Tracker",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrchestrationTrackerPostInputRepresentation"
+                }
+              }
+            },
+            "required": false
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/OrchestrationTrackerRepresentation"
+                  }
+                }
+              }
+            }
+          },
+          "x-codegen-request-body-name": "trackerInput"
+        }
+      },
+      "/iot/orchestrations/{orchestrationId}/trackers/{trackerId}": {
+        "get": {
+          "description": "Get a list of trackers set up for this orchestration.",
+          "parameters": [
+            {
+              "name": "orchestrationId",
+              "in": "path",
+              "description": "ID of the tracker's orchestration.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "trackerId",
+              "in": "path",
+              "description": "Tracker ID.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/OrchestrationTrackerRepresentation"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "description": "Delete the orchestration tracker.",
+          "parameters": [
+            {
+              "name": "orchestrationId",
+              "in": "path",
+              "description": "ID of the tracker's orchestration.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "trackerId",
+              "in": "path",
+              "description": "Tracker ID.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {}
+            }
+          }
+        },
+        "patch": {
+          "description": "Update the orchestration tracker.",
+          "parameters": [
+            {
+              "name": "orchestrationId",
+              "in": "path",
+              "description": "ID of the tracker's orchestration.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "trackerId",
+              "in": "path",
+              "description": "Tracker ID.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrchestrationTrackerPatchInputRepresentation"
+                }
+              }
+            },
+            "required": false
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/OrchestrationTrackerRepresentation"
+                  }
+                }
+              }
+            }
+          },
+          "x-codegen-request-body-name": "trackerInput"
+        }
+      },
+      "/iot/reference-data": {
+        "get": {
+          "description": "Get all available reference data.",
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/OrchestrationReferenceDataCollectionRepresentation"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/iot/reference-data/sobjects": {
+        "get": {
+          "description": "List of all Salesforce objects that can be referenced in your org.",
+          "parameters": [
+            {
+              "name": "page",
+              "in": "query",
+              "description": "For internal use only. ",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "pageSize",
+              "in": "query",
+              "description": "The number of Salesforce objects returned per page. When one page is returned, it contains the URL in the nextPageUrl property that you use to get the next page of results.",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/OrchestrationSobjectReferenceCollectionRepresentation"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/iot/reference-data/sobjects/{name}": {
+        "get": {
+          "description": "Get a reference object metadata with specified name.",
+          "parameters": [
+            {
+              "name": "name",
+              "in": "path",
+              "description": "Unique name of the referenced object to retrieve.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/OrchestrationSobjectReferenceRepresentation"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/iot/sobjects/{sObjectName}/{id}/instances": {
+        "get": {
+          "description": "Get the orchestration instance corresponding to the specified orchestration and instance key.",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "SObject ID",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "sObjectName",
+              "in": "path",
+              "description": "SObject Name",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "page",
+              "in": "query",
+              "description": "Page Token",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "pageSize",
+              "in": "query",
+              "description": "Number of orchestration instances to return.",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/OrchestrationInstanceDetailCollectionRepresentation"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/iot/sobjects/{sObjectName}/{id}/orchestrations/{orchestrationIdOrName}/instance": {
+        "get": {
+          "description": "Get the orchestration instance corresponding to the specified orchestration and instance key.",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "SObject ID.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "orchestrationIdOrName",
+              "in": "path",
+              "description": "Orchestration ID or API name.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "sObjectName",
+              "in": "path",
+              "description": "SObject name.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/OrchestrationInstanceDetailRepresentation"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/iot/usage": {
+        "get": {
+          "description": "Get the current org-level usage and allocations.",
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UsageDetailRepresentation"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/iot/usage/orchestration-usage": {
+        "get": {
+          "description": "Get usage data for each orchestration in the org, including the number of instances, and the number of processed events per orchestration.",
+          "parameters": [
+            {
+              "name": "page",
+              "in": "query",
+              "description": "For internal use only.",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "pageSize",
+              "in": "query",
+              "description": "The number of items returned per page. When one page is returned, it contains the URL in the nextPageUrl property that you use to get the next page of results.",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/OrchestrationUsageCollectionRepresentation"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "AbstractBaseResourceRepresentation": {
+          "type": "object",
+          "properties": {
+            "createdDate": {
+              "type": "string",
+              "description": "The date on which the resource was created."
+            },
+            "description": {
+              "type": "string",
+              "description": "The resource description."
+            },
+            "id": {
+              "type": "string",
+              "description": "The 18-character ID of the resource."
+            },
+            "label": {
+              "type": "string",
+              "description": "The resource label."
+            },
+            "lastModifiedDate": {
+              "type": "string",
+              "description": "The date on which this resource was last edited."
+            },
+            "name": {
+              "type": "string",
+              "description": "The resource name."
+            },
+            "namespace": {
+              "type": "string",
+              "description": "The namespace that this resource belongs to."
+            },
+            "url": {
+              "type": "string",
+              "description": "The URL of this resource."
+            }
+          },
+          "description": "A representation for an IoT Resource. Eg. OrchestrationInstance"
+        },
+        "AbstractCollectionRepresentation": {
+          "type": "object",
+          "properties": {
+            "nextPageUrl": {
+              "type": "string",
+              "description": "URL to get the next page of contents in the list."
+            },
+            "totalSize": {
+              "type": "integer",
+              "description": "The total number of items in the list., irrespective of the page."
+            },
+            "url": {
+              "type": "string",
+              "description": "URL for the list."
+            }
+          },
+          "description": "Information about the items in the list."
+        },
+        "AbstractContextActivationRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AbstractResourceRepresentation"
+            },
+            {
+              "type": "object",
+              "description": "A list of context activation resources."
+            }
+          ]
+        },
+        "AbstractContextRepresentation": {
+          "type": "object",
+          "properties": {
+            "activationStatus": {
+              "type": "string",
+              "description": "The activation status of the context.",
+              "enum": [
+                "Activating",
+                "Active",
+                "Error",
+                "Inactive",
+                "Invalid",
+                "Validating"
+              ]
+            },
+            "createdBy": {
+              "$ref": "#/components/schemas/IoTReferenceRepresentation"
+            },
+            "createdDate": {
+              "type": "string",
+              "description": "The date on which the context was created."
+            },
+            "description": {
+              "type": "string",
+              "description": "The context description."
+            },
+            "id": {
+              "type": "string",
+              "description": "The 18-character ID of this context."
+            },
+            "imageFile": {
+              "$ref": "#/components/schemas/FileAssetRepresentation"
+            },
+            "imageScale": {
+              "type": "integer",
+              "description": "The scale percentage of the context branding image."
+            },
+            "label": {
+              "type": "string",
+              "description": "Context label."
+            },
+            "lastModifiedBy": {
+              "$ref": "#/components/schemas/IoTReferenceRepresentation"
+            },
+            "lastModifiedDate": {
+              "type": "string",
+              "description": "The date on which this context was last edited."
+            },
+            "manageableState": {
+              "type": "string",
+              "description": "The manageableState of this context: released, deleted, deprecated, installed, beta, unmanaged.",
+              "enum": [
+                "ManagedBeta",
+                "ManagedDeletable",
+                "ManagedDeleted",
+                "ManagedDeprecated",
+                "ManagedInstalled",
+                "ManagedReleased",
+                "Unmanaged"
+              ]
+            },
+            "name": {
+              "type": "string",
+              "description": "The context name."
+            },
+            "namespace": {
+              "type": "string",
+              "description": "The namespace that this context belongs to."
+            },
+            "runtime": {
+              "type": "string",
+              "description": "The runtime type of this context.",
+              "enum": [
+                "HighVolume",
+                "Standard"
+              ]
+            },
+            "url": {
+              "type": "string",
+              "description": "The URL of this context."
+            }
+          },
+          "description": "A list of the properties for this context."
+        },
+        "AbstractOrchestrationActivationRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AbstractResourceRepresentation"
+            },
+            {
+              "type": "object",
+              "description": "A list of orchestration activation resources."
+            }
+          ]
+        },
+        "AbstractOrchestrationDatasetRepresentation": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string",
+              "description": "The dataset label."
+            },
+            "name": {
+              "type": "string",
+              "description": "The dataset name."
+            },
+            "url": {
+              "type": "string",
+              "description": "The URL of this dataset."
+            }
+          },
+          "description": "Information about the Salesforce IoT orchestration dataset, including name, label and URL."
+        },
+        "AbstractOrchestrationInstanceRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AbstractBaseResourceRepresentation"
+            },
+            {
+              "type": "object",
+              "description": "A list of orchestration instance resources."
+            }
+          ]
+        },
+        "AbstractOrchestrationRepresentation": {
+          "type": "object",
+          "properties": {
+            "createdBy": {
+              "$ref": "#/components/schemas/IoTReferenceRepresentation"
+            },
+            "createdDate": {
+              "type": "string",
+              "description": "The date on which the resource was created."
+            },
+            "id": {
+              "type": "string",
+              "description": "The 18-character ID of this resource."
+            },
+            "label": {
+              "type": "string",
+              "description": "The label for this resource."
+            },
+            "lastModifiedBy": {
+              "$ref": "#/components/schemas/IoTReferenceRepresentation"
+            },
+            "lastModifiedDate": {
+              "type": "string",
+              "description": "The date on which this resource was last edited."
+            },
+            "manageableState": {
+              "type": "string",
+              "description": "The manageableState of this orchestration: released, deleted, deprecated, installed, beta, unmanaged",
+              "enum": [
+                "ManagedBeta",
+                "ManagedDeletable",
+                "ManagedDeleted",
+                "ManagedDeprecated",
+                "ManagedInstalled",
+                "ManagedReleased",
+                "Unmanaged"
+              ]
+            },
+            "name": {
+              "type": "string",
+              "description": "The name of this resource."
+            },
+            "namespace": {
+              "type": "string",
+              "description": "The namespace that this resource belongs to."
+            },
+            "orchestrationContext": {
+              "$ref": "#/components/schemas/ContextReferenceRepresentation"
+            },
+            "status": {
+              "type": "string",
+              "description": "The activation status of this orchestration.",
+              "enum": [
+                "Activating",
+                "Active",
+                "Deactivating",
+                "Error",
+                "Inactive",
+                "Unknown"
+              ]
+            },
+            "url": {
+              "type": "string",
+              "description": "The URL of this resource."
+            }
+          },
+          "description": "A list of orchestration resources."
+        },
+        "AbstractOrchestrationStateRepresentation": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "description": "The numeric value that identifies the state."
+            },
+            "name": {
+              "type": "string",
+              "description": "The name of the state."
+            }
+          },
+          "description": "A reference to an orchestration state."
+        },
+        "AbstractResourceRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AbstractBaseResourceRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "createdBy": {
+                  "$ref": "#/components/schemas/IoTReferenceRepresentation"
+                },
+                "lastModifiedBy": {
+                  "$ref": "#/components/schemas/IoTReferenceRepresentation"
+                }
+              },
+              "description": "A representation for a Salesforce IoT resource, such as OrchestrationInstance."
+            }
+          ]
+        },
+        "ActivityInfoRepresentation": {
+          "type": "object",
+          "properties": {
+            "activity": {
+              "$ref": "#/components/schemas/ActivityLogRepresentation"
+            }
+          },
+          "description": "Activity info marker"
+        },
+        "ActivityLogCollectionRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AbstractCollectionRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "activities": {
+                  "type": "array",
+                  "description": "A list of activity logs.",
+                  "items": {
+                    "$ref": "#/components/schemas/ActivityLogRepresentation"
+                  }
+                }
+              },
+              "description": "A list of activity logs."
+            }
+          ]
+        },
+        "ActivityLogRepresentation": {
+          "type": "object",
+          "properties": {
+            "activityInfo": {
+              "type": "string",
+              "description": "URL to activity info."
+            },
+            "createdBy": {
+              "$ref": "#/components/schemas/IoTReferenceRepresentation"
+            },
+            "createdDate": {
+              "type": "string",
+              "description": "The date on which the resource was created."
+            },
+            "id": {
+              "type": "string",
+              "description": "The unique identifier associated with the log entry."
+            },
+            "level": {
+              "type": "string",
+              "description": "Activity log level category.",
+              "enum": [
+                "Error",
+                "Info"
+              ]
+            },
+            "source": {
+              "$ref": "#/components/schemas/ActivityLogSourceRepresentation"
+            },
+            "summary": {
+              "type": "string",
+              "description": "Short summary describing activity."
+            },
+            "type": {
+              "type": "string",
+              "description": "Activity type.",
+              "enum": [
+                "ContextActivate",
+                "ContextDelete",
+                "ContextSave",
+                "DatasetError",
+                "DatasetLoad",
+                "DatasetRefresh",
+                "EventAllocationsExceeded",
+                "EventLimitNotification",
+                "InstanceAllocationsExceeded",
+                "LoggingStopped",
+                "LostEventNotification",
+                "OrchestrationActivate",
+                "OrchestrationDeactivate",
+                "OrchestrationDelete",
+                "OrchestrationInstanceLimitNotification",
+                "OrchestrationSave",
+                "OutputError",
+                "TransitionToErrorState",
+                "UnexpectedError"
+              ]
+            }
+          },
+          "description": "Activity log details."
+        },
+        "ActivityLogSourceRepresentation": {
+          "type": "object",
+          "properties": {
+            "category": {
+              "type": "string",
+              "description": "Category associated with the requested object ID.",
+              "enum": [
+                "Context",
+                "Orchestration",
+                "Org"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "description": "18-character identifier associated with activity object."
+            },
+            "name": {
+              "type": "string",
+              "description": "Activity object name."
+            },
+            "runtime": {
+              "type": "string",
+              "description": "Runtime type associated with the activity.",
+              "enum": [
+                "HighVolume",
+                "Standard"
+              ]
+            },
+            "url": {
+              "type": "string",
+              "description": "URL link to the definiton associated with the requested object."
+            }
+          },
+          "description": "Activity log source details."
+        },
+        "AllocationCountRepresentation": {
+          "type": "object",
+          "properties": {
+            "count": {
+              "type": "integer",
+              "description": "Value of the allocation count.",
+              "format": "int64"
+            },
+            "description": {
+              "type": "string",
+              "description": "Allocation description."
+            }
+          },
+          "description": "An org-level allocation count."
+        },
+        "AllocationsRepresentation": {
+          "type": "object",
+          "properties": {
+            "eventAllocation": {
+              "$ref": "#/components/schemas/AllocationCountRepresentation"
+            },
+            "instanceAllocation": {
+              "$ref": "#/components/schemas/AllocationCountRepresentation"
+            }
+          },
+          "description": "Org-level allocations for the number of events that can be processed."
+        },
+        "ContextActivationCollectionRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AbstractCollectionRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "activations": {
+                  "type": "array",
+                  "description": "Context activation information.",
+                  "items": {
+                    "$ref": "#/components/schemas/ContextActivationSummaryRepresentation"
+                  }
+                }
+              },
+              "description": "A list of Salesforce IoT context activations."
+            }
+          ]
+        },
+        "ContextActivationDetailRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AbstractContextActivationRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "contextUrl": {
+                  "type": "string",
+                  "description": "The URL of the parent context resource."
+                },
+                "definition": {
+                  "$ref": "#/components/schemas/ContextDefinitionRepresentation"
+                },
+                "result": {
+                  "$ref": "#/components/schemas/ContextActivationResultRepresentation"
+                },
+                "runtime": {
+                  "type": "string",
+                  "description": "The parent context runtime.",
+                  "enum": [
+                    "HighVolume",
+                    "Standard"
+                  ]
+                },
+                "status": {
+                  "type": "string",
+                  "description": "The status of the context activation resource.",
+                  "enum": [
+                    "Activating",
+                    "Active",
+                    "Error",
+                    "Inactive",
+                    "Invalid",
+                    "Validating"
+                  ]
+                }
+              },
+              "description": "Context activation information."
+            }
+          ]
+        },
+        "ContextActivationInputRepresentation": {
+          "type": "object",
+          "properties": {
+            "options": {
+              "type": "object",
+              "properties": {},
+              "description": "The options for this context activation."
+            }
+          },
+          "description": "An input representation of a context activation."
+        },
+        "ContextActivationOptionsInputRepresentation": {
+          "type": "object",
+          "properties": {
+            "activateOrchestrationsOnActivation": {
+              "type": "boolean",
+              "description": "Option to reactivate currently active orchestrations with the activated context."
+            }
+          },
+          "description": "The options for this context activation."
+        },
+        "ContextActivationOrchestrationResultRepresentation": {
+          "type": "object",
+          "properties": {
+            "activationStatus": {
+              "type": "string",
+              "description": "Orchestration activation status.",
+              "enum": [
+                "Activating",
+                "Active",
+                "Deactivating",
+                "Error",
+                "Inactive",
+                "Unknown"
+              ]
+            },
+            "activationUrl": {
+              "type": "string",
+              "description": "The URL of the orchestration activation."
+            },
+            "id": {
+              "type": "string",
+              "description": "The 18-character ID of the orchestration."
+            },
+            "label": {
+              "type": "string",
+              "description": "Orchestration label."
+            },
+            "messages": {
+              "type": "array",
+              "description": "A list of messages generated during orchestration activation.",
+              "items": {
+                "$ref": "#/components/schemas/OrchestrationValidationMessageRepresentation"
+              }
+            },
+            "name": {
+              "type": "string",
+              "description": "Orchestration name."
+            },
+            "namespace": {
+              "type": "string",
+              "description": "The namespace that the orchestration belongs to."
+            },
+            "url": {
+              "type": "string",
+              "description": "The URL of the orchestration."
+            }
+          },
+          "description": "Details about a context activation orchestration result."
+        },
+        "ContextActivationResultRepresentation": {
+          "type": "object",
+          "properties": {
+            "messages": {
+              "type": "array",
+              "description": "A list of error messages generated while activating a context.",
+              "items": {
+                "$ref": "#/components/schemas/ErrorRepresentation"
+              }
+            },
+            "orchestrations": {
+              "type": "array",
+              "description": "A list of validation and deployment messages for the orchestration generated during context activation.",
+              "items": {
+                "$ref": "#/components/schemas/ContextActivationOrchestrationResultRepresentation"
+              }
+            }
+          },
+          "description": "Information about the context activation result."
+        },
+        "ContextActivationSummaryRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AbstractContextActivationRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "description": "Context activation status.",
+                  "enum": [
+                    "Activating",
+                    "Active",
+                    "Error",
+                    "Inactive",
+                    "Invalid",
+                    "Validating"
+                  ]
+                }
+              },
+              "description": "Information about the context activation, including activation status."
+            }
+          ]
+        },
+        "ContextCollectionRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AbstractCollectionRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "contexts": {
+                  "type": "array",
+                  "description": "A list of Salesforce IoT contexts.",
+                  "items": {
+                    "$ref": "#/components/schemas/ContextSummaryRepresentation"
+                  }
+                }
+              },
+              "description": "A list of Salesforce IoT contexts."
+            }
+          ]
+        },
+        "ContextDefinitionRepresentation": {
+          "type": "object",
+          "properties": {
+            "events": {
+              "type": "array",
+              "description": "The events for the context.",
+              "items": {
+                "$ref": "#/components/schemas/OrchestrationEventTypeRepresentation"
+              }
+            },
+            "referenceData": {
+              "type": "array",
+              "description": "The reference data for the context.",
+              "items": {
+                "$ref": "#/components/schemas/OrchestrationContextDatasetRepresentation"
+              }
+            }
+          },
+          "description": "The context definition."
+        },
+        "ContextDetailRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AbstractContextRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "activationsUrl": {
+                  "type": "string",
+                  "description": "The URL of activations of this context."
+                },
+                "events": {
+                  "type": "array",
+                  "description": "The events for this orchestration context.",
+                  "items": {
+                    "$ref": "#/components/schemas/OrchestrationEventTypeRepresentation"
+                  }
+                },
+                "orchestrationsUrl": {
+                  "type": "string",
+                  "description": "The URL of orchestrations using this context."
+                },
+                "referenceData": {
+                  "type": "array",
+                  "description": "The reference data for this orchestration context.",
+                  "items": {
+                    "$ref": "#/components/schemas/OrchestrationContextDatasetRepresentation"
+                  }
+                },
+                "validationMessages": {
+                  "$ref": "#/components/schemas/ContextValidationMessagesRepresentation"
+                }
+              },
+              "description": "Information about the orchestration context."
+            }
+          ]
+        },
+        "ContextInputRepresentation": {
+          "type": "object",
+          "properties": {
+            "description": {
+              "type": "string",
+              "description": "The description of this context."
+            },
+            "events": {
+              "type": "array",
+              "description": "The events used by this context.",
+              "items": {
+                "type": "object",
+                "properties": {}
+              }
+            },
+            "imageName": {
+              "type": "string",
+              "description": "The fileforce image ID for this context."
+            },
+            "imageScale": {
+              "type": "integer",
+              "description": "The fileforce image scale for this context."
+            },
+            "label": {
+              "type": "string",
+              "description": "Context label."
+            },
+            "name": {
+              "type": "string",
+              "description": "Context name."
+            },
+            "referenceData": {
+              "type": "array",
+              "description": "The datasets that are referenced by this context.",
+              "items": {
+                "type": "object",
+                "properties": {}
+              }
+            },
+            "runtime": {
+              "type": "string",
+              "description": "The runtime for this context.",
+              "enum": [
+                "HighVolume",
+                "Standard"
+              ]
+            }
+          },
+          "description": "An input representation of a context."
+        },
+        "ContextReferenceInputRepresentation": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Context name."
+            },
+            "namespace": {
+              "type": "string",
+              "description": "The namespace of the context."
+            }
+          },
+          "description": "Specification for a context reference."
+        },
+        "ContextReferenceRepresentation": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Context API name."
+            },
+            "label": {
+              "type": "string",
+              "description": "Context label."
+            },
+            "name": {
+              "type": "string",
+              "description": "Context name."
+            },
+            "namespace": {
+              "type": "string",
+              "description": "The namespace that the context resides in."
+            },
+            "runtime": {
+              "type": "string",
+              "description": "The runtime type of the context.",
+              "enum": [
+                "HighVolume",
+                "Standard"
+              ]
+            },
+            "url": {
+              "type": "string",
+              "description": "The URL of the context resource."
+            }
+          },
+          "description": "The context referenced by this orchestration."
+        },
+        "ContextSummaryRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AbstractContextRepresentation"
+            },
+            {
+              "type": "object",
+              "description": "Summarized information about an orchestration context."
+            }
+          ]
+        },
+        "ContextValidationMessageRepresentation": {
+          "type": "object",
+          "properties": {
+            "location": {
+              "type": "string",
+              "description": "The location of the error."
+            },
+            "severity": {
+              "type": "string",
+              "description": "The severity of the issue.",
+              "enum": [
+                "Error",
+                "Warning"
+              ]
+            },
+            "text": {
+              "type": "string",
+              "description": "The text of the message."
+            }
+          },
+          "description": "A message generated when validating the context definition."
+        },
+        "ContextValidationMessagesRepresentation": {
+          "type": "object",
+          "properties": {
+            "messages": {
+              "type": "array",
+              "description": "A list of messages generated while validating the context definition.",
+              "items": {
+                "$ref": "#/components/schemas/ContextValidationMessageRepresentation"
+              }
+            }
+          },
+          "description": "A list of messages generated while validating the context definition."
+        },
+        "DatasetReferenceInputRepresentation": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Dataset name."
+            },
+            "namespace": {
+              "type": "string",
+              "description": "The namespace of the dataset."
+            },
+            "type": {
+              "type": "string",
+              "description": "Dataset type.",
+              "enum": [
+                "SalesforceObjectReference",
+                "Wave"
+              ]
+            }
+          },
+          "description": "Specification for a dataset reference."
+        },
+        "DatasetReferenceRepresentation": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Dataset API name."
+            },
+            "label": {
+              "type": "string",
+              "description": "Dataset label."
+            },
+            "name": {
+              "type": "string",
+              "description": "Dataset name."
+            },
+            "namespace": {
+              "type": "string",
+              "description": "The namespace that the dataset resides in."
+            },
+            "type": {
+              "type": "string",
+              "description": "Dataset reference type.",
+              "enum": [
+                "SalesforceObjectReference",
+                "Wave"
+              ]
+            }
+          },
+          "description": "A dataset that is referenced from an orchestration context."
+        },
+        "DependenciesRepresentation": {
+          "type": "object",
+          "properties": {
+            "orchestrationsUrl": {
+              "type": "string",
+              "description": "The URL of the orchestrations with the specified context ID."
+            }
+          },
+          "description": "The object dependencies."
+        },
+        "ErrorRepresentation": {
+          "type": "object",
+          "properties": {
+            "severity": {
+              "type": "string",
+              "description": "The severity of the issue.",
+              "enum": [
+                "Error",
+                "Warning"
+              ]
+            },
+            "text": {
+              "type": "string",
+              "description": "The message text."
+            }
+          },
+          "description": "A generic representation for an error with a message and severity."
+        },
+        "EventTypeReferenceInputRepresentation": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Event name."
+            },
+            "namespace": {
+              "type": "string",
+              "description": "The namespace of the event."
+            },
+            "type": {
+              "type": "string",
+              "description": "Event type.",
+              "enum": [
+                "OrchestrationEvent",
+                "PlatformEvent"
+              ]
+            }
+          },
+          "description": "Information about the event."
+        },
+        "EventTypeReferenceRepresentation": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Event ID."
+            },
+            "label": {
+              "type": "string",
+              "description": "Event label."
+            },
+            "name": {
+              "type": "string",
+              "description": "Event name."
+            },
+            "namespace": {
+              "type": "string",
+              "description": "The namespace that the event resides in."
+            },
+            "properties": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "description": "Event properties."
+            },
+            "type": {
+              "type": "string",
+              "description": "Event type.",
+              "enum": [
+                "OrchestrationEvent",
+                "PlatformEvent"
+              ]
+            }
+          },
+          "description": "Information about the event, such as the ID, event name, and label."
+        },
+        "EventUsageRepresentation": {
+          "type": "object",
+          "properties": {
+            "processedEventCount": {
+              "type": "integer",
+              "description": "Number of events processed in the last 24 hours.",
+              "format": "int64"
+            },
+            "rejectedEventCount": {
+              "type": "integer",
+              "description": "Number of events rejected in the last 24 hours.",
+              "format": "int64"
+            }
+          },
+          "description": "Current org-level event usage."
+        },
+        "FileAssetRepresentation": {
+          "type": "object",
+          "properties": {
+            "baseAssetUrl": {
+              "type": "string",
+              "description": "Base download URL of the asset."
+            },
+            "baseUnauthenticatedAssetUrl": {
+              "type": "string",
+              "description": "Base unauthenticated download URL of the asset."
+            },
+            "id": {
+              "type": "string",
+              "description": "Asset ID."
+            },
+            "isVisibleByExternalUsers": {
+              "type": "boolean",
+              "description": "Flag for public access to asset."
+            },
+            "masterLabel": {
+              "type": "string",
+              "description": "The master label of the asset."
+            },
+            "name": {
+              "type": "string",
+              "description": "The unique name of the asset."
+            },
+            "namespacePrefix": {
+              "type": "string",
+              "description": "The namespacePrefix of the package containing the asset."
+            },
+            "type": {
+              "type": "string",
+              "description": "Asset type."
+            }
+          },
+          "description": "URL information for a file asset."
+        },
+        "IoTReferenceRepresentation": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "The 18-character ID of this object."
+            },
+            "label": {
+              "type": "string",
+              "description": "Object label."
+            },
+            "name": {
+              "type": "string",
+              "description": "Object name."
+            },
+            "namespace": {
+              "type": "string",
+              "description": "The namespace that the object belongs to."
+            },
+            "url": {
+              "type": "string",
+              "description": "The URL of the resource representing this object."
+            }
+          },
+          "description": "Information about an object, such as name, ID and resource URL."
+        },
+        "MetadataActivityInfoRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/ActivityInfoRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "currentDefinitionUrl": {
+                  "type": "string",
+                  "description": "URL for the current context, orchestration or deployment."
+                },
+                "originalDefinitionUrl": {
+                  "type": "string",
+                  "description": "URL for the pre-change context or orchestration deployment."
+                }
+              },
+              "description": "URL information for the context or orchestration."
+            }
+          ]
+        },
+        "NotificationActivityInfoRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/ActivityInfoRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "reason": {
+                  "type": "string",
+                  "description": "Textual description of the notification."
+                },
+                "recipient": {
+                  "type": "string",
+                  "description": "Email address notified."
+                }
+              },
+              "description": "Email notification information."
+            }
+          ]
+        },
+        "OrchestrationActionInputRepresentation": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "Action type.",
+              "enum": [
+                "AssignVariable",
+                "ChangeState",
+                "ResetVariable",
+                "SalesforceOutputAction",
+                "Terminate"
+              ]
+            }
+          },
+          "description": "A list of actions to execute, such as assigning a variable value or creating a Salesforce record, when a condition is met."
+        },
+        "OrchestrationActionRepresentation": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "Action type.",
+              "enum": [
+                "AssignVariable",
+                "ChangeState",
+                "ResetVariable",
+                "SalesforceOutputAction",
+                "Terminate"
+              ]
+            }
+          },
+          "description": "The action types executed when the conditions of a rule are met."
+        },
+        "OrchestrationActivationCollectionRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AbstractCollectionRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "activations": {
+                  "type": "array",
+                  "description": "A list of Salesforce IoT orchestration activations.",
+                  "items": {
+                    "$ref": "#/components/schemas/OrchestrationActivationSummaryRepresentation"
+                  }
+                }
+              },
+              "description": "A list of Salesforce IoT orchestration activations."
+            }
+          ]
+        },
+        "OrchestrationActivationDetailRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AbstractOrchestrationActivationRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "definition": {
+                  "$ref": "#/components/schemas/OrchestrationDefinitionRepresentation"
+                },
+                "options": {
+                  "$ref": "#/components/schemas/OrchestrationActivationOptionsRepresentation"
+                },
+                "orchestrationUrl": {
+                  "type": "string",
+                  "description": "The URL of the related orchestration resource."
+                },
+                "status": {
+                  "type": "string",
+                  "description": "The status of the orchestration activation resource.",
+                  "enum": [
+                    "Activating",
+                    "Active",
+                    "Deactivating",
+                    "Error",
+                    "Inactive",
+                    "Unknown"
+                  ]
+                }
+              },
+              "description": "Orchestration activation information, including activation status and URLs of related orchestration resources."
+            }
+          ]
+        },
+        "OrchestrationActivationInputRepresentation": {
+          "type": "object",
+          "properties": {
+            "options": {
+              "type": "object",
+              "properties": {},
+              "description": "The orchestration activation options."
+            },
+            "status": {
+              "type": "string",
+              "description": "The orchestration activation status.",
+              "enum": [
+                "Activating",
+                "Active",
+                "Deactivating",
+                "Error",
+                "Inactive",
+                "Unknown"
+              ]
+            }
+          },
+          "description": "An orchestration activation request."
+        },
+        "OrchestrationActivationOptionsInputRepresentation": {
+          "type": "object",
+          "properties": {
+            "resetInstancesOnActivation": {
+              "type": "boolean",
+              "description": "Option to delete all existing instances in the current orchestration during activation."
+            }
+          },
+          "description": "Orchestration activation status information."
+        },
+        "OrchestrationActivationOptionsRepresentation": {
+          "type": "object",
+          "properties": {
+            "resetInstancesOnActivation": {
+              "type": "boolean",
+              "description": "Option to delete all existing instances in the current orchestration during activation."
+            }
+          },
+          "description": "The orchestration activation options."
+        },
+        "OrchestrationActivationSummaryRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AbstractOrchestrationActivationRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "description": "Current orchestration activation status.",
+                  "enum": [
+                    "Activating",
+                    "Active",
+                    "Deactivating",
+                    "Error",
+                    "Inactive",
+                    "Unknown"
+                  ]
+                }
+              },
+              "description": "Summary of information about orchestration activation."
+            }
+          ]
+        },
+        "OrchestrationAssignVariableActionInputRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationActionInputRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "description": "The Salesforce expression that is used to assign the value to the variable."
+                },
+                "variableId": {
+                  "type": "integer",
+                  "description": "The variable ID."
+                }
+              },
+              "description": "An orchestration action that assigns a value to a variable."
+            }
+          ]
+        },
+        "OrchestrationAssignVariableActionRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationActionRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "description": "The Salesforce expression that assigns the value to the variable."
+                },
+                "variableId": {
+                  "type": "integer",
+                  "description": "The variable ID."
+                }
+              },
+              "description": "An orchestration action that assigns a value to a variable."
+            }
+          ]
+        },
+        "OrchestrationAvgAggregationVariableValueInputRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationTemporalAggregationVariableValueInputRepresentation"
+            },
+            {
+              "type": "object",
+              "description": "An orchestration variable value performing an average aggregation over time."
+            }
+          ]
+        },
+        "OrchestrationChangeStateActionInputRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationActionInputRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "stateId": {
+                  "type": "integer",
+                  "description": "The ID of the state to change the instance to."
+                }
+              },
+              "description": "An action that changes the state of an orchestration."
+            }
+          ]
+        },
+        "OrchestrationChangeStateActionRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationActionRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "stateId": {
+                  "type": "integer",
+                  "description": "The ID of the state to change the instance to."
+                }
+              },
+              "description": "An action that changes the state of an orchestration."
+            }
+          ]
+        },
+        "OrchestrationCollectionRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AbstractCollectionRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "orchestrations": {
+                  "type": "array",
+                  "description": "A list of all Salesforce IoT orchestrations.",
+                  "items": {
+                    "$ref": "#/components/schemas/OrchestrationSummaryRepresentation"
+                  }
+                }
+              },
+              "description": "A list containing summary information of all orchestrations."
+            }
+          ]
+        },
+        "OrchestrationContextDatasetInputRepresentation": {
+          "type": "object",
+          "properties": {
+            "keyFields": {
+              "type": "array",
+              "description": "The key fields used with the dataset.",
+              "items": {
+                "type": "string"
+              }
+            },
+            "metadata": {
+              "type": "object",
+              "properties": {},
+              "description": "The dataset metadata."
+            }
+          },
+          "description": "The context dataset associated with the orchestration."
+        },
+        "OrchestrationContextDatasetRepresentation": {
+          "type": "object",
+          "properties": {
+            "keyFields": {
+              "type": "array",
+              "description": "The key fields that are used with the dataset reference.",
+              "items": {
+                "type": "string"
+              }
+            },
+            "metadata": {
+              "$ref": "#/components/schemas/DatasetReferenceRepresentation"
+            }
+          },
+          "description": "A reference and the associated key fields that relate an orchestration context to a dataset."
+        },
+        "OrchestrationContextRuntimeEventCollectionRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AbstractCollectionRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "isThrottled": {
+                  "type": "boolean",
+                  "description": "Identifies if event consumption is throttled by rate limits."
+                },
+                "orchestrationContextEvents": {
+                  "type": "array",
+                  "description": "A list of orchestration context runtime events.",
+                  "items": {
+                    "$ref": "#/components/schemas/OrchestrationContextRuntimeEventRepresentation"
+                  }
+                }
+              },
+              "description": "A list of Salesforce IoT orchestration context runtime events."
+            }
+          ]
+        },
+        "OrchestrationContextRuntimeEventRepresentation": {
+          "type": "object",
+          "properties": {
+            "createdDate": {
+              "type": "string",
+              "description": "The date on which the resource was created."
+            },
+            "eventType": {
+              "type": "string",
+              "description": "Event type."
+            },
+            "instanceKey": {
+              "type": "string",
+              "description": "Instance key."
+            },
+            "message": {
+              "type": "string",
+              "description": "Event data."
+            },
+            "offset": {
+              "type": "string",
+              "description": "Offset of the event in the stream."
+            }
+          },
+          "description": "Information about an orchestration context event."
+        },
+        "OrchestrationCountAggregationVariableValueInputRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationVariableValueInputRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "temporalWindow": {
+                  "type": "string",
+                  "description": "The temporal window for the aggregation."
+                }
+              },
+              "description": "An action that terminates the orchestration."
+            }
+          ]
+        },
+        "OrchestrationCountAggregationVariableValueRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationVariableValueRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "temporalWindow": {
+                  "type": "string",
+                  "description": "The temporal window for the aggregation."
+                }
+              },
+              "description": "An orchestration variable value using the count function."
+            }
+          ]
+        },
+        "OrchestrationCustomVariableValueInputRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationVariableValueInputRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "formula": {
+                  "type": "string",
+                  "description": "The variable value, as a Salesforce expression."
+                }
+              },
+              "description": "A custom Salesforce expression that is used to set a variable value."
+            }
+          ]
+        },
+        "OrchestrationCustomVariableValueRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationVariableValueRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "formula": {
+                  "type": "string",
+                  "description": "The variable value, as a Salesforce expression."
+                }
+              },
+              "description": "A custom Salesforce expression that is used to set a variable value."
+            }
+          ]
+        },
+        "OrchestrationDefinitionInputRepresentation": {
+          "type": "object",
+          "properties": {
+            "global": {
+              "type": "object",
+              "properties": {},
+              "description": "The hyper state for the orchestration, containing global rule definitions."
+            },
+            "properties": {
+              "type": "object",
+              "properties": {},
+              "description": "The orchestration properties."
+            },
+            "states": {
+              "type": "array",
+              "description": "The orchestration states.",
+              "items": {
+                "type": "object",
+                "properties": {}
+              }
+            },
+            "variables": {
+              "type": "array",
+              "description": "The orchestration variables.",
+              "items": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          },
+          "description": "The orchestration definition."
+        },
+        "OrchestrationDefinitionRepresentation": {
+          "type": "object",
+          "properties": {
+            "global": {
+              "$ref": "#/components/schemas/OrchestrationStateRepresentation"
+            },
+            "properties": {
+              "$ref": "#/components/schemas/OrchestrationPropertiesRepresentation"
+            },
+            "states": {
+              "type": "array",
+              "description": "The orchestration states.",
+              "items": {
+                "$ref": "#/components/schemas/OrchestrationStateRepresentation"
+              }
+            },
+            "variables": {
+              "type": "array",
+              "description": "The orchestration variables.",
+              "items": {
+                "$ref": "#/components/schemas/OrchestrationVariableRepresentation"
+              }
+            }
+          },
+          "description": "The orchestration definition."
+        },
+        "OrchestrationDetailRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AbstractOrchestrationRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "activationsUrl": {
+                  "type": "string",
+                  "description": "The URL of activations of this orchestration."
+                },
+                "definition": {
+                  "$ref": "#/components/schemas/OrchestrationDefinitionRepresentation"
+                },
+                "deletedStates": {
+                  "type": "array",
+                  "description": "A list of deleted states that are still referenced by active orchestration instances.",
+                  "items": {
+                    "$ref": "#/components/schemas/OrchestrationStateReferenceRepresentation"
+                  }
+                },
+                "extendedMetadata": {
+                  "$ref": "#/components/schemas/OrchestrationExtendedMetadataRepresentation"
+                },
+                "trackersUrl": {
+                  "type": "string",
+                  "description": "The URL of trackers for this orchestration."
+                },
+                "transitionMetricsUrl": {
+                  "type": "string",
+                  "description": "The URL of transitions metrics for this context."
+                },
+                "validationMessages": {
+                  "$ref": "#/components/schemas/OrchestrationValidationMessagesRepresentation"
+                }
+              },
+              "description": "Detailed information about an orchestration."
+            }
+          ]
+        },
+        "OrchestrationEventFieldVariableValueInputRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationVariableValueInputRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "eventField": {
+                  "type": "string",
+                  "description": "The event field for the variable."
+                }
+              },
+              "description": "A variable value that specifies an event field."
+            }
+          ]
+        },
+        "OrchestrationEventFieldVariableValueRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationVariableValueRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "eventField": {
+                  "type": "string",
+                  "description": "The event field for the variable."
+                }
+              },
+              "description": "A variable value that specifies an event field."
+            }
+          ]
+        },
+        "OrchestrationEventTypeInputRepresentation": {
+          "type": "object",
+          "properties": {
+            "keyFields": {
+              "type": "array",
+              "description": "The key fields used with the event.",
+              "items": {
+                "type": "string"
+              }
+            },
+            "metadata": {
+              "type": "object",
+              "properties": {},
+              "description": "The event metadata."
+            }
+          },
+          "description": "Orchestration event specification."
+        },
+        "OrchestrationEventTypeRepresentation": {
+          "type": "object",
+          "properties": {
+            "keyFields": {
+              "type": "array",
+              "description": "The key fields that are used with the event reference.",
+              "items": {
+                "type": "string"
+              }
+            },
+            "metadata": {
+              "$ref": "#/components/schemas/EventTypeReferenceRepresentation"
+            }
+          },
+          "description": "A reference and the associated key fields that relate an orchestration context to an event."
+        },
+        "OrchestrationExtendedMetadataRepresentation": {
+          "type": "object",
+          "properties": {
+            "referencedObjects": {
+              "type": "array",
+              "description": "A list of referenced objects.",
+              "items": {
+                "$ref": "#/components/schemas/OrchestrationReferenceObjectMetadataRepresentation"
+              }
+            },
+            "responseEvents": {
+              "type": "array",
+              "description": "A list of response events.",
+              "items": {
+                "$ref": "#/components/schemas/OrchestrationResponseEventRepresentation"
+              }
+            }
+          },
+          "description": "Metadata about objects that are used by the orchestration definition."
+        },
+        "OrchestrationInputRepresentation": {
+          "type": "object",
+          "properties": {
+            "definition": {
+              "type": "object",
+              "properties": {},
+              "description": "The orchestration definition."
+            },
+            "description": {
+              "type": "string",
+              "description": "The orchestration description."
+            },
+            "label": {
+              "type": "string",
+              "description": "The orchestration label."
+            },
+            "name": {
+              "type": "string",
+              "description": "The orchestration name."
+            },
+            "orchestrationContext": {
+              "type": "object",
+              "properties": {},
+              "description": "The context that is referenced by this orchestration."
+            }
+          },
+          "description": "Input representation of an orchestration."
+        },
+        "OrchestrationInstanceCollectionRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AbstractCollectionRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "instances": {
+                  "type": "array",
+                  "description": "A list of Salesforce IoT orchestration instances.",
+                  "items": {
+                    "$ref": "#/components/schemas/OrchestrationInstanceSummaryRepresentation"
+                  }
+                }
+              },
+              "description": "A list of Salesforce IoT orchestration instances."
+            }
+          ]
+        },
+        "OrchestrationInstanceDetailCollectionRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AbstractCollectionRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "instances": {
+                  "type": "array",
+                  "description": "A list of orchestration instances.",
+                  "items": {
+                    "$ref": "#/components/schemas/OrchestrationInstanceDetailRepresentation"
+                  }
+                }
+              },
+              "description": "A list of orchestration instances."
+            }
+          ]
+        },
+        "OrchestrationInstanceDetailRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AbstractOrchestrationInstanceRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "instanceKey": {
+                  "type": "string",
+                  "description": "Instance key of the orchestration instance resource."
+                },
+                "orchestrationId": {
+                  "type": "string",
+                  "description": "ID of the orchestration instance resource."
+                },
+                "orchestrationLabel": {
+                  "type": "string",
+                  "description": "Orchestration label."
+                },
+                "orchestrationState": {
+                  "$ref": "#/components/schemas/OrchestrationInstanceStateRepresentation"
+                },
+                "variables": {
+                  "type": "array",
+                  "description": "List of variables that are part of the orchestration instance resource.",
+                  "items": {
+                    "$ref": "#/components/schemas/VariableRepresentation"
+                  }
+                }
+              },
+              "description": "Orchestration instance information."
+            }
+          ]
+        },
+        "OrchestrationInstanceStateRepresentation": {
+          "type": "object",
+          "properties": {
+            "color": {
+              "type": "string",
+              "description": "The color override for this state."
+            },
+            "id": {
+              "type": "string",
+              "description": "The 18-character ID of this object."
+            },
+            "label": {
+              "type": "string",
+              "description": "The object label."
+            }
+          },
+          "description": "A reference to a state of an orchestration instance."
+        },
+        "OrchestrationInstanceSummaryRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AbstractOrchestrationInstanceRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "instanceKey": {
+                  "type": "string",
+                  "description": "The orchestration Instance resource key."
+                }
+              },
+              "description": "Orchestration instance summary information."
+            }
+          ]
+        },
+        "OrchestrationLogBeginEventRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationLogEventRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "inputEventKind": {
+                  "type": "string",
+                  "description": "A kind of an input event.",
+                  "enum": [
+                    "PlatformEvent",
+                    "ResponseEvent",
+                    "TimerEvent"
+                  ]
+                },
+                "lifecycle": {
+                  "type": "string",
+                  "description": "Stage at which the orchestration instance is at in its life cycle.",
+                  "enum": [
+                    "Current",
+                    "Deprecated",
+                    "Erred",
+                    "NotStarted",
+                    "Restarted",
+                    "Started",
+                    "Terminated"
+                  ]
+                }
+              },
+              "description": "Orchestration log begin event."
+            }
+          ]
+        },
+        "OrchestrationLogEndEventRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationLogEventRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "inputEventProcessingResult": {
+                  "type": "string",
+                  "description": "Indicates if the input event was processed.",
+                  "enum": [
+                    "IgnoredDeprecated",
+                    "IgnoredTerminated",
+                    "Processed"
+                  ]
+                },
+                "lifecycle": {
+                  "type": "string",
+                  "description": "Stage at which the orchestration instance is at in its life cycle.",
+                  "enum": [
+                    "Current",
+                    "Deprecated",
+                    "Erred",
+                    "NotStarted",
+                    "Restarted",
+                    "Started",
+                    "Terminated"
+                  ]
+                }
+              },
+              "description": "Orchestration log end event."
+            }
+          ]
+        },
+        "OrchestrationLogErrorEventRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationLogEventRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "Error message."
+                }
+              },
+              "description": "Orchestration log error event."
+            }
+          ]
+        },
+        "OrchestrationLogEventCollectionRepresentation": {
+          "type": "object",
+          "properties": {
+            "log": {
+              "type": "array",
+              "description": "Orchestration log events.",
+              "items": {
+                "$ref": "#/components/schemas/OrchestrationLogEventRepresentation"
+              }
+            },
+            "nextPageUrl": {
+              "type": "string",
+              "description": "URL for the next page of orchestration log events."
+            },
+            "prevPageUrl": {
+              "type": "string",
+              "description": "URL for the previous page of contents in the list."
+            },
+            "url": {
+              "type": "string",
+              "description": "URL for the list of events."
+            }
+          },
+          "description": "A list of orchestration log events."
+        },
+        "OrchestrationLogEventRepresentation": {
+          "type": "object",
+          "properties": {
+            "activationId": {
+              "type": "string",
+              "description": "Activation identifier of the orchestration log event resource."
+            },
+            "instanceKey": {
+              "type": "string",
+              "description": "Orchestration instance key."
+            },
+            "location": {
+              "type": "string",
+              "description": "JSON path to the orchestration definition instruction."
+            },
+            "name": {
+              "type": "string",
+              "description": "Orchestration log event name."
+            },
+            "orchestrationId": {
+              "type": "string",
+              "description": "Orchestration ID of the orchestration log event resource."
+            },
+            "timestamp": {
+              "type": "integer",
+              "description": "Orchestration log event timestamp.",
+              "format": "int64"
+            }
+          },
+          "description": "Orchestration log event."
+        },
+        "OrchestrationLogFullStateEventRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationLogEventRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "state": {
+                  "$ref": "#/components/schemas/OrchestrationInstanceDetailRepresentation"
+                }
+              },
+              "description": "Orchestration log full state event."
+            }
+          ]
+        },
+        "OrchestrationLogInfoEventRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationLogEventRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "User-specified info message."
+                }
+              },
+              "description": "Orchestration log info event."
+            }
+          ]
+        },
+        "OrchestrationLogInputEventRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationLogEventRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "input": {
+                  "type": "object",
+                  "properties": {},
+                  "description": "Input event payload."
+                },
+                "inputEventKind": {
+                  "type": "string",
+                  "description": "A kind of an input event.",
+                  "enum": [
+                    "PlatformEvent",
+                    "ResponseEvent",
+                    "TimerEvent"
+                  ]
+                },
+                "inputEventName": {
+                  "type": "string",
+                  "description": "The input event name."
+                }
+              },
+              "description": "Orchestration log input event."
+            }
+          ]
+        },
+        "OrchestrationLogOutputEventRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationLogEventRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "output": {
+                  "type": "object",
+                  "properties": {},
+                  "description": "Output event payload."
+                }
+              },
+              "description": "Orchestration log output event."
+            }
+          ]
+        },
+        "OrchestrationLogRuleConditionEventRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationLogEventRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "conditionValue": {
+                  "type": "object",
+                  "properties": {},
+                  "description": "Result of the condition evaluation."
+                },
+                "match": {
+                  "type": "boolean",
+                  "description": "True, if the rule's when and condition evaluated to True. False otherwise."
+                },
+                "whenValue": {
+                  "type": "object",
+                  "properties": {},
+                  "description": "Result of the when evaluation."
+                }
+              },
+              "description": "Orchestration log rule condition event."
+            }
+          ]
+        },
+        "OrchestrationLogTerminateEventRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationLogEventRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "terminationKind": {
+                  "type": "string",
+                  "description": "Specifies whether the instance was terminated by the terminate action or if there was an error."
+                },
+                "terminationReason": {
+                  "type": "string",
+                  "description": "User-specified termination reason."
+                }
+              },
+              "description": "Orchestration log terminate event."
+            }
+          ]
+        },
+        "OrchestrationLogThrottleEventRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationLogEventRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "throttle": {
+                  "type": "object",
+                  "properties": {},
+                  "description": "Throttle state."
+                }
+              },
+              "description": "Orchestration log throttle event."
+            }
+          ]
+        },
+        "OrchestrationLogTimerArmEventRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationLogEventRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "armedTime": {
+                  "type": "integer",
+                  "description": "Time at which a timer was going to fire next.",
+                  "format": "int64"
+                }
+              },
+              "description": "Orchestration log timer arm event."
+            }
+          ]
+        },
+        "OrchestrationLogTimerUnarmEventRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationLogEventRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "armedTime": {
+                  "type": "integer",
+                  "description": "Time at which a timer was going to fire next.",
+                  "format": "int64"
+                }
+              },
+              "description": "Orchestration log timer unarm event."
+            }
+          ]
+        },
+        "OrchestrationLogTransitionEventRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationLogEventRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "fromState": {
+                  "type": "integer",
+                  "description": "Transition from state ID."
+                },
+                "toState": {
+                  "type": "integer",
+                  "description": "Transition to state ID."
+                }
+              },
+              "description": "Orchestration log transition event."
+            }
+          ]
+        },
+        "OrchestrationLogVariableChangeEventRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationLogEventRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "newValue": {
+                  "$ref": "#/components/schemas/VariableRepresentation"
+                },
+                "oldValue": {
+                  "$ref": "#/components/schemas/VariableRepresentation"
+                }
+              },
+              "description": "Orchestration log variable change."
+            }
+          ]
+        },
+        "OrchestrationMaxAggregationVariableValueInputRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationTemporalAggregationVariableValueInputRepresentation"
+            },
+            {
+              "type": "object",
+              "description": "An orchestration variable value performing a maximum aggregation over time."
+            }
+          ]
+        },
+        "OrchestrationMinAggregationVariableValueInputRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationTemporalAggregationVariableValueInputRepresentation"
+            },
+            {
+              "type": "object",
+              "description": "An orchestration variable value performing a minimum aggregation over time."
+            }
+          ]
+        },
+        "OrchestrationObjectPropertyFieldRepresentation": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "The type of property in the referenced object of the orchestration."
+            }
+          },
+          "description": "Field representation of an object property that  can be referenced by the orchestration."
+        },
+        "OrchestrationOutputActionInputRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationActionInputRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "Action ID."
+                },
+                "isResponseIngested": {
+                  "type": "boolean",
+                  "description": "Indicates whether or not a response event is produced."
+                },
+                "label": {
+                  "type": "string",
+                  "description": "Action label."
+                },
+                "responseEventName": {
+                  "type": "string",
+                  "description": "Response event name."
+                }
+              },
+              "description": "An orchestration output action definition."
+            }
+          ]
+        },
+        "OrchestrationOutputActionRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationActionRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "Action ID."
+                },
+                "isResponseIngested": {
+                  "type": "boolean",
+                  "description": "Indicates whether or not a response event is produced."
+                },
+                "label": {
+                  "type": "string",
+                  "description": "Action label."
+                },
+                "responseEventName": {
+                  "type": "string",
+                  "description": "Response event name."
+                }
+              },
+              "description": "An orchestration output action definition."
+            }
+          ]
+        },
+        "OrchestrationPropertiesInputRepresentation": {
+          "type": "object",
+          "properties": {
+            "restartOnError": {
+              "type": "boolean",
+              "description": "Creates a new orchestration instance for an incoming event with a matching instance key after an error occurs."
+            },
+            "runOnce": {
+              "type": "boolean",
+              "description": "Ignores incoming events for exited or terminated orchestrations, to prevent additional instances from being created."
+            }
+          },
+          "description": "The properties of an orchestration."
+        },
+        "OrchestrationPropertiesRepresentation": {
+          "type": "object",
+          "properties": {
+            "restartOnError": {
+              "type": "boolean",
+              "description": "Creates a new orchestration instance for an incoming event with a matching instance key after an error occurs."
+            },
+            "runOnce": {
+              "type": "boolean",
+              "description": "Ignores incoming events for exited or terminated orchestrations, to prevent additional instances from being created."
+            }
+          },
+          "description": "The properties of an orchestration."
+        },
+        "OrchestrationReferenceDataCollectionRepresentation": {
+          "type": "object",
+          "properties": {
+            "sobject": {
+              "type": "string",
+              "description": "URL for Salesforce object definitions."
+            }
+          },
+          "description": "List of all available reference data."
+        },
+        "OrchestrationReferenceDataRepresentation": {
+          "type": "object",
+          "properties": {
+            "apiName": {
+              "type": "string",
+              "description": "API name of a referenced object."
+            },
+            "eventType": {
+              "type": "string",
+              "description": "Type of a received event."
+            },
+            "iconUrl": {
+              "type": "string",
+              "description": "Icon URL of a referenced object."
+            },
+            "isCustom": {
+              "type": "boolean",
+              "description": "Indicates if the referenced object is a custom object."
+            },
+            "label": {
+              "type": "string",
+              "description": "Label of a referenced object."
+            }
+          },
+          "description": "Summary information about orchestration reference data."
+        },
+        "OrchestrationReferenceObjectMetadataRepresentation": {
+          "type": "object",
+          "properties": {
+            "fields": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/components/schemas/OrchestrationObjectPropertyFieldRepresentation"
+              },
+              "description": "The fields that a reference object contains."
+            },
+            "name": {
+              "type": "string",
+              "description": "The name of the reference object."
+            }
+          },
+          "description": "Metadata for the object referenced in the orchestration definition."
+        },
+        "OrchestrationResetVariableActionInputRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationActionInputRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "variableId": {
+                  "type": "integer",
+                  "description": "Variable ID."
+                }
+              },
+              "description": "An action that resets the value of an orchestration variable."
+            }
+          ]
+        },
+        "OrchestrationResetVariableActionRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationActionRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "variableId": {
+                  "type": "integer",
+                  "description": "Variable ID."
+                }
+              },
+              "description": "An action that resets the value of an orchestration variable."
+            }
+          ]
+        },
+        "OrchestrationResponseEventRepresentation": {
+          "type": "object",
+          "properties": {
+            "location": {
+              "type": "string",
+              "description": "Response event location."
+            },
+            "schema": {
+              "$ref": "#/components/schemas/OrchestrationResponseEventSchemaRepresentation"
+            }
+          },
+          "description": "A response events schema in the orchestration definition."
+        },
+        "OrchestrationResponseEventSchemaRepresentation": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Response event name."
+            },
+            "properties": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/components/schemas/OrchestrationObjectPropertyFieldRepresentation"
+              },
+              "description": "Response event properties."
+            },
+            "referencedObject": {
+              "type": "string",
+              "description": "The object references in the response event."
+            },
+            "type": {
+              "type": "string",
+              "description": "Response event type."
+            }
+          },
+          "description": "Response event metadata in the orchestration definition."
+        },
+        "OrchestrationRuleCustomWhenRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationRuleWhenRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "description": "The expression that indicates when to trigger the rule."
+                }
+              },
+              "description": "A rule that is triggered at a specified time."
+            }
+          ]
+        },
+        "OrchestrationRuleInputRepresentation": {
+          "type": "object",
+          "properties": {
+            "actions": {
+              "type": "array",
+              "description": "The actions taken when a rule is triggered.",
+              "items": {
+                "type": "object",
+                "properties": {}
+              }
+            },
+            "condition": {
+              "type": "string",
+              "description": "A condition evaluated when a rule is triggered, written as a Salesforce expression. The rule's actions are executed if the condition evaluates to true."
+            },
+            "description": {
+              "type": "string",
+              "description": "Rule description."
+            },
+            "id": {
+              "type": "integer",
+              "description": "The integer value that uniquely identifies the rule."
+            },
+            "throttle": {
+              "type": "object",
+              "properties": {},
+              "description": "The throttling behavior applied to a rule."
+            },
+            "when": {
+              "type": "object",
+              "properties": {},
+              "description": "A trigger that specifies when the rule executes."
+            }
+          },
+          "description": "An orchestration rule."
+        },
+        "OrchestrationRuleRepresentation": {
+          "type": "object",
+          "properties": {
+            "actions": {
+              "type": "array",
+              "description": "The actions taken when the rule is triggered.",
+              "items": {
+                "$ref": "#/components/schemas/OrchestrationActionRepresentation"
+              }
+            },
+            "condition": {
+              "type": "string",
+              "description": "A condition that is evaluated when the rule is triggered, written as a Salesforce expression. The rule's actions are executed if the condition evaluates to true."
+            },
+            "description": {
+              "type": "string",
+              "description": "Rule description."
+            },
+            "id": {
+              "type": "integer",
+              "description": "A unique identifier for the rule."
+            },
+            "throttle": {
+              "$ref": "#/components/schemas/OrchestrationRuleThrottleRepresentation"
+            },
+            "when": {
+              "$ref": "#/components/schemas/OrchestrationRuleWhenRepresentation"
+            }
+          },
+          "description": "The rules defined for the orchestration."
+        },
+        "OrchestrationRuleSimpleWhenRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationRuleWhenRepresentation"
+            },
+            {
+              "type": "object",
+              "description": "A when rule that has no parameters."
+            }
+          ]
+        },
+        "OrchestrationRuleTemporalWhenRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationRuleWhenRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "description": "The when condition value."
+                }
+              },
+              "description": "A rule that is triggered at a specified time."
+            }
+          ]
+        },
+        "OrchestrationRuleThrottleInputRepresentation": {
+          "type": "object",
+          "properties": {
+            "period": {
+              "type": "integer",
+              "description": "The period over which throttling occurs."
+            },
+            "times": {
+              "type": "integer",
+              "description": "The maximum number of times per period that the rule can be triggered."
+            },
+            "unit": {
+              "type": "string",
+              "description": "The value associated with the time period.",
+              "enum": [
+                "Days",
+                "Hours",
+                "Minutes",
+                "Months",
+                "Seconds",
+                "Weeks",
+                "Years"
+              ]
+            }
+          },
+          "description": "A description of the throttling behavior applied to a rule."
+        },
+        "OrchestrationRuleThrottleRepresentation": {
+          "type": "object",
+          "properties": {
+            "period": {
+              "type": "integer",
+              "description": "The period over which throttling occurs."
+            },
+            "times": {
+              "type": "integer",
+              "description": "The maximum number of times per period that the rule can be triggered."
+            },
+            "unit": {
+              "type": "string",
+              "description": "The time unit associated with the period.",
+              "enum": [
+                "Days",
+                "Hours",
+                "Minutes",
+                "Months",
+                "Seconds",
+                "Weeks",
+                "Years"
+              ]
+            }
+          },
+          "description": "A description of the throttling behavior applied to a rule."
+        },
+        "OrchestrationRuleWhenAlwaysInputRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationRuleWhenInputRepresentation"
+            },
+            {
+              "type": "object",
+              "description": "An always when rule."
+            }
+          ]
+        },
+        "OrchestrationRuleWhenCustomInputRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationRuleWhenInputRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "description": "The custom timer expression."
+                }
+              },
+              "description": "A rule that is triggered at a specified time."
+            }
+          ]
+        },
+        "OrchestrationRuleWhenDayInputRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationRuleWhenTemporalInputRepresentation"
+            },
+            {
+              "type": "object",
+              "description": "A rule that is triggered at a specified time."
+            }
+          ]
+        },
+        "OrchestrationRuleWhenEventInputRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationRuleWhenInputRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "eventSource": {
+                  "type": "string",
+                  "description": "The name of the event that triggers the rule."
+                }
+              },
+              "description": "A rule that is triggered by an event."
+            }
+          ]
+        },
+        "OrchestrationRuleWhenEventRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationRuleWhenRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "eventSource": {
+                  "type": "string",
+                  "description": "The name of the event that triggers the rule."
+                }
+              },
+              "description": "A rule that is triggered by an event."
+            }
+          ]
+        },
+        "OrchestrationRuleWhenHourInputRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationRuleWhenTemporalInputRepresentation"
+            },
+            {
+              "type": "object",
+              "description": "A rule that is triggered at a specified time."
+            }
+          ]
+        },
+        "OrchestrationRuleWhenImmediatelyInputRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationRuleWhenInputRepresentation"
+            },
+            {
+              "type": "object",
+              "description": "A rule that is triggered immediately when the specified event occurs."
+            }
+          ]
+        },
+        "OrchestrationRuleWhenInputRepresentation": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "The specified type of trigger for the rule.",
+              "enum": [
+                "Always",
+                "Custom",
+                "Day",
+                "Event",
+                "Hour",
+                "Immediately",
+                "Minute",
+                "Second"
+              ]
+            }
+          },
+          "description": "A description of when a rule is triggered."
+        },
+        "OrchestrationRuleWhenMinuteInputRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationRuleWhenTemporalInputRepresentation"
+            },
+            {
+              "type": "object",
+              "description": "A rule that is triggered at a specified time."
+            }
+          ]
+        },
+        "OrchestrationRuleWhenRepresentation": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "The type of rule trigger described.",
+              "enum": [
+                "Always",
+                "Custom",
+                "Day",
+                "Event",
+                "Hour",
+                "Immediately",
+                "Minute",
+                "Second"
+              ]
+            }
+          },
+          "description": "A description of when a rule is triggered."
+        },
+        "OrchestrationRuleWhenSecondInputRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationRuleWhenTemporalInputRepresentation"
+            },
+            {
+              "type": "object",
+              "description": "A rule that is triggered at a specified time."
+            }
+          ]
+        },
+        "OrchestrationRuleWhenTemporalInputRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationRuleWhenInputRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "description": "The value associated with the time period."
+                }
+              },
+              "description": "A rule that is triggered at a specified time."
+            }
+          ]
+        },
+        "OrchestrationRuntimeActivityInfoRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/ActivityInfoRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "errorCode": {
+                  "type": "string",
+                  "description": "Internal runtime code associated with the error."
+                },
+                "errorMessage": {
+                  "type": "string",
+                  "description": "Textual description of the error."
+                },
+                "event": {
+                  "type": "string",
+                  "description": "Event payload details associated with the error."
+                },
+                "eventSender": {
+                  "type": "string",
+                  "description": "Event sender associated with the event."
+                },
+                "fromStateId": {
+                  "type": "string",
+                  "description": "ID of the state from which the error state originated."
+                },
+                "instanceKey": {
+                  "type": "string",
+                  "description": "Event instance key for the error."
+                }
+              },
+              "description": "Detailed instance information."
+            }
+          ]
+        },
+        "OrchestrationSalesforceOutputActionFieldInputRepresentation": {
+          "type": "object",
+          "properties": {
+            "field": {
+              "type": "string",
+              "description": "The API name of the field."
+            },
+            "value": {
+              "type": "string",
+              "description": "The field value."
+            }
+          },
+          "description": "A field descriptor that may act as a filter or value assignment for the Salesforce output action."
+        },
+        "OrchestrationSalesforceOutputActionFieldRepresentation": {
+          "type": "object",
+          "properties": {
+            "field": {
+              "type": "string",
+              "description": "The API name of the field."
+            },
+            "value": {
+              "type": "string",
+              "description": "The field value."
+            }
+          },
+          "description": "A field descriptor that may act as a filter or value assignment for the Salesforce output action."
+        },
+        "OrchestrationSalesforceOutputActionInputRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationOutputActionInputRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "fieldAssignments": {
+                  "type": "array",
+                  "description": "The details of the assignment field values for create and edit actions.",
+                  "items": {
+                    "type": "object",
+                    "properties": {}
+                  }
+                },
+                "name": {
+                  "type": "string",
+                  "description": "The action type name.",
+                  "enum": [
+                    "Create",
+                    "Delete",
+                    "Edit",
+                    "Read"
+                  ]
+                },
+                "recordFilters": {
+                  "type": "array",
+                  "description": "The filters that identify the record that the action operates on.",
+                  "items": {
+                    "type": "object",
+                    "properties": {}
+                  }
+                },
+                "salesforceObjectApiName": {
+                  "type": "string",
+                  "description": "The filters that identify the record that the action operates on."
+                }
+              },
+              "description": "The definition of an orchestration action on a Salesforce object."
+            }
+          ]
+        },
+        "OrchestrationSalesforceOutputActionRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationOutputActionRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "fieldAssignments": {
+                  "type": "array",
+                  "description": "The details of the assignment field values for create and edit actions.",
+                  "items": {
+                    "$ref": "#/components/schemas/OrchestrationSalesforceOutputActionFieldRepresentation"
+                  }
+                },
+                "name": {
+                  "type": "string",
+                  "description": "The action type name.",
+                  "enum": [
+                    "Create",
+                    "Delete",
+                    "Edit",
+                    "Read"
+                  ]
+                },
+                "recordFilters": {
+                  "type": "array",
+                  "description": "The filters that identify the record that the action operates on.",
+                  "items": {
+                    "$ref": "#/components/schemas/OrchestrationSalesforceOutputActionFieldRepresentation"
+                  }
+                },
+                "salesforceObjectApiName": {
+                  "type": "string",
+                  "description": "The API name of the Salesforce object that this action operates on."
+                }
+              },
+              "description": "The definition of an orchestration action on a Salesforce object."
+            }
+          ]
+        },
+        "OrchestrationSobjectReferenceCollectionRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AbstractCollectionRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "sobjects": {
+                  "type": "array",
+                  "description": "The sobjects in this list.",
+                  "items": {
+                    "$ref": "#/components/schemas/OrchestrationSobjectReferenceRepresentation"
+                  }
+                }
+              },
+              "description": "A list of sobjects that can be referenced by the orchestration."
+            }
+          ]
+        },
+        "OrchestrationSobjectReferenceRepresentation": {
+          "type": "object",
+          "properties": {
+            "iconUrl": {
+              "type": "string",
+              "description": "The icon URL of the reference object."
+            },
+            "isCustom": {
+              "type": "boolean",
+              "description": "Identifies if the reference object is custom."
+            },
+            "label": {
+              "type": "string",
+              "description": "The reference object label."
+            },
+            "name": {
+              "type": "string",
+              "description": "The reference object name."
+            },
+            "url": {
+              "type": "string",
+              "description": "The URL of a specific reference object."
+            }
+          },
+          "description": "A Salesforce IoT orchestration reference object."
+        },
+        "OrchestrationStateCollectionRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AbstractCollectionRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "states": {
+                  "type": "array",
+                  "description": "The orchestration states in this list.",
+                  "items": {
+                    "$ref": "#/components/schemas/OrchestrationStateSummaryRepresentation"
+                  }
+                }
+              },
+              "description": "A list of Salesforce IoT orchestration states."
+            }
+          ]
+        },
+        "OrchestrationStateInputRepresentation": {
+          "type": "object",
+          "properties": {
+            "color": {
+              "type": "string",
+              "description": "The color override for the state."
+            },
+            "id": {
+              "type": "integer",
+              "description": "The unique identifier for the state."
+            },
+            "initial": {
+              "type": "boolean",
+              "description": "True, if this is the initial state."
+            },
+            "name": {
+              "type": "string",
+              "description": "The state name."
+            },
+            "rules": {
+              "type": "array",
+              "description": "The rules that are associated with this state.",
+              "items": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          },
+          "description": "An orchestration state description."
+        },
+        "OrchestrationStateReferenceRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AbstractOrchestrationStateRepresentation"
+            },
+            {
+              "type": "object",
+              "description": "A reference to an orchestration state."
+            }
+          ]
+        },
+        "OrchestrationStateRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AbstractOrchestrationStateRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "color": {
+                  "type": "string",
+                  "description": "Color override for the state."
+                },
+                "initial": {
+                  "type": "boolean",
+                  "description": "True, if this is the initial state."
+                },
+                "rules": {
+                  "type": "array",
+                  "description": "The rules that are associated with this state.",
+                  "items": {
+                    "$ref": "#/components/schemas/OrchestrationRuleRepresentation"
+                  }
+                }
+              },
+              "description": "A description of an orchestration state."
+            }
+          ]
+        },
+        "OrchestrationStateSummaryRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AbstractResourceRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "instancesUrl": {
+                  "type": "string",
+                  "description": "URL for the filtered list of Salesforce IoT orchestration instance resources in this state."
+                },
+                "stateId": {
+                  "type": "integer",
+                  "description": "The ID for the Salesforce IoT orchestration state resource."
+                }
+              },
+              "description": "Summary information about an orchestration state."
+            }
+          ]
+        },
+        "OrchestrationSumAggregationVariableValueInputRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationTemporalAggregationVariableValueInputRepresentation"
+            },
+            {
+              "type": "object",
+              "description": "An orchestration variable value performing a sum aggregation over time."
+            }
+          ]
+        },
+        "OrchestrationSummaryRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AbstractOrchestrationRepresentation"
+            },
+            {
+              "type": "object",
+              "description": "Summary information about an orchestration."
+            }
+          ]
+        },
+        "OrchestrationTemporalAggregationVariableValueInputRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationVariableValueInputRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "eventField": {
+                  "type": "string",
+                  "description": "The event field for the aggregation."
+                },
+                "temporalWindow": {
+                  "type": "string",
+                  "description": "The temporal window for the aggregation."
+                }
+              },
+              "description": "An orchestration variable value performing an aggregation over time."
+            }
+          ]
+        },
+        "OrchestrationTemporalAggregationVariableValueRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationVariableValueRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "eventField": {
+                  "type": "string",
+                  "description": "The event field for the aggregation."
+                },
+                "temporalWindow": {
+                  "type": "string",
+                  "description": "The temporal window for the aggregation."
+                }
+              },
+              "description": "An orchestration variable value performing an aggregation over time."
+            }
+          ]
+        },
+        "OrchestrationTerminateActionInputRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationActionInputRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "exitCode": {
+                  "type": "string",
+                  "description": "The orchestration termination type.",
+                  "enum": [
+                    "Expired",
+                    "Failure",
+                    "NotApplicable",
+                    "Success"
+                  ]
+                }
+              },
+              "description": "An action that terminates an orchestration."
+            }
+          ]
+        },
+        "OrchestrationTerminateActionRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationActionRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "exitCode": {
+                  "type": "string",
+                  "description": "The orchestration termination type.",
+                  "enum": [
+                    "Expired",
+                    "Failure",
+                    "NotApplicable",
+                    "Success"
+                  ]
+                }
+              },
+              "description": "An action that terminates an orchestration."
+            }
+          ]
+        },
+        "OrchestrationTrackerCollectionRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AbstractCollectionRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "trackers": {
+                  "type": "array",
+                  "description": "Orchestration trackers.",
+                  "items": {
+                    "$ref": "#/components/schemas/OrchestrationTrackerRepresentation"
+                  }
+                }
+              },
+              "description": "A list of orchestration trackers."
+            }
+          ]
+        },
+        "OrchestrationTrackerInputRepresentation": {
+          "type": "object",
+          "properties": {
+            "expirationDate": {
+              "type": "string",
+              "description": "Expiration date."
+            },
+            "startDate": {
+              "type": "string",
+              "description": "Start date."
+            }
+          },
+          "description": "Representation of the tracker that you want to create."
+        },
+        "OrchestrationTrackerPatchInputRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationTrackerInputRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "terminated": {
+                  "type": "boolean",
+                  "description": "Terminated flag."
+                }
+              },
+              "description": "Input representation of the tracker for PATCH requests."
+            }
+          ]
+        },
+        "OrchestrationTrackerPostInputRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OrchestrationTrackerInputRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "instanceKey": {
+                  "type": "string",
+                  "description": "Instance key."
+                }
+              },
+              "description": "Input representation of the tracker for POST requests"
+            }
+          ]
+        },
+        "OrchestrationTrackerRepresentation": {
+          "type": "object",
+          "properties": {
+            "createdBy": {
+              "$ref": "#/components/schemas/IoTReferenceRepresentation"
+            },
+            "createdDate": {
+              "type": "string",
+              "description": "The date on which the resource was created."
+            },
+            "expirationDate": {
+              "type": "string",
+              "description": "Expiration date."
+            },
+            "id": {
+              "type": "string",
+              "description": "The 18-character ID of this tracker."
+            },
+            "instanceKey": {
+              "type": "string",
+              "description": "Instance key."
+            },
+            "lastModifiedBy": {
+              "$ref": "#/components/schemas/IoTReferenceRepresentation"
+            },
+            "lastModifiedDate": {
+              "type": "string",
+              "description": "The date on which the tracker was modified."
+            },
+            "orchestrationUrl": {
+              "type": "string",
+              "description": "Orchestration URL."
+            },
+            "startDate": {
+              "type": "string",
+              "description": "Tracker start date."
+            },
+            "terminated": {
+              "type": "boolean",
+              "description": "Tracker termination status."
+            },
+            "terminatedDate": {
+              "type": "string",
+              "description": "Terminated date."
+            },
+            "terminationReason": {
+              "type": "string",
+              "description": "Termination code.",
+              "enum": [
+                "Expired",
+                "NotApplicable",
+                "Throttled"
+              ]
+            },
+            "url": {
+              "type": "string",
+              "description": "The URL of this resource."
+            }
+          },
+          "description": "Orchestration tracker information."
+        },
+        "OrchestrationTransitionCountCollectionRepresentation": {
+          "type": "object",
+          "properties": {
+            "metrics": {
+              "type": "array",
+              "description": "A list of orchestration transition counts.",
+              "items": {
+                "$ref": "#/components/schemas/OrchestrationTransitionCountRepresentation"
+              }
+            }
+          },
+          "description": "A list of orchestration transition counts."
+        },
+        "OrchestrationTransitionCountRepresentation": {
+          "type": "object",
+          "properties": {
+            "action": {
+              "type": "string",
+              "description": "Transition action."
+            },
+            "count": {
+              "type": "integer",
+              "description": "Count.",
+              "format": "int64"
+            },
+            "fromStateId": {
+              "type": "integer",
+              "description": "From state ID."
+            },
+            "toStateId": {
+              "type": "integer",
+              "description": "To state ID."
+            }
+          },
+          "description": "Orchestration transition count."
+        },
+        "OrchestrationUsageCollectionRepresentation": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AbstractCollectionRepresentation"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "orchestrationUsages": {
+                  "type": "array",
+                  "description": "Orchestration usage information.",
+                  "items": {
+                    "$ref": "#/components/schemas/OrchestrationUsageRepresentation"
+                  }
+                }
+              },
+              "description": "A log of orchestration-level usage."
+            }
+          ]
+        },
+        "OrchestrationUsageRepresentation": {
+          "type": "object",
+          "properties": {
+            "activationStatus": {
+              "type": "string",
+              "description": "Orchestration activation status."
+            },
+            "instanceCount": {
+              "type": "integer",
+              "description": "Current instance count for the orchestration."
+            },
+            "label": {
+              "type": "string",
+              "description": "Orchestration name."
+            },
+            "orchestrationId": {
+              "type": "string",
+              "description": "Orchestration ID."
+            },
+            "orchestrationUrl": {
+              "type": "string",
+              "description": "Orchestration URL."
+            },
+            "processedEventCount": {
+              "type": "integer",
+              "description": "Number of events processed by the orchestration in the last 24 hours.",
+              "format": "int64"
+            },
+            "rejectedEventCount": {
+              "type": "integer",
+              "description": "Number of events rejected by the orchestration.",
+              "format": "int64"
+            }
+          },
+          "description": "Current orchestration-level usage."
+        },
+        "OrchestrationValidationMessageRepresentation": {
+          "type": "object",
+          "properties": {
+            "location": {
+              "type": "string",
+              "description": "The location of the error."
+            },
+            "severity": {
+              "type": "string",
+              "description": "The severity of the issue.",
+              "enum": [
+                "Error",
+                "Warning"
+              ]
+            },
+            "text": {
+              "type": "string",
+              "description": "The message text."
+            }
+          },
+          "description": "A message generated while validating the orchestration definition."
+        },
+        "OrchestrationValidationMessagesRepresentation": {
+          "type": "object",
+          "properties": {
+            "messages": {
+              "type": "array",
+              "description": "A list of messages generated while validating the orchestration.",
+              "items": {
+                "$ref": "#/components/schemas/OrchestrationValidationMessageRepresentation"
+              }
+            }
+          },
+          "description": "A list of messages generated while validating the orchestration."
+        },
+        "OrchestrationVariableInputRepresentation": {
+          "type": "object",
+          "properties": {
+            "condition": {
+              "type": "string",
+              "description": "The Salesforce expression that is evaluated to determine if the variable should be updated."
+            },
+            "dataType": {
+              "type": "string",
+              "description": "The data type of the variable.",
+              "enum": [
+                "Boolean",
+                "Date",
+                "DateTime",
+                "Number",
+                "String"
+              ]
+            },
+            "description": {
+              "type": "string",
+              "description": "The description of the variable."
+            },
+            "eventSource": {
+              "type": "string",
+              "description": "The event source of the variable."
+            },
+            "exposed": {
+              "type": "boolean",
+              "description": "True if this variable is exposed to the App Builder."
+            },
+            "id": {
+              "type": "integer",
+              "description": "Variable ID."
+            },
+            "initialValue": {
+              "type": "string",
+              "description": "The Salesforce expression that defines the initial value of this variable."
+            },
+            "label": {
+              "type": "string",
+              "description": "Variable label."
+            },
+            "name": {
+              "type": "string",
+              "description": "Variable name."
+            },
+            "unit": {
+              "type": "string",
+              "description": "Unit of measurement for this variable."
+            },
+            "value": {
+              "type": "object",
+              "properties": {},
+              "description": "The method used to calculate a value for this variable."
+            }
+          },
+          "description": "The orchestration variable definition."
+        },
+        "OrchestrationVariableRepresentation": {
+          "type": "object",
+          "properties": {
+            "condition": {
+              "type": "string",
+              "description": "The Salesforce expression evaluated to determine if the variable should be updated."
+            },
+            "dataType": {
+              "type": "string",
+              "description": "The data type of the variable.",
+              "enum": [
+                "Boolean",
+                "Date",
+                "DateTime",
+                "Number",
+                "String"
+              ]
+            },
+            "description": {
+              "type": "string",
+              "description": "The orchestration variable description."
+            },
+            "eventSource": {
+              "type": "string",
+              "description": "The event source for the variable."
+            },
+            "exposed": {
+              "type": "boolean",
+              "description": "True if this variable is exposed to the App Builder."
+            },
+            "id": {
+              "type": "integer",
+              "description": "The variable ID."
+            },
+            "initialValue": {
+              "type": "string",
+              "description": "The Salesforce expression that defines the initial value of this variable."
+            },
+            "label": {
+              "type": "string",
+              "description": "Variable label."
+            },
+            "name": {
+              "type": "string",
+              "description": "Variable name."
+            },
+            "unit": {
+              "type": "string",
+              "description": "Unit of measurement for the variable."
+            },
+            "value": {
+              "$ref": "#/components/schemas/OrchestrationVariableValueRepresentation"
+            }
+          },
+          "description": "The orchestration variable description."
+        },
+        "OrchestrationVariableValueInputRepresentation": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "The type of function used to calculate the variable value.",
+              "enum": [
+                "Avg",
+                "ConsecutiveDuration",
+                "Count",
+                "Custom",
+                "Max",
+                "Min",
+                "Sum"
+              ]
+            }
+          },
+          "description": "The orchestration variable value."
+        },
+        "OrchestrationVariableValueRepresentation": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "The variable value type.",
+              "enum": [
+                "Avg",
+                "ConsecutiveDuration",
+                "Count",
+                "Custom",
+                "Max",
+                "Min",
+                "Sum"
+              ]
+            }
+          },
+          "description": "The orchestration variable value."
+        },
+        "PlatformEventCollectionRepresentation": {
+          "type": "object",
+          "properties": {
+            "connectedAppName": {
+              "type": "string",
+              "description": "For internal use only."
+            },
+            "events": {
+              "type": "array",
+              "description": "The batch of events for sender.",
+              "items": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          },
+          "description": "Specification for a Platform Event payload."
+        },
+        "PlatformEventResponseRepresentation": {
+          "type": "object",
+          "properties": {
+            "isSuccess": {
+              "type": "boolean",
+              "description": "Flag indicating event sending success."
+            }
+          },
+          "description": "Response on sending platform event."
+        },
+        "UsageDetailRepresentation": {
+          "type": "object",
+          "properties": {
+            "allocations": {
+              "$ref": "#/components/schemas/AllocationsRepresentation"
+            },
+            "eventUsage": {
+              "$ref": "#/components/schemas/EventUsageRepresentation"
+            },
+            "orchestrationUsageUrl": {
+              "type": "string",
+              "description": "URL for current orchestration usage."
+            }
+          },
+          "description": "Current org-level usage information."
+        },
+        "VariableRepresentation": {
+          "type": "object",
+          "properties": {
+            "dataType": {
+              "type": "string",
+              "description": "The datatype of the variable.",
+              "enum": [
+                "Boolean",
+                "Date",
+                "DateTime",
+                "Number",
+                "String"
+              ]
+            },
+            "label": {
+              "type": "string",
+              "description": "The variable label."
+            },
+            "lastModifiedDate": {
+              "type": "string",
+              "description": "The last modified date of the variable."
+            },
+            "name": {
+              "type": "string",
+              "description": "The variable name."
+            },
+            "unit": {
+              "type": "string",
+              "description": "The unit of the variable."
+            },
+            "value": {
+              "type": "object",
+              "properties": {},
+              "description": "The variable value."
+            }
+          },
+          "description": "Representation of a variable with name, value and type."
+        }
+      }
+    }
+  }
