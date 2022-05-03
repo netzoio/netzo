@@ -3,7 +3,7 @@
     <img height="50" src="https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-dhl-shipment-tracking-unified/src/assets/icon.png" style="margin: 12px 0px" />
   </a>
 
-  <h1 style="padding: 6px 0px 24px 0px">service-openapi-dhl-shipment-tracking-unified-unified</h1>
+  <h1 style="padding: 6px 0px 24px 0px">service-openapi-dhl-shipment-tracking-unified</h1>
 </div>
 
 An open-source service plugin for the DHL Shipment Tracking - Unified API.
