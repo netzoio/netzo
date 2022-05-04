@@ -2,6 +2,7 @@
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/modules/module-counter/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/modules/module-table/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-asana/plugin.json",
+  "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-ergast-f1-db/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-edgexfoundry-devices/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-google-bigquery/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-google-calendar/plugin.json",
