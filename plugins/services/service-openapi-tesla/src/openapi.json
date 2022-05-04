@@ -1,13 +1,14 @@
 {
-    "swagger": "2.0",
+    "openapi": "3.0.1",
     "info": {
-        "version": "2.0.2",
         "title": "Tesla JSON API",
-        "description": "A swagger representation of the unofficial Tesla API for Model S and Model X Vehicles.  To use the API directly from the SwaggerHub documentation, click the `Interactive API Docs` tab and follow these steps:\n* Authenticate with the `/oauth/token` operation.  Use your **tesla** email address and password\n* In the response, copy the `access_token` value.\n* Click the `Authenticate` button and enter `Bearer {access_token}` (replace `{access_token}` with the value you copied previously)\n\nYou are now logged in to the Tesla API from within the Swagger docs.  Typical usage of the API is performed by:\n\n* Since the API allows access to multiple Tesla vehicles under the same account, copy your `id` from the `/api/1/vehicles` operation response.\n* Enter the `id` value in the appropriate locations when calling the API\n"
+        "description": "A swagger representation of the unofficial Tesla API for Model S and Model X Vehicles.  To use the API directly from the SwaggerHub documentation, click the `Interactive API Docs` tab and follow these steps:\n* Authenticate with the `/oauth/token` operation.  Use your **tesla** email address and password\n* In the response, copy the `access_token` value.\n* Click the `Authenticate` button and enter `Bearer {access_token}` (replace `{access_token}` with the value you copied previously)\n\nYou are now logged in to the Tesla API from within the Swagger docs.  Typical usage of the API is performed by:\n\n* Since the API allows access to multiple Tesla vehicles under the same account, copy your `id` from the `/api/1/vehicles` operation response.\n* Enter the `id` value in the appropriate locations when calling the API\n",
+        "version": "2.0.2"
     },
-    "host": "owner-api.teslamotors.com",
-    "schemes": [
-        "https"
+    "servers": [
+        {
+            "url": "https://owner-api.teslamotors.com/"
+        }
     ],
     "security": [
         {
@@ -17,6 +18,9 @@
     "paths": {
         "/api/1/vehicles/{id}/command/set_charge_limit": {
             "post": {
+                "tags": [
+                    "Operations"
+                ],
                 "operationId": "set_charge_limit",
                 "parameters": [
                     {
@@ -24,31 +28,39 @@
                         "in": "path",
                         "description": "The ID number of the car",
                         "required": true,
-                        "type": "string"
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
                         "name": "percent",
                         "in": "query",
                         "description": "The percentage value",
                         "required": true,
-                        "type": "string"
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "success",
-                        "schema": {
-                            "$ref": "#/definitions/BooleanResponse"
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BooleanResponse"
+                                }
+                            }
                         }
                     }
-                },
-                "tags": [
-                    "Operations"
-                ]
+                }
             }
         },
         "/api/1/vehicles/{id}/command/door_unlock": {
             "post": {
+                "tags": [
+                    "Operations"
+                ],
                 "operationId": "door_unlock",
                 "parameters": [
                     {
@@ -56,24 +68,30 @@
                         "in": "path",
                         "description": "The ID number of the car",
                         "required": true,
-                        "type": "string"
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "success",
-                        "schema": {
-                            "$ref": "#/definitions/BooleanResponse"
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BooleanResponse"
+                                }
+                            }
                         }
                     }
-                },
-                "tags": [
-                    "Operations"
-                ]
+                }
             }
         },
         "/api/1/vehicles/{id}/data_request/climate_state": {
             "get": {
+                "tags": [
+                    "Operations"
+                ],
                 "operationId": "climate_state",
                 "parameters": [
                     {
@@ -81,24 +99,30 @@
                         "in": "path",
                         "description": "The ID number of the car",
                         "required": true,
-                        "type": "string"
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "success",
-                        "schema": {
-                            "$ref": "#/definitions/ClimateStateResponse"
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ClimateStateResponse"
+                                }
+                            }
                         }
                     }
-                },
-                "tags": [
-                    "Operations"
-                ]
+                }
             }
         },
         "/api/1/vehicles/{id}/command/auto_conditioning_start": {
             "post": {
+                "tags": [
+                    "Operations"
+                ],
                 "operationId": "auto_conditioning_start",
                 "parameters": [
                     {
@@ -106,24 +130,30 @@
                         "in": "path",
                         "description": "The ID number of the car",
                         "required": true,
-                        "type": "string"
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "success",
-                        "schema": {
-                            "$ref": "#/definitions/BooleanResponse"
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BooleanResponse"
+                                }
+                            }
                         }
                     }
-                },
-                "tags": [
-                    "Operations"
-                ]
+                }
             }
         },
         "/api/1/vehicles/{id}/command/remote_start_drive": {
             "post": {
+                "tags": [
+                    "Operations"
+                ],
                 "operationId": "remote_start_drive",
                 "parameters": [
                     {
@@ -131,30 +161,38 @@
                         "in": "path",
                         "description": "The ID number of the car",
                         "required": true,
-                        "type": "string"
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
                         "name": "password",
                         "in": "query",
-                        "type": "string",
-                        "required": true
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "success",
-                        "schema": {
-                            "$ref": "#/definitions/BooleanResponse"
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BooleanResponse"
+                                }
+                            }
                         }
                     }
-                },
-                "tags": [
-                    "Operations"
-                ]
+                }
             }
         },
         "/api/1/vehicles/{id}/wake_up": {
             "post": {
+                "tags": [
+                    "Operations"
+                ],
                 "operationId": "wake_up",
                 "parameters": [
                     {
@@ -162,24 +200,30 @@
                         "in": "path",
                         "description": "The ID number of the car",
                         "required": true,
-                        "type": "string"
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "success",
-                        "schema": {
-                            "$ref": "#/definitions/BooleanResponse"
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BooleanResponse"
+                                }
+                            }
                         }
                     }
-                },
-                "tags": [
-                    "Operations"
-                ]
+                }
             }
         },
         "/api/1/vehicles/{id}/command/trunk_open": {
             "post": {
+                "tags": [
+                    "Operations"
+                ],
                 "operationId": "trunk_open",
                 "parameters": [
                     {
@@ -187,34 +231,42 @@
                         "in": "path",
                         "description": "The ID number of the car",
                         "required": true,
-                        "type": "string"
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
                         "name": "which_trunk",
                         "in": "query",
                         "description": "the trunk to open",
-                        "type": "string",
-                        "enum": [
-                            "rear"
-                        ],
-                        "required": true
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "rear"
+                            ]
+                        }
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "success",
-                        "schema": {
-                            "$ref": "#/definitions/BooleanResponse"
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BooleanResponse"
+                                }
+                            }
                         }
                     }
-                },
-                "tags": [
-                    "Operations"
-                ]
+                }
             }
         },
         "/api/1/vehicles/{id}/data_request/drive_state": {
             "get": {
+                "tags": [
+                    "State"
+                ],
                 "operationId": "drive_state",
                 "parameters": [
                     {
@@ -222,24 +274,30 @@
                         "in": "path",
                         "description": "The ID number of the car",
                         "required": true,
-                        "type": "string"
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "success",
-                        "schema": {
-                            "$ref": "#/definitions/DriveStateResponse"
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DriveStateResponse"
+                                }
+                            }
                         }
                     }
-                },
-                "tags": [
-                    "State"
-                ]
+                }
             }
         },
         "/api/1/vehicles/{id}/command/door_lock": {
             "post": {
+                "tags": [
+                    "Operations"
+                ],
                 "operationId": "door_lock",
                 "parameters": [
                     {
@@ -247,24 +305,30 @@
                         "in": "path",
                         "description": "The ID number of the car",
                         "required": true,
-                        "type": "string"
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "success",
-                        "schema": {
-                            "$ref": "#/definitions/BooleanResponse"
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BooleanResponse"
+                                }
+                            }
                         }
                     }
-                },
-                "tags": [
-                    "Operations"
-                ]
+                }
             }
         },
         "/api/1/vehicles/{id}/command/charge_max_range": {
             "post": {
+                "tags": [
+                    "Operations"
+                ],
                 "operationId": "charge_max_range",
                 "parameters": [
                     {
@@ -272,24 +336,30 @@
                         "in": "path",
                         "description": "The ID number of the car",
                         "required": true,
-                        "type": "string"
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "success",
-                        "schema": {
-                            "$ref": "#/definitions/BooleanResponse"
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BooleanResponse"
+                                }
+                            }
                         }
                     }
-                },
-                "tags": [
-                    "Operations"
-                ]
+                }
             }
         },
         "/api/1/vehicles/{id}/command/charge_start": {
             "post": {
+                "tags": [
+                    "Operations"
+                ],
                 "operationId": "charge_start",
                 "parameters": [
                     {
@@ -297,24 +367,30 @@
                         "in": "path",
                         "description": "The ID number of the car",
                         "required": true,
-                        "type": "string"
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "success",
-                        "schema": {
-                            "$ref": "#/definitions/BooleanResponse"
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BooleanResponse"
+                                }
+                            }
                         }
                     }
-                },
-                "tags": [
-                    "Operations"
-                ]
+                }
             }
         },
         "/api/1/vehicles/{id}/data_request/vehicle_state": {
             "get": {
+                "tags": [
+                    "Operations"
+                ],
                 "operationId": "vehicle_state",
                 "parameters": [
                     {
@@ -322,24 +398,30 @@
                         "in": "path",
                         "description": "The ID number of the car",
                         "required": true,
-                        "type": "string"
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "success",
-                        "schema": {
-                            "$ref": "#/definitions/VehicleStateResponse"
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/VehicleStateResponse"
+                                }
+                            }
                         }
                     }
-                },
-                "tags": [
-                    "Operations"
-                ]
+                }
             }
         },
         "/api/1/vehicles/{id}/command/honk_horn": {
             "post": {
+                "tags": [
+                    "Operations"
+                ],
                 "operationId": "honk_horn",
                 "parameters": [
                     {
@@ -347,24 +429,30 @@
                         "in": "path",
                         "description": "The ID number of the car",
                         "required": true,
-                        "type": "string"
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "success",
-                        "schema": {
-                            "$ref": "#/definitions/BooleanResponse"
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BooleanResponse"
+                                }
+                            }
                         }
                     }
-                },
-                "tags": [
-                    "Operations"
-                ]
+                }
             }
         },
         "/api/1/vehicles/{id}/command/set_temps": {
             "post": {
+                "tags": [
+                    "Operations"
+                ],
                 "operationId": "set_temps",
                 "parameters": [
                     {
@@ -372,38 +460,48 @@
                         "in": "path",
                         "description": "The ID number of the car",
                         "required": true,
-                        "type": "string"
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
                         "name": "driver_temp",
                         "in": "query",
                         "description": "The desired temperature on the driver's side in celcius.",
                         "required": true,
-                        "type": "string"
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
                         "name": "passenger_temp",
                         "in": "query",
                         "description": "The desired temperature on the passenger's side in celcius.",
                         "required": true,
-                        "type": "string"
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "success",
-                        "schema": {
-                            "$ref": "#/definitions/BooleanResponse"
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BooleanResponse"
+                                }
+                            }
                         }
                     }
-                },
-                "tags": [
-                    "Operations"
-                ]
+                }
             }
         },
         "/api/1/vehicles/{id}/mobile_enabled": {
             "get": {
+                "tags": [
+                    "State"
+                ],
                 "operationId": "mobile_enabled",
                 "parameters": [
                     {
@@ -411,41 +509,50 @@
                         "in": "path",
                         "description": "The ID number of the car",
                         "required": true,
-                        "type": "string"
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "success",
-                        "schema": {
-                            "$ref": "#/definitions/BooleanResponse"
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BooleanResponse"
+                                }
+                            }
                         }
                     }
-                },
-                "tags": [
-                    "State"
-                ]
+                }
             }
         },
         "/api/1/vehicles": {
             "get": {
+                "tags": [
+                    "Vehicles"
+                ],
                 "operationId": "/vehicles",
-                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "success",
-                        "schema": {
-                            "$ref": "#/definitions/VehiclesResponse"
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/VehiclesResponse"
+                                }
+                            }
                         }
                     }
-                },
-                "tags": [
-                    "Vehicles"
-                ]
+                }
             }
         },
         "/api/1/vehicles/{id}/command/sun_roof_control": {
             "post": {
+                "tags": [
+                    "Operations"
+                ],
                 "operationId": "sun_roof_control",
                 "parameters": [
                     {
@@ -453,31 +560,39 @@
                         "in": "path",
                         "description": "The ID number of the car",
                         "required": true,
-                        "type": "string"
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
                         "name": "state",
                         "in": "query",
                         "description": "The desired state of the panoramic roof. The approximate percent\\ \\ open values for each state are `open` = 100%, `close` = 0%, `comfort`\\ \\ = 80%, and `vent` = ~15%",
                         "required": true,
-                        "type": "string"
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "success",
-                        "schema": {
-                            "$ref": "#/definitions/BooleanResponse"
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BooleanResponse"
+                                }
+                            }
                         }
                     }
-                },
-                "tags": [
-                    "Operations"
-                ]
+                }
             }
         },
         "/api/1/vehicles/{id}/data_request/charge_state": {
             "get": {
+                "tags": [
+                    "State"
+                ],
                 "operationId": "charge_state",
                 "parameters": [
                     {
@@ -485,24 +600,30 @@
                         "in": "path",
                         "description": "The ID number of the car",
                         "required": true,
-                        "type": "string"
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "success",
-                        "schema": {
-                            "$ref": "#/definitions/ChargeStateResponse"
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ChargeStateResponse"
+                                }
+                            }
                         }
                     }
-                },
-                "tags": [
-                    "State"
-                ]
+                }
             }
         },
         "/api/1/vehicles/{id}/command/charge_stop": {
             "post": {
+                "tags": [
+                    "Operations"
+                ],
                 "operationId": "charge_stop",
                 "parameters": [
                     {
@@ -510,86 +631,98 @@
                         "in": "path",
                         "description": "The ID number of the car",
                         "required": true,
-                        "type": "string"
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "success",
-                        "schema": {
-                            "$ref": "#/definitions/BooleanResponse"
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BooleanResponse"
+                                }
+                            }
                         }
                     }
-                },
-                "tags": [
-                    "Operations"
-                ]
+                }
             }
         },
         "/oauth/token": {
             "post": {
+                "tags": [
+                    "Authentication"
+                ],
                 "operationId": "login",
-                "consumes": [
-                    "application/x-www-form-urlencoded"
-                ],
-                "parameters": [
-                    {
-                        "name": "grant_type",
-                        "in": "formData",
-                        "type": "string",
-                        "default": "password",
-                        "required": true
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "required": [
+                                    "client_id",
+                                    "email",
+                                    "grant_type",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "grant_type": {
+                                        "type": "string",
+                                        "default": "password"
+                                    },
+                                    "client_id": {
+                                        "type": "string",
+                                        "default": "e4a9949fcfa04068f59abb5a658f2bac0a3428e4652315490b659d5ab3f35a9e"
+                                    },
+                                    "client_secret": {
+                                        "type": "string",
+                                        "default": "c75f14bbadc8bee3a7594412c31416f8300256d7668ea7e6e7f06727bfb9d220"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "description": "the user email address"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "description": "the password",
+                                        "format": "password"
+                                    }
+                                }
+                            }
+                        }
                     },
-                    {
-                        "name": "client_id",
-                        "in": "formData",
-                        "type": "string",
-                        "default": "e4a9949fcfa04068f59abb5a658f2bac0a3428e4652315490b659d5ab3f35a9e",
-                        "required": true
-                    },
-                    {
-                        "name": "client_secret",
-                        "in": "formData",
-                        "type": "string",
-                        "default": "c75f14bbadc8bee3a7594412c31416f8300256d7668ea7e6e7f06727bfb9d220"
-                    },
-                    {
-                        "name": "email",
-                        "in": "formData",
-                        "description": "the user email address",
-                        "type": "string",
-                        "required": true
-                    },
-                    {
-                        "name": "password",
-                        "in": "formData",
-                        "description": "the password",
-                        "type": "string",
-                        "format": "password",
-                        "required": true
-                    }
-                ],
+                    "required": true
+                },
                 "responses": {
                     "200": {
                         "description": "success",
-                        "schema": {
-                            "$ref": "#/definitions/LoginSuccess"
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LoginSuccess"
+                                }
+                            }
                         }
                     },
                     "401": {
                         "description": "failed login",
-                        "schema": {
-                            "$ref": "#/definitions/LoginFailure"
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LoginFailure"
+                                }
+                            }
                         }
                     }
-                },
-                "tags": [
-                    "Authentication"
-                ]
+                }
             }
         },
         "/api/1/vehicles/{id}/data_request/gui_settings": {
             "get": {
+                "tags": [
+                    "State"
+                ],
                 "operationId": "gui_settings",
                 "parameters": [
                     {
@@ -597,24 +730,30 @@
                         "in": "path",
                         "description": "The ID number of the car",
                         "required": true,
-                        "type": "string"
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "success",
-                        "schema": {
-                            "$ref": "#/definitions/GuiStateResponse"
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GuiStateResponse"
+                                }
+                            }
                         }
                     }
-                },
-                "tags": [
-                    "State"
-                ]
+                }
             }
         },
         "/api/1/vehicles/{id}/command/auto_conditioning_stop": {
             "post": {
+                "tags": [
+                    "Operations"
+                ],
                 "operationId": "auto_conditioning_stop",
                 "parameters": [
                     {
@@ -622,21 +761,24 @@
                         "in": "path",
                         "description": "The ID number of the car",
                         "required": true,
-                        "type": "string"
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "success"
+                        "description": "success",
+                        "content": {}
                     }
-                },
-                "tags": [
-                    "Operations"
-                ]
+                }
             }
         },
         "/api/1/vehicles/{id}/command/flash_lights": {
             "post": {
+                "tags": [
+                    "Operations"
+                ],
                 "operationId": "flash_lights",
                 "parameters": [
                     {
@@ -644,445 +786,467 @@
                         "in": "path",
                         "description": "The ID number of the car",
                         "required": true,
-                        "type": "string"
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "success",
-                        "schema": {
-                            "$ref": "#/definitions/BooleanResponse"
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BooleanResponse"
+                                }
+                            }
                         }
                     }
-                },
-                "tags": [
-                    "Operations"
-                ]
+                }
             }
         }
     },
-    "securityDefinitions": {
-        "bearer": {
-            "type": "apiKey",
-            "in": "header",
-            "name": "Authorization"
-        }
-    },
-    "definitions": {
-        "LoginFailure": {
-            "properties": {
-                "status": {
-                    "type": "boolean"
-                },
-                "code": {
-                    "type": "integer",
-                    "format": "int32"
-                },
-                "region": {
-                    "type": "string"
-                },
-                "message": {
-                    "type": "string"
-                },
-                "data": {
-                    "type": "object"
-                },
-                "homeRegion": {
-                    "type": "string"
-                }
-            }
-        },
-        "VehicleState": {
-            "properties": {
-                "sun_roof_installed": {
-                    "description": "panoramic roof is installed",
-                    "type": "boolean",
-                    "example": false
-                },
-                "df": {
-                    "description": "driver's side front door open",
-                    "type": "boolean",
-                    "example": false
-                },
-                "pr": {
-                    "description": "passenger's side rear door open",
-                    "type": "boolean",
-                    "example": false
-                },
-                "rt": {
-                    "description": "rear trunk is open",
-                    "type": "boolean",
-                    "example": false
-                },
-                "dark_rims": {
-                    "description": "gray rims installed",
-                    "type": "boolean",
-                    "example": false
-                },
-                "locked": {
-                    "description": "car is locked",
-                    "type": "boolean",
-                    "example": true
-                },
-                "dr": {
-                    "description": "driver's side rear door open",
-                    "type": "boolean",
-                    "example": false
-                },
-                "ft": {
-                    "description": "front trunk is open",
-                    "type": "boolean",
-                    "example": false
-                },
-                "pf": {
-                    "description": "passenger's side front door open",
-                    "type": "boolean",
-                    "example": false
-                },
-                "roof_color": {
-                    "description": "None for panoramic roof",
-                    "type": "string",
-                    "example": "Colored"
-                },
-                "perf_config": {
-                    "type": "string",
-                    "example": "Base"
-                },
-                "sun_roof_state": {
-                    "type": "string",
-                    "example": "unknown"
-                },
-                "car_verson": {
-                    "description": "car firmware version",
-                    "type": "string",
-                    "example": "1.19.42"
-                },
-                "sun_roof_percent_open": {
-                    "description": "null if not installed",
-                    "type": "integer",
-                    "format": "int32",
-                    "example": 0
-                },
-                "has_spoiler": {
-                    "description": "spoiler is installed",
-                    "type": "boolean",
-                    "example": false
-                },
-                "wheel_type": {
-                    "description": "wheel type installed",
-                    "type": "string",
-                    "example": "Base19"
-                }
-            }
-        },
-        "VehicleStateResponse": {
-            "properties": {
-                "response": {
-                    "$ref": "#/definitions/VehicleState"
-                }
-            }
-        },
-        "DriveState": {
-            "properties": {
-                "shift_state": {
-                    "type": "string"
-                },
-                "speed": {
-                    "type": "number",
-                    "format": "double"
-                },
-                "latitude": {
-                    "description": "degrees north of equator",
-                    "type": "number",
-                    "format": "double",
-                    "example": 37.4292
-                },
-                "longitude": {
-                    "description": "degrees west of the prime meridian",
-                    "type": "number",
-                    "format": "double",
-                    "example": 122.1381
-                },
-                "heading": {
-                    "description": "integer compass heading",
-                    "type": "integer",
-                    "format": "int32",
-                    "minimum": 0,
-                    "maximum": 359,
-                    "example": 6
-                },
-                "gps_as_of": {
-                    "example": 1359865301
-                }
-            }
-        },
-        "VehiclesResponse": {
-            "properties": {
-                "response": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Vehicle"
-                    }
-                },
-                "count": {
-                    "type": "integer",
-                    "format": "int32"
-                }
-            }
-        },
-        "DriveStateResponse": {
-            "properties": {
-                "response": {
-                    "$ref": "#/definitions/DriveState"
-                }
-            }
-        },
-        "BooleanResponse": {
-            "properties": {
-                "response": {
-                    "type": "boolean"
-                }
-            }
-        },
-        "Vehicle": {
-            "properties": {
-                "color": {
-                    "type": "string"
-                },
-                "display_name": {
-                    "type": "string"
-                },
-                "vehicle_id": {
-                    "type": "string",
-                    "example": 1234567890
-                },
-                "user_id": {
-                    "type": "integer",
-                    "format": "int64",
-                    "example": 123
-                },
-                "state": {
-                    "type": "string",
-                    "example": "online"
-                },
-                "tokens": {
-                    "type": "array",
-                    "items": {
+    "components": {
+        "schemas": {
+            "LoginFailure": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "boolean"
+                    },
+                    "code": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "region": {
+                        "type": "string"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
+                    "data": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "homeRegion": {
                         "type": "string"
                     }
-                },
-                "vin": {
-                    "type": "string",
-                    "example": "5YJSA1CN5CFP01657"
-                },
-                "id": {
-                    "type": "integer",
-                    "format": "int32",
-                    "example": 321
-                },
-                "option_codes": {
-                    "type": "string",
-                    "description": "comma-separated list of options",
-                    "example": "MS01,RENA,TM00,DRLH,PF00,BT85,PBCW,RFPO,WT19,IBMB,IDPB,TR00,SU01,SC01,TP01,AU01,CH00,HP00,PA00,PS00,AD02,X020,X025,X001,X003,X007,X011,X013"
+                }
+            },
+            "VehicleState": {
+                "type": "object",
+                "properties": {
+                    "sun_roof_installed": {
+                        "type": "boolean",
+                        "description": "panoramic roof is installed",
+                        "example": false
+                    },
+                    "df": {
+                        "type": "boolean",
+                        "description": "driver's side front door open",
+                        "example": false
+                    },
+                    "pr": {
+                        "type": "boolean",
+                        "description": "passenger's side rear door open",
+                        "example": false
+                    },
+                    "rt": {
+                        "type": "boolean",
+                        "description": "rear trunk is open",
+                        "example": false
+                    },
+                    "dark_rims": {
+                        "type": "boolean",
+                        "description": "gray rims installed",
+                        "example": false
+                    },
+                    "locked": {
+                        "type": "boolean",
+                        "description": "car is locked",
+                        "example": true
+                    },
+                    "dr": {
+                        "type": "boolean",
+                        "description": "driver's side rear door open",
+                        "example": false
+                    },
+                    "ft": {
+                        "type": "boolean",
+                        "description": "front trunk is open",
+                        "example": false
+                    },
+                    "pf": {
+                        "type": "boolean",
+                        "description": "passenger's side front door open",
+                        "example": false
+                    },
+                    "roof_color": {
+                        "type": "string",
+                        "description": "None for panoramic roof",
+                        "example": "Colored"
+                    },
+                    "perf_config": {
+                        "type": "string",
+                        "example": "Base"
+                    },
+                    "sun_roof_state": {
+                        "type": "string",
+                        "example": "unknown"
+                    },
+                    "car_verson": {
+                        "type": "string",
+                        "description": "car firmware version",
+                        "example": "1.19.42"
+                    },
+                    "sun_roof_percent_open": {
+                        "type": "integer",
+                        "description": "null if not installed",
+                        "format": "int32",
+                        "example": 0
+                    },
+                    "has_spoiler": {
+                        "type": "boolean",
+                        "description": "spoiler is installed",
+                        "example": false
+                    },
+                    "wheel_type": {
+                        "type": "string",
+                        "description": "wheel type installed",
+                        "example": "Base19"
+                    }
+                }
+            },
+            "VehicleStateResponse": {
+                "type": "object",
+                "properties": {
+                    "response": {
+                        "$ref": "#/components/schemas/VehicleState"
+                    }
+                }
+            },
+            "DriveState": {
+                "type": "object",
+                "properties": {
+                    "shift_state": {
+                        "type": "string"
+                    },
+                    "speed": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "latitude": {
+                        "type": "number",
+                        "description": "degrees north of equator",
+                        "format": "double",
+                        "example": 37.4292
+                    },
+                    "longitude": {
+                        "type": "number",
+                        "description": "degrees west of the prime meridian",
+                        "format": "double",
+                        "example": 122.1381
+                    },
+                    "heading": {
+                        "maximum": 359,
+                        "minimum": 0,
+                        "type": "integer",
+                        "description": "integer compass heading",
+                        "format": "int32",
+                        "example": 6
+                    },
+                    "gps_as_of": {
+                        "type": "object",
+                        "example": "1359865301"
+                    }
+                }
+            },
+            "VehiclesResponse": {
+                "type": "object",
+                "properties": {
+                    "response": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Vehicle"
+                        }
+                    },
+                    "count": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            },
+            "DriveStateResponse": {
+                "type": "object",
+                "properties": {
+                    "response": {
+                        "$ref": "#/components/schemas/DriveState"
+                    }
+                }
+            },
+            "BooleanResponse": {
+                "type": "object",
+                "properties": {
+                    "response": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "Vehicle": {
+                "type": "object",
+                "properties": {
+                    "color": {
+                        "type": "string"
+                    },
+                    "display_name": {
+                        "type": "string"
+                    },
+                    "vehicle_id": {
+                        "type": "string",
+                        "example": "1234567890"
+                    },
+                    "user_id": {
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 123
+                    },
+                    "state": {
+                        "type": "string",
+                        "example": "online"
+                    },
+                    "tokens": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "vin": {
+                        "type": "string",
+                        "example": "5YJSA1CN5CFP01657"
+                    },
+                    "id": {
+                        "type": "integer",
+                        "format": "int32",
+                        "example": 321
+                    },
+                    "option_codes": {
+                        "type": "string",
+                        "description": "comma-separated list of options",
+                        "example": "MS01,RENA,TM00,DRLH,PF00,BT85,PBCW,RFPO,WT19,IBMB,IDPB,TR00,SU01,SC01,TP01,AU01,CH00,HP00,PA00,PS00,AD02,X020,X025,X001,X003,X007,X011,X013"
+                    }
+                }
+            },
+            "ClimateState": {
+                "type": "object",
+                "properties": {
+                    "inside_temp": {
+                        "type": "number",
+                        "description": "degC inside car",
+                        "format": "double",
+                        "example": 17
+                    },
+                    "outside_temp": {
+                        "type": "number",
+                        "description": "degC outside car or null",
+                        "format": "double",
+                        "example": 9.5
+                    },
+                    "driver_temp_setting": {
+                        "type": "number",
+                        "description": "degC of driver temperature setpoint",
+                        "format": "double",
+                        "example": 22.6
+                    },
+                    "passenger_temp_setting": {
+                        "type": "number",
+                        "description": "degC of passenger temperature setpoint",
+                        "format": "double",
+                        "example": 22.6
+                    },
+                    "is_auto_conditioning_on": {
+                        "type": "boolean",
+                        "example": false
+                    },
+                    "is_front_defroster_on": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "is_rear_defroster_on": {
+                        "type": "boolean",
+                        "example": false
+                    },
+                    "fan_status": {
+                        "type": "integer",
+                        "description": "fan speed 0-6 or null",
+                        "format": "int32",
+                        "example": 0
+                    }
+                }
+            },
+            "ClimateStateResponse": {
+                "type": "object",
+                "properties": {
+                    "result": {
+                        "$ref": "#/components/schemas/ClimateState"
+                    }
+                }
+            },
+            "GuiState": {
+                "type": "object",
+                "properties": {
+                    "gui_distance_units": {
+                        "type": "string",
+                        "example": "mi/hr"
+                    },
+                    "gui_temperature_units": {
+                        "type": "string",
+                        "example": "F"
+                    },
+                    "gui_charge_rate_units": {
+                        "type": "string",
+                        "example": "mi/hr"
+                    },
+                    "gui_24_hour_time": {
+                        "type": "boolean",
+                        "example": false
+                    },
+                    "gui_range_display": {
+                        "type": "string",
+                        "example": "Rated"
+                    }
+                }
+            },
+            "GuiStateResponse": {
+                "type": "object",
+                "properties": {
+                    "response": {
+                        "$ref": "#/components/schemas/GuiState"
+                    }
+                }
+            },
+            "LoginSuccess": {
+                "type": "object",
+                "properties": {
+                    "access_token": {
+                        "type": "string"
+                    },
+                    "token_type": {
+                        "type": "string"
+                    },
+                    "expires_in": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }
+            },
+            "ChargeState": {
+                "type": "object",
+                "properties": {
+                    "ideal_battery_range": {
+                        "type": "number",
+                        "description": "ideal miles",
+                        "format": "double",
+                        "example": 275.09
+                    },
+                    "charging_state": {
+                        "type": "string",
+                        "example": "Complete"
+                    },
+                    "charger_power": {
+                        "type": "integer",
+                        "description": "kW (rounded down) of charger",
+                        "format": "int32"
+                    },
+                    "battery_current": {
+                        "type": "number",
+                        "description": "current flowing into battery",
+                        "format": "double",
+                        "example": -0.6
+                    },
+                    "charge_port_door_open": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "charge_starting_range": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "charge_to_max_range": {
+                        "type": "boolean"
+                    },
+                    "charger_actual_current": {
+                        "type": "integer",
+                        "description": "current actually being drawn",
+                        "format": "int32"
+                    },
+                    "battery_range": {
+                        "type": "number",
+                        "description": "rated miles",
+                        "format": "double",
+                        "example": 239.02
+                    },
+                    "charge_rate": {
+                        "type": "number",
+                        "description": "mi/hr if charging or -1 if not charging",
+                        "format": "double",
+                        "example": -1
+                    },
+                    "max_range_charge_counter": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "charger_pilot_current": {
+                        "type": "integer",
+                        "description": "max current allowed by charger & adapter",
+                        "format": "int32",
+                        "example": 40
+                    },
+                    "est_battery_range": {
+                        "type": "number",
+                        "description": "range estimated from recent driving",
+                        "format": "double",
+                        "example": 155.79
+                    },
+                    "time_to_full_charge": {
+                        "type": "number",
+                        "description": "only present while charging",
+                        "format": "double"
+                    },
+                    "battery_level": {
+                        "type": "integer",
+                        "description": "charge percentage",
+                        "format": "int32",
+                        "example": 91
+                    },
+                    "charge_starting_soc": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "fast_charger_present": {
+                        "type": "boolean",
+                        "description": "connected to Supercharger?"
+                    },
+                    "charger_voltage": {
+                        "type": "number",
+                        "description": "voltage present only while charging",
+                        "format": "double"
+                    }
+                }
+            },
+            "ChargeStateResponse": {
+                "type": "object",
+                "properties": {
+                    "response": {
+                        "$ref": "#/components/schemas/ChargeState"
+                    }
                 }
             }
         },
-        "ClimateState": {
-            "properties": {
-                "inside_temp": {
-                    "description": "degC inside car",
-                    "type": "number",
-                    "format": "double",
-                    "example": 17
-                },
-                "outside_temp": {
-                    "description": "degC outside car or null",
-                    "type": "number",
-                    "format": "double",
-                    "example": 9.5
-                },
-                "driver_temp_setting": {
-                    "description": "degC of driver temperature setpoint",
-                    "type": "number",
-                    "format": "double",
-                    "example": 22.6
-                },
-                "passenger_temp_setting": {
-                    "description": "degC of passenger temperature setpoint",
-                    "type": "number",
-                    "format": "double",
-                    "example": 22.6
-                },
-                "is_auto_conditioning_on": {
-                    "type": "boolean",
-                    "example": false
-                },
-                "is_front_defroster_on": {
-                    "type": "integer",
-                    "format": "int32"
-                },
-                "is_rear_defroster_on": {
-                    "type": "boolean",
-                    "example": false
-                },
-                "fan_status": {
-                    "description": "fan speed 0-6 or null",
-                    "type": "integer",
-                    "format": "int32",
-                    "example": 0
-                }
-            }
-        },
-        "ClimateStateResponse": {
-            "properties": {
-                "result": {
-                    "$ref": "#/definitions/ClimateState"
-                }
-            }
-        },
-        "GuiState": {
-            "properties": {
-                "gui_distance_units": {
-                    "type": "string",
-                    "example": "mi/hr"
-                },
-                "gui_temperature_units": {
-                    "type": "string",
-                    "example": "F"
-                },
-                "gui_charge_rate_units": {
-                    "type": "string",
-                    "example": "mi/hr"
-                },
-                "gui_24_hour_time": {
-                    "type": "boolean",
-                    "example": false
-                },
-                "gui_range_display": {
-                    "type": "string",
-                    "example": "Rated"
-                }
-            }
-        },
-        "GuiStateResponse": {
-            "properties": {
-                "response": {
-                    "$ref": "#/definitions/GuiState"
-                }
-            }
-        },
-        "LoginSuccess": {
-            "properties": {
-                "access_token": {
-                    "type": "string"
-                },
-                "token_type": {
-                    "type": "string"
-                },
-                "expires_in": {
-                    "type": "integer",
-                    "format": "int64"
-                }
-            }
-        },
-        "ChargeState": {
-            "properties": {
-                "ideal_battery_range": {
-                    "description": "ideal miles",
-                    "type": "number",
-                    "format": "double",
-                    "example": 275.09
-                },
-                "charging_state": {
-                    "type": "string",
-                    "example": "Complete"
-                },
-                "charger_power": {
-                    "description": "kW (rounded down) of charger",
-                    "type": "integer",
-                    "format": "int32"
-                },
-                "battery_current": {
-                    "description": "current flowing into battery",
-                    "type": "number",
-                    "format": "double",
-                    "example": -0.6
-                },
-                "charge_port_door_open": {
-                    "type": "number",
-                    "format": "double"
-                },
-                "charge_starting_range": {
-                    "type": "number",
-                    "format": "double"
-                },
-                "charge_to_max_range": {
-                    "type": "boolean"
-                },
-                "charger_actual_current": {
-                    "description": "current actually being drawn",
-                    "type": "integer",
-                    "format": "int32"
-                },
-                "battery_range": {
-                    "description": "rated miles",
-                    "type": "number",
-                    "format": "double",
-                    "example": 239.02
-                },
-                "charge_rate": {
-                    "description": "mi/hr if charging or -1 if not charging",
-                    "type": "number",
-                    "format": "double",
-                    "example": -1
-                },
-                "max_range_charge_counter": {
-                    "type": "integer",
-                    "format": "int32"
-                },
-                "charger_pilot_current": {
-                    "description": "max current allowed by charger & adapter",
-                    "type": "integer",
-                    "format": "int32",
-                    "example": 40
-                },
-                "est_battery_range": {
-                    "description": "range estimated from recent driving",
-                    "type": "number",
-                    "format": "double",
-                    "example": 155.79
-                },
-                "time_to_full_charge": {
-                    "description": "only present while charging",
-                    "type": "number",
-                    "format": "double"
-                },
-                "battery_level": {
-                    "description": "charge percentage",
-                    "type": "integer",
-                    "format": "int32",
-                    "example": 91
-                },
-                "charge_starting_soc": {
-                    "type": "number",
-                    "format": "double"
-                },
-                "fast_charger_present": {
-                    "type": "boolean",
-                    "description": "connected to Supercharger?"
-                },
-                "charger_voltage": {
-                    "description": "voltage present only while charging",
-                    "type": "number",
-                    "format": "double"
-                }
-            }
-        },
-        "ChargeStateResponse": {
-            "properties": {
-                "response": {
-                    "$ref": "#/definitions/ChargeState"
-                }
+        "securitySchemes": {
+            "bearer": {
+                "type": "apiKey",
+                "name": "Authorization",
+                "in": "header"
             }
         }
     }
