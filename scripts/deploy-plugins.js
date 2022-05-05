@@ -35,7 +35,7 @@ async function main() {
     const { data: allUrls } = await axios(`${repoBaseUrl}/plugins.json`, {
       headers
     })
-    const urls = [...newSet(allUrls)] // remove possible duplicates
+    const urls = [...new Set(allUrls)] // remove possible duplicates
     console.log(
       `[deploy-plugins] fetched array of ${urls.length} urls from plugins.json in @netzoio/netzo repository`
     )
