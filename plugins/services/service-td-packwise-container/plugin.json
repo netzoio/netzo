@@ -13,7 +13,7 @@
     "arturo.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-td-packwise-container/src/td.json",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-td-packwise-container/src/td.v1.json",
   "display": {
     "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-td-packwise-container/src/assets/icon.png",
     "color": "",
