@@ -32,9 +32,10 @@ async function main() {
     )
 
     // 1) fetch array of plugin urls from plugins.json @netzoio/netzo repository in GitHub
-    const { data: urls } = await axios(`${repoBaseUrl}/plugins.json`, {
+    const { data: allUrls } = await axios(`${repoBaseUrl}/plugins.json`, {
       headers
     })
+    const urls = [...newSet(allUrls)] // remove possible duplicates
     console.log(
       `[deploy-plugins] fetched array of ${urls.length} urls from plugins.json in @netzoio/netzo repository`
     )
