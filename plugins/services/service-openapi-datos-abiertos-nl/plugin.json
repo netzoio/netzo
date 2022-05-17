@@ -2,12 +2,13 @@
   "uid": "service-openapi-datos-abiertos-nl",
   "type": "service",
   "version": "1.0.0",
-  "status": "soon",
+  "status": "alpha",
   "category": "core",
   "name": "Datos Abiertos NL",
   "description": "API for Datos Abiertos NL",
   "keywords": [
-    "datos-abiertos-nl"
+    "government",
+    "public-data"
   ],
   "authors": [
     "arturo.romero@netzo.io"
