@@ -3,14 +3,14 @@
   "type": "service",
   "version": "1.0.0",
   "status": "beta",
-  "category": "core",
+  "category": "alpha",
   "name": "DHL Warehouse Management System",
   "description": "API for DHL Warehouse Management System",
   "keywords": [
-    "dhl-warehouse-management-system"
+    "warehouse-management-system"
   ],
   "authors": [
-    "arturo.romero@netzo.io"
+    "gabriel.romero@netzo.io"
   ],
   "license": "MIT",
   "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-dhl-warehouse-management-system/src/openapi.v1.json",
