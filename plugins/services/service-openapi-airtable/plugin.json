@@ -7,7 +7,8 @@
   "name": "Airtable",
   "description": "API for Airtable",
   "keywords": [
-    "airtable"
+    "low-code",
+    "relational-databases"
   ],
   "authors": [
     "miguel.romero@netzo.io"
