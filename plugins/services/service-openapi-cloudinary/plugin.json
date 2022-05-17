@@ -7,7 +7,9 @@
   "name": "Cloudinary",
   "description": "API for Cloudinary",
   "keywords": [
-    "cloudinary"
+    "media-management",
+    "video",
+    "image"
   ],
   "authors": [
     "miguel.romero@netzo.io"
