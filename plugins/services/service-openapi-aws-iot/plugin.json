@@ -7,10 +7,11 @@
   "name": "AWS IoT Core",
   "description": "API for AWS IoT Core",
   "keywords": [
-    "aws-iot-core"
+    "iot",
+    "internet-of-things"
   ],
   "authors": [
-    "arturo.romero@netzo.io"
+    "gabriel.romero@netzo.io"
   ],
   "license": "MIT",
   "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-aws-iot-core/src/openapi.v1.json",

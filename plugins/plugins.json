@@ -21,7 +21,7 @@
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/modules/module-counter/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/modules/module-table/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-asana/plugin.json",
-  "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-aws-iot-core/plugin.json",
+  "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-aws-iot/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-datos-abiertos-nl/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-dhl-location-finder-unified/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-dhl-shipment-tracking-unified/plugin.json",
