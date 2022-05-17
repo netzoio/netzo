@@ -7,7 +7,7 @@
   "name": "AWS S3",
   "description": "API for AWS S3",
   "keywords": [
-    "aws-s3"
+    "storage-service"
   ],
   "authors": [
     "miguel.romero@netzo.io"
