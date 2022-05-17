@@ -2,7 +2,7 @@
   "uid": "service-openapi-instagram",
   "type": "service",
   "version": "1.0.0",
-  "status": "beta",
+  "status": "alpha",
   "category": "core",
   "name": "Instagram",
   "description": "API for Instagram",

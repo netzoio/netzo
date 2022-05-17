@@ -2,7 +2,7 @@
   "uid": "service-td-philips-hue-dimmer-switch",
   "type": "service",
   "version": "1.0.0",
-  "status": "beta",
+  "status": "alpha",
   "category": "core",
   "name": "Philips HUE Dimmer Switch",
   "description": "A Philips HUE Dimmer Switch",

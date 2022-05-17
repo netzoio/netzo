@@ -2,7 +2,7 @@
   "uid": "component-image",
   "type": "component",
   "version": "1.0.0",
-  "status": "beta",
+  "status": "alpha",
   "category": "core",
   "name": "Image",
   "description": "Image component for Netzo",

@@ -2,7 +2,7 @@
   "uid": "service-openapi-youtube-reporting",
   "type": "service",
   "version": "1.0.0",
-  "status": "beta",
+  "status": "alpha",
   "category": "core",
   "name": "YouTube Reporting API",
   "description": "API for YouTube Reporting",

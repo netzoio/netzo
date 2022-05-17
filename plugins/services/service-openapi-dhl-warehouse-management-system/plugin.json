@@ -2,7 +2,7 @@
   "uid": "service-openapi-dhl-warehouse-management-system",
   "type": "service",
   "version": "1.0.0",
-  "status": "beta",
+  "status": "alpha",
   "category": "alpha",
   "name": "DHL Warehouse Management System",
   "description": "API for DHL Warehouse Management System",

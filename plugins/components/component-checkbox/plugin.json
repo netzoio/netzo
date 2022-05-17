@@ -2,7 +2,7 @@
   "uid": "component-checkbox",
   "type": "component",
   "version": "1.0.0",
-  "status": "beta",
+  "status": "alpha",
   "category": "core",
   "name": "Checkbox",
   "description": "Checkbox component for Netzo",

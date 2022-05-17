@@ -2,7 +2,7 @@
   "uid": "module-table",
   "type": "module",
   "version": "1.0.0",
-  "status": "beta",
+  "status": "alpha",
   "category": "core",
   "name": "table",
   "description": "Basic table to display all properties",

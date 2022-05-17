@@ -2,7 +2,7 @@
   "uid": "service-td-philips-hue-bridge",
   "type": "service",
   "version": "1.0.0",
-  "status": "beta",
+  "status": "alpha",
   "category": "core",
   "name": "Philips HUE Bridge Simple",
   "description": "A Philips HUE Bridge, configured for lights, dimmer switch and a software-based daylight sensor",

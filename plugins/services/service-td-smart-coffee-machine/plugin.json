@@ -2,7 +2,7 @@
   "uid": "service-td-smart-coffee-machine",
   "type": "service",
   "version": "1.0.0",
-  "status": "beta",
+  "status": "alpha",
   "category": "core",
   "name": "Smart Coffee Machine",
   "description": "A simulated smart coffee machine with a range of capabilities. It is exposed as a virtual Thing to demonstrate the capabilities of Web of Things and, particularly, the node-wot runtime environment.",

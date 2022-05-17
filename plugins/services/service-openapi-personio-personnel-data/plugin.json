@@ -2,7 +2,7 @@
   "uid": "service-openapi-personio-personnel-data",
   "type": "service",
   "version": "1.0.0",
-  "status": "beta",
+  "status": "alpha",
   "category": "core",
   "name": "Personio Personnel Data",
   "description": "API for Personio Personnel Data",

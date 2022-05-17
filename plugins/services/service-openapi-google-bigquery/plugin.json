@@ -2,7 +2,7 @@
   "uid": "service-openapi-google-bigquery",
   "type": "service",
   "version": "1.0.0",
-  "status": "beta",
+  "status": "alpha",
   "category": "core",
   "name": "Google BigQuery",
   "description": "API for Google BigQuery",

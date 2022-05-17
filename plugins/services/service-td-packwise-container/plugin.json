@@ -2,7 +2,7 @@
   "uid": "service-td-packwise-container",
   "type": "service",
   "version": "1.0.0",
-  "status": "beta",
+  "status": "alpha",
   "category": "core",
   "name": "Packwise Container",
   "description": "A Packwise container is a container fitted with a Packwise Smart Cap",
