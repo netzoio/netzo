@@ -2,12 +2,12 @@
   "uid": "service-openapi-tesla",
   "type": "service",
   "version": "1.0.0",
-  "status": "soon",
+  "status": "alpha",
   "category": "core",
   "name": "Tesla",
   "description": "API for Tesla",
   "keywords": [
-    "tesla"
+    "mobility"
   ],
   "authors": [
     "arturo.romero@netzo.io"

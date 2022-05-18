@@ -7,7 +7,7 @@
   "name": "Twilio",
   "description": "API for Twilio",
   "keywords": [
-    "twilio"
+    "communications"
   ],
   "authors": [
     "miguel.romero@netzo.io"

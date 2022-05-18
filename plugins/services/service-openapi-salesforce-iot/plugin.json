@@ -7,7 +7,8 @@
   "name": "Salesforce IoT",
   "description": "API for Salesforce IoT",
   "keywords": [
-    "salesforce-iot"
+    "iot",
+    "internet-of-things"
   ],
   "authors": [
     "gabriel.romero@netzo.io"

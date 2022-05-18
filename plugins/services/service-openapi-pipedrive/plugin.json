@@ -2,12 +2,12 @@
   "uid": "service-openapi-pipedrive",
   "type": "service",
   "version": "1.0.0",
-  "status": "soon",
+  "status": "alpha",
   "category": "core",
   "name": "Pipedrive",
   "description": "API for Pipedrive",
   "keywords": [
-    "pipedrive"
+    "crm"
   ],
   "authors": [
     "miguel.romero@netzo.io"

@@ -7,7 +7,9 @@
   "name": "Postman",
   "description": "API for Postman",
   "keywords": [
-    "postman"
+    "api",
+    "development",
+    "developer"
   ],
   "authors": [
     "arturo.romero@netzo.io"

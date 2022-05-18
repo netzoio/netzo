@@ -7,7 +7,9 @@
   "name": "Packwise Container",
   "description": "A Packwise container is a container fitted with a Packwise Smart Cap",
   "keywords": [
-    "packwise-container"
+    "iot",
+    "logistics",
+    "internet-of-things"
   ],
   "authors": [
     "arturo.romero@netzo.io"
