@@ -2,7 +2,7 @@
   "uid": "service-openapi-aws-s3",
   "type": "service",
   "version": "1.0.0",
-  "status": "soon",
+  "status": "requested",
   "category": "core",
   "name": "AWS S3",
   "description": "API for AWS S3",

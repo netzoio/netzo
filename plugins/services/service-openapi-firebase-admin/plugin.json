@@ -2,7 +2,7 @@
   "uid": "service-openapi-firebase-admin",
   "type": "service",
   "version": "1.0.0",
-  "status": "soon",
+  "status": "requested",
   "category": "core",
   "name": "Firebase Admin",
   "description": "API for Firebase Admin",

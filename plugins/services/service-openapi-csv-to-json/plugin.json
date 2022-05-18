@@ -2,7 +2,7 @@
   "uid": "service-openapi-csv-to-json",
   "type": "service",
   "version": "1.0.0",
-  "status": "soon",
+  "status": "requested",
   "category": "core",
   "name": "CSV to JSON",
   "description": "API for CSV to JSON",

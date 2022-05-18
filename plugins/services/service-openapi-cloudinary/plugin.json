@@ -2,7 +2,7 @@
   "uid": "service-openapi-cloudinary",
   "type": "service",
   "version": "1.0.0",
-  "status": "soon",
+  "status": "requested",
   "category": "core",
   "name": "Cloudinary",
   "description": "API for Cloudinary",

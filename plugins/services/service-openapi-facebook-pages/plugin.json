@@ -2,7 +2,7 @@
   "uid": "service-openapi-facebook-pages",
   "type": "service",
   "version": "1.0.0",
-  "status": "soon",
+  "status": "requested",
   "category": "core",
   "name": "Facebook Pages",
   "description": "API for Facebook Pages",

@@ -2,7 +2,7 @@
   "uid": "service-openapi-ghost-cms",
   "type": "service",
   "version": "1.0.0",
-  "status": "soon",
+  "status": "requested",
   "category": "core",
   "name": "Ghost CMS",
   "description": "API for Ghost CMS",

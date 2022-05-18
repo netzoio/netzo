@@ -2,7 +2,7 @@
   "uid": "service-openapi-google-analytics",
   "type": "service",
   "version": "1.0.0",
-  "status": "soon",
+  "status": "requested",
   "category": "core",
   "name": "Google Analytics",
   "description": "API for Google Analytics",

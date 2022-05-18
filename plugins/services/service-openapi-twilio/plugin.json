@@ -2,7 +2,7 @@
   "uid": "service-openapi-twilio",
   "type": "service",
   "version": "1.0.0",
-  "status": "soon",
+  "status": "requested",
   "category": "core",
   "name": "Twilio",
   "description": "API for Twilio",
