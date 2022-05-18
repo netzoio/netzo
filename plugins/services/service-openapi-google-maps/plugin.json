@@ -7,7 +7,8 @@
   "name": "Google Maps",
   "description": "API for Google Maps",
   "keywords": [
-    "google-maps"
+    "maps",
+    "geoposition"
   ],
   "authors": [
     "gabriel.romero@netzo.io"

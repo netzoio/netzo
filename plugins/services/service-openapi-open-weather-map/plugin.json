@@ -2,12 +2,12 @@
   "uid": "service-openapi-open-weather-map",
   "type": "service",
   "version": "1.0.0",
-  "status": "soon",
+  "status": "alpha",
   "category": "core",
   "name": "Open Weather Map",
   "description": "API for Open Weather Map",
   "keywords": [
-    "open-weather-map"
+    "weather"
   ],
   "authors": [
     "miguel.romero@netzo.io"

@@ -7,7 +7,9 @@
   "name": "Google BigQuery",
   "description": "API for Google BigQuery",
   "keywords": [
-    "google-bigquery"
+    "analytics",
+    "big-data",
+    "business-intelligence"
   ],
   "authors": [
     "gabriel.romero@netzo.io"

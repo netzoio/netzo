@@ -7,10 +7,11 @@
   "name": "Google Analytics",
   "description": "API for Google Analytics",
   "keywords": [
-    "google-analytics"
+    "analytics",
+    "business-intelligence"
   ],
   "authors": [
-    "miguel.romero@netzo.io"
+    "gabriel.romero@netzo.io"
   ],
   "license": "MIT",
   "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-google-analytics/src/openapi.v1.json",

@@ -8,11 +8,12 @@
 
 An open-source service plugin for Open Weather Map.
 
+Get current weather, daily forecast for 16 days, and 3-hourly forecast 5 days for your city. Helpful stats, graphics, and this day in history charts are available for your reference. Interactive maps show precipitation, clouds, pressure, wind around your location stations. Data is available in JSON, XML, or HTML format. Note: This sample Swagger file covers the current endpoint only from the OpenWeatherMap API.
+
 ### Links
 
-- [Marketplace](https://app.netzo.io/marketplace/service-standard-servicename)
-- [Website](https://netzo.io)
-- [Docs](https://netzo.io/docs/introduction)
+- [Marketplace](https://app.netzo.io/marketplace/service-openapi-open-weather-map)
+- [OpenWeatherMap API Documentation](https://openweathermap.org/api/one-call-3)
 
 <div align="center">
   <h4>© Netzo Plugin</h4>

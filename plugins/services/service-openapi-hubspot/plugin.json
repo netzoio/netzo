@@ -2,15 +2,15 @@
   "uid": "service-openapi-hubspot",
   "type": "service",
   "version": "1.0.0",
-  "status": "requested",
+  "status": "soon",
   "category": "core",
   "name": "HubSpot",
   "description": "API for HubSpot",
   "keywords": [
-    "hubspot"
+    "crm"
   ],
   "authors": [
-    "miguel.romero@netzo.io"
+    "gabriel.romero@netzo.io"
   ],
   "license": "MIT",
   "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-hubspot/src/openapi.v1.json",

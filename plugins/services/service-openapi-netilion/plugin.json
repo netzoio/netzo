@@ -2,12 +2,15 @@
   "uid": "service-openapi-netilion",
   "type": "service",
   "version": "1.0.0",
-  "status": "alpha",
+  "status": "soon",
   "category": "core",
   "name": "Netilion",
   "description": "API for Endress+Hauser Netilion",
   "keywords": [
-    "netilion"
+    "iiot",
+    "industrial-internet-of-things",
+    "iot",
+    "internet-of-things"
   ],
   "authors": [
     "arturo.romero@netzo.io"

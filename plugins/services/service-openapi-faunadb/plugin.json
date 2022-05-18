@@ -7,7 +7,7 @@
   "name": "FaunaDB",
   "description": "API for FaunaDB",
   "keywords": [
-    "faunadb"
+    "databases"
   ],
   "authors": [
     "miguel.romero@netzo.io"

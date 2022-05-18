@@ -7,7 +7,7 @@
   "name": "Firebase Admin",
   "description": "API for Firebase Admin",
   "keywords": [
-    "firebase-admin"
+    "databases"
   ],
   "authors": [
     "miguel.romero@netzo.io"

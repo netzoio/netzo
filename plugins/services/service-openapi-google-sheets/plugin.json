@@ -7,7 +7,8 @@
   "name": "Google Sheets",
   "description": "API for Google Sheets",
   "keywords": [
-    "google-sheets"
+    "analytics",
+    "media"
   ],
   "authors": [
     "gabriel.romero@netzo.io"

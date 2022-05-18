@@ -2,12 +2,12 @@
   "uid": "service-openapi-google-calendar",
   "type": "service",
   "version": "1.0.0",
-  "status": "soon",
+  "status": "alpha",
   "category": "core",
   "name": "Google Calendar",
   "description": "API for Google Calendar",
   "keywords": [
-    "google-calendar"
+    "calendar"
   ],
   "authors": [
     "miguel.romero@netzo.io"

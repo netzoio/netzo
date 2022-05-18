@@ -7,7 +7,8 @@
   "name": "Google Drive",
   "description": "API for Google Drive",
   "keywords": [
-    "google-drive"
+    "content-management",
+    "storage"
   ],
   "authors": [
     "gabriel.romero@netzo.io"
