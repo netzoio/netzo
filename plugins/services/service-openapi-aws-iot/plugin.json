@@ -1,11 +1,11 @@
 {
-  "uid": "service-openapi-aws-iot-core",
+  "uid": "service-openapi-aws-iot",
   "type": "service",
   "version": "1.0.0",
   "status": "alpha",
   "category": "core",
-  "name": "AWS IoT Core",
-  "description": "API for AWS IoT Core",
+  "name": "AWS IoT",
+  "description": "API for AWS IoT",
   "keywords": [
     "iot",
     "internet-of-things"
@@ -14,9 +14,9 @@
     "gabriel.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-aws-iot-core/src/openapi.v1.json",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-aws-iot/src/openapi.v1.json",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-aws-iot-core/src/assets/icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-aws-iot/src/assets/icon.png",
     "color": "",
     "screenshots": []
   },
@@ -28,11 +28,11 @@
     },
     {
       "rel": "repository",
-      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/services/service-openapi-aws-iot-core"
+      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/services/service-openapi-aws-iot"
     },
     {
       "rel": "readme",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-aws-iot-core/README.md"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-aws-iot/README.md"
     },
     {
       "rel": "license",

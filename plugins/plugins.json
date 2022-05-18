@@ -21,7 +21,7 @@
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/modules/module-counter/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/modules/module-table/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-airtable/plugin.json",
-  "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/algolia/plugin.json",
+  "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-algolia/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-asana/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-aws-iot/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-aws-s3/plugin.json",
