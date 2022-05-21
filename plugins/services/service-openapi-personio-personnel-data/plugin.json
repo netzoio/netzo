@@ -2,19 +2,19 @@
   "uid": "service-openapi-personio-personnel-data",
   "type": "service",
   "version": "1.0.0",
-  "status": "beta",
+  "status": "alpha",
   "category": "core",
   "name": "Personio Personnel Data",
   "description": "API for Personio Personnel Data",
   "keywords": [
-    "personio",
-    "personio personnel data"
+    "human-resources",
+    "hr"
   ],
   "authors": [
     "gabriel.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-personio-personnel-data/src/openapi.json",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-personio-personnel-data/src/openapi.v1.json",
   "display": {
     "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-personio-personnel-data/src/assets/icon.png",
     "color": "",

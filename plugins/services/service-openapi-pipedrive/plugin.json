@@ -2,18 +2,18 @@
   "uid": "service-openapi-pipedrive",
   "type": "service",
   "version": "1.0.0",
-  "status": "soon",
+  "status": "alpha",
   "category": "core",
   "name": "Pipedrive",
   "description": "API for Pipedrive",
   "keywords": [
-    "pipedrive"
+    "crm"
   ],
   "authors": [
     "miguel.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-pipedrive/src/openapi.json",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-pipedrive/src/openapi.v1.json",
   "display": {
     "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-pipedrive/src/assets/icon.png",
     "color": "",

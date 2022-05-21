@@ -2,18 +2,20 @@
   "uid": "service-td-packwise-container",
   "type": "service",
   "version": "1.0.0",
-  "status": "beta",
+  "status": "alpha",
   "category": "core",
   "name": "Packwise Container",
   "description": "A Packwise container is a container fitted with a Packwise Smart Cap",
   "keywords": [
-    "packwise-container"
+    "iot",
+    "logistics",
+    "internet-of-things"
   ],
   "authors": [
     "arturo.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-td-packwise-container/src/td.json",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-td-packwise-container/src/td.v1.json",
   "display": {
     "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-td-packwise-container/src/assets/icon.png",
     "color": "",

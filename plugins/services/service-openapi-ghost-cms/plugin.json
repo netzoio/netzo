@@ -2,18 +2,19 @@
   "uid": "service-openapi-ghost-cms",
   "type": "service",
   "version": "1.0.0",
-  "status": "soon",
+  "status": "requested",
   "category": "core",
   "name": "Ghost CMS",
   "description": "API for Ghost CMS",
   "keywords": [
-    "ghost-cms"
+    "social-media",
+    "blogging"
   ],
   "authors": [
     "miguel.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-ghost-cms/src/openapi.json",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-ghost-cms/src/openapi.v1.json",
   "display": {
     "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-ghost-cms/src/assets/icon.png",
     "color": "",

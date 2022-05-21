@@ -2,18 +2,18 @@
   "uid": "service-openapi-firebase-admin",
   "type": "service",
   "version": "1.0.0",
-  "status": "soon",
+  "status": "requested",
   "category": "core",
   "name": "Firebase Admin",
   "description": "API for Firebase Admin",
   "keywords": [
-    "firebase-admin"
+    "databases"
   ],
   "authors": [
     "miguel.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-firebase-admin/src/openapi.json",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-firebase-admin/src/openapi.v1.json",
   "display": {
     "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-firebase-admin/src/assets/icon.png",
     "color": "",

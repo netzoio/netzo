@@ -2,18 +2,19 @@
   "uid": "service-openapi-google-drive",
   "type": "service",
   "version": "1.0.0",
-  "status": "beta",
+  "status": "alpha",
   "category": "core",
   "name": "Google Drive",
   "description": "API for Google Drive",
   "keywords": [
-    "google-drive"
+    "content-management",
+    "storage"
   ],
   "authors": [
     "gabriel.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-google-drive/src/openapi.json",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-google-drive/src/openapi.v1.json",
   "display": {
     "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-google-drive/src/assets/icon.png",
     "color": "",

@@ -2,18 +2,18 @@
   "uid": "service-openapi-algolia",
   "type": "service",
   "version": "1.0.0",
-  "status": "soon",
+  "status": "requested",
   "category": "core",
   "name": "Algolia",
   "description": "API for Algolia",
   "keywords": [
-    "algolia"
+    "search-engine"
   ],
   "authors": [
     "miguel.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-algolia/src/openapi.json",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-algolia/src/openapi.v1.json",
   "display": {
     "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-algolia/src/assets/icon.png",
     "color": "",

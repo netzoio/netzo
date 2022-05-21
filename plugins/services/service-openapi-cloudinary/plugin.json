@@ -2,18 +2,20 @@
   "uid": "service-openapi-cloudinary",
   "type": "service",
   "version": "1.0.0",
-  "status": "soon",
+  "status": "requested",
   "category": "core",
   "name": "Cloudinary",
   "description": "API for Cloudinary",
   "keywords": [
-    "cloudinary"
+    "media-management",
+    "video",
+    "image"
   ],
   "authors": [
     "miguel.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-cloudinary/src/openapi.json",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-cloudinary/src/openapi.v1.json",
   "display": {
     "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-cloudinary/src/assets/icon.png",
     "color": "",

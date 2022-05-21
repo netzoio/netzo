@@ -2,7 +2,7 @@
   "uid": "service-td-philips-hue-bridge",
   "type": "service",
   "version": "1.0.0",
-  "status": "beta",
+  "status": "alpha",
   "category": "core",
   "name": "Philips HUE Bridge Simple",
   "description": "A Philips HUE Bridge, configured for lights, dimmer switch and a software-based daylight sensor",
@@ -13,7 +13,7 @@
     "miguel.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-td-philips-hue-bridge/src/td.json",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-td-philips-hue-bridge/src/td.v1.json",
   "display": {
     "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-td-philips-hue-bridge/src/assets/icon.png",
     "color": "",

@@ -2,18 +2,18 @@
   "uid": "service-openapi-open-weather-map",
   "type": "service",
   "version": "1.0.0",
-  "status": "soon",
+  "status": "alpha",
   "category": "core",
   "name": "Open Weather Map",
   "description": "API for Open Weather Map",
   "keywords": [
-    "open-weather-map"
+    "weather"
   ],
   "authors": [
     "miguel.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-open-weather-map/src/openapi.json",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-open-weather-map/src/openapi.v1.json",
   "display": {
     "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-open-weather-map/src/assets/icon.png",
     "color": "",

@@ -8,11 +8,14 @@
 
 An open-source service plugin for Pipedrive.
 
+The all-in-one sales platform for growing revenue
+
+
 ### Links
 
-- [Marketplace](https://app.netzo.io/marketplace/service-standard-servicename)
-- [Website](https://netzo.io)
-- [Docs](https://netzo.io/docs/introduction)
+- [Marketplace](https://app.netzo.io/marketplace/service-openapi-pipedrive)
+- [Pipedrive Website](https://www.pipedrive.com/en)
+- [OpenAPI Source](https://developers.pipedrive.com/docs/api/v1/openapi.json)
 
 <div align="center">
   <h4>© Netzo Plugin</h4>

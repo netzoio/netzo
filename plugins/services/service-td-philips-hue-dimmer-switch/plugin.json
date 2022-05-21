@@ -2,7 +2,7 @@
   "uid": "service-td-philips-hue-dimmer-switch",
   "type": "service",
   "version": "1.0.0",
-  "status": "beta",
+  "status": "alpha",
   "category": "core",
   "name": "Philips HUE Dimmer Switch",
   "description": "A Philips HUE Dimmer Switch",
@@ -13,7 +13,7 @@
     "miguel.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-td-philips-hue-dimmer-switch/src/td.json",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-td-philips-hue-dimmer-switch/src/td.v1.json",
   "display": {
     "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-td-philips-hue-dimmer-switch/src/assets/icon.png",
     "color": "",

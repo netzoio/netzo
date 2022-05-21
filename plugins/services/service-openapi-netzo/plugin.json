@@ -2,18 +2,21 @@
   "uid": "service-openapi-netzo",
   "type": "service",
   "version": "1.0.0",
-  "status": "beta",
+  "status": "alpha",
   "category": "core",
   "name": "Netzo",
   "description": "API for Netzo",
   "keywords": [
-    "netzo"
+    "it",
+    "iot",
+    "application-enablement",
+    "internet-of-things"
   ],
   "authors": [
     "arturo.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-netzo/src/openapi.json",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-netzo/src/openapi.v1.json",
   "display": {
     "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-netzo/src/assets/icon.png",
     "color": "",

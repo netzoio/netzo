@@ -70,7 +70,15 @@
       "x-props": {
         "value": [
           0,
-          1
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
         ]
       },
       "properties": {
@@ -96,18 +104,18 @@
           "title": "Description",
           "x-display": "textarea"
         },
-        "actions": {
+        "eventHandlers": {
           "type": "object",
-          "title": "Actions",
+          "title": "Event Handlers",
           "properties": {
             "actions": {
               "type": "array",
               "items": {
                 "type": "object",
                 "properties": {},
-                "x-display": "custom-vjs-action"
+                "x-display": "custom-vjs-event-handler"
               },
-              "x-display": "custom-vjs-actions"
+              "x-display": "custom-vjs-event-handlers"
             }
           }
         },

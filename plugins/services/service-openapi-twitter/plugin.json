@@ -2,18 +2,18 @@
   "uid": "service-openapi-twitter",
   "type": "service",
   "version": "1.0.0",
-  "status": "beta",
+  "status": "alpha",
   "category": "core",
   "name": "Twitter",
   "description": "API for Twitter",
   "keywords": [
-    "twitter"
+    "social-media"
   ],
   "authors": [
     "arturo.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-twitter/src/openapi.json",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-twitter/src/openapi.v1.json",
   "display": {
     "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-twitter/src/assets/icon.png",
     "color": "",

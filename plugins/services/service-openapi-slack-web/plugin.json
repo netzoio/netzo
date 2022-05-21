@@ -2,18 +2,18 @@
   "uid": "service-openapi-slack-web",
   "type": "service",
   "version": "1.0.0",
-  "status": "beta",
+  "status": "alpha",
   "category": "core",
   "name": "Slack Web",
   "description": "API for Slack Web",
   "keywords": [
-    "slack-web"
+    "project-management"
   ],
   "authors": [
     "arturo.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-slack-web/src/openapi.json",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-slack-web/src/openapi.v1.json",
   "display": {
     "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-slack-web/src/assets/icon.png",
     "color": "",

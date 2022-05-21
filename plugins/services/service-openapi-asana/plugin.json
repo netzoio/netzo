@@ -2,18 +2,18 @@
   "uid": "service-openapi-asana",
   "type": "service",
   "version": "1.0.0",
-  "status": "beta",
+  "status": "alpha",
   "category": "core",
   "name": "Asana",
   "description": "API for Asana",
   "keywords": [
-    "asana"
+    "project-management"
   ],
   "authors": [
     "gabriel.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-asana/src/openapi.json",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-asana/src/openapi.v1.json",
   "display": {
     "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-asana/src/assets/icon.png",
     "color": "",

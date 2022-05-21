@@ -2,18 +2,19 @@
   "uid": "service-openapi-datos-abiertos-nl",
   "type": "service",
   "version": "1.0.0",
-  "status": "soon",
+  "status": "alpha",
   "category": "core",
   "name": "Datos Abiertos NL",
   "description": "API for Datos Abiertos NL",
   "keywords": [
-    "datos-abiertos-nl"
+    "government",
+    "public-data"
   ],
   "authors": [
     "arturo.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-datos-abiertos-nl/src/openapi.json",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-datos-abiertos-nl/src/openapi.v1.json",
   "display": {
     "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-datos-abiertos-nl/src/assets/icon.png",
     "color": "",

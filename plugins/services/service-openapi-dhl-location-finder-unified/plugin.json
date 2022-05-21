@@ -2,18 +2,19 @@
   "uid": "service-openapi-dhl-location-finder-unified",
   "type": "service",
   "version": "1.0.0",
-  "status": "beta",
+  "status": "alpha",
   "category": "core",
   "name": "DHL Location Finder - Unified",
   "description": "API for DHL Location Finder - Unified",
   "keywords": [
-    "dhl-location-finder-unified"
+    "tracking",
+    "logistics"
   ],
   "authors": [
     "arturo.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-dhl-location-finder-unified/src/openapi.json",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-dhl-location-finder-unified/src/openapi.v1.json",
   "display": {
     "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-dhl-location-finder-unified/src/assets/icon.png",
     "color": "",

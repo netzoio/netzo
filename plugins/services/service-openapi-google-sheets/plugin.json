@@ -2,18 +2,19 @@
   "uid": "service-openapi-google-sheets",
   "type": "service",
   "version": "1.0.0",
-  "status": "beta",
+  "status": "alpha",
   "category": "core",
   "name": "Google Sheets",
   "description": "API for Google Sheets",
   "keywords": [
-    "google-sheets"
+    "analytics",
+    "media"
   ],
   "authors": [
     "gabriel.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-google-sheets/src/openapi.json",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-google-sheets/src/openapi.v1.json",
   "display": {
     "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-google-sheets/src/assets/icon.png",
     "color": "",
