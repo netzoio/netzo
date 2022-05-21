@@ -1,0 +1,131 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Swagger Converter",
+        "description": "Converts a 1.x or 2.x Swagger definition to the OpenAPI 3.0.1 format",
+        "version": "1.0.2"
+    },
+    "servers": [
+        {
+            "url": "/api/"
+        }
+    ],
+    "paths": {
+        "/convert": {
+            "get": {
+                "tags": [
+                    "Converter"
+                ],
+                "summary": "Convert a swagger definition",
+                "description": "Converts the supplied payload to a 3.0 specification\nbased on a `url` parameter, which points to a older\nspecification version\n",
+                "operationId": "convertByUrl",
+                "parameters": [
+                    {
+                        "name": "url",
+                        "in": "query",
+                        "description": "A URL to the swagger definition",
+                        "required": true,
+                        "style": "form",
+                        "explode": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successfully converted schema",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {}
+                                }
+                            },
+                            "application/yaml": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {}
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "invaild input schema, or could not be converted",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "description": "error messages",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Converter"
+                ],
+                "summary": "Convert a swagger definition",
+                "description": "Converts the supplied payload to a 3.0 specification\nbased on an input specification\n",
+                "operationId": "convertByContent",
+                "requestBody": {
+                    "description": "the specification to convert",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {}
+                            }
+                        },
+                        "application/yaml": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {}
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "successfully converted schema",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {}
+                                }
+                            },
+                            "application/yaml": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {}
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "invaild input schema, or could not be converted",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "description": "error messages",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {}
+}
