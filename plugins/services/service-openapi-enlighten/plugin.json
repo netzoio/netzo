@@ -2,10 +2,10 @@
   "uid": "service-openapi-enlighten",
   "type": "service",
   "version": "1.0.0",
-  "status": "soon",
+  "status": "alpha",
   "category": "core",
-  "name": "Airtable",
-  "description": "API for Airtable",
+  "name": "Enlighten",
+  "description": "API for Enlighten Systems",
   "keywords": [
     "enlighten",
     "enphase"
