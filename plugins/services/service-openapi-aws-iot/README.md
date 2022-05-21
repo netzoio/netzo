@@ -12,7 +12,7 @@ AWS IoT provides secure, bi-directional communication between Internet-connected
 
 ### Links
 
-- [Marketplace](https://app.netzo.io/marketplace/service-openapi-aws-iot-core)
+- [Marketplace](https://app.netzo.io/marketplace/service-openapi-aws-iot)
 - [AWS IoT for Developers](https://docs.aws.amazon.com/iot/)
 - [Source](https://api.apis.guru/v2/specs/amazonaws.com/iot/2015-05-28/openapi.json)
 
