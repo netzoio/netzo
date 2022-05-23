@@ -7,7 +7,7 @@
   "name": "Zerynth Device Management",
   "description": "API for Zerynth Device Management",
   "keywords": [
-    "zerynth",
+    "zerynth"
   ],
   "authors": [
     "arturo.romero@netzo.io"
