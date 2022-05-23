@@ -70,6 +70,7 @@
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-telnyx/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-twilio/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-twitter/plugin.json",
+  "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-zerynth-device-manager/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-td-packwise-container/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-td-philips-hue-bridge/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-td-philips-hue-daylight-sensor/plugin.json",
