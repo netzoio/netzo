@@ -111,8 +111,7 @@ async function main() {
       }
     })
   } catch (error) {
-    const { config, request: { data } } = error
-    console.log({ config, request: { data } })
+    console.log(error)
   } finally {
     console.log(`[deploy-plugins] finished running 'deploy-plugins' script`)
   }
