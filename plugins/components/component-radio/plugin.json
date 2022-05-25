@@ -61,10 +61,6 @@
         "textColor": "",
         "vertical": true,
         "bgImageUrl": ""
-      },
-      "grid": {
-        "autoFlow": "row",
-        "gap": 24
       }
     },
     "schema": {
@@ -106,116 +102,97 @@
           "type": "string",
           "title": "Description",
           "x-display": "textarea"
-        },
-        "variables": {
+        }
+      },
+      "allOf": [
+        {
           "type": "object",
-          "title": "Data",
           "properties": {
             "variables": {
               "type": "array",
+              "title": "Variables",
               "items": {
                 "type": "object",
-                "properties": {},
-                "x-display": "custom-vjs-variable"
+                "properties": {}
               },
-              "x-display": "custom-vjs-variables"
+              "x-display": "custom-vjs-variables",
+              "x-schema": {},
+              "x-types": [
+                "boolean"
+              ],
+              "x-examples": true
             }
-          },
-          "x-schema": {},
-          "x-types": [
-            "boolean"
-          ],
-          "x-examples": true
+          }
         },
-        "eventHandlers": {
+        {
           "type": "object",
-          "title": "Event Handlers",
           "properties": {
-            "actions": {
+            "eventHandlers": {
               "type": "array",
+              "title": "Event Handlers",
               "items": {
                 "type": "object",
-                "properties": {},
-                "x-display": "custom-vjs-event-handler"
+                "properties": {}
               },
               "x-display": "custom-vjs-event-handlers"
             }
           }
         },
-        "display": {
+        {
           "type": "object",
-          "title": "Display",
           "properties": {
-            "transparent": {
-              "type": "boolean",
-              "title": "Transparent"
-            },
-            "hideToolbar": {
-              "type": "boolean",
-              "title": "Hide Toolbar"
-            },
-            "labelOn": {
-              "type": "string",
-              "title": "On Label"
-            },
-            "labelOff": {
-              "type": "string",
-              "title": "Off Label"
-            },
-            "color": {
-              "type": "string",
-              "title": "Color",
-              "format": "hexcolor"
-            },
-            "textColor": {
-              "type": "string",
-              "title": "Text color",
-              "format": "hexcolor"
-            },
-            "vertical": {
-              "type": "boolean",
-              "title": "Vertical"
-            },
-            "bgImageUrl": {
-              "type": "string",
-              "title": "Background Image",
-              "description": "The URL of an image to use as background image.",
-              "contentMediaType": "image/*",
-              "x-props": {
-                "clearable": true
-              },
-              "x-options": {
-                "filesAsDataUrl": true
-              },
-              "writeOnly": true
-            }
-          }
-        },
-        "grid": {
-          "type": "object",
-          "title": "Grid",
-          "properties": {
-            "autoFlow": {
-              "type": "string",
-              "title": "Auto flow",
-              "description": "The grid-auto-flow CSS property controls how the auto-placement algorithm works, specifying exactly how auto-placed items get flowed into the grid.",
-              "enum": [
-                "column",
-                "dense",
-                "row",
-                "column dense",
-                "row dense"
-              ]
-            },
-            "gap": {
-              "type": "integer",
-              "title": "Gap [px]",
-              "description": "The gap CSS property sets the gaps (gutters) between rows and columns. It is a shorthand for row-gap and column-gap.",
-              "minimum": 0
+            "display": {
+              "type": "object",
+              "title": "Display",
+              "properties": {
+                "transparent": {
+                  "type": "boolean",
+                  "title": "Transparent"
+                },
+                "hideToolbar": {
+                  "type": "boolean",
+                  "title": "Hide Toolbar"
+                },
+                "labelOn": {
+                  "type": "string",
+                  "title": "On Label"
+                },
+                "labelOff": {
+                  "type": "string",
+                  "title": "Off Label"
+                },
+                "color": {
+                  "type": "string",
+                  "title": "Color",
+                  "format": "hexcolor"
+                },
+                "textColor": {
+                  "type": "string",
+                  "title": "Text color",
+                  "format": "hexcolor"
+                },
+                "vertical": {
+                  "type": "boolean",
+                  "title": "Vertical"
+                },
+                "bgImageUrl": {
+                  "type": "string",
+                  "title": "Background Image",
+                  "description": "The URL of an image to use as background image.",
+                  "contentMediaType": "image/*",
+                  "x-props": {
+                    "clearable": true
+                  },
+                  "x-options": {
+                    "filesAsDataUrl": true
+                  },
+                  "writeOnly": true
+                }
+              }
             }
           }
         }
-      }
+      ]
     },
     "options": {}
   }

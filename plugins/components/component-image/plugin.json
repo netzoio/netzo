@@ -64,10 +64,6 @@
         "src": "https://netzo.io/img/netzo-symbol-light.svg",
         "alt": "Netzo Web Platform",
         "href": "https://netzo.io"
-      },
-      "grid": {
-        "autoFlow": "row",
-        "gap": 24
       }
     },
     "schema": {
@@ -109,131 +105,118 @@
           "type": "string",
           "title": "Description",
           "x-display": "textarea"
-        },
-        "options": {
+        }
+      },
+      "allOf": [
+        {
           "type": "object",
-          "title": "Options",
           "properties": {
-            "imageUrl": {
-              "type": "string",
-              "title": "Image",
-              "description": "The image to display.",
-              "contentMediaType": "image/*",
-              "x-props": {
-                "clearable": true
-              },
-              "x-options": {
-                "filesAsDataUrl": true
-              },
-              "writeOnly": true
-            },
-            "alt": {
-              "type": "string",
-              "title": "Image Alt Text",
-              "description": "Alternate text for an image, if the image cannot be displayed.",
-              "x-display": "textarea"
-            },
-            "href": {
-              "type": "string",
-              "title": "Link URL",
-              "description": "The URL to redirect to on image click."
+            "options": {
+              "type": "object",
+              "title": "Options",
+              "properties": {
+                "imageUrl": {
+                  "type": "string",
+                  "title": "Image",
+                  "description": "The image to display.",
+                  "contentMediaType": "image/*",
+                  "x-props": {
+                    "clearable": true
+                  },
+                  "x-options": {
+                    "filesAsDataUrl": true
+                  },
+                  "writeOnly": true
+                },
+                "alt": {
+                  "type": "string",
+                  "title": "Image Alt Text",
+                  "description": "Alternate text for an image, if the image cannot be displayed.",
+                  "x-display": "textarea"
+                },
+                "href": {
+                  "type": "string",
+                  "title": "Link URL",
+                  "description": "The URL to redirect to on image click."
+                }
+              }
             }
           }
         },
-        "eventHandlers": {
+        {
           "type": "object",
-          "title": "Event Handlers",
           "properties": {
-            "actions": {
+            "eventHandlers": {
               "type": "array",
+              "title": "Event Handlers",
               "items": {
                 "type": "object",
-                "properties": {},
-                "x-display": "custom-vjs-event-handler"
+                "properties": {}
               },
               "x-display": "custom-vjs-event-handlers"
             }
           }
         },
-        "display": {
+        {
           "type": "object",
-          "title": "Display",
           "properties": {
-            "transparent": {
-              "type": "boolean",
-              "title": "Transparent"
-            },
-            "hideToolbar": {
-              "type": "boolean",
-              "title": "Hide Toolbar"
-            },
-            "color": {
-              "type": "string",
-              "title": "Color",
-              "format": "hexcolor"
-            },
-            "textColor": {
-              "type": "string",
-              "title": "Text color",
-              "format": "hexcolor"
-            },
-            "imagePadding": {
-              "type": "number",
-              "title": "Padding [px]",
-              "description": "Sets image padding in pixels."
-            },
-            "imageObjectFit": {
-              "type": "string",
-              "title": "Image object fit",
-              "description": "Sets how the content should be resized to fit its container.",
-              "enum": [
-                "contain",
-                "cover",
-                "fill",
-                "none",
-                "scale-down"
-              ]
-            },
-            "bgImageUrl": {
-              "type": "string",
-              "title": "Background Image",
-              "description": "The URL of an image to use as background image.",
-              "contentMediaType": "image/*",
-              "x-props": {
-                "clearable": true
-              },
-              "x-options": {
-                "filesAsDataUrl": true
-              },
-              "writeOnly": true
-            }
-          }
-        },
-        "grid": {
-          "type": "object",
-          "title": "Grid",
-          "properties": {
-            "autoFlow": {
-              "type": "string",
-              "title": "Auto flow",
-              "description": "The grid-auto-flow CSS property controls how the auto-placement algorithm works, specifying exactly how auto-placed items get flowed into the grid.",
-              "enum": [
-                "column",
-                "dense",
-                "row",
-                "column dense",
-                "row dense"
-              ]
-            },
-            "gap": {
-              "type": "integer",
-              "title": "Gap [px]",
-              "description": "The gap CSS property sets the gaps (gutters) between rows and columns. It is a shorthand for row-gap and column-gap.",
-              "minimum": 0
+            "display": {
+              "type": "object",
+              "title": "Display",
+              "properties": {
+                "transparent": {
+                  "type": "boolean",
+                  "title": "Transparent"
+                },
+                "hideToolbar": {
+                  "type": "boolean",
+                  "title": "Hide Toolbar"
+                },
+                "color": {
+                  "type": "string",
+                  "title": "Color",
+                  "format": "hexcolor"
+                },
+                "textColor": {
+                  "type": "string",
+                  "title": "Text color",
+                  "format": "hexcolor"
+                },
+                "imagePadding": {
+                  "type": "number",
+                  "title": "Padding [px]",
+                  "description": "Sets image padding in pixels."
+                },
+                "imageObjectFit": {
+                  "type": "string",
+                  "title": "Image object fit",
+                  "description": "Sets how the content should be resized to fit its container.",
+                  "enum": [
+                    "contain",
+                    "cover",
+                    "fill",
+                    "none",
+                    "scale-down"
+                  ]
+                },
+                "bgImageUrl": {
+                  "type": "string",
+                  "title": "Background Image",
+                  "description": "The URL of an image to use as background image.",
+                  "contentMediaType": "image/*",
+                  "x-props": {
+                    "clearable": true
+                  },
+                  "x-options": {
+                    "filesAsDataUrl": true
+                  },
+                  "writeOnly": true
+                }
+              }
             }
           }
         }
-      }
+      ]
     },
     "options": {}
   }

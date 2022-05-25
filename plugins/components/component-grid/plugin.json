@@ -60,10 +60,6 @@
         "colorFalseOrMin": "#d73a49",
         "textColor": "",
         "bgImageUrl": ""
-      },
-      "grid": {
-        "autoFlow": "row",
-        "gap": 24
       }
     },
     "schema": {
@@ -105,61 +101,25 @@
           "type": "string",
           "title": "Description",
           "x-display": "textarea"
-        },
-        "variables": {
+        }
+      },
+      "allOf": [
+        {
           "type": "object",
-          "title": "Data",
           "properties": {
             "variables": {
               "type": "array",
+              "title": "Variables",
               "items": {
                 "type": "object",
-                "properties": {},
-                "x-display": "custom-vjs-variable"
+                "properties": {}
               },
-              "x-display": "custom-vjs-variables"
-            }
-          },
-          "x-schema": {
-            "type": "array",
-            "items": {
-              "oneOf": [
-                {
-                  "type": "object",
-                  "required": [
-                    "type",
-                    "items"
-                  ],
-                  "properties": {
-                    "type": {
-                      "const": "array"
-                    },
-                    "items": {
-                      "type": "object",
-                      "required": [
-                        "type"
-                      ],
-                      "properties": {
-                        "type": {
-                          "type": "string"
-                        }
-                      },
-                      "additionalProperties": true
-                    }
-                  },
-                  "additionalProperties": true
-                },
-                {
-                  "type": "object",
-                  "required": [
-                    "type",
-                    "items"
-                  ],
-                  "properties": {
-                    "type": {
-                      "const": "array"
-                    },
-                    "items": {
+              "x-display": "custom-vjs-variables",
+              "x-schema": {
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
                       "type": "object",
                       "required": [
                         "type",
@@ -183,21 +143,8 @@
                         }
                       },
                       "additionalProperties": true
-                    }
-                  },
-                  "additionalProperties": true
-                },
-                {
-                  "type": "object",
-                  "required": [
-                    "type",
-                    "items"
-                  ],
-                  "properties": {
-                    "type": {
-                      "const": "array"
                     },
-                    "items": {
+                    {
                       "type": "object",
                       "required": [
                         "type",
@@ -234,172 +181,202 @@
                         }
                       },
                       "additionalProperties": true
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "type",
+                        "items"
+                      ],
+                      "properties": {
+                        "type": {
+                          "const": "array"
+                        },
+                        "items": {
+                          "type": "object",
+                          "required": [
+                            "type",
+                            "items"
+                          ],
+                          "properties": {
+                            "type": {
+                              "const": "array"
+                            },
+                            "items": {
+                              "type": "object",
+                              "required": [
+                                "type",
+                                "items"
+                              ],
+                              "properties": {
+                                "type": {
+                                  "const": "array"
+                                },
+                                "items": {
+                                  "type": "object",
+                                  "required": [
+                                    "type"
+                                  ],
+                                  "properties": {
+                                    "type": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "additionalProperties": true
+                                }
+                              },
+                              "additionalProperties": true
+                            }
+                          },
+                          "additionalProperties": true
+                        }
+                      },
+                      "additionalProperties": true
                     }
-                  },
-                  "additionalProperties": true
+                  ]
+                }
+              },
+              "x-types": [
+                "array"
+              ],
+              "x-examples": [
+                {
+                  "text": "1D",
+                  "value": [
+                    true,
+                    false
+                  ]
+                },
+                {
+                  "text": "2D",
+                  "value": [
+                    [
+                      true,
+                      false
+                    ],
+                    [
+                      false,
+                      false
+                    ]
+                  ]
+                },
+                {
+                  "text": "3D",
+                  "value": [
+                    [
+                      [
+                        true,
+                        false
+                      ],
+                      [
+                        false,
+                        false
+                      ]
+                    ],
+                    [
+                      [
+                        false,
+                        true
+                      ],
+                      [
+                        true,
+                        false
+                      ]
+                    ],
+                    [
+                      [
+                        true,
+                        false
+                      ],
+                      [
+                        true,
+                        true
+                      ]
+                    ],
+                    [
+                      [
+                        false,
+                        false
+                      ],
+                      [
+                        true,
+                        false
+                      ]
+                    ]
+                  ]
                 }
               ]
             }
-          },
-          "x-types": [
-            "array"
-          ],
-          "x-examples": [
-            {
-              "text": "1D",
-              "value": [
-                true,
-                false
-              ]
-            },
-            {
-              "text": "2D",
-              "value": [
-                [
-                  true,
-                  false
-                ],
-                [
-                  false,
-                  false
-                ]
-              ]
-            },
-            {
-              "text": "3D",
-              "value": [
-                [
-                  [
-                    true,
-                    false
-                  ],
-                  [
-                    false,
-                    false
-                  ]
-                ],
-                [
-                  [
-                    false,
-                    true
-                  ],
-                  [
-                    true,
-                    false
-                  ]
-                ],
-                [
-                  [
-                    true,
-                    false
-                  ],
-                  [
-                    true,
-                    true
-                  ]
-                ],
-                [
-                  [
-                    false,
-                    false
-                  ],
-                  [
-                    true,
-                    false
-                  ]
-                ]
-              ]
-            }
-          ]
+          }
         },
-        "eventHandlers": {
+        {
           "type": "object",
-          "title": "Event Handlers",
           "properties": {
-            "actions": {
+            "eventHandlers": {
               "type": "array",
+              "title": "Event Handlers",
               "items": {
                 "type": "object",
-                "properties": {},
-                "x-display": "custom-vjs-event-handler"
+                "properties": {}
               },
               "x-display": "custom-vjs-event-handlers"
             }
           }
         },
-        "display": {
+        {
           "type": "object",
-          "title": "Display",
           "properties": {
-            "transparent": {
-              "type": "boolean",
-              "title": "Transparent"
-            },
-            "hideToolbar": {
-              "type": "boolean",
-              "title": "Hide Toolbar"
-            },
-            "showValues": {
-              "type": "boolean",
-              "title": "Show Values"
-            },
-            "colorTrueOrMax": {
-              "type": "string",
-              "title": "Color when true or at max",
-              "description": "Color when true for boolean values, or the maximum color in range for which to interpolate a numeric value",
-              "format": "hexcolor"
-            },
-            "colorFalseOrMin": {
-              "type": "string",
-              "title": "Color when false or at min",
-              "description": "Color when false for boolean values, or the minimum color in range for which to interpolate a numeric value",
-              "format": "hexcolor"
-            },
-            "textColor": {
-              "type": "string",
-              "title": "Text color",
-              "format": "hexcolor"
-            },
-            "bgImageUrl": {
-              "type": "string",
-              "title": "Background Image",
-              "description": "The URL of an image to use as background image.",
-              "contentMediaType": "image/*",
-              "x-props": {
-                "clearable": true
-              },
-              "x-options": {
-                "filesAsDataUrl": true
-              },
-              "writeOnly": true
-            }
-          }
-        },
-        "grid": {
-          "type": "object",
-          "title": "Grid",
-          "properties": {
-            "autoFlow": {
-              "type": "string",
-              "title": "Auto flow",
-              "description": "The grid-auto-flow CSS property controls how the auto-placement algorithm works, specifying exactly how auto-placed items get flowed into the grid.",
-              "enum": [
-                "column",
-                "dense",
-                "row",
-                "column dense",
-                "row dense"
-              ]
-            },
-            "gap": {
-              "type": "integer",
-              "title": "Gap [px]",
-              "description": "The gap CSS property sets the gaps (gutters) between rows and columns. It is a shorthand for row-gap and column-gap.",
-              "minimum": 0
+            "display": {
+              "type": "object",
+              "title": "Display",
+              "properties": {
+                "transparent": {
+                  "type": "boolean",
+                  "title": "Transparent"
+                },
+                "hideToolbar": {
+                  "type": "boolean",
+                  "title": "Hide Toolbar"
+                },
+                "showValues": {
+                  "type": "boolean",
+                  "title": "Show Values"
+                },
+                "colorTrueOrMax": {
+                  "type": "string",
+                  "title": "Color when true or at max",
+                  "description": "Color when true for boolean values, or the maximum color in range for which to interpolate a numeric value",
+                  "format": "hexcolor"
+                },
+                "colorFalseOrMin": {
+                  "type": "string",
+                  "title": "Color when false or at min",
+                  "description": "Color when false for boolean values, or the minimum color in range for which to interpolate a numeric value",
+                  "format": "hexcolor"
+                },
+                "textColor": {
+                  "type": "string",
+                  "title": "Text color",
+                  "format": "hexcolor"
+                },
+                "bgImageUrl": {
+                  "type": "string",
+                  "title": "Background Image",
+                  "description": "The URL of an image to use as background image.",
+                  "contentMediaType": "image/*",
+                  "x-props": {
+                    "clearable": true
+                  },
+                  "x-options": {
+                    "filesAsDataUrl": true
+                  },
+                  "writeOnly": true
+                }
+              }
             }
           }
         }
-      }
+      ]
     },
     "options": {}
   }

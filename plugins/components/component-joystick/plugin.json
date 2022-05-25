@@ -79,10 +79,6 @@
         "shape": "circle",
         "dynamicPage": false,
         "follow": false
-      },
-      "grid": {
-        "autoFlow": "row",
-        "gap": 24
       }
     },
     "schema": {
@@ -124,185 +120,171 @@
           "type": "string",
           "title": "Description",
           "x-display": "textarea"
-        },
-        "variables": {
+        }
+      },
+      "allOf": [
+        {
           "type": "object",
-          "title": "Data",
           "properties": {
             "variables": {
               "type": "array",
+              "title": "Variables",
               "items": {
                 "type": "object",
-                "properties": {},
-                "x-display": "custom-vjs-variable"
+                "properties": {}
               },
-              "x-display": "custom-vjs-variables"
-            }
-          },
-          "x-schema": {},
-          "x-types": [
-            "array",
-            "object"
-          ],
-          "x-examples": [
-            {
-              "text": "Basic",
-              "value": [
-                32,
-                17
+              "x-display": "custom-vjs-variables",
+              "x-schema": {},
+              "x-types": [
+                "array",
+                "object"
+              ],
+              "x-examples": [
+                {
+                  "text": "Basic",
+                  "value": [
+                    32,
+                    17
+                  ]
+                }
               ]
             }
-          ]
+          }
         },
-        "eventHandlers": {
+        {
           "type": "object",
-          "title": "Event Handlers",
           "properties": {
-            "actions": {
+            "eventHandlers": {
               "type": "array",
+              "title": "Event Handlers",
               "items": {
                 "type": "object",
-                "properties": {},
-                "x-display": "custom-vjs-event-handler"
+                "properties": {}
               },
               "x-display": "custom-vjs-event-handlers"
             }
           }
         },
-        "display": {
+        {
           "type": "object",
-          "title": "Display",
           "properties": {
-            "transparent": {
-              "type": "boolean",
-              "title": "Transparent"
-            },
-            "hideToolbar": {
-              "type": "boolean",
-              "title": "Hide Toolbar"
-            },
-            "color": {
-              "type": "string",
-              "title": "Color",
-              "format": "hexcolor"
-            },
-            "textColor": {
-              "type": "string",
-              "title": "Text color",
-              "format": "hexcolor"
-            },
-            "bgImageUrl": {
-              "type": "string",
-              "title": "Background Image",
-              "description": "The URL of an image to use as background image.",
-              "contentMediaType": "image/*",
-              "x-props": {
-                "clearable": true
-              },
-              "x-options": {
-                "filesAsDataUrl": true
-              },
-              "writeOnly": true
+            "display": {
+              "type": "object",
+              "title": "Display",
+              "properties": {
+                "transparent": {
+                  "type": "boolean",
+                  "title": "Transparent"
+                },
+                "hideToolbar": {
+                  "type": "boolean",
+                  "title": "Hide Toolbar"
+                },
+                "color": {
+                  "type": "string",
+                  "title": "Color",
+                  "format": "hexcolor"
+                },
+                "textColor": {
+                  "type": "string",
+                  "title": "Text color",
+                  "format": "hexcolor"
+                },
+                "bgImageUrl": {
+                  "type": "string",
+                  "title": "Background Image",
+                  "description": "The URL of an image to use as background image.",
+                  "contentMediaType": "image/*",
+                  "x-props": {
+                    "clearable": true
+                  },
+                  "x-options": {
+                    "filesAsDataUrl": true
+                  },
+                  "writeOnly": true
+                }
+              }
             }
           }
         },
-        "options": {
+        {
           "type": "object",
-          "title": "Options",
           "properties": {
-            "size": {
-              "type": "integer",
-              "title": "Size",
-              "minimum": 25,
-              "maximum": 500
-            },
-            "threshold": {
-              "type": "number",
-              "title": "Threshold",
-              "minimum": 0.0,
-              "maximum": 1.0
-            },
-            "fadeTime": {
-              "type": "integer",
-              "title": "Fade time",
-              "minimum": 25,
-              "maximum": 1000
-            },
-            "multitouch": {
-              "type": "boolean",
-              "title": "Multitouch"
-            },
-            "dataOnly": {
-              "type": "boolean",
-              "title": "Data Only"
-            },
-            "restJoystick": {
-              "type": "boolean",
-              "title": "Rest Joystick"
-            },
-            "restOpacity": {
-              "type": "number",
-              "title": "Rest Opacity",
-              "minimum": 0.0,
-              "maximum": 1.0
-            },
-            "lockX": {
-              "type": "boolean",
-              "title": "Lock X"
-            },
-            "lockY": {
-              "type": "boolean",
-              "title": "Lock Y"
-            },
-            "catchDistance": {
-              "type": "integer",
-              "title": "Catch Distance",
-              "minimum": 25,
-              "maximum": 500
-            },
-            "shape": {
-              "type": "string",
-              "title": "Shape",
-              "enum": [
-                "circle",
-                "square"
-              ]
-            },
-            "dynamicPage": {
-              "type": "boolean",
-              "title": "Dynamic Page"
-            },
-            "follow": {
-              "type": "boolean",
-              "title": "Follow"
-            }
-          }
-        },
-        "grid": {
-          "type": "object",
-          "title": "Grid",
-          "properties": {
-            "autoFlow": {
-              "type": "string",
-              "title": "Auto flow",
-              "description": "The grid-auto-flow CSS property controls how the auto-placement algorithm works, specifying exactly how auto-placed items get flowed into the grid.",
-              "enum": [
-                "column",
-                "dense",
-                "row",
-                "column dense",
-                "row dense"
-              ]
-            },
-            "gap": {
-              "type": "integer",
-              "title": "Gap [px]",
-              "description": "The gap CSS property sets the gaps (gutters) between rows and columns. It is a shorthand for row-gap and column-gap.",
-              "minimum": 0
+            "options": {
+              "type": "object",
+              "title": "Options",
+              "properties": {
+                "size": {
+                  "type": "integer",
+                  "title": "Size",
+                  "minimum": 25,
+                  "maximum": 500
+                },
+                "threshold": {
+                  "type": "number",
+                  "title": "Threshold",
+                  "minimum": 0.0,
+                  "maximum": 1.0
+                },
+                "fadeTime": {
+                  "type": "integer",
+                  "title": "Fade time",
+                  "minimum": 25,
+                  "maximum": 1000
+                },
+                "multitouch": {
+                  "type": "boolean",
+                  "title": "Multitouch"
+                },
+                "dataOnly": {
+                  "type": "boolean",
+                  "title": "Data Only"
+                },
+                "restJoystick": {
+                  "type": "boolean",
+                  "title": "Rest Joystick"
+                },
+                "restOpacity": {
+                  "type": "number",
+                  "title": "Rest Opacity",
+                  "minimum": 0.0,
+                  "maximum": 1.0
+                },
+                "lockX": {
+                  "type": "boolean",
+                  "title": "Lock X"
+                },
+                "lockY": {
+                  "type": "boolean",
+                  "title": "Lock Y"
+                },
+                "catchDistance": {
+                  "type": "integer",
+                  "title": "Catch Distance",
+                  "minimum": 25,
+                  "maximum": 500
+                },
+                "shape": {
+                  "type": "string",
+                  "title": "Shape",
+                  "enum": [
+                    "circle",
+                    "square"
+                  ]
+                },
+                "dynamicPage": {
+                  "type": "boolean",
+                  "title": "Dynamic Page"
+                },
+                "follow": {
+                  "type": "boolean",
+                  "title": "Follow"
+                }
+              }
             }
           }
         }
-      }
+      ]
     },
     "options": {}
   }
