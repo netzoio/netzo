@@ -110,10 +110,10 @@
       "allOf": [
         {
           "type": "object",
+          "title": "Options",
           "properties": {
             "options": {
               "type": "object",
-              "title": "Options",
               "properties": {
                 "imageUrl": {
                   "type": "string",
@@ -145,10 +145,10 @@
         },
         {
           "type": "object",
+          "title": "Event Handlers",
           "properties": {
             "eventHandlers": {
               "type": "array",
-              "title": "Event Handlers",
               "items": {
                 "type": "object",
                 "properties": {}
@@ -159,10 +159,10 @@
         },
         {
           "type": "object",
+          "title": "Display",
           "properties": {
             "display": {
               "type": "object",
-              "title": "Display",
               "properties": {
                 "transparent": {
                   "type": "boolean",
