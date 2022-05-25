@@ -3,7 +3,7 @@
   "type": "service",
   "version": "1.0.0",
   "status": "alpha",
-  "category": "alpha",
+  "category": "core",
   "name": "DHL Warehouse Management System",
   "description": "API for DHL Warehouse Management System",
   "keywords": [
