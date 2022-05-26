@@ -1,0 +1,200 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "Zerynth Storage API",
+        "description": "The Zerynth Storage REST APIs offer the possibility to get time series data from the Zerynth Storage cloud service.",
+        "termsOfService": "https://www.zerynth.com/terms-license/",
+        "contact": {
+            "name": "Zerynth Helpdesk",
+            "url": "https://www.zerynth.com/contact/"
+        },
+        "license": {
+            "name": "Zerynth Software Access Conditions and License Agreement",
+            "url": "https://www.zerynth.com/terms-license/"
+        },
+        "version": "3.0.13"
+    },
+    "externalDocs": {
+        "description": "Go to Zerynth Storage API Docs",
+        "url": "https://docs.zerynth.com/latest/reference/api/zstorage/"
+    },
+    "servers": [
+        {
+            "url": "https://api.storage.zerynth.com/v3"
+        }
+    ],
+    "security": [
+        {
+            "ApiKeyAuth": []
+        }
+    ],
+    "tags": [
+        {
+            "name": "Time Series",
+            "description": "Access to the time series raw data of a workspace",
+            "externalDocs": {
+                "description": "More",
+                "url": "https://docs.zerynth.com/latest/reference/api/zstorage/#timeseries-api"
+            }
+        }
+    ],
+    "paths": {
+        "/timeseries/{workspace_id}/data": {
+            "get": {
+                "tags": [
+                    "Time Series"
+                ],
+                "summary": "Get data",
+                "description": "Get the time series raw data of a workspace",
+                "operationId": "getData",
+                "parameters": [
+                    {
+                        "name": "workspace_id",
+                        "in": "path",
+                        "description": "Workspace ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "Start date of the timestamp device in RFC 3339 format (included)",
+                        "required": false,
+                        "schema": {
+                            "format": "date-time",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "end",
+                        "in": "query",
+                        "description": "End date of the timestamp device in RFC 3339 format (excluded)",
+                        "required": false,
+                        "schema": {
+                            "format": "date-time",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "from",
+                        "in": "query",
+                        "description": "Page index (default: 0)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "description": "Size of each page (default: 100)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "Sort the result [ timestamp_device, -timestamp_device ] (default: Decreasing timestamp device -timestamp_device )",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "device",
+                        "in": "query",
+                        "description": "Filter by a device ID (default: All devices)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "tag",
+                        "in": "query",
+                        "description": " Filter by tag (default: All tags)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TimeSeriesObject"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "TimeSeriesObject": {
+                "type": "object",
+                "description": "Timeseries Response",
+                "properties": {
+                    "timestamp_device": {
+                        "type": "string",
+                        "description": "Timestamp device in RFC 3339 format",
+                        "format": "date-time",
+                        "example": "2021-07-08T14:21:15.915Z"
+                    },
+                    "timestamp_in": {
+                        "type": "string",
+                        "description": "Timestamp ingestion is RFC 3339 format",
+                        "format": "date-time",
+                        "example": "2021-07-08T14:21:20.915Z"
+                    },
+                    "fleet_id": {
+                        "type": "string",
+                        "description": "The device ID",
+                        "example": "flt-123456789"
+                    },
+                    "device_id": {
+                        "type": "string",
+                        "description": "The ID of the current account",
+                        "example": "acc-123456789"
+                    },
+                    "tag": {
+                        "type": "string",
+                        "description": "Tag associated with the data",
+                        "example": "2021-03-26T09:46:00.565155Z"
+                    },
+                    "payload": {
+                        "type": "object",
+                        "description": "Raw JSON payload sent by the device",
+                        "example": {
+                            "hum": 51,
+                            "temp": 26
+                        }
+                    }
+                }
+            },
+            "TimeSeriesArray": {
+                "type": "array",
+                "description": "An array of timeseries objects",
+                "items": {
+                    "$ref": "#/components/schemas/TimeSeriesObject"
+                }
+            }
+        },
+        "securitySchemes": {
+            "ApiKeyAuth": {
+                "type": "apiKey",
+                "name": "X-API-KEY",
+                "in": "header"
+            }
+        }
+    }
+}
