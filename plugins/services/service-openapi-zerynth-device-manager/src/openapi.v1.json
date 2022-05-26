@@ -692,7 +692,7 @@
                     "created_at": {
                         "type": "string",
                         "description": "Fleet creation date in RFC 3339 format",
-                        "format": "RFC 3339",
+                        "format": "date-time",
                         "example": "2021-03-26T09:46:00.565155Z"
                     }
                 }
@@ -736,7 +736,7 @@
                     "created_at": {
                         "type": "string",
                         "description": "Fleet creation date in RFC 3339 format",
-                        "format": "RFC 3339",
+                        "format": "date-time",
                         "example": "2021-03-26T09:46:00.565155Z"
                     }
                 }
@@ -790,7 +790,7 @@
                     "created_at": {
                         "type": "string",
                         "description": "Fleet creation date in RFC 3339 format",
-                        "format": "RFC 3339",
+                        "format": "date-time",
                         "example": "2021-03-26T09:46:00.565155Z"
                     },
                     "phys_id": {
@@ -829,7 +829,7 @@
                     "scheduled_at": {
                         "type": "string",
                         "description": "The date of the job scheduling in RFC 3339 format",
-                        "format": "RFC 3339",
+                        "format": "date-time",
                         "example": "2021-03-26T09:46:00.565155Z"
                     },
                     "value": {
@@ -855,7 +855,7 @@
                     "scheduled_at": {
                         "type": "string",
                         "description": "The date of the FOTA scheduling in RFC 3339 format",
-                        "format": "RFC 3339",
+                        "format": "date-time",
                         "example": "2021-03-26T09:46:00.565155Z"
                     },
                     "status": {
