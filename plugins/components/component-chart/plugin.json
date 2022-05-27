@@ -115,7 +115,7 @@
                 "type": "object",
                 "properties": {}
               },
-              "x-display": "custom-vjs-variables",
+              "x-display": "custom-vjs-array-variables",
               "x-schema": {},
               "x-types": [
                 "array",
@@ -168,7 +168,7 @@
                 "type": "object",
                 "properties": {}
               },
-              "x-display": "custom-vjs-event-handlers"
+              "x-display": "custom-vjs-array-event-handlers"
             }
           }
         },

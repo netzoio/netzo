@@ -111,7 +111,7 @@
                 "type": "object",
                 "properties": {}
               },
-              "x-display": "custom-vjs-event-handlers"
+              "x-display": "custom-vjs-array-event-handlers"
             }
           }
         },
