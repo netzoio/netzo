@@ -63,6 +63,10 @@
       },
       "options": {
         "step": 1
+      },
+      "grid": {
+        "autoFlow": "row",
+        "gap": 24
       }
     },
     "schema": {
@@ -207,6 +211,35 @@
                 "transparent": {
                   "type": "integer",
                   "title": "Step"
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "title": "Grid",
+          "properties": {
+            "grid": {
+              "type": "object",
+              "properties": {
+                "autoFlow": {
+                  "type": "string",
+                  "title": "Auto flow",
+                  "description": "The grid-auto-flow CSS property controls how the auto-placement algorithm works, specifying exactly how auto-placed items get flowed into the grid.",
+                  "enum": [
+                    "column",
+                    "dense",
+                    "row",
+                    "column dense",
+                    "row dense"
+                  ]
+                },
+                "gap": {
+                  "type": "integer",
+                  "title": "Gap [px]",
+                  "description": "The gap CSS property sets the gaps (gutters) between rows and columns. It is a shorthand for row-gap and column-gap.",
+                  "minimum": 0
                 }
               }
             }
