@@ -108,15 +108,11 @@
       "allOf": [
         {
           "type": "object",
-          "title": "Variables",
+          "title": "Value",
           "properties": {
-            "variables": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {}
-              },
-              "x-display": "custom-vjs-array-variables",
+            "value": {
+              "type": "string",
+              "x-display": "custom-vjs-template-string",
               "x-schema": {},
               "x-types": [
                 "array"
