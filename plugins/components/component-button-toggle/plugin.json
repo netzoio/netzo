@@ -58,7 +58,7 @@
         "label": "",
         "colorTrue": "#44C47D",
         "colorFalse": "#d73a49",
-        "textColor": "",
+        "color": "",
         "bgImageUrl": ""
       },
       "grid": {
@@ -161,9 +161,9 @@
                   "title": "Color when false",
                   "format": "hexcolor"
                 },
-                "textColor": {
+                "color": {
                   "type": "string",
-                  "title": "Text color",
+                  "title": "Color",
                   "format": "hexcolor"
                 },
                 "bgImageUrl": {

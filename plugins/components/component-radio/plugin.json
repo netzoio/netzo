@@ -57,8 +57,7 @@
         "hideToolbar": false,
         "labelOn": "On",
         "labelOff": "Off",
-        "color": "#0080FF",
-        "textColor": "",
+        "color": "",
         "vertical": true,
         "bgImageUrl": ""
       },
@@ -159,11 +158,6 @@
                 "color": {
                   "type": "string",
                   "title": "Color",
-                  "format": "hexcolor"
-                },
-                "textColor": {
-                  "type": "string",
-                  "title": "Text color",
                   "format": "hexcolor"
                 },
                 "vertical": {

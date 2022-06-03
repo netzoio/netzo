@@ -83,7 +83,7 @@
         "showValues": true,
         "colorTrueOrMax": "#44C47D",
         "colorFalseOrMin": "#d73a49",
-        "textColor": "",
+        "color": "",
         "bgImageUrl": ""
       },
       "grid": {
@@ -188,9 +188,9 @@
                   "description": "Color when false for boolean values, or the minimum color in range for which to interpolate a numeric value",
                   "format": "hexcolor"
                 },
-                "textColor": {
+                "color": {
                   "type": "string",
-                  "title": "Text color",
+                  "title": "Color",
                   "format": "hexcolor"
                 },
                 "bgImageUrl": {

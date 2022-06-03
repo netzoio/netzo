@@ -55,8 +55,7 @@
       "display": {
         "transparent": false,
         "hideToolbar": false,
-        "color": "#0080FF",
-        "textColor": "",
+        "color": "",
         "bgImageUrl": ""
       },
       "options": {
@@ -152,11 +151,6 @@
                 "color": {
                   "type": "string",
                   "title": "Color",
-                  "format": "hexcolor"
-                },
-                "textColor": {
-                  "type": "string",
-                  "title": "Text color",
                   "format": "hexcolor"
                 },
                 "bgImageUrl": {
