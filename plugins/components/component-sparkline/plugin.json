@@ -114,7 +114,7 @@
       "allOf": [
         {
           "type": "object",
-          "title": "Value",
+          "title": "Data",
           "properties": {
             "value": {
               "type": "string",
