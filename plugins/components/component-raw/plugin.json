@@ -50,8 +50,16 @@
       "h": 12,
       "name": "",
       "description": "",
-      "variables": {},
-      "actions": {},
+      "value": {
+        "object": {},
+        "array": [],
+        "boolean": true,
+        "integer": 0,
+        "number": 0.5,
+        "string": "Hello",
+        "null": null
+      },
+      "eventHandlers": [],
       "display": {
         "transparent": false,
         "hideToolbar": false,
@@ -97,44 +105,29 @@
         "name": {
           "type": "string",
           "title": "Display name",
-          "required": true
+          "x-display": "custom-vjs-template-string"
         },
         "description": {
           "type": "string",
           "title": "Description",
-          "x-display": "textarea"
+          "x-display": "custom-vjs-template-string"
+        },
+        "value": {
+          "type": "string",
+          "x-display": "custom-vjs-template-string",
+          "x-schema": {},
+          "x-types": [
+            "object",
+            "array",
+            "boolean",
+            "integer",
+            "number",
+            "string",
+            "null"
+          ]
         }
       },
       "allOf": [
-        {
-          "type": "object",
-          "title": "Data",
-          "properties": {
-            "value": {
-              "type": "string",
-              "default": {
-                "object": {},
-                "array": [],
-                "boolean": true,
-                "integer": 0,
-                "number": 0.5,
-                "string": "Hello",
-                "null": null
-              },
-              "x-display": "custom-vjs-template-string",
-              "x-schema": {},
-              "x-types": [
-                "object",
-                "array",
-                "boolean",
-                "integer",
-                "number",
-                "string",
-                "null"
-              ]
-            }
-          }
-        },
         {
           "type": "object",
           "title": "Event Handlers",

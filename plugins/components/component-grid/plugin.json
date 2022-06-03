@@ -50,8 +50,33 @@
       "h": 12,
       "name": "",
       "description": "",
-      "variables": {},
-      "actions": {},
+      "value": [
+        [
+          0,
+          50,
+          99,
+          100
+        ],
+        [
+          true,
+          24,
+          false,
+          true
+        ],
+        [
+          false,
+          76,
+          34,
+          2000
+        ],
+        [
+          40,
+          false,
+          true,
+          1
+        ]
+      ],
+      "eventHandlers": [],
       "display": {
         "transparent": false,
         "hideToolbar": false,
@@ -99,55 +124,23 @@
         "name": {
           "type": "string",
           "title": "Display name",
-          "required": true
+          "x-display": "custom-vjs-template-string"
         },
         "description": {
           "type": "string",
           "title": "Description",
-          "x-display": "textarea"
+          "x-display": "custom-vjs-template-string"
+        },
+        "value": {
+          "type": "string",
+          "x-display": "custom-vjs-template-string",
+          "x-schema": {},
+          "x-types": [
+            "array"
+          ]
         }
       },
       "allOf": [
-        {
-          "type": "object",
-          "title": "Data",
-          "properties": {
-            "value": {
-              "type": "string",
-              "default": [
-                [
-                  0,
-                  50,
-                  99,
-                  100
-                ],
-                [
-                  true,
-                  24,
-                  false,
-                  true
-                ],
-                [
-                  false,
-                  76,
-                  34,
-                  2000
-                ],
-                [
-                  40,
-                  false,
-                  true,
-                  1
-                ]
-              ],
-              "x-display": "custom-vjs-template-string",
-              "x-schema": {},
-              "x-types": [
-                "array"
-              ]
-            }
-          }
-        },
         {
           "type": "object",
           "title": "Event Handlers",
