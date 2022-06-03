@@ -112,20 +112,11 @@
           "properties": {
             "value": {
               "type": "string",
+              "default": [],
               "x-display": "custom-vjs-template-string",
               "x-schema": {},
               "x-types": [
                 "array"
-              ],
-              "x-examples": [
-                {
-                  "text": "Basic",
-                  "value": null
-                },
-                {
-                  "text": "With Data",
-                  "value": null
-                }
               ]
             }
           }

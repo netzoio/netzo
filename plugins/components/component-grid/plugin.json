@@ -114,197 +114,36 @@
           "properties": {
             "value": {
               "type": "string",
+              "default": [
+                [
+                  0,
+                  50,
+                  99,
+                  100
+                ],
+                [
+                  true,
+                  24,
+                  false,
+                  true
+                ],
+                [
+                  false,
+                  76,
+                  34,
+                  2000
+                ],
+                [
+                  40,
+                  false,
+                  true,
+                  1
+                ]
+              ],
               "x-display": "custom-vjs-template-string",
-              "x-schema": {
-                "type": "array",
-                "items": {
-                  "oneOf": [
-                    {
-                      "type": "object",
-                      "required": [
-                        "type",
-                        "items"
-                      ],
-                      "properties": {
-                        "type": {
-                          "const": "array"
-                        },
-                        "items": {
-                          "type": "object",
-                          "required": [
-                            "type"
-                          ],
-                          "properties": {
-                            "type": {
-                              "type": "string"
-                            }
-                          },
-                          "additionalProperties": true
-                        }
-                      },
-                      "additionalProperties": true
-                    },
-                    {
-                      "type": "object",
-                      "required": [
-                        "type",
-                        "items"
-                      ],
-                      "properties": {
-                        "type": {
-                          "const": "array"
-                        },
-                        "items": {
-                          "type": "object",
-                          "required": [
-                            "type",
-                            "items"
-                          ],
-                          "properties": {
-                            "type": {
-                              "const": "array"
-                            },
-                            "items": {
-                              "type": "object",
-                              "required": [
-                                "type"
-                              ],
-                              "properties": {
-                                "type": {
-                                  "type": "string"
-                                }
-                              },
-                              "additionalProperties": true
-                            }
-                          },
-                          "additionalProperties": true
-                        }
-                      },
-                      "additionalProperties": true
-                    },
-                    {
-                      "type": "object",
-                      "required": [
-                        "type",
-                        "items"
-                      ],
-                      "properties": {
-                        "type": {
-                          "const": "array"
-                        },
-                        "items": {
-                          "type": "object",
-                          "required": [
-                            "type",
-                            "items"
-                          ],
-                          "properties": {
-                            "type": {
-                              "const": "array"
-                            },
-                            "items": {
-                              "type": "object",
-                              "required": [
-                                "type",
-                                "items"
-                              ],
-                              "properties": {
-                                "type": {
-                                  "const": "array"
-                                },
-                                "items": {
-                                  "type": "object",
-                                  "required": [
-                                    "type"
-                                  ],
-                                  "properties": {
-                                    "type": {
-                                      "type": "string"
-                                    }
-                                  },
-                                  "additionalProperties": true
-                                }
-                              },
-                              "additionalProperties": true
-                            }
-                          },
-                          "additionalProperties": true
-                        }
-                      },
-                      "additionalProperties": true
-                    }
-                  ]
-                }
-              },
+              "x-schema": {},
               "x-types": [
                 "array"
-              ],
-              "x-examples": [
-                {
-                  "text": "1D",
-                  "value": [
-                    true,
-                    false
-                  ]
-                },
-                {
-                  "text": "2D",
-                  "value": [
-                    [
-                      true,
-                      false
-                    ],
-                    [
-                      false,
-                      false
-                    ]
-                  ]
-                },
-                {
-                  "text": "3D",
-                  "value": [
-                    [
-                      [
-                        true,
-                        false
-                      ],
-                      [
-                        false,
-                        false
-                      ]
-                    ],
-                    [
-                      [
-                        false,
-                        true
-                      ],
-                      [
-                        true,
-                        false
-                      ]
-                    ],
-                    [
-                      [
-                        true,
-                        false
-                      ],
-                      [
-                        true,
-                        true
-                      ]
-                    ],
-                    [
-                      [
-                        false,
-                        false
-                      ],
-                      [
-                        true,
-                        false
-                      ]
-                    ]
-                  ]
-                }
               ]
             }
           }

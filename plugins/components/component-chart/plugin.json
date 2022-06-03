@@ -115,45 +115,12 @@
           "properties": {
             "value": {
               "type": "string",
+              "default": [],
               "x-display": "custom-vjs-template-string",
               "x-schema": {},
               "x-types": [
                 "array",
                 "object"
-              ],
-              "x-examples": [
-                {
-                  "text": "Single",
-                  "value": 23
-                },
-                {
-                  "text": "Paired",
-                  "value": [
-                    1,
-                    34
-                  ]
-                },
-                {
-                  "text": "XY Paired",
-                  "value": {
-                    "x": 20,
-                    "y": 54
-                  }
-                },
-                {
-                  "text": "Timestamps",
-                  "value": [
-                    1324508400000,
-                    34
-                  ]
-                },
-                {
-                  "text": "Date Strings",
-                  "value": {
-                    "x": "05/06/2014",
-                    "y": 54
-                  }
-                }
               ]
             }
           }

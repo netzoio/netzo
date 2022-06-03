@@ -112,6 +112,15 @@
           "properties": {
             "value": {
               "type": "string",
+              "default": {
+                "object": {},
+                "array": [],
+                "boolean": true,
+                "integer": 0,
+                "number": 0.5,
+                "string": "Hello",
+                "null": null
+              },
               "x-display": "custom-vjs-template-string",
               "x-schema": {},
               "x-types": [
@@ -122,8 +131,7 @@
                 "number",
                 "string",
                 "null"
-              ],
-              "x-examples": true
+              ]
             }
           }
         },

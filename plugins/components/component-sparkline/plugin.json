@@ -118,21 +118,12 @@
           "properties": {
             "value": {
               "type": "string",
+              "default": [],
               "x-display": "custom-vjs-template-string",
               "x-schema": {},
               "x-types": [
                 "integer",
                 "number"
-              ],
-              "x-examples": [
-                {
-                  "text": "Integer",
-                  "value": 73
-                },
-                {
-                  "text": "Number",
-                  "value": 28.7
-                }
               ]
             }
           }
