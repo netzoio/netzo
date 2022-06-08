@@ -18,8 +18,6 @@
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-switch/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-table/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-webcontent/plugin.json",
-  "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/modules/module-counter/plugin.json",
-  "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/modules/module-table/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-airtable/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-algolia/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-asana/plugin.json",
