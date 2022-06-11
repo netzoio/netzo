@@ -50,13 +50,17 @@
       "h": 18,
       "name": "",
       "description": "",
-      "actions": {},
+      "eventHandlers": [],
       "display": {
         "transparent": false,
         "hideToolbar": false,
         "hideSearch": false,
         "denseList": false,
         "bgImageUrl": ""
+      },
+      "grid": {
+        "autoFlow": "row",
+        "gap": 24
       }
     },
     "schema": {
@@ -92,12 +96,12 @@
         "name": {
           "type": "string",
           "title": "Display name",
-          "required": true
+          "x-display": "custom-vjs-template-string"
         },
         "description": {
           "type": "string",
           "title": "Description",
-          "x-display": "textarea"
+          "x-display": "custom-vjs-template-string"
         }
       },
       "allOf": [
@@ -111,7 +115,7 @@
                 "type": "object",
                 "properties": {}
               },
-              "x-display": "custom-vjs-event-handlers"
+              "x-display": "custom-vjs-array-event-handlers"
             }
           }
         },
@@ -150,6 +154,35 @@
                     "filesAsDataUrl": true
                   },
                   "writeOnly": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "title": "Grid",
+          "properties": {
+            "grid": {
+              "type": "object",
+              "properties": {
+                "autoFlow": {
+                  "type": "string",
+                  "title": "Auto flow",
+                  "description": "The grid-auto-flow CSS property controls how the auto-placement algorithm works, specifying exactly how auto-placed items get flowed into the grid.",
+                  "enum": [
+                    "column",
+                    "dense",
+                    "row",
+                    "column dense",
+                    "row dense"
+                  ]
+                },
+                "gap": {
+                  "type": "integer",
+                  "title": "Gap [px]",
+                  "description": "The gap CSS property sets the gaps (gutters) between rows and columns. It is a shorthand for row-gap and column-gap.",
+                  "minimum": 0
                 }
               }
             }

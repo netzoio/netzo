@@ -50,15 +50,18 @@
       "h": 6,
       "name": "",
       "description": "",
-      "variables": {},
-      "actions": {},
+      "value": 10,
+      "eventHandlers": [],
       "display": {
         "transparent": false,
         "hideToolbar": false,
-        "color": "#0080FF",
-        "textColor": "",
+        "color": "",
         "bgImageUrl": "",
         "hideButtons": false
+      },
+      "grid": {
+        "autoFlow": "row",
+        "gap": 24
       }
     },
     "schema": {
@@ -94,44 +97,26 @@
         "name": {
           "type": "string",
           "title": "Display name",
-          "required": true
+          "x-display": "custom-vjs-template-string"
         },
         "description": {
           "type": "string",
           "title": "Description",
-          "x-display": "textarea"
+          "x-display": "custom-vjs-template-string"
+        },
+        "value": {
+          "type": "string",
+          "title": "Value",
+          "description": "Component expects variable with <strong>integer or number</strong> value.",
+          "x-display": "custom-vjs-template-string",
+          "x-schema": {},
+          "x-types": [
+            "integer",
+            "number"
+          ]
         }
       },
       "allOf": [
-        {
-          "type": "object",
-          "title": "Variables",
-          "properties": {
-            "variables": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {}
-              },
-              "x-display": "custom-vjs-variables",
-              "x-schema": {},
-              "x-types": [
-                "integer",
-                "number"
-              ],
-              "x-examples": [
-                {
-                  "text": "Integer",
-                  "value": 73
-                },
-                {
-                  "text": "Number",
-                  "value": 28.7
-                }
-              ]
-            }
-          }
-        },
         {
           "type": "object",
           "title": "Event Handlers",
@@ -142,7 +127,7 @@
                 "type": "object",
                 "properties": {}
               },
-              "x-display": "custom-vjs-event-handlers"
+              "x-display": "custom-vjs-array-event-handlers"
             }
           }
         },
@@ -166,11 +151,6 @@
                   "title": "Color",
                   "format": "hexcolor"
                 },
-                "textColor": {
-                  "type": "string",
-                  "title": "Text color",
-                  "format": "hexcolor"
-                },
                 "bgImageUrl": {
                   "type": "string",
                   "title": "Background Image",
@@ -189,6 +169,35 @@
                     "type": "boolean",
                     "title": "Hide Buttons"
                   }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "title": "Grid",
+          "properties": {
+            "grid": {
+              "type": "object",
+              "properties": {
+                "autoFlow": {
+                  "type": "string",
+                  "title": "Auto flow",
+                  "description": "The grid-auto-flow CSS property controls how the auto-placement algorithm works, specifying exactly how auto-placed items get flowed into the grid.",
+                  "enum": [
+                    "column",
+                    "dense",
+                    "row",
+                    "column dense",
+                    "row dense"
+                  ]
+                },
+                "gap": {
+                  "type": "integer",
+                  "title": "Gap [px]",
+                  "description": "The gap CSS property sets the gaps (gutters) between rows and columns. It is a shorthand for row-gap and column-gap.",
+                  "minimum": 0
                 }
               }
             }

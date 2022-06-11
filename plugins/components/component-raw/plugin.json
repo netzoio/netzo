@@ -50,13 +50,20 @@
       "h": 12,
       "name": "",
       "description": "",
-      "variables": {},
-      "actions": {},
+      "value": {
+        "object": {},
+        "array": [],
+        "boolean": true,
+        "integer": 0,
+        "number": 0.5,
+        "string": "Hello",
+        "null": null
+      },
+      "eventHandlers": [],
       "display": {
         "transparent": false,
         "hideToolbar": false,
-        "color": "#0080FF",
-        "textColor": "",
+        "color": "",
         "bgImageUrl": ""
       },
       "grid": {
@@ -97,40 +104,31 @@
         "name": {
           "type": "string",
           "title": "Display name",
-          "required": true
+          "x-display": "custom-vjs-template-string"
         },
         "description": {
           "type": "string",
           "title": "Description",
-          "x-display": "textarea"
+          "x-display": "custom-vjs-template-string"
+        },
+        "value": {
+          "type": "string",
+          "title": "Value",
+          "description": "Component expects variable with <strong>string</strong> value.<br>Note however you could convert any value (e.g. array, object, boolean, integer, number, string or null) to a string using JSON.stringify() or String() methods.",
+          "x-display": "custom-vjs-template-string",
+          "x-schema": {},
+          "x-types": [
+            "array",
+            "object",
+            "boolean",
+            "integer",
+            "number",
+            "string",
+            "null"
+          ]
         }
       },
       "allOf": [
-        {
-          "type": "object",
-          "title": "Variables",
-          "properties": {
-            "variables": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {}
-              },
-              "x-display": "custom-vjs-variables",
-              "x-schema": {},
-              "x-types": [
-                "object",
-                "array",
-                "boolean",
-                "integer",
-                "number",
-                "string",
-                "null"
-              ],
-              "x-examples": true
-            }
-          }
-        },
         {
           "type": "object",
           "title": "Event Handlers",
@@ -141,7 +139,7 @@
                 "type": "object",
                 "properties": {}
               },
-              "x-display": "custom-vjs-event-handlers"
+              "x-display": "custom-vjs-array-event-handlers"
             }
           }
         },
@@ -165,11 +163,6 @@
                   "title": "Color",
                   "format": "hexcolor"
                 },
-                "textColor": {
-                  "type": "string",
-                  "title": "Text color",
-                  "format": "hexcolor"
-                },
                 "bgImageUrl": {
                   "type": "string",
                   "title": "Background Image",
@@ -182,6 +175,35 @@
                     "filesAsDataUrl": true
                   },
                   "writeOnly": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "title": "Grid",
+          "properties": {
+            "grid": {
+              "type": "object",
+              "properties": {
+                "autoFlow": {
+                  "type": "string",
+                  "title": "Auto flow",
+                  "description": "The grid-auto-flow CSS property controls how the auto-placement algorithm works, specifying exactly how auto-placed items get flowed into the grid.",
+                  "enum": [
+                    "column",
+                    "dense",
+                    "row",
+                    "column dense",
+                    "row dense"
+                  ]
+                },
+                "gap": {
+                  "type": "integer",
+                  "title": "Gap [px]",
+                  "description": "The gap CSS property sets the gaps (gutters) between rows and columns. It is a shorthand for row-gap and column-gap.",
+                  "minimum": 0
                 }
               }
             }

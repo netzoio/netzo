@@ -50,16 +50,45 @@
       "h": 12,
       "name": "",
       "description": "",
-      "variables": {},
-      "actions": {},
+      "value": [
+        [
+          0,
+          50,
+          99,
+          100
+        ],
+        [
+          true,
+          24,
+          false,
+          true
+        ],
+        [
+          false,
+          76,
+          34,
+          2000
+        ],
+        [
+          40,
+          false,
+          true,
+          1
+        ]
+      ],
+      "eventHandlers": [],
       "display": {
         "transparent": false,
         "hideToolbar": false,
         "showValues": true,
         "colorTrueOrMax": "#44C47D",
         "colorFalseOrMin": "#d73a49",
-        "textColor": "",
+        "color": "",
         "bgImageUrl": ""
+      },
+      "grid": {
+        "autoFlow": "row",
+        "gap": 24
       }
     },
     "schema": {
@@ -95,220 +124,25 @@
         "name": {
           "type": "string",
           "title": "Display name",
-          "required": true
+          "x-display": "custom-vjs-template-string"
         },
         "description": {
           "type": "string",
           "title": "Description",
-          "x-display": "textarea"
+          "x-display": "custom-vjs-template-string"
+        },
+        "value": {
+          "type": "string",
+          "title": "Value",
+          "description": "Component expects variable with <strong>array</strong> value.",
+          "x-display": "custom-vjs-template-string",
+          "x-schema": {},
+          "x-types": [
+            "array"
+          ]
         }
       },
       "allOf": [
-        {
-          "type": "object",
-          "title": "Variables",
-          "properties": {
-            "variables": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {}
-              },
-              "x-display": "custom-vjs-variables",
-              "x-schema": {
-                "type": "array",
-                "items": {
-                  "oneOf": [
-                    {
-                      "type": "object",
-                      "required": [
-                        "type",
-                        "items"
-                      ],
-                      "properties": {
-                        "type": {
-                          "const": "array"
-                        },
-                        "items": {
-                          "type": "object",
-                          "required": [
-                            "type"
-                          ],
-                          "properties": {
-                            "type": {
-                              "type": "string"
-                            }
-                          },
-                          "additionalProperties": true
-                        }
-                      },
-                      "additionalProperties": true
-                    },
-                    {
-                      "type": "object",
-                      "required": [
-                        "type",
-                        "items"
-                      ],
-                      "properties": {
-                        "type": {
-                          "const": "array"
-                        },
-                        "items": {
-                          "type": "object",
-                          "required": [
-                            "type",
-                            "items"
-                          ],
-                          "properties": {
-                            "type": {
-                              "const": "array"
-                            },
-                            "items": {
-                              "type": "object",
-                              "required": [
-                                "type"
-                              ],
-                              "properties": {
-                                "type": {
-                                  "type": "string"
-                                }
-                              },
-                              "additionalProperties": true
-                            }
-                          },
-                          "additionalProperties": true
-                        }
-                      },
-                      "additionalProperties": true
-                    },
-                    {
-                      "type": "object",
-                      "required": [
-                        "type",
-                        "items"
-                      ],
-                      "properties": {
-                        "type": {
-                          "const": "array"
-                        },
-                        "items": {
-                          "type": "object",
-                          "required": [
-                            "type",
-                            "items"
-                          ],
-                          "properties": {
-                            "type": {
-                              "const": "array"
-                            },
-                            "items": {
-                              "type": "object",
-                              "required": [
-                                "type",
-                                "items"
-                              ],
-                              "properties": {
-                                "type": {
-                                  "const": "array"
-                                },
-                                "items": {
-                                  "type": "object",
-                                  "required": [
-                                    "type"
-                                  ],
-                                  "properties": {
-                                    "type": {
-                                      "type": "string"
-                                    }
-                                  },
-                                  "additionalProperties": true
-                                }
-                              },
-                              "additionalProperties": true
-                            }
-                          },
-                          "additionalProperties": true
-                        }
-                      },
-                      "additionalProperties": true
-                    }
-                  ]
-                }
-              },
-              "x-types": [
-                "array"
-              ],
-              "x-examples": [
-                {
-                  "text": "1D",
-                  "value": [
-                    true,
-                    false
-                  ]
-                },
-                {
-                  "text": "2D",
-                  "value": [
-                    [
-                      true,
-                      false
-                    ],
-                    [
-                      false,
-                      false
-                    ]
-                  ]
-                },
-                {
-                  "text": "3D",
-                  "value": [
-                    [
-                      [
-                        true,
-                        false
-                      ],
-                      [
-                        false,
-                        false
-                      ]
-                    ],
-                    [
-                      [
-                        false,
-                        true
-                      ],
-                      [
-                        true,
-                        false
-                      ]
-                    ],
-                    [
-                      [
-                        true,
-                        false
-                      ],
-                      [
-                        true,
-                        true
-                      ]
-                    ],
-                    [
-                      [
-                        false,
-                        false
-                      ],
-                      [
-                        true,
-                        false
-                      ]
-                    ]
-                  ]
-                }
-              ]
-            }
-          }
-        },
         {
           "type": "object",
           "title": "Event Handlers",
@@ -319,7 +153,7 @@
                 "type": "object",
                 "properties": {}
               },
-              "x-display": "custom-vjs-event-handlers"
+              "x-display": "custom-vjs-array-event-handlers"
             }
           }
         },
@@ -354,9 +188,9 @@
                   "description": "Color when false for boolean values, or the minimum color in range for which to interpolate a numeric value",
                   "format": "hexcolor"
                 },
-                "textColor": {
+                "color": {
                   "type": "string",
-                  "title": "Text color",
+                  "title": "Color",
                   "format": "hexcolor"
                 },
                 "bgImageUrl": {
@@ -371,6 +205,35 @@
                     "filesAsDataUrl": true
                   },
                   "writeOnly": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "title": "Grid",
+          "properties": {
+            "grid": {
+              "type": "object",
+              "properties": {
+                "autoFlow": {
+                  "type": "string",
+                  "title": "Auto flow",
+                  "description": "The grid-auto-flow CSS property controls how the auto-placement algorithm works, specifying exactly how auto-placed items get flowed into the grid.",
+                  "enum": [
+                    "column",
+                    "dense",
+                    "row",
+                    "column dense",
+                    "row dense"
+                  ]
+                },
+                "gap": {
+                  "type": "integer",
+                  "title": "Gap [px]",
+                  "description": "The gap CSS property sets the gaps (gutters) between rows and columns. It is a shorthand for row-gap and column-gap.",
+                  "minimum": 0
                 }
               }
             }
