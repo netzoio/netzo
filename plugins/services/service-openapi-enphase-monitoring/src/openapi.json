@@ -1,9 +1,23 @@
 {
-  "openapi": "3.0.0",
+  "openapi": "3.0.1",
   "info": {
     "title": "Monitoring API",
     "version": "v4"
   },
+  "servers": [
+    {
+      "url": "https://api-qa2.enphaseenergy.com"
+    }
+  ],
+  "security": [
+    {
+      "oAuth2": [
+        "read_details",
+        "read_site_production_monitoring",
+        "read_site_level_consumption_monitoring"
+      ]
+    }
+  ],
   "paths": {
     "/api/v4/systems": {
       "get": {
@@ -13,6 +27,14 @@
           "System Details"
         ],
         "parameters": [
+          {
+            "name": "key",
+            "in": "header",
+            "description": "Add this as a key parameter to your API calls to report and authenticate. Find this value in your Enphase Developer Portal.",
+            "schema": {
+              "type": "string"
+            }
+          },
           {
             "name": "page",
             "in": "query",
@@ -390,6 +412,14 @@
           "System Details"
         ],
         "parameters": [
+          {
+            "name": "key",
+            "in": "header",
+            "description": "Add this as a key parameter to your API calls to report and authenticate. Find this value in your Enphase Developer Portal.",
+            "schema": {
+              "type": "string"
+            }
+          },
           {
             "name": "page",
             "in": "query",
@@ -804,6 +834,14 @@
         ],
         "parameters": [
           {
+            "name": "key",
+            "in": "header",
+            "description": "Add this as a key parameter to your API calls to report and authenticate. Find this value in your Enphase Developer Portal.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "id",
             "in": "path",
             "description": "The unique numeric ID of the system. If an empty value is passed in the ID, this endpoint behaves as Fetch systems endpoint.",
@@ -1136,6 +1174,14 @@
         ],
         "parameters": [
           {
+            "name": "key",
+            "in": "header",
+            "description": "Add this as a key parameter to your API calls to report and authenticate. Find this value in your Enphase Developer Portal.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "system_id",
             "in": "path",
             "description": "The unique numeric ID of the system",
@@ -1449,6 +1495,14 @@
           "System Details"
         ],
         "parameters": [
+          {
+            "name": "key",
+            "in": "header",
+            "description": "Add this as a key parameter to your API calls to report and authenticate. Find this value in your Enphase Developer Portal.",
+            "schema": {
+              "type": "string"
+            }
+          },
           {
             "name": "system_id",
             "in": "path",
@@ -1907,6 +1961,14 @@
         ],
         "parameters": [
           {
+            "name": "key",
+            "in": "header",
+            "description": "Add this as a key parameter to your API calls to report and authenticate. Find this value in your Enphase Developer Portal.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "serial_num",
             "in": "query",
             "description": "Envoy Serial Number",
@@ -2165,6 +2227,14 @@
           "Site Level Production Monitoring"
         ],
         "parameters": [
+          {
+            "name": "key",
+            "in": "header",
+            "description": "Add this as a key parameter to your API calls to report and authenticate. Find this value in your Enphase Developer Portal.",
+            "schema": {
+              "type": "string"
+            }
+          },
           {
             "name": "system_id",
             "in": "path",
@@ -2520,6 +2590,14 @@
           "Site Level Production Monitoring"
         ],
         "parameters": [
+          {
+            "name": "key",
+            "in": "header",
+            "description": "Add this as a key parameter to your API calls to report and authenticate. Find this value in your Enphase Developer Portal.",
+            "schema": {
+              "type": "string"
+            }
+          },
           {
             "name": "system_id",
             "in": "path",
@@ -3056,6 +3134,14 @@
         ],
         "parameters": [
           {
+            "name": "key",
+            "in": "header",
+            "description": "Add this as a key parameter to your API calls to report and authenticate. Find this value in your Enphase Developer Portal.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "system_id",
             "in": "path",
             "description": "The unique numeric ID of the system",
@@ -3411,6 +3497,14 @@
           "Site Level Production Monitoring"
         ],
         "parameters": [
+          {
+            "name": "key",
+            "in": "header",
+            "description": "Add this as a key parameter to your API calls to report and authenticate. Find this value in your Enphase Developer Portal.",
+            "schema": {
+              "type": "string"
+            }
+          },
           {
             "name": "system_id",
             "in": "path",
@@ -3797,6 +3891,14 @@
         ],
         "parameters": [
           {
+            "name": "key",
+            "in": "header",
+            "description": "Add this as a key parameter to your API calls to report and authenticate. Find this value in your Enphase Developer Portal.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "site_id",
             "in": "query",
             "description": "Site id. The response will contain only those microinverters reporting to one of the active envoys of the given site.",
@@ -4159,6 +4261,14 @@
           "Site Level Production Monitoring"
         ],
         "parameters": [
+          {
+            "name": "key",
+            "in": "header",
+            "description": "Add this as a key parameter to your API calls to report and authenticate. Find this value in your Enphase Developer Portal.",
+            "schema": {
+              "type": "string"
+            }
+          },
           {
             "name": "system_id",
             "in": "path",
@@ -4597,6 +4707,14 @@
         ],
         "parameters": [
           {
+            "name": "key",
+            "in": "header",
+            "description": "Add this as a key parameter to your API calls to report and authenticate. Find this value in your Enphase Developer Portal.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "system_id",
             "in": "path",
             "description": "The unique numeric ID of the system",
@@ -4998,6 +5116,14 @@
           "Site Level Production Monitoring"
         ],
         "parameters": [
+          {
+            "name": "key",
+            "in": "header",
+            "description": "Add this as a key parameter to your API calls to report and authenticate. Find this value in your Enphase Developer Portal.",
+            "schema": {
+              "type": "string"
+            }
+          },
           {
             "name": "system_id",
             "in": "path",
@@ -5442,6 +5568,14 @@
         ],
         "parameters": [
           {
+            "name": "key",
+            "in": "header",
+            "description": "Add this as a key parameter to your API calls to report and authenticate. Find this value in your Enphase Developer Portal.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "system_id",
             "in": "path",
             "description": "The unique numeric ID of the system",
@@ -5869,6 +6003,14 @@
         "description": "Retrieves telemetry for single micro/pcu. \nIf no start_at is specified, defaults to midnight today, in the timezone of the system. If the start_at specified is earlier than the system’s first reported date, then midnight of the system’s first reported date is considered as start_at. \nThe end_at is calculated as the minimum of the time of the request and (start time + granularity). \nThe meaning of granularity is as follow:\n  \nIf granularity is 15mins, maximum 3 intervals will appear in response. If granularity is day, maximum 288 intervals will appear in response where each interval is of 5 mins duration.\n \n The requested start date must be within 2 years from current date. \n By default start_at will appear in response. If start_date parameter is passed in the url, then start_date field will appear in response. \nBy default end_at will appear in response. If end_date parameter is passed in the url then end_date field will appear in response.",
         "parameters": [
           {
+            "name": "key",
+            "in": "header",
+            "description": "Add this as a key parameter to your API calls to report and authenticate. Find this value in your Enphase Developer Portal.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "system_id",
             "in": "path",
             "description": "System id",
@@ -6284,6 +6426,14 @@
         "summary": "Retrieves telemetry for single ACB",
         "description": "Retrieves telemetry for single ACB. \nIf no start_at is specified, defaults to midnight today, in the timezone of the system. If the start_at specified is earlier than the system’s first reported date, then midnight of the system’s first reported date is considered as start_at. \nThe end_at is calculated as the minimum of the time of the request and (start time + granularity). \nThe meaning of granularity is as follow:\n  \nIf granularity is 15mins, maximum 1 interval will appear in response. If granularity is day, maximum 96 intervals, and if granularity is week, maximum 672 intervals,  will appear in response where each interval is of 15 mins duration.\n \n The requested start date must be within 2 years from current date. \n By default start_at will appear in response. If start_date parameter is passed in the url, then start_date field will appear in response. \nBy default end_at will appear in response. If end_date parameter is passed in the url then end_date field will appear in response.",
         "parameters": [
+          {
+            "name": "key",
+            "in": "header",
+            "description": "Add this as a key parameter to your API calls to report and authenticate. Find this value in your Enphase Developer Portal.",
+            "schema": {
+              "type": "string"
+            }
+          },
           {
             "name": "system_id",
             "in": "path",
@@ -6732,6 +6882,14 @@
         "description": "Retrieves telemetry for single Encharge. \nIf no start_at is specified, defaults to midnight today, in the timezone of the system. If the start_at specified is earlier than the system’s first reported date, then midnight of the system’s first reported date is considered as start_at. \nThe end_at is calculated as the minimum of the time of the request and (start time + granularity). \nThe meaning of granularity is as follow:\n  \nIf granularity is 15mins, maximum 1 interval will appear in response. If granularity is day, maximum 96 intervals, and if granularity is week, maximum 672 intervals,  will appear in response where each interval is of 15 mins duration.\n \n The requested start date must be within 2 years from current date. \n By default start_at will appear in response. If start_date parameter is passed in the url, then start_date field will appear in response. \nBy default end_at will appear in response. If end_date parameter is passed in the url then end_date field will appear in response.",
         "parameters": [
           {
+            "name": "key",
+            "in": "header",
+            "description": "Add this as a key parameter to your API calls to report and authenticate. Find this value in your Enphase Developer Portal.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "system_id",
             "in": "path",
             "description": "System id",
@@ -7174,9 +7332,22 @@
       }
     }
   },
-  "servers": [
-    {
-      "url": "https://api-qa2.enphaseenergy.com"
+  "components": {
+    "securitySchemes": {
+      "oAuth2": {
+        "description": "Oauth 2.0 implicit authentication",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": "https://api.enphaseenergy.com/oauth/authorize?response_type=code&client_id=2c85f99b70261efa3b073fa91d04ed51",
+            "scopes": {
+              "read_details": "read system details",
+              "read_site_production_monitoring": "read site production monitoring",
+              "read_site_level_consumption_monitoring": "read site level consumption monitoring"
+            }
+          }
+        },
+        "type": "oauth2"
+      }
     }
-  ]
+  }
 }
