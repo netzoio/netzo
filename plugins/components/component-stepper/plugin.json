@@ -155,20 +155,7 @@
                   "type": "string",
                   "title": "Background Image",
                   "description": "The URL of an image to use as background image.",
-                  "bgImageUrl": {
-                    "type": "string",
-                    "title": "Background Image",
-                    "description": "The URL of an image to use as background image.",
-                    "contentMediaType": "image/*",
-                    "x-options": {
-                      "filesAsDataUrl": true
-                    },
-                    "writeOnly": true
-                  },
-                  "hideButtons": {
-                    "type": "boolean",
-                    "title": "Hide Buttons"
-                  }
+                  "x-display": "custom-vjs-template-string"
                 }
               }
             }

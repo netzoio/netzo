@@ -123,14 +123,7 @@
                   "type": "string",
                   "title": "Image",
                   "description": "The image to display.",
-                  "contentMediaType": "image/*",
-                  "x-props": {
-                    "clearable": true
-                  },
-                  "x-options": {
-                    "filesAsDataUrl": true
-                  },
-                  "writeOnly": true
+                  "x-display": "custom-vjs-template-string"
                 },
                 "alt": {
                   "type": "string",
@@ -207,14 +200,7 @@
                   "type": "string",
                   "title": "Background Image",
                   "description": "The URL of an image to use as background image.",
-                  "contentMediaType": "image/*",
-                  "x-props": {
-                    "clearable": true
-                  },
-                  "x-options": {
-                    "filesAsDataUrl": true
-                  },
-                  "writeOnly": true
+                  "x-display": "custom-vjs-template-string"
                 }
               }
             }
