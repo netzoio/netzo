@@ -139,7 +139,7 @@
                       "srcdoc": {
                         "type": "string",
                         "title": "Custom HTML code",
-                        "x-display": "textarea"
+                        "x-display": "custom-vjs-template-string"
                       }
                     }
                   },
@@ -147,7 +147,8 @@
                     "properties": {
                       "src": {
                         "type": "string",
-                        "title": "Iframe URL"
+                        "title": "Iframe URL",
+                        "x-display": "custom-vjs-template-string"
                       }
                     }
                   }

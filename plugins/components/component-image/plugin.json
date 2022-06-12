@@ -119,15 +119,15 @@
             "options": {
               "type": "object",
               "properties": {
-                "imageUrl": {
+                "src": {
                   "type": "string",
-                  "title": "Image",
+                  "title": "Image source URL",
                   "description": "The image to display.",
                   "x-display": "custom-vjs-template-string"
                 },
                 "alt": {
                   "type": "string",
-                  "title": "Image Alt Text",
+                  "title": "Image alt text",
                   "description": "Alternate text for an image, if the image cannot be displayed.",
                   "x-display": "textarea"
                 },
