@@ -2,7 +2,7 @@
   "uid": "component-map",
   "type": "component",
   "version": "1.0.0",
-  "status": "alpha",
+  "status": "requested",
   "category": "core",
   "name": "Map",
   "description": "Map component for Netzo",

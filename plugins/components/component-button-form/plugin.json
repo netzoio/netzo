@@ -2,7 +2,7 @@
   "uid": "component-button-form",
   "type": "component",
   "version": "1.0.0",
-  "status": "alpha",
+  "status": "requested",
   "category": "core",
   "name": "Button Form",
   "description": "Button form component for Netzo",
