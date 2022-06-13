@@ -149,7 +149,8 @@
                 },
                 "label": {
                   "type": "string",
-                  "title": "Label"
+                  "title": "Label",
+                  "x-display": "custom-vjs-template-string"
                 },
                 "colorTrue": {
                   "type": "string",

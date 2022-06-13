@@ -100,12 +100,12 @@
         "name": {
           "type": "string",
           "title": "Display name",
-          "required": true
+          "x-display": "custom-vjs-template-string"
         },
         "description": {
           "type": "string",
           "title": "Description",
-          "x-display": "textarea"
+          "x-display": "custom-vjs-template-string"
         }
       },
       "allOf": [
