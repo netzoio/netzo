@@ -123,12 +123,8 @@
                 },
                 "src": {
                   "type": "string",
-                  "title": "Iframe URL",
-                  "x-display": "custom-vjs-template-string"
-                },
-                "srcdoc": {
-                  "type": "string",
-                  "title": "Custom HTML code",
+                  "title": "Iframe URL or HTML code",
+                  "description": "A URL to load into the iframe or HTML code to display (if \"Use custom HTML code\" is enabled above)",
                   "x-display": "custom-vjs-template-string"
                 }
               }
