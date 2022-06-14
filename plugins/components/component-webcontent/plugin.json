@@ -115,45 +115,23 @@
           "properties": {
             "options": {
               "type": "object",
-              "allOf": [
-                {
-                  "properties": {
-                    "isSrcdoc": {
-                      "type": "boolean",
-                      "x-display": "switch",
-                      "title": "Use custom HTML code"
-                    }
-                  },
-                  "if": {
-                    "required": [
-                      "isSrcdoc"
-                    ],
-                    "properties": {
-                      "isSrcdoc": {
-                        "const": true
-                      }
-                    }
-                  },
-                  "then": {
-                    "properties": {
-                      "srcdoc": {
-                        "type": "string",
-                        "title": "Custom HTML code",
-                        "x-display": "custom-vjs-template-string"
-                      }
-                    }
-                  },
-                  "else": {
-                    "properties": {
-                      "src": {
-                        "type": "string",
-                        "title": "Iframe URL",
-                        "x-display": "custom-vjs-template-string"
-                      }
-                    }
-                  }
+              "properties": {
+                "isSrcdoc": {
+                  "type": "boolean",
+                  "x-display": "switch",
+                  "title": "Use custom HTML code"
+                },
+                "src": {
+                  "type": "string",
+                  "title": "Iframe URL",
+                  "x-display": "custom-vjs-template-string"
+                },
+                "srcdoc": {
+                  "type": "string",
+                  "title": "Custom HTML code",
+                  "x-display": "custom-vjs-template-string"
                 }
-              ]
+              }
             }
           }
         },
