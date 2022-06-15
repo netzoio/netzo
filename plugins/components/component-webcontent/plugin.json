@@ -32,7 +32,7 @@
     },
     {
       "rel": "repository",
-      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/components/component-webcontent"
+      "href": "https://github.com/netzoio/netzo/tree/main/plugins/components/component-webcontent"
     },
     {
       "rel": "readme",
@@ -40,7 +40,7 @@
     },
     {
       "rel": "license",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/LICENSE"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/LICENSE"
     }
   ],
   "form": {
@@ -100,12 +100,12 @@
         "name": {
           "type": "string",
           "title": "Display name",
-          "required": true
+          "x-display": "custom-vjs-template-string"
         },
         "description": {
           "type": "string",
           "title": "Description",
-          "x-display": "textarea"
+          "x-display": "custom-vjs-template-string"
         }
       },
       "allOf": [
@@ -115,44 +115,19 @@
           "properties": {
             "options": {
               "type": "object",
-              "allOf": [
-                {
-                  "properties": {
-                    "isSrcdoc": {
-                      "type": "boolean",
-                      "x-display": "switch",
-                      "title": "Use custom HTML code"
-                    }
-                  },
-                  "if": {
-                    "required": [
-                      "isSrcdoc"
-                    ],
-                    "properties": {
-                      "isSrcdoc": {
-                        "const": true
-                      }
-                    }
-                  },
-                  "then": {
-                    "properties": {
-                      "srcdoc": {
-                        "type": "string",
-                        "title": "Custom HTML code",
-                        "x-display": "textarea"
-                      }
-                    }
-                  },
-                  "else": {
-                    "properties": {
-                      "src": {
-                        "type": "string",
-                        "title": "Iframe URL"
-                      }
-                    }
-                  }
+              "properties": {
+                "isSrcdoc": {
+                  "type": "boolean",
+                  "x-display": "switch",
+                  "title": "Use custom HTML code"
+                },
+                "src": {
+                  "type": "string",
+                  "title": "Iframe URL or HTML code",
+                  "description": "A URL to load into the iframe or HTML code to display (if \"Use custom HTML code\" is enabled above)",
+                  "x-display": "custom-vjs-template-string"
                 }
-              ]
+              }
             }
           }
         },
@@ -199,14 +174,7 @@
                   "type": "string",
                   "title": "Background Image",
                   "description": "The URL of an image to use as background image.",
-                  "contentMediaType": "image/*",
-                  "x-props": {
-                    "clearable": true
-                  },
-                  "x-options": {
-                    "filesAsDataUrl": true
-                  },
-                  "writeOnly": true
+                  "x-display": "custom-vjs-template-string"
                 }
               }
             }

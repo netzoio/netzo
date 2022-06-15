@@ -2,7 +2,7 @@
   "uid": "component-image",
   "type": "component",
   "version": "1.0.0",
-  "status": "alpha",
+  "status": "stable",
   "category": "core",
   "name": "Image",
   "description": "Image component for Netzo",
@@ -32,7 +32,7 @@
     },
     {
       "rel": "repository",
-      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/components/component-image"
+      "href": "https://github.com/netzoio/netzo/tree/main/plugins/components/component-image"
     },
     {
       "rel": "readme",
@@ -40,7 +40,7 @@
     },
     {
       "rel": "license",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/LICENSE"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/LICENSE"
     }
   ],
   "form": {
@@ -103,12 +103,12 @@
         "name": {
           "type": "string",
           "title": "Display name",
-          "required": true
+          "x-display": "custom-vjs-template-string"
         },
         "description": {
           "type": "string",
           "title": "Description",
-          "x-display": "textarea"
+          "x-display": "custom-vjs-template-string"
         }
       },
       "allOf": [
@@ -119,29 +119,23 @@
             "options": {
               "type": "object",
               "properties": {
-                "imageUrl": {
+                "src": {
                   "type": "string",
-                  "title": "Image",
+                  "title": "Image URL",
                   "description": "The image to display.",
-                  "contentMediaType": "image/*",
-                  "x-props": {
-                    "clearable": true
-                  },
-                  "x-options": {
-                    "filesAsDataUrl": true
-                  },
-                  "writeOnly": true
+                  "x-display": "custom-vjs-template-string"
                 },
                 "alt": {
                   "type": "string",
-                  "title": "Image Alt Text",
+                  "title": "Image alt text",
                   "description": "Alternate text for an image, if the image cannot be displayed.",
-                  "x-display": "textarea"
+                  "x-display": "custom-vjs-template-string"
                 },
                 "href": {
                   "type": "string",
                   "title": "Link URL",
-                  "description": "The URL to redirect to on image click."
+                  "description": "The URL to redirect to on image click.",
+                  "x-display": "custom-vjs-template-string"
                 }
               }
             }
@@ -207,14 +201,7 @@
                   "type": "string",
                   "title": "Background Image",
                   "description": "The URL of an image to use as background image.",
-                  "contentMediaType": "image/*",
-                  "x-props": {
-                    "clearable": true
-                  },
-                  "x-options": {
-                    "filesAsDataUrl": true
-                  },
-                  "writeOnly": true
+                  "x-display": "custom-vjs-template-string"
                 }
               }
             }

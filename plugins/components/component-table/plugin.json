@@ -32,7 +32,7 @@
     },
     {
       "rel": "repository",
-      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/components/component-table"
+      "href": "https://github.com/netzoio/netzo/tree/main/plugins/components/component-table"
     },
     {
       "rel": "readme",
@@ -40,7 +40,7 @@
     },
     {
       "rel": "license",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/LICENSE"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/LICENSE"
     }
   ],
   "form": {
@@ -159,14 +159,7 @@
                   "type": "string",
                   "title": "Background Image",
                   "description": "The URL of an image to use as background image.",
-                  "contentMediaType": "image/*",
-                  "x-props": {
-                    "clearable": true
-                  },
-                  "x-options": {
-                    "filesAsDataUrl": true
-                  },
-                  "writeOnly": true
+                  "x-display": "custom-vjs-template-string"
                 },
                 "autoColumns": {
                   "type": "boolean",

@@ -32,7 +32,7 @@
     },
     {
       "rel": "repository",
-      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/components/component-stepper"
+      "href": "https://github.com/netzoio/netzo/tree/main/plugins/components/component-stepper"
     },
     {
       "rel": "readme",
@@ -40,7 +40,7 @@
     },
     {
       "rel": "license",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/LICENSE"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/LICENSE"
     }
   ],
   "form": {
@@ -155,20 +155,7 @@
                   "type": "string",
                   "title": "Background Image",
                   "description": "The URL of an image to use as background image.",
-                  "bgImageUrl": {
-                    "type": "string",
-                    "title": "Background Image",
-                    "description": "The URL of an image to use as background image.",
-                    "contentMediaType": "image/*",
-                    "x-options": {
-                      "filesAsDataUrl": true
-                    },
-                    "writeOnly": true
-                  },
-                  "hideButtons": {
-                    "type": "boolean",
-                    "title": "Hide Buttons"
-                  }
+                  "x-display": "custom-vjs-template-string"
                 }
               }
             }

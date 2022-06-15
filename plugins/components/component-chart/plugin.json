@@ -2,7 +2,7 @@
   "uid": "component-chart",
   "type": "component",
   "version": "1.0.0",
-  "status": "alpha",
+  "status": "requested",
   "category": "core",
   "name": "Chart",
   "description": "Chart component for Netzo",
@@ -32,7 +32,7 @@
     },
     {
       "rel": "repository",
-      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/components/component-chart"
+      "href": "https://github.com/netzoio/netzo/tree/main/plugins/components/component-chart"
     },
     {
       "rel": "readme",
@@ -40,7 +40,7 @@
     },
     {
       "rel": "license",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/LICENSE"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/LICENSE"
     }
   ],
   "form": {
@@ -157,14 +157,7 @@
                   "type": "string",
                   "title": "Background Image",
                   "description": "The URL of an image to use as background image.",
-                  "contentMediaType": "image/*",
-                  "x-props": {
-                    "clearable": true
-                  },
-                  "x-options": {
-                    "filesAsDataUrl": true
-                  },
-                  "writeOnly": true
+                  "x-display": "custom-vjs-template-string"
                 }
               }
             }
