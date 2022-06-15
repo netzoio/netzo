@@ -28,7 +28,7 @@
     },
     {
       "rel": "repository",
-      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/services/service-openapi-ergast-f1-db"
+      "href": "https://github.com/netzoio/netzo/tree/main/plugins/services/service-openapi-ergast-f1-db"
     },
     {
       "rel": "readme",
@@ -36,7 +36,7 @@
     },
     {
       "rel": "license",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/LICENSE"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/LICENSE"
     }
   ]
 }
