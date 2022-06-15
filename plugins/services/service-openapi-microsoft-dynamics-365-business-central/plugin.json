@@ -1,0 +1,42 @@
+{
+  "uid": "service-openapi-microsoft-dynamics-365-business-central",
+  "type": "service",
+  "version": "1.0.0",
+  "status": "stable",
+  "category": "enterprise",
+  "name": "microsoft-dynamics-365-business-central",
+  "description": "API for Microsoft Dynamics 365 Business Central",
+  "keywords": [
+    "microsoft",
+    "crm"
+  ],
+  "authors": [
+    "arturo.romero@netzo.io"
+  ],
+  "license": "MIT",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-microsoft-dynamics-365-business-central/src/openapi.v1.json",
+  "display": {
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-microsoft-dynamics-365-business-central/src/assets/icon.png",
+    "color": "",
+    "screenshots": []
+  },
+  "links": [
+    {
+      "rel": "author",
+      "href": "https://netzo.io",
+      "title": "Netzo"
+    },
+    {
+      "rel": "repository",
+      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/services/service-openapi-microsoft-dynamics-365-business-central.json"
+    },
+    {
+      "rel": "readme",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-microsoft-dynamics-365-business-central/README.md"
+    },
+    {
+      "rel": "license",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/LICENSE"
+    }
+  ]
+}
