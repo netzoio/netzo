@@ -2,7 +2,7 @@
   "uid": "component-joystick",
   "type": "component",
   "version": "1.0.0",
-  "status": "alpha",
+  "status": "requested",
   "category": "core",
   "name": "Joystick",
   "description": "Joystick component for Netzo",

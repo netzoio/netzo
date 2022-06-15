@@ -2,7 +2,7 @@
   "uid": "component-eventlog",
   "type": "component",
   "version": "1.0.0",
-  "status": "alpha",
+  "status": "requested",
   "category": "core",
   "name": "Eventlog",
   "description": "Eventlog component for Netzo",
