@@ -2,8 +2,8 @@
   "uid": "service-openapi-microsoft-dynamics-365-business-central",
   "type": "service",
   "version": "1.0.0",
-  "status": "requested",
-  "category": "core",
+  "status": "stable",
+  "category": "enterprise",
   "name": "microsoft-dynamics-365-business-central",
   "description": "API for Microsoft Dynamics 365 Business Central",
   "keywords": [
@@ -28,7 +28,7 @@
     },
     {
       "rel": "repository",
-      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/services/service-openapi-microsoft-dynamics-365-business-central"
+      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/services/service-openapi-microsoft-dynamics-365-business-central.json"
     },
     {
       "rel": "readme",
