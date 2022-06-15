@@ -44,7 +44,7 @@
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-google-sheets/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-hubspot/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-jsonplaceholder/plugin.json",
-  "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-microsoft-dynamics-365-business-central.json",
+  "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-microsoft-dynamics-365-business-central/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-monday/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-netilion/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-netzo/plugin.json",
