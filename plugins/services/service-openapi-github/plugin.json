@@ -2,7 +2,7 @@
   "uid": "service-openapi-github",
   "type": "service",
   "version": "1.0.0",
-  "status": "coming-soon",
+  "status": "soon",
   "category": "core",
   "name": "GitHub",
   "description": "API for GitHub",
