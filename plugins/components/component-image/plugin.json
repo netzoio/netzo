@@ -176,13 +176,13 @@
                   "type": "string",
                   "title": "Color",
                   "format": "hexcolor",
-                  "x-display": "custom-vjs-text-field-color-picker"
+                  "x-display": "custom-vjs-template-string"
                 },
                 "textColor": {
                   "type": "string",
                   "title": "Text color",
                   "format": "hexcolor",
-                  "x-display": "custom-vjs-text-field-color-picker"
+                  "x-display": "custom-vjs-template-string"
                 },
                 "imagePadding": {
                   "type": "number",

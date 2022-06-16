@@ -67,7 +67,7 @@
         "color": {
           "type": "string",
           "format": "hexcolor",
-          "x-display": "custom-vjs-text-field-color-picker"
+          "x-display": "custom-vjs-template-string"
         },
         "screenshots": {
           "type": "array",
