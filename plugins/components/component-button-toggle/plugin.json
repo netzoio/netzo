@@ -157,17 +157,20 @@
                 "colorTrue": {
                   "type": "string",
                   "title": "Color when true",
-                  "format": "hexcolor"
+                  "format": "hexcolor",
+                  "x-display": "custom-vjs-text-field-color-picker"
                 },
                 "colorFalse": {
                   "type": "string",
                   "title": "Color when false",
-                  "format": "hexcolor"
+                  "format": "hexcolor",
+                  "x-display": "custom-vjs-text-field-color-picker"
                 },
                 "color": {
                   "type": "string",
                   "title": "Color",
-                  "format": "hexcolor"
+                  "format": "hexcolor",
+                  "x-display": "custom-vjs-text-field-color-picker"
                 },
                 "bgImageUrl": {
                   "type": "string",

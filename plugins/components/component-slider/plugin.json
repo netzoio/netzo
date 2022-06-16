@@ -152,7 +152,8 @@
                 "color": {
                   "type": "string",
                   "title": "Color",
-                  "format": "hexcolor"
+                  "format": "hexcolor",
+                  "x-display": "custom-vjs-text-field-color-picker"
                 },
                 "bgImageUrl": {
                   "type": "string",

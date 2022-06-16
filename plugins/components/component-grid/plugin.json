@@ -182,18 +182,21 @@
                   "type": "string",
                   "title": "Color when true or at max",
                   "description": "Color when true for boolean values, or the maximum color in range for which to interpolate a numeric value",
-                  "format": "hexcolor"
+                  "format": "hexcolor",
+                  "x-display": "custom-vjs-text-field-color-picker"
                 },
                 "colorFalseOrMin": {
                   "type": "string",
                   "title": "Color when false or at min",
                   "description": "Color when false for boolean values, or the minimum color in range for which to interpolate a numeric value",
-                  "format": "hexcolor"
+                  "format": "hexcolor",
+                  "x-display": "custom-vjs-text-field-color-picker"
                 },
                 "color": {
                   "type": "string",
                   "title": "Color",
-                  "format": "hexcolor"
+                  "format": "hexcolor",
+                  "x-display": "custom-vjs-text-field-color-picker"
                 },
                 "bgImageUrl": {
                   "type": "string",
