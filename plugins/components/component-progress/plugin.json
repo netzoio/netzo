@@ -2,7 +2,7 @@
   "uid": "component-progress",
   "type": "component",
   "version": "1.0.0",
-  "status": "alpha",
+  "status": "stable",
   "category": "core",
   "name": "Progress",
   "description": "Progress component for Netzo",
@@ -93,12 +93,6 @@
         "uid": {
           "const": "component-progress"
         },
-        "w": {
-          "const": 3
-        },
-        "h": {
-          "const": 8
-        },
         "name": {
           "type": "string",
           "title": "Display name",
@@ -132,7 +126,15 @@
                 "type": "object",
                 "properties": {}
               },
-              "x-display": "custom-vjs-array-event-handlers"
+              "x-display": "custom-vjs-array-event-handlers",
+              "x-types": [
+                "component"
+              ],
+              "x-events": [
+                "data",
+                "click",
+                "change"
+              ]
             }
           }
         },

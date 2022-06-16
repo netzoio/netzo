@@ -94,12 +94,6 @@
         "uid": {
           "const": "component-image"
         },
-        "w": {
-          "const": 8
-        },
-        "h": {
-          "const": 12
-        },
         "name": {
           "type": "string",
           "title": "Display name",
@@ -151,7 +145,15 @@
                 "type": "object",
                 "properties": {}
               },
-              "x-display": "custom-vjs-array-event-handlers"
+              "x-display": "custom-vjs-array-event-handlers",
+              "x-types": [
+                "component"
+              ],
+              "x-events": [
+                "data",
+                "click",
+                "change"
+              ]
             }
           }
         },
