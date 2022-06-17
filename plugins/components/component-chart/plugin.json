@@ -115,7 +115,7 @@
       "allOf": [
         {
           "type": "object",
-          "title": "Event Handlers",
+          "title": "Event Handlers (soon)",
           "properties": {
             "eventHandlers": {
               "type": "array",
@@ -153,6 +153,7 @@
                 "color": {
                   "type": "string",
                   "title": "Color",
+                  "description": "A color in hexadecimal format (e.g. #0080ff). Must start with a '#'.",
                   "format": "hexcolor",
                   "x-display": "custom-vjs-template-string"
                 },

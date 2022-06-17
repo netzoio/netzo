@@ -101,7 +101,7 @@
       "allOf": [
         {
           "type": "object",
-          "title": "Event Handlers",
+          "title": "Event Handlers (soon)",
           "properties": {
             "eventHandlers": {
               "type": "array",

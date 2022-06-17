@@ -139,7 +139,7 @@
       "allOf": [
         {
           "type": "object",
-          "title": "Event Handlers",
+          "title": "Event Handlers (soon)",
           "properties": {
             "eventHandlers": {
               "type": "array",
@@ -182,6 +182,7 @@
                   "type": "string",
                   "title": "Color when true or at max",
                   "description": "Color when true for boolean values, or the maximum color in range for which to interpolate a numeric value",
+                  "description": "A color in hexadecimal format (e.g. #0080ff). Must start with a '#'.",
                   "format": "hexcolor",
                   "x-display": "custom-vjs-template-string"
                 },
@@ -189,12 +190,14 @@
                   "type": "string",
                   "title": "Color when false or at min",
                   "description": "Color when false for boolean values, or the minimum color in range for which to interpolate a numeric value",
+                  "description": "A color in hexadecimal format (e.g. #0080ff). Must start with a '#'.",
                   "format": "hexcolor",
                   "x-display": "custom-vjs-template-string"
                 },
                 "color": {
                   "type": "string",
                   "title": "Color",
+                  "description": "A color in hexadecimal format (e.g. #0080ff). Must start with a '#'.",
                   "format": "hexcolor",
                   "x-display": "custom-vjs-template-string"
                 },
