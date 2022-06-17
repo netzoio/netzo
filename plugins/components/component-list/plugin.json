@@ -102,11 +102,20 @@
           "type": "string",
           "title": "Items",
           "description": "The items to display in the list",
-          "enum": [
-            "groups",
-            "services",
-            "dashboards"
-          ]
+          "oneOf": [
+            {
+              "const": "groups",
+              "title": "Groups"
+            },
+            {
+              "const": "services",
+              "title": "Services"
+            },
+            {
+              "const": "dashboards",
+              "title": "Dashboards"
+            }
+          ],
         }
       },
       "allOf": [
