@@ -50,6 +50,7 @@
       "h": 18,
       "name": "",
       "description": "",
+      "items": "services",
       "eventHandlers": [],
       "display": {
         "transparent": false,
@@ -96,6 +97,16 @@
           "type": "string",
           "title": "Description",
           "x-display": "custom-vjs-template-string"
+        },
+        "items": {
+          "type": "string",
+          "title": "Items",
+          "description": "The items to display in the list",
+          "enum": [
+            "groups",
+            "services",
+            "dashboards"
+          ]
         }
       },
       "allOf": [
