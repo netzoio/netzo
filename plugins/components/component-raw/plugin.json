@@ -2,7 +2,7 @@
   "uid": "component-raw",
   "type": "component",
   "version": "1.0.0",
-  "status": "alpha",
+  "status": "stable",
   "category": "core",
   "name": "Raw",
   "description": "Raw component for Netzo",

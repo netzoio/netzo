@@ -2,7 +2,7 @@
   "uid": "component-slider",
   "type": "component",
   "version": "1.0.0",
-  "status": "alpha",
+  "status": "stable",
   "category": "core",
   "name": "Slider",
   "description": "Slider component for Netzo",

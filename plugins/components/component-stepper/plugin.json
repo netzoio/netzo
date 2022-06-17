@@ -2,7 +2,7 @@
   "uid": "component-stepper",
   "type": "component",
   "version": "1.0.0",
-  "status": "alpha",
+  "status": "stable",
   "category": "core",
   "name": "Stepper",
   "description": "Stepper component for Netzo",
