@@ -106,7 +106,7 @@
         "value": {
           "type": "string",
           "title": "Value",
-          "description": "Component expects variable with <strong>integer or number</strong> value.",
+          "description": "Component expects variable with <strong>integer or number</strong> value or an <strong>array of integer or number</strong> values.",
           "x-display": "custom-vjs-template-string",
           "x-schema": {},
           "x-types": [
