@@ -2,7 +2,7 @@
   "uid": "component-table",
   "type": "component",
   "version": "1.0.0",
-  "status": "alpha",
+  "status": "stable",
   "category": "core",
   "name": "Table",
   "description": "Table component for Netzo",
@@ -105,7 +105,7 @@
         "value": {
           "type": "string",
           "title": "Value",
-          "description": "Component expects variable with <strong>array or object</strong> value.",
+          "description": "Component expects variable with <strong>array of objects</strong> value.",
           "x-display": "custom-vjs-template-string",
           "x-schema": {},
           "x-types": [

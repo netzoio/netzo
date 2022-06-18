@@ -2,7 +2,7 @@
   "uid": "component-button-toggle",
   "type": "component",
   "version": "1.0.0",
-  "status": "alpha",
+  "status": "stable",
   "category": "core",
   "name": "Toggle Button",
   "description": "Toggle Button component for Netzo",

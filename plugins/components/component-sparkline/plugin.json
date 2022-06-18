@@ -2,7 +2,7 @@
   "uid": "component-sparkline",
   "type": "component",
   "version": "1.0.0",
-  "status": "alpha",
+  "status": "stable",
   "category": "core",
   "name": "Sparkline",
   "description": "Sparkline component for Netzo",
