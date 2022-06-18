@@ -186,62 +186,62 @@
                     {
                       "const": "area",
                       "title": "Area",
-                      "icon": "area-chart"
+                      "icon": "mdi-chart-areaspline"
                     },
                     {
                       "const": "bar",
                       "title": "Bar",
-                      "icon": "bar-chart"
+                      "icon": "mdi-chart-bar"
                     },
                     {
                       "const": "candlestick",
                       "title": "Candlestick",
-                      "icon": "candlestick-chart"
+                      "icon": "mdi-chart-waterfall"
                     },
                     {
                       "const": "heatmap",
                       "title": "Heat Map",
-                      "icon": "heatmap-chart"
+                      "icon": "mdi-land-plots"
                     },
                     {
                       "const": "treemap",
                       "title": "Tree Map",
-                      "icon": "treemap-chart"
+                      "icon": "mdi-chart-tree"
                     },
                     {
                       "const": "donut",
                       "title": "Donut",
-                      "icon": "donut-chart"
+                      "icon": "mdi-chart-donut"
                     },
                     {
                       "const": "line",
                       "title": "Line",
-                      "icon": "line-chart"
+                      "icon": "mdi-chart-line"
                     },
                     {
                       "const": "pie",
                       "title": "Pie",
-                      "icon": "pie-chart"
+                      "icon": "mdi-chart-pie"
                     },
                     {
                       "const": "rangebar",
                       "title": "Range Bar",
-                      "icon": "rangebar-chart"
+                      "icon": "mdi-chart-bar"
                     },
                     {
                       "const": "radialbar",
                       "title": "Radial Bar",
-                      "icon": "radialbar-chart"
+                      "icon": "mdi-chart-bar-stacked"
                     },
                     {
                       "const": "treemap",
                       "title": "Tree Map",
-                      "icon": "treemap-chart"
+                      "icon": "mdi-chart-tree"
                     },
                     {
                       "const": "radar",
                       "title": "Radar",
-                      "icon": "radar-chart"
+                      "icon": "mdi-chart-arc"
                     }
                   ]
                 }
