@@ -50,7 +50,7 @@
       "h": 12,
       "name": "",
       "description": "",
-      "value": [],
+      "series": [],
       "eventHandlers": [],
       "display": {
         "transparent": false,
@@ -104,7 +104,7 @@
       "allOf": [
         {
           "type": "object",
-          "title": "Data Series",
+          "title": "Series",
           "properties": {
             "series": {
               "type": "array",
