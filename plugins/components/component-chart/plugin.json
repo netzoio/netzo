@@ -140,38 +140,6 @@
         },
         {
           "type": "object",
-          "title": "Display",
-          "properties": {
-            "display": {
-              "type": "object",
-              "properties": {
-                "transparent": {
-                  "type": "boolean",
-                  "title": "Transparent"
-                },
-                "hideToolbar": {
-                  "type": "boolean",
-                  "title": "Hide Toolbar"
-                },
-                "color": {
-                  "type": "string",
-                  "title": "Color",
-                  "description": "A color in hexadecimal format (e.g. #0080ff). Must start with a '#'.",
-                  "format": "hexcolor",
-                  "x-display": "custom-vjs-template-string"
-                },
-                "bgImageUrl": {
-                  "type": "string",
-                  "title": "Background Image",
-                  "description": "The URL of an image to use as background image.",
-                  "x-display": "custom-vjs-template-string"
-                }
-              }
-            }
-          }
-        },
-        {
-          "type": "object",
           "title": "Options",
           "properties": {
             "options": {
@@ -244,6 +212,38 @@
                       "icon": "mdi-chart-arc"
                     }
                   ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "title": "Display",
+          "properties": {
+            "display": {
+              "type": "object",
+              "properties": {
+                "transparent": {
+                  "type": "boolean",
+                  "title": "Transparent"
+                },
+                "hideToolbar": {
+                  "type": "boolean",
+                  "title": "Hide Toolbar"
+                },
+                "color": {
+                  "type": "string",
+                  "title": "Color",
+                  "description": "A color in hexadecimal format (e.g. #0080ff). Must start with a '#'.",
+                  "format": "hexcolor",
+                  "x-display": "custom-vjs-template-string"
+                },
+                "bgImageUrl": {
+                  "type": "string",
+                  "title": "Background Image",
+                  "description": "The URL of an image to use as background image.",
+                  "x-display": "custom-vjs-template-string"
                 }
               }
             }

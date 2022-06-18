@@ -114,6 +114,21 @@
       "allOf": [
         {
           "type": "object",
+          "title": "Options",
+          "properties": {
+            "options": {
+              "type": "object",
+              "properties": {
+                "transparent": {
+                  "type": "integer",
+                  "title": "Step"
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
           "title": "Event Handlers (soon)",
           "properties": {
             "eventHandlers": {
@@ -169,21 +184,6 @@
                 "hideButtons": {
                   "type": "boolean",
                   "title": "Hide Buttons"
-                }
-              }
-            }
-          }
-        },
-        {
-          "type": "object",
-          "title": "Options",
-          "properties": {
-            "options": {
-              "type": "object",
-              "properties": {
-                "transparent": {
-                  "type": "integer",
-                  "title": "Step"
                 }
               }
             }
