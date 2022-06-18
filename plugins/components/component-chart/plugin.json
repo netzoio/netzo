@@ -104,7 +104,7 @@
       "allOf": [
         {
           "type": "object",
-          "title": "Series",
+          "title": "Data",
           "properties": {
             "series": {
               "type": "array",
