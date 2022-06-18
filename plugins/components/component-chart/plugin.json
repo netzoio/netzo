@@ -2,7 +2,7 @@
   "uid": "component-chart",
   "type": "component",
   "version": "1.0.0",
-  "status": "requested",
+  "status": "stable",
   "category": "core",
   "name": "Chart",
   "description": "Chart component for Netzo",
