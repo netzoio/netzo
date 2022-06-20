@@ -2,7 +2,7 @@
   "uid": "service-openapi-google-sheets",
   "type": "service",
   "version": "1.0.0",
-  "status": "alpha",
+  "status": "requested",
   "category": "core",
   "name": "Google Sheets",
   "description": "API for Google Sheets",
