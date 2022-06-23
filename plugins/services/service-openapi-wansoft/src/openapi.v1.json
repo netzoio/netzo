@@ -1,0 +1,1396 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "Wansoft SOAP to REST Proxy - OpenAPI 3.0",
+        "description": "This is the Wansoft Restaurant Management proxied (SOAP-to-REST) API based on the OpenAPI 3.0 specification.  You can find out more about tyk.io at [http://tyk.io](http://tyk.io), to create your own SOAP-to-REST proxies.",
+        "termsOfService": "http://wansoft.net/",
+        "contact": {
+            "email": "soporte911@wansoft.net"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.11"
+    },
+    "servers": [
+        {
+            "url": "https://homely-wetbar-mgw.aws-euw1.cloud-ara.tyk.io/wansoft/{{subsidiaryId}}/"
+        }
+    ],
+    "security": [
+        {
+            "proxyApiKey": []
+        }
+    ],
+    "paths": {
+        "/inventories/AddInventory": {
+            "put": {
+                "summary": "Add inventory",
+                "description": "Add items into an existing inventory in a subsidiary",
+                "operationId": "putItemsInInventory",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/operationDate"
+                    },
+                    {
+                        "$ref": "#/components/parameters/warehouseCode"
+                    },
+                    {
+                        "$ref": "#/components/parameters/productCode"
+                    },
+                    {
+                        "$ref": "#/components/parameters/quantity"
+                    },
+                    {
+                        "$ref": "#/components/parameters/unitCost"
+                    },
+                    {
+                        "$ref": "#/components/parameters/date"
+                    },
+                    {
+                        "$ref": "#/components/parameters/expirationDate"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/inventories/GetDepartments": {
+            "get": {
+                "summary": "Get deaprtment",
+                "description": "Get derpartments in a subsidiary",
+                "operationId": "getDepartments",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/operationDate"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/inventories/GetInventory": {
+            "get": {
+                "summary": "Get inventory",
+                "description": "Get the current inventory in a subsidiary",
+                "operationId": "getInventory",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/inventories/GetInventoryByDepartment": {
+            "get": {
+                "summary": "Get inventory by department",
+                "description": "Get inventory by department",
+                "operationId": "getInventoryByDepartment",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/subsidiaryName"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/operationDate"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/inventories/GetInventoryByWarehouse": {
+            "get": {
+                "summary": "Get inventory by warehouse",
+                "description": "Get the current inventory in a specified warehouse",
+                "operationId": "getInventoryByWarehouse",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/operationDate"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/inventories/GetInputInventory": {
+            "get": {
+                "summary": "Get input inventory",
+                "description": "Get the input inventory on a specified date",
+                "operationId": "getInputInventory",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/operationDate"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/inventories/GetOutgoingInventory": {
+            "get": {
+                "summary": "Get outgoing inventory",
+                "description": "Get the current outgoing inventory",
+                "operationId": "getOutgoingInventory",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/operationDate"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/inventories/RemoveInventory": {
+            "delete": {
+                "summary": "Remove items from inventory",
+                "description": "Remove items from inventory",
+                "operationId": "deleteItemsFromInventory",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/operationDate"
+                    },
+                    {
+                        "$ref": "#/components/parameters/warehouseCode"
+                    },
+                    {
+                        "$ref": "#/components/parameters/productCode"
+                    },
+                    {
+                        "$ref": "#/components/parameters/quantity"
+                    },
+                    {
+                        "$ref": "#/components/parameters/date"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/inventories/GetUnitOfMeasures": {
+            "get": {
+                "summary": "Get unit of measures",
+                "description": "Get the units of measures used in a specific subsidiary",
+                "operationId": "getUnitofMeasures",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/inventories/GetWarehouses": {
+            "get": {
+                "summary": "Get warehouses",
+                "description": "Get warehouses in a subsidiary",
+                "operationId": "getWarehouses",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/operationDate"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/orders/ChangeStatusPurchaseOrder": {
+            "put": {
+                "summary": "Change the status of purchase order",
+                "description": "Change the status of a purchase order",
+                "operationId": "putStatusPurchaseOrder",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/purchaseOrderId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/status"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/orders/GetAllOrdersByDay": {
+            "get": {
+                "summary": "MGet all orders by day",
+                "description": "Get all of the generated orders on a specific date",
+                "operationId": "getAllOrdersByDay",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/operationDate"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/orders/GetOrdersByDay": {
+            "get": {
+                "summary": "Get orders by day",
+                "description": "Get orders by day",
+                "operationId": "getOrdersByDay",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/operationDate"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/orders/GetPendingPurchaseOrders": {
+            "get": {
+                "summary": "Get pending purchase orders",
+                "description": "Get pending purchase orders",
+                "operationId": "getPendingPurchaseOrders",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/operationDate"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/orders/GetPurchaseOrdersRecieved": {
+            "get": {
+                "summary": "Get purchase orders recieved",
+                "description": "Get purchase orders recieved",
+                "operationId": "getPurchaseOrdersRecieved",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/subsidiaryName"
+                    },
+                    {
+                        "$ref": "#/components/parameters/operationDate"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/products/CreateProduct": {
+            "post": {
+                "summary": "Create product",
+                "description": "Create a new product in a subsidiary",
+                "operationId": "postNewProduct",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/productName"
+                    },
+                    {
+                        "$ref": "#/components/parameters/productCode"
+                    },
+                    {
+                        "$ref": "#/components/parameters/unitOfMeasureCode"
+                    },
+                    {
+                        "$ref": "#/components/parameters/departmentCode"
+                    },
+                    {
+                        "$ref": "#/components/parameters/productTypeId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/budgetedCost"
+                    },
+                    {
+                        "$ref": "#/components/parameters/withTax"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/products/EditProduct": {
+            "patch": {
+                "summary": "Edit product",
+                "description": "Edit existing product by product code",
+                "operationId": "patchExistingProducts",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/productName"
+                    },
+                    {
+                        "$ref": "#/components/parameters/productCode"
+                    },
+                    {
+                        "$ref": "#/components/parameters/newProductCode"
+                    },
+                    {
+                        "$ref": "#/components/parameters/unitOfMeasureCode"
+                    },
+                    {
+                        "$ref": "#/components/parameters/departmentCode"
+                    },
+                    {
+                        "$ref": "#/components/parameters/productTypeId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/budgetedCost"
+                    },
+                    {
+                        "$ref": "#/components/parameters/withTax"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/products/GetProduct": {
+            "get": {
+                "summary": "Get product",
+                "description": "Get a product in  a subsidiary by product code",
+                "operationId": "getProductByCode",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/productCode"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/products/GetProducts": {
+            "get": {
+                "summary": "Get products",
+                "description": "Get the product listing in  a subsidiary",
+                "operationId": "getProducts",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/products/SavePricePresentation": {
+            "put": {
+                "summary": "Save price presentation",
+                "description": "Save the price presentation of a given product",
+                "operationId": "putPricePresentation",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/operationDate"
+                    },
+                    {
+                        "$ref": "#/components/parameters/supplierCode"
+                    },
+                    {
+                        "$ref": "#/components/parameters/productCode"
+                    },
+                    {
+                        "$ref": "#/components/parameters/presentationCode"
+                    },
+                    {
+                        "$ref": "#/components/parameters/cost"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/sales/GetDiscountsByDate": {
+            "get": {
+                "summary": "Get discounts by date",
+                "description": "Get the discounts for a specific date",
+                "operationId": "getDiscountsByDate",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/operationDate"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/sales/GetSaleByOrder": {
+            "get": {
+                "summary": "Get sale by order",
+                "description": "Get single sale by order",
+                "operationId": "getSaleByOrder",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/operationDate"
+                    },
+                    {
+                        "$ref": "#/components/parameters/order"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/sales/GetSaleDetailsWithInvoiceInfo": {
+            "get": {
+                "summary": "Get sale details with invoice info",
+                "description": "Get sale details with invoice info",
+                "operationId": "getSaleDetailsWithInvoiceInfo",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/operationDate"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/sales/GetSalesByGroup": {
+            "get": {
+                "summary": "Get sales by group",
+                "description": "Get multiple sales by group",
+                "operationId": "getSalesByGroup",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/operationDate"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid"
+                    }
+                }
+            }
+        },
+        "/sales/GetSalesByGroupType": {
+            "get": {
+                "summary": "Get sales by group type",
+                "description": "Get sales by group type in a subsidiary",
+                "operationId": "getSalesByGroupType",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/subsidiaryName"
+                    },
+                    {
+                        "$ref": "#/components/parameters/operationDate"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/sales/GetSalesByPaymentType": {
+            "get": {
+                "summary": "Get sales by payment type",
+                "description": "Get te ammount of sales transactions by payment type",
+                "operationId": "getSalesByPaymentType",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/operationDate"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/sales/GetSalesStatisticsByGroupType": {
+            "get": {
+                "summary": "Get sales statistics by group type",
+                "description": "Get sales statistics by group type",
+                "operationId": "getSalesStatisticsByGroupType",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/subsidiaryName"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/operationDate"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/stats/GetAccessControl": {
+            "get": {
+                "summary": "Get access control",
+                "description": "Get access control on a specified day",
+                "operationId": "getAccessControl",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/operationDate"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/stats/GetGlobalCashClosing": {
+            "get": {
+                "summary": "Get global cash closing",
+                "description": "Get the global cash closing for a specific date",
+                "operationId": "getGlobalCashClosing",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/operationDate"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/stats/GetCfdis": {
+            "get": {
+                "summary": "Get Cfdis",
+                "description": "Get all generated CFDIs in a subsidiary",
+                "operationId": "getCfdis",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/operationDate"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/stats/GetDebtsToPay": {
+            "get": {
+                "summary": "Get debts to pay",
+                "description": "Get debts to pay for a subsidiary",
+                "operationId": "getDebtsToPay",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/subsidiaryName"
+                    },
+                    {
+                        "$ref": "#/components/parameters/operationDate"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/stats/GetExpenses": {
+            "get": {
+                "summary": "Get expenses",
+                "description": "Get the expenses in a subsidiary",
+                "operationId": "getExpenses",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/operationDate"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/stats/GetGetinFile": {
+            "get": {
+                "summary": "Get getin file",
+                "description": "Unknown",
+                "operationId": "getGetinFile",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/subsidiaryName"
+                    },
+                    {
+                        "$ref": "#/components/parameters/operationDate"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/stats/GetIncomes": {
+            "get": {
+                "summary": "Get incomes",
+                "description": "Get incomes in a subsidiary",
+                "operationId": "getIncomes",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/operationDate"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/stats/GetPdfIncomeByDocumentId": {
+            "get": {
+                "summary": "Get PDF income by document ID",
+                "description": "Get PDF income by document ID",
+                "operationId": "getPdfIncomeByDocumentId",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/documentId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/stats/GetTotalCostByDate": {
+            "get": {
+                "summary": "Get total cost by date",
+                "description": "Get the total cost for a specific date",
+                "operationId": "getTotalCostByDate",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/subsidiaryName"
+                    },
+                    {
+                        "$ref": "#/components/parameters/operationDate"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/stats/GetTotalPurchasesByDate": {
+            "get": {
+                "summary": "Get total purchases by date",
+                "description": "Get the total number of purchases by date",
+                "operationId": "getTotalPurchasesByDate",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/subsidiaryName"
+                    },
+                    {
+                        "$ref": "#/components/parameters/operationDate"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/stats/GetTotalTransfersByDate": {
+            "get": {
+                "summary": "Get total transfers by date",
+                "description": "Get the total number of transfers by date",
+                "operationId": "getTotalTransfersByDate",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/subsidiaryName"
+                    },
+                    {
+                        "$ref": "#/components/parameters/operationDate"
+                    },
+                    {
+                        "$ref": "#/components/parameters/departmentsToIgnore"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/stats/MarkExpenseAsPaid": {
+            "put": {
+                "summary": "Mark expense as paid",
+                "description": "Mark expense as paid",
+                "operationId": "putExpenseAsPaid",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pwdWebService"
+                    },
+                    {
+                        "$ref": "#/components/parameters/documentId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "SubsidiaryId": {
+                "type": "integer",
+                "description": "The id of the subsidiary in the Wansoft system",
+                "format": "int64",
+                "example": 1021
+            },
+            "SubsidiaryName": {
+                "type": "string",
+                "description": "The name of the subsidiary in the Wansoft system"
+            },
+            "PwdWebService": {
+                "type": "string",
+                "description": "The required password to the Wansoft Web Service",
+                "example": "10asfDSk89"
+            },
+            "OperationDate": {
+                "type": "string",
+                "example": "2017-07-21T17:32:28Z"
+            },
+            "Order": {
+                "type": "string",
+                "example": 1021
+            },
+            "WarehouseCode": {
+                "type": "string",
+                "example": 1021
+            },
+            "ProductCode": {
+                "type": "string",
+                "example": 1021
+            },
+            "Quantity": {
+                "type": "string",
+                "example": 1021
+            },
+            "UnitCost": {
+                "type": "string",
+                "example": 1021
+            },
+            "Date": {
+                "type": "string",
+                "example": "2017-07-21T17:32:28Z"
+            },
+            "ExpirationDate": {
+                "type": "string",
+                "example": "2017-07-21T17:32:28Z"
+            },
+            "ProductName": {
+                "type": "string",
+                "example": "Western Burger"
+            },
+            "UnitOfMeasureCode": {
+                "type": "string",
+                "example": "Liter"
+            },
+            "DepartmentCode": {
+                "type": "string",
+                "example": "Meats"
+            },
+            "DepartmentsToIgnore": {
+                "type": "string",
+                "example": "Meats"
+            },
+            "ProductTypeId": {
+                "type": "string",
+                "example": "??"
+            },
+            "BudgetedCost": {
+                "type": "string",
+                "example": 1021
+            },
+            "WithTax": {
+                "type": "boolean",
+                "example": true
+            },
+            "NewProductCode": {
+                "type": "string",
+                "example": "BUR10"
+            },
+            "DocumentId": {
+                "type": "string",
+                "example": 20
+            },
+            "SupplierCode": {
+                "type": "string",
+                "example": 121
+            },
+            "PresentationCode": {
+                "type": "string",
+                "example": 151
+            },
+            "Cost": {
+                "type": "string",
+                "example": 1021
+            },
+            "Status": {
+                "type": "string",
+                "example": "pending"
+            },
+            "PurchaseOrderId": {
+                "type": "string",
+                "example": "OR01"
+            }
+        },
+        "parameters": {
+            "subsidiaryId": {
+                "name": "subsidiaryId",
+                "in": "path",
+                "description": "The ID of the subsidiary.",
+                "required": true,
+                "schema": {
+                    "$ref": "#/components/schemas/SubsidiaryId"
+                }
+            },
+            "subsidiaryName": {
+                "name": "subsidiaryName",
+                "in": "query",
+                "description": "The name of the subsidiary.",
+                "required": true,
+                "schema": {
+                    "$ref": "#/components/schemas/SubsidiaryName"
+                }
+            },
+            "pwdWebService": {
+                "name": "pwdWebService",
+                "in": "header",
+                "description": "The password of the Wansoft Point-of-Sale service",
+                "required": true,
+                "schema": {
+                    "$ref": "#/components/schemas/PwdWebService"
+                }
+            },
+            "operationDate": {
+                "name": "operationDate",
+                "in": "query",
+                "description": "The date of the operation.",
+                "required": true,
+                "schema": {
+                    "$ref": "#/components/schemas/OperationDate"
+                }
+            },
+            "status": {
+                "name": "status",
+                "in": "query",
+                "description": "The status of the order.",
+                "required": true,
+                "schema": {
+                    "$ref": "#/components/schemas/Status"
+                }
+            },
+            "documentId": {
+                "name": "documentId",
+                "in": "query",
+                "description": "The ID of the documet in the Wansoft system.",
+                "required": true,
+                "schema": {
+                    "$ref": "#/components/schemas/DocumentId"
+                }
+            },
+            "departmentsToIgnore": {
+                "name": "departmentsToIgnore",
+                "in": "query",
+                "description": "The departments to ignore in the operation.",
+                "required": true,
+                "schema": {
+                    "$ref": "#/components/schemas/DepartmentsToIgnore"
+                }
+            },
+            "departmentCode": {
+                "name": "departmentCode",
+                "in": "query",
+                "description": "The code of a department in a given subsidiary.",
+                "required": true,
+                "schema": {
+                    "$ref": "#/components/schemas/DepartmentCode"
+                }
+            },
+            "supplierCode": {
+                "name": "supplierCode",
+                "in": "query",
+                "description": "The code of the supplier in a given subsidiary.",
+                "required": true,
+                "schema": {
+                    "$ref": "#/components/schemas/SupplierCode"
+                }
+            },
+            "productName": {
+                "name": "productName",
+                "in": "query",
+                "description": "The name of the product in a given subsidiary.",
+                "required": true,
+                "schema": {
+                    "$ref": "#/components/schemas/ProductName"
+                }
+            },
+            "productCode": {
+                "name": "productCode",
+                "in": "query",
+                "description": "The code of the product in a given subsidiary.",
+                "required": true,
+                "schema": {
+                    "$ref": "#/components/schemas/ProductCode"
+                }
+            },
+            "newProductCode": {
+                "name": "newProductCode",
+                "in": "query",
+                "description": "The new code to be given to a product in a given subsidiary.",
+                "required": true,
+                "schema": {
+                    "$ref": "#/components/schemas/NewProductCode"
+                }
+            },
+            "presentationCode": {
+                "name": "presentationCode",
+                "in": "query",
+                "description": "The code of the product presentation in a given subsidiary.",
+                "required": true,
+                "schema": {
+                    "$ref": "#/components/schemas/PresentationCode"
+                }
+            },
+            "warehouseCode": {
+                "name": "warehouseCode",
+                "in": "query",
+                "description": "The code of the warehouse in a given subsidiary.",
+                "required": true,
+                "schema": {
+                    "$ref": "#/components/schemas/WarehouseCode"
+                }
+            },
+            "cost": {
+                "name": "cost",
+                "in": "query",
+                "description": "The cost of the item in a given subsidiary.",
+                "required": true,
+                "schema": {
+                    "$ref": "#/components/schemas/Cost"
+                }
+            },
+            "unitCost": {
+                "name": "unitCost",
+                "in": "query",
+                "description": "The unit cost of the item in a given subsidiary.",
+                "required": true,
+                "schema": {
+                    "$ref": "#/components/schemas/UnitCost"
+                }
+            },
+            "unitOfMeasureCode": {
+                "name": "unitOfMeasureCode",
+                "in": "query",
+                "description": "The unit of measure code for specified items.",
+                "required": true,
+                "schema": {
+                    "$ref": "#/components/schemas/UnitOfMeasureCode"
+                }
+            },
+            "productTypeId": {
+                "name": "productTypeId",
+                "in": "query",
+                "description": "The id of the product type in a given subsidiary.",
+                "required": true,
+                "schema": {
+                    "$ref": "#/components/schemas/ProductTypeId"
+                }
+            },
+            "budgetedCost": {
+                "name": "budgetedCost",
+                "in": "query",
+                "description": "The budgeted cost of the item being created.",
+                "required": true,
+                "schema": {
+                    "$ref": "#/components/schemas/BudgetedCost"
+                }
+            },
+            "withTax": {
+                "name": "withTax",
+                "in": "query",
+                "description": "The boolean value if the tax is included in the price.",
+                "required": true,
+                "schema": {
+                    "$ref": "#/components/schemas/WithTax"
+                }
+            },
+            "quantity": {
+                "name": "quantity",
+                "in": "query",
+                "description": "The quantity of item being added or created.",
+                "required": true,
+                "schema": {
+                    "$ref": "#/components/schemas/Quantity"
+                }
+            },
+            "date": {
+                "name": "date",
+                "in": "query",
+                "description": "The date the item is being created.",
+                "required": true,
+                "schema": {
+                    "$ref": "#/components/schemas/Date"
+                }
+            },
+            "expirationDate": {
+                "name": "expirationDate",
+                "in": "query",
+                "description": "The expiration date the item is being created.",
+                "required": true,
+                "schema": {
+                    "$ref": "#/components/schemas/ExpirationDate"
+                }
+            },
+            "order": {
+                "name": "order",
+                "in": "query",
+                "description": "The order number being queried.",
+                "required": true,
+                "schema": {
+                    "$ref": "#/components/schemas/Order"
+                }
+            },
+            "purchaseOrderId": {
+                "name": "purchaseOrderId",
+                "in": "query",
+                "description": "The purchase order id number being queried.",
+                "required": true,
+                "schema": {
+                    "$ref": "#/components/schemas/PurchaseOrderId"
+                }
+            }
+        },
+        "requestBodies": {
+            "RequestPayload": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "subsidiaryId": {
+                                    "$ref": "#/components/schemas/SubsidiaryId"
+                                },
+                                "pwdWebService": {
+                                    "$ref": "#/components/schemas/PwdWebService"
+                                },
+                                "operationDate": {
+                                    "$ref": "#/components/schemas/OperationDate"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "proxyApiKey": {
+                "type": "apiKey",
+                "name": "apiKkey",
+                "in": "header"
+            }
+        }
+    }
+}
