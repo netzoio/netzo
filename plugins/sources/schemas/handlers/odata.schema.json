@@ -1,0 +1,41 @@
+{
+    "description": "Handler for OData",
+    "additionalProperties": false,
+    "type": "object",
+    "title": "ODataHandler",
+    "properties": {
+        "baseUrl": {
+            "type": "string",
+            "description": "Base URL for OData API"
+        },
+        "metadata": {
+            "type": "string",
+            "description": "Custom $metadata File or URL"
+        },
+        "operationHeaders": {
+            "type": "object",
+            "properties": {},
+            "description": "Headers to be used with the operation requests"
+        },
+        "schemaHeaders": {
+            "type": "object",
+            "properties": {},
+            "description": "Headers to be used with the $metadata requests"
+        },
+        "batch": {
+            "type": "string",
+            "enum": [
+                "multipart",
+                "json"
+            ],
+            "description": "Enable batching (Allowed values: multipart, json)"
+        },
+        "expandNavProps": {
+            "type": "boolean",
+            "description": "Use $expand for navigation props instead of seperate HTTP requests (Default: false)"
+        }
+    },
+    "required": [
+        "baseUrl"
+    ]
+}

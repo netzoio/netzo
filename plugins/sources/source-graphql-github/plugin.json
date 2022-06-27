@@ -1,21 +1,22 @@
 {
-  "uid": "source-graphql-monday",
+  "uid": "source-graphql-github",
   "type": "source",
   "version": "1.0.0",
-  "status": "enterprise",
+  "status": "requested",
   "category": "core",
-  "name": "Monday",
-  "description": "API for Monday.com",
+  "name": "Github",
+  "description": "API for Github",
   "keywords": [
-    "crm",
-    "project-management"
+    "repository",
+    "programming",
+    "project management"
   ],
   "authors": [
     "arturo.romero@netzo.io"
   ],
   "license": "MIT",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/sources/source-graphql-monday/src/assets/icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/sources/source-graphql-github/src/assets/icon.png",
     "color": "",
     "screenshots": []
   },
@@ -27,11 +28,11 @@
     },
     {
       "rel": "repository",
-      "href": "https://github.com/netzoio/netzo/tree/main/plugins/sources/source-graphql-monday"
+      "href": "https://github.com/netzoio/netzo/tree/main/plugins/sources/source-graphql-github"
     },
     {
       "rel": "readme",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/sources/source-graphql-monday/README.md"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/sources/source-graphql-github/README.md"
     },
     {
       "rel": "license",
@@ -40,10 +41,10 @@
   ],
   "form": {
     "model": {
-      "name": "Monday.com",
+      "name": "Github",
       "handler": {
         "graphql": {
-          "endpoint": "https://api.monday.com/graphql",
+          "endpoint": "https://api.github.com/graphql",
           "operationHeaders": {
             "Authorization": "Bearer {{token}}"
           }

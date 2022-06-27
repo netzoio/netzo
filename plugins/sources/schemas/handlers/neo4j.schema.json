@@ -1,0 +1,37 @@
+{
+    "description": "Handler for Neo4j",
+    "additionalProperties": false,
+    "type": "object",
+    "title": "Neo4jHandler",
+    "properties": {
+        "url": {
+            "type": "string",
+            "description": "URL for the Neo4j Instance e.g. neo4j://localhost"
+        },
+        "username": {
+            "type": "string",
+            "description": "Username for basic authentication"
+        },
+        "password": {
+            "type": "string",
+            "description": "Password for basic authentication"
+        },
+        "alwaysIncludeRelationships": {
+            "type": "boolean",
+            "description": "Specifies whether relationships should always be included in the type definitions as [relationship](https://grandstack.io/docs/neo4j-graphql-js.html#relationship-types) types, even if the relationships do not have properties."
+        },
+        "database": {
+            "type": "string",
+            "description": "Specifies database name"
+        },
+        "typeDefs": {
+            "type": "string",
+            "description": "Provide GraphQL Type Definitions instead of inferring"
+        }
+    },
+    "required": [
+        "url",
+        "username",
+        "password"
+    ]
+}

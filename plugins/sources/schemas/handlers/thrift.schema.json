@@ -1,0 +1,57 @@
+{
+    "description": "Handler for OData",
+    "additionalProperties": false,
+    "type": "object",
+    "title": "ThriftHandler",
+    "properties": {
+        "hostName": {
+            "type": "string",
+            "description": "The name of the host to connect to."
+        },
+        "port": {
+            "type": "integer",
+            "description": "The port number to attach to on the host."
+        },
+        "path": {
+            "type": "string",
+            "description": "The path on which the Thrift service is listening. Defaults to '/thrift'."
+        },
+        "https": {
+            "type": "boolean",
+            "description": "Boolean value indicating whether to use https. Defaults to false."
+        },
+        "protocol": {
+            "type": "string",
+            "enum": [
+                "binary",
+                "compact",
+                "json"
+            ],
+            "description": "Name of the Thrift protocol type to use. Defaults to 'binary'. (Allowed values: binary, compact, json)"
+        },
+        "serviceName": {
+            "type": "string",
+            "description": "The name of your service. Used for logging."
+        },
+        "operationHeaders": {
+            "type": "object",
+            "properties": {},
+            "description": "JSON object representing the Headers to add to the runtime of the API calls"
+        },
+        "schemaHeaders": {
+            "type": "object",
+            "properties": {},
+            "description": "If you are using a remote URL endpoint to fetch your schema, you can set headers for the HTTP request to fetch your schema."
+        },
+        "idl": {
+            "type": "string",
+            "description": "Path to IDL file"
+        }
+    },
+    "required": [
+        "hostName",
+        "port",
+        "serviceName",
+        "idl"
+    ]
+}

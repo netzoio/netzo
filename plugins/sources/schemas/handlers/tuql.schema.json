@@ -1,0 +1,16 @@
+{
+    "description": "Handler for SQLite database, based on `tuql`",
+    "additionalProperties": false,
+    "type": "object",
+    "title": "TuqlHandler",
+    "properties": {
+        "db": {
+            "type": "string",
+            "description": "Pointer to your SQLite database"
+        },
+        "infile": {
+            "type": "string",
+            "description": "Path to the SQL Dump file if you want to build a in-memory database"
+        }
+    }
+}

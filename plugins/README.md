@@ -44,8 +44,8 @@ To be valid, a `plugin.json` file must validate against the [plugin.schema.json]
 
 | Property      | Type                | Requried | Description                                                                                                      |
 | ------------- | ------------------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
-| `uid`         | String              | true     | A unique ID (camel-case) prefixed by the initials of its the plugin type (`service-`, `module` or `component`)                  |
-| `type`        | String              | true     | Plugin type, one of `service`, `module` or `component`                                          |
+| `uid`         | String              | true     | A unique ID (camel-case) prefixed by the initials of its the plugin type (`service-`, `source-`, `module` or `component`)                  |
+| `type`        | String              | true     | Plugin type, one of `service`, `source`, `module` or `component`                                          |
 | `version`     | String              | true     | Plugin version in [semantic version](https://semver.org/) format                                                 |
 | `status`      | String              | true     | Marks the current development status of the plugin. One of `alpha`, `beta`, `stable`, `requested`, `deprecated`  |
 | `category`    | String              | true     | Marks the category of the plugin. One of `core`, `community`, `enterprise`                                       |

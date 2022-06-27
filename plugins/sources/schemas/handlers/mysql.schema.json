@@ -1,0 +1,72 @@
+{
+    "additionalProperties": false,
+    "type": "object",
+    "title": "MySQLHandler",
+    "properties": {
+        "host": {
+            "type": "string"
+        },
+        "port": {
+            "type": "integer"
+        },
+        "user": {
+            "type": "string"
+        },
+        "password": {
+            "type": "string"
+        },
+        "database": {
+            "type": "string"
+        },
+        "pool": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "array",
+                    "additionalItems": true
+                }
+            ],
+            "description": "Use existing `Pool` instance\nFormat: modulePath#exportName"
+        },
+        "tables": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "additionalItems": false,
+            "description": "Use specific tables for your schema"
+        },
+        "tableFields": {
+            "type": "array",
+            "items": {
+                "additionalProperties": false,
+                "type": "object",
+                "title": "TableField",
+                "properties": {
+                    "table": {
+                        "type": "string"
+                    },
+                    "fields": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "additionalItems": false
+                    }
+                },
+                "required": [
+                    "table",
+                    "fields"
+                ]
+            },
+            "additionalItems": false,
+            "description": "Use specific fields of specific tables"
+        }
+    }
+}

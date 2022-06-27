@@ -1,21 +1,21 @@
 {
-  "uid": "source-graphql-monday",
+  "uid": "source-graphql-countries",
   "type": "source",
   "version": "1.0.0",
   "status": "enterprise",
   "category": "core",
-  "name": "Monday",
-  "description": "API for Monday.com",
+  "name": "Countries",
+  "description": "API for Countries",
   "keywords": [
-    "crm",
-    "project-management"
+    "pos",
+    "restaurant-management"
   ],
   "authors": [
     "arturo.romero@netzo.io"
   ],
   "license": "MIT",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/sources/source-graphql-monday/src/assets/icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/sources/source-graphql-countries/src/assets/icon.png",
     "color": "",
     "screenshots": []
   },
@@ -27,11 +27,11 @@
     },
     {
       "rel": "repository",
-      "href": "https://github.com/netzoio/netzo/tree/main/plugins/sources/source-graphql-monday"
+      "href": "https://github.com/netzoio/netzo/tree/main/plugins/sources/source-graphql-countries"
     },
     {
       "rel": "readme",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/sources/source-graphql-monday/README.md"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/sources/source-graphql-countries/README.md"
     },
     {
       "rel": "license",
@@ -40,13 +40,10 @@
   ],
   "form": {
     "model": {
-      "name": "Monday.com",
+      "name": "Countries",
       "handler": {
         "graphql": {
-          "endpoint": "https://api.monday.com/graphql",
-          "operationHeaders": {
-            "Authorization": "Bearer {{token}}"
-          }
+          "endpoint": "https://countries.trevorblades.com/"
         }
       },
       "transforms": []

@@ -1,0 +1,133 @@
+{
+    "description": "Handler for gRPC and Protobuf schemas",
+    "additionalProperties": false,
+    "type": "object",
+    "title": "GrpcHandler",
+    "properties": {
+        "endpoint": {
+            "type": "string",
+            "description": "gRPC Endpoint"
+        },
+        "protoFilePath": {
+            "description": "gRPC Proto file that contains your protobuf schema (Any of: ProtoFilePath, String)",
+            "anyOf": [
+                {
+                    "additionalProperties": false,
+                    "type": "object",
+                    "title": "ProtoFilePath",
+                    "properties": {
+                        "file": {
+                            "type": "string"
+                        },
+                        "load": {
+                            "additionalProperties": false,
+                            "type": "object",
+                            "title": "LoadOptions",
+                            "properties": {
+                                "defaults": {
+                                    "type": "boolean"
+                                },
+                                "includeDirs": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "additionalItems": false
+                                }
+                            }
+                        }
+                    },
+                    "required": [
+                        "file"
+                    ]
+                },
+                {
+                    "type": "string"
+                }
+            ]
+        },
+        "descriptorSetFilePath": {
+            "description": "Use a binary-encoded or JSON file descriptor set file (Any of: ProtoFilePath, String)",
+            "anyOf": [
+                {
+                    "additionalProperties": false,
+                    "type": "object",
+                    "title": "ProtoFilePath",
+                    "properties": {
+                        "file": {
+                            "type": "string"
+                        },
+                        "load": {
+                            "additionalProperties": false,
+                            "type": "object",
+                            "title": "LoadOptions",
+                            "properties": {
+                                "defaults": {
+                                    "type": "boolean"
+                                },
+                                "includeDirs": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "additionalItems": false
+                                }
+                            }
+                        }
+                    },
+                    "required": [
+                        "file"
+                    ]
+                },
+                {
+                    "type": "string"
+                }
+            ]
+        },
+        "requestTimeout": {
+            "type": "integer",
+            "description": "Request timeout in milliseconds\nDefault: 200000"
+        },
+        "credentialsSsl": {
+            "description": "SSL Credentials",
+            "additionalProperties": false,
+            "type": "object",
+            "title": "GrpcCredentialsSsl",
+            "properties": {
+                "rootCA": {
+                    "type": "string"
+                },
+                "certChain": {
+                    "type": "string"
+                },
+                "privateKey": {
+                    "type": "string"
+                }
+            }
+        },
+        "useHTTPS": {
+            "type": "boolean",
+            "description": "Use https instead of http for gRPC connection"
+        },
+        "metaData": {
+            "type": "object",
+            "properties": {},
+            "description": "MetaData"
+        },
+        "useReflection": {
+            "type": "boolean",
+            "description": "Use gRPC reflection to automatically gather the connection"
+        },
+        "prefixQueryMethod": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "additionalItems": false,
+            "description": "prefix to collect Query method default: list, get"
+        }
+    },
+    "required": [
+        "endpoint"
+    ]
+}
