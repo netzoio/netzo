@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "status": "requested",
   "category": "core",
-  "name": "Github",
-  "description": "API for Github",
+  "name": "GitHub",
+  "description": "API for GitHub",
   "keywords": [
     "repository",
     "programming",
@@ -41,12 +41,16 @@
   ],
   "form": {
     "model": {
-      "name": "Github",
+      "name": "GitHub",
       "handler": {
         "graphql": {
           "endpoint": "https://api.github.com/graphql",
+          "schemaHeaders": {
+            "Authorization": "Bearer {{personalAccessToken}}",
+            "Accept": "aaplication/vnd.github.v4.idl"
+          },
           "operationHeaders": {
-            "Authorization": "Bearer {{token}}"
+            "Authorization": "Bearer {{personalAccessToken}}"
           }
         }
       },
