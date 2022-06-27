@@ -1,6 +1,6 @@
 {
-  "uid": "service-openapi-purpleair",
-  "type": "service",
+  "uid": "source-openapi-purpleair",
+  "type": "source",
   "version": "1.0.0",
   "status": "alpha",
   "category": "core",
@@ -15,9 +15,9 @@
     "arturo.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-purpleair/src/openapi.v1.json",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/sources/source-openapi-purpleair/src/openapi.v1.json",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-purpleair/src/assets/icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/sources/source-openapi-purpleair/src/assets/icon.png",
     "color": "",
     "screenshots": []
   },
@@ -29,11 +29,11 @@
     },
     {
       "rel": "repository",
-      "href": "https://github.com/netzoio/netzo/tree/main/plugins/services/service-openapi-purpleair"
+      "href": "https://github.com/netzoio/netzo/tree/main/plugins/sources/source-openapi-purpleair"
     },
     {
       "rel": "readme",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-purpleair/README.md"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/sources/source-openapi-purpleair/README.md"
     },
     {
       "rel": "license",

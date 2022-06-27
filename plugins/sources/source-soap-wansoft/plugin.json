@@ -1,23 +1,22 @@
 {
-  "uid": "service-soap-wansoft",
-  "type": "service",
+  "uid": "source-soap-wansoft",
+  "type": "source",
   "version": "1.0.0",
   "status": "alpha",
   "category": "core",
   "name": "Wansoft",
-  "description": "API for Wansoft Restuarant Management",
+  "description": "API for Wansoft Restaurant Management",
   "keywords": [
-    "air-quality",
-    "iot",
-    "internet-of-things"
+    "pos",
+    "restaurant-management"
   ],
   "authors": [
     "arturo.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-soap-wansoft/src/wsdl.v1.json",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/sources/source-soap-wansoft/src/wsdl.v1.json",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-soap-wansoft/src/assets/icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/sources/source-soap-wansoft/src/assets/icon.png",
     "color": "",
     "screenshots": []
   },
@@ -29,11 +28,11 @@
     },
     {
       "rel": "repository",
-      "href": "https://github.com/netzoio/netzo/tree/main/plugins/services/service-soap-wansoft"
+      "href": "https://github.com/netzoio/netzo/tree/main/plugins/sources/source-soap-wansoft"
     },
     {
       "rel": "readme",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-soap-wansoft/README.md"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/sources/source-soap-wansoft/README.md"
     },
     {
       "rel": "license",

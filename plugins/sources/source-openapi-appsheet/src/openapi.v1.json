@@ -88,7 +88,7 @@
                 "name": "appId",
                 "in": "path",
                 "required": true,
-                "description": "Specifies the ID of the AppSheet app. Select Manage > Integrations and expand IN: from cloud services to your app to view the App Id.",
+                "description": "Specifies the ID of the AppSheet app. Select Manage > Integrations and expand IN: from cloud sources to your app to view the App Id.",
                 "schema": {
                     "$ref": "#/components/schemas/AppId"
                 }

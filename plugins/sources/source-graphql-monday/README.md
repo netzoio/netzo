@@ -1,28 +1,26 @@
 <div align="center">
   <a href="https://netzo.io" target="_blank" >
-    <img height="50" src="https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-wansoft/src/assets/icon.png" style="margin: 12px 0px" />
+    <img height="50" src="https://raw.githubusercontent.com/netzoio/netzo/main/plugins/sources/source-graphql-monday/src/assets/icon.png" style="margin: 12px 0px" />
   </a>
 
-  <h1 style="padding: 6px 0px 24px 0px">service-openapi-wansoft</h1>
+  <h1 style="padding: 6px 0px 24px 0px">source-graphql-monday</h1>
 </div>
 
-An open-source service plugin for Wansoft Restaurant Management API.
+An open-source source plugin for Monday.com API.
 
-Wansoft is a widespread restaurant management system in Mexico. The original API is based on SOAP standards.
+Monday.com is a widespread CRM and project management system. The original API is based on GraphQL standards.
 
-You will require 3 parameters to use this plugin, your Wansoft support team is responsible for enabling the API service, this will look something like the following:
+You will require some Monday specific parameters to use this plugin, including:
 
-- subsidiaryId = "3131"
-- password = "123sad3434ca"
-- operationDate = "2020-01-01"
-
+- API key
+- board Id
 
 ### Links
 
-- [Marketplace](https://app.netzo.io/marketplace/service-openapi-wansoft)
-- [Wansoft for Developers](https://wansoft.net/public/docs/integracionerp.html)
-- [Wansoft Integration Service API Endpoints](https://www.wansoft.net/wansoft.web/API/IntegrationService.asmx)
-- [Wansoft Integration Service WDSL (SOAP Original)](https://www.wansoft.net/wansoft.web/API/IntegrationService.asmx?WSDL)
+- [Marketplace](https://app.netzo.io/marketplace/source-graphql-monday)
+- [Monday for Developers](https://api.developer.monday.com/docs)
+- [Monday API Playground](https://monday.com/developers/v2/try-it-yourself)
+- [Monday API GraphQL Schema](https://api.monday.com/v2/get_schema)
 
 <div align="center">
   <h4>© Netzo Plugin</h4>
