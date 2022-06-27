@@ -15,7 +15,7 @@
                         <s:element minOccurs="0" maxOccurs="1" name="subsidiaryName" type="s:string"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
                         <s:element minOccurs="0" maxOccurs="1" name="order" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -31,7 +31,7 @@
                     <s:sequence>
                         <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -47,7 +47,7 @@
                     <s:sequence>
                         <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -63,7 +63,7 @@
                     <s:sequence>
                         <s:element minOccurs="0" maxOccurs="1" name="subsidiaryName" type="s:string"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -79,7 +79,7 @@
                     <s:sequence>
                         <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -110,7 +110,7 @@
                     <s:sequence>
                         <s:element minOccurs="0" maxOccurs="1" name="subsidiaryName" type="s:string"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -126,7 +126,7 @@
                     <s:sequence>
                         <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -142,7 +142,7 @@
                     <s:sequence>
                         <s:element minOccurs="0" maxOccurs="1" name="subsidiaryName" type="s:string"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -158,7 +158,7 @@
                     <s:sequence>
                         <s:element minOccurs="0" maxOccurs="1" name="subsidiaryName" type="s:string"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -174,7 +174,7 @@
                     <s:sequence>
                         <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -190,7 +190,7 @@
                     <s:sequence>
                         <s:element minOccurs="0" maxOccurs="1" name="subsidiaryName" type="s:string"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -206,7 +206,7 @@
                     <s:sequence>
                         <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -222,7 +222,7 @@
                     <s:sequence>
                         <s:element minOccurs="0" maxOccurs="1" name="subsidiaryName" type="s:string"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -238,7 +238,7 @@
                     <s:sequence>
                         <s:element minOccurs="0" maxOccurs="1" name="subsidiaryName" type="s:string"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="operationdate" type="s:string"/>
                         <s:element minOccurs="0" maxOccurs="1" name="departmentsToIgnore" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
@@ -255,7 +255,7 @@
                     <s:sequence>
                         <s:element minOccurs="0" maxOccurs="1" name="subsidiaryName" type="s:string"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -271,7 +271,7 @@
                     <s:sequence>
                         <s:element minOccurs="0" maxOccurs="1" name="subsidiaryName" type="s:string"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -287,7 +287,7 @@
                     <s:sequence>
                         <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -464,7 +464,7 @@
                     <s:sequence>
                         <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -496,7 +496,7 @@
                     <s:sequence>
                         <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -528,7 +528,7 @@
                     <s:sequence>
                         <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -544,7 +544,7 @@
                     <s:sequence>
                         <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -560,7 +560,7 @@
                     <s:sequence>
                         <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -627,7 +627,7 @@
                     <s:sequence>
                         <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -643,7 +643,7 @@
                     <s:sequence>
                         <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -659,7 +659,7 @@
                     <s:sequence>
                         <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
