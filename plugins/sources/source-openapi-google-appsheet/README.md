@@ -24,8 +24,9 @@ You will also require:
 - `tableName`: You may find available tableNames by navigating to `Data`
 
 #### Important
+
 - Be sure to pass tableNames in URLencoded format, e.g `"my Table" = "my%20Table"`
-- tableNames are also case-sensitive
+- `tableNames` are also case-sensitive
 
 ### Links
 
