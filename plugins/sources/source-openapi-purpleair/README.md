@@ -6,7 +6,11 @@
   <h1 style="padding: 6px 0px 24px 0px">source-openapi-purpleair</h1>
 </div>
 
-An open-source source plugin for Purple Air IoT Sensors.
+An open-source source plugin for Purple Air Sensors.
+
+You will require a PurpleAir read-key (apiKey) to use this plugin.
+
+Once created, please add the token to the required fields.
 
 ### Links
 

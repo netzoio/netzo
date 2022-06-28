@@ -10,10 +10,12 @@ An open-source source plugin for Monday.com API.
 
 Monday.com is a widespread CRM and project management system. The original API is based on GraphQL standards.
 
-You will require some Monday specific parameters to use this plugin, including:
+During the Service configuration, you will require a Monday API key.
+If you are an Admin, you may find your accounts API key with all permissions in your admin settings --> `https://{{account}}.monday.com/admin/integrations/api`
+If you are a User/Developer, you will find your user scoped key in the developer settings --> `https://{{account}}.monday.com/apps/manage/tokens`
 
-- API key
-- board Id
+Once created, please add the token to the required fields.
+The enabled (admin or user) scopes will limit the calls and information you can retrieve through Netzo.
 
 ### Links
 

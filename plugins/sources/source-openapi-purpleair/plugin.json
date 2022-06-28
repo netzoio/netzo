@@ -47,11 +47,13 @@
           "oasFilePath": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/sources/source-openapi-purpleair/src/openapi.v1.json",
           "baseUrl": "https://api.purpleair.com/v1",
           "operationHeaders": {
-            "X-API-Key": ""
+            "X-API-Key": "{{readApiKey}}"
           }
         }
       },
-      "transforms": []
+      "transforms": {
+        "encapsulate": {}
+      }
     },
     "schema": {
       "type": "object",

@@ -40,16 +40,15 @@
   ],
   "form": {
     "model": {
-      "name": "Purple Air",
+      "name": "Wansoft",
       "handler": {
         "soap": {
-          "wsdl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/sources/source-soap-wansoft/src/wsdl.v1.xml",
-          "operationHeaders": {
-            "X-API-Key": ""
-          }
+          "wsdl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/sources/source-soap-wansoft/src/wsdl.v1.xml"
         }
       },
-      "transforms": []
+      "transforms": {
+        "encapsulate": {}
+      }
     },
     "schema": {
       "type": "object",
