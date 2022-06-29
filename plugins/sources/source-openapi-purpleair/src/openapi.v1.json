@@ -135,7 +135,7 @@
             "LocationType": {
                 "type": "string",
                 "description": "The location_type of the sensors. Possible values are 0 = Outside or 1 = Inside.",
-                "example": 1
+                "example": "0"
             },
             "ReadKeys": {
                 "type": "string",
