@@ -20,4 +20,4 @@ Streamline and grow your business with Dynamics 365 Business Central, a comprehe
   <h4>© Netzo Plugin</h4>
 </div>
 
-### Acknowledgements
+### Acknowledgments

@@ -33,4 +33,4 @@ Depending on the API calls you make you will make use of the given parameters.
   <h4>© Netzo Plugin</h4>
 </div>
 
-### Acknowledgements
+### Acknowledgments

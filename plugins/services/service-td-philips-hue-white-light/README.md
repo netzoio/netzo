@@ -172,7 +172,7 @@ SUCCESS: You have sucessfully created a username for your remote API app and can
   <h4>© Netzo Plugin</h4>
 </div>
 
-### Acknowledgements
+### Acknowledgments
 
 We following list contains resources used to create this guide.
 

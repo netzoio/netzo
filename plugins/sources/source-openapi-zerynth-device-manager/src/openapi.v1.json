@@ -1,0 +1,956 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "Zerynth Device Manager API",
+        "description": "he Zerynth Device Manager REST APIs offer access to devices, job and FOTA services, as well as workspaces and fleets. This API can be called from any application that can send an HTTPS request and receive an HTTPS response.",
+        "termsOfService": "https://www.zerynth.com/terms-license/",
+        "contact": {
+            "name": "Zerynth Helpdesk",
+            "url": "https://www.zerynth.com/contact/"
+        },
+        "license": {
+            "name": "Zerynth Software Access Conditions and License Agreement",
+            "url": "https://www.zerynth.com/terms-license/"
+        },
+        "version": "3.0.13"
+    },
+    "externalDocs": {
+        "description": "Go to Zerynth Docs",
+        "url": "https://docs.zerynth.com/latest/reference/api/zdm/"
+    },
+    "servers": [
+        {
+            "url": "https://api.zdm.zerynth.com/v3"
+        }
+    ],
+    "security": [
+        {
+            "ApiKeyAuth": []
+        }
+    ],
+    "tags": [
+        {
+            "name": "Workspaces",
+            "description": "Access to Zerynth Workspaces",
+            "externalDocs": {
+                "description": "More",
+                "url": "https://docs.zerynth.com/latest/reference/api/zdm/#workspaces"
+            }
+        },
+        {
+            "name": "Fleets",
+            "description": "Access to Zerynth Fleets",
+            "externalDocs": {
+                "description": "More",
+                "url": "https://docs.zerynth.com/latest/reference/api/zdm/#fleets"
+            }
+        },
+        {
+            "name": "Devices",
+            "description": "Access to Zerynth Devices",
+            "externalDocs": {
+                "description": "More",
+                "url": "https://docs.zerynth.com/latest/reference/api/zdm/#fleets"
+            }
+        },
+        {
+            "name": "Jobs",
+            "description": "Access to Zerynth Jobs",
+            "externalDocs": {
+                "description": "More",
+                "url": "https://docs.zerynth.com/latest/reference/api/zdm/#fleets"
+            }
+        },
+        {
+            "name": "FOTA",
+            "description": "Access to Zerynth FOTA",
+            "externalDocs": {
+                "description": "More",
+                "url": "https://docs.zerynth.com/latest/reference/api/zdm/#fleets"
+            }
+        }
+    ],
+    "paths": {
+        "/workspaces": {
+            "get": {
+                "tags": [
+                    "Workspaces"
+                ],
+                "summary": "List workspaces",
+                "description": "List all workspaces for the current account",
+                "operationId": "getWorkspaces",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Workspaces"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Workspaces"
+                ],
+                "summary": "Create workspace",
+                "description": "Create a new workspace",
+                "operationId": "createWorkspace",
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/Workspace"
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Workspaces"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/workspaces/{workspace_id}": {
+            "get": {
+                "tags": [
+                    "Workspaces"
+                ],
+                "summary": "Get workspace",
+                "description": "Get information about the specified workspace",
+                "operationId": "getWorkspaceById",
+                "parameters": [
+                    {
+                        "name": "workspace_id",
+                        "in": "path",
+                        "description": "Workspace ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Workspace"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/workspaces/{workspace_id}/fleets": {
+            "get": {
+                "tags": [
+                    "Fleets"
+                ],
+                "summary": "List fleets",
+                "description": "List all fleets in the specified workspace",
+                "operationId": "getFleets",
+                "parameters": [
+                    {
+                        "name": "workspace_id",
+                        "in": "path",
+                        "description": "Workspace ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Fleets"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Fleets"
+                ],
+                "summary": "Create fleet",
+                "description": "Create a new fleet in the specified workspace",
+                "operationId": "createFleet",
+                "parameters": [
+                    {
+                        "name": "workspace_id",
+                        "in": "path",
+                        "description": "Workspace ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/Fleet"
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Fleets"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/workspaces/{workspace_id}/fleets/{fleet_id}": {
+            "get": {
+                "tags": [
+                    "Fleets"
+                ],
+                "summary": "Get fleet",
+                "description": "Get information about the specified fleet",
+                "operationId": "getFleet",
+                "parameters": [
+                    {
+                        "name": "workspace_id",
+                        "in": "path",
+                        "description": "Workspace ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "fleet_id",
+                        "in": "path",
+                        "description": "Fleet ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Fleet"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/workspaces/{workspace_id}/devices": {
+            "get": {
+                "tags": [
+                    "Devices"
+                ],
+                "summary": "List devices",
+                "description": "List all devices in the specified workspace",
+                "operationId": "getDevices",
+                "parameters": [
+                    {
+                        "name": "workspace_id",
+                        "in": "path",
+                        "description": "Workspace ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Devices"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Devices"
+                ],
+                "summary": "Create device",
+                "description": "Create a new device in the specified workspace",
+                "operationId": "createDevice",
+                "parameters": [
+                    {
+                        "name": "workspace_id",
+                        "in": "path",
+                        "description": "Workspace ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/Device"
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Devices"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/workspaces/{workspace_id}/devices/{device_id}": {
+            "get": {
+                "tags": [
+                    "Devices"
+                ],
+                "summary": "Get device",
+                "description": "Get information about the specified device",
+                "operationId": "getDevice",
+                "parameters": [
+                    {
+                        "name": "workspace_id",
+                        "in": "path",
+                        "description": "Workspace ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "device_id",
+                        "in": "path",
+                        "description": "Device ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Device"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Devices"
+                ],
+                "summary": "Update device info",
+                "description": "Update a device name and fleet",
+                "operationId": "updateDevice",
+                "parameters": [
+                    {
+                        "name": "workspace_id",
+                        "in": "path",
+                        "description": "Workspace ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "device_id",
+                        "in": "path",
+                        "description": "Device ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/Device"
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Device"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/devices/{device_id}/jobs": {
+            "get": {
+                "tags": [
+                    "Jobs"
+                ],
+                "summary": "List jobs status",
+                "description": "Get the status of all jobs of a device",
+                "operationId": "getJobs",
+                "parameters": [
+                    {
+                        "name": "device_id",
+                        "in": "path",
+                        "description": "Device ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "The status of a job. Possible values are: pending, done. If the value is not provided it returns all jobs whose status is either pending or done",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "pending",
+                                "done"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Job"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/devices/{device_id}/jobs/{job_name}": {
+            "get": {
+                "tags": [
+                    "Jobs"
+                ],
+                "summary": "Get job status",
+                "description": "Get the status of a job of a device",
+                "operationId": "getJobByName",
+                "parameters": [
+                    {
+                        "name": "device_id",
+                        "in": "path",
+                        "description": "Device ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "job_name",
+                        "in": "path",
+                        "description": "The name of the job",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Job"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Jobs"
+                ],
+                "summary": "Schedule job",
+                "description": "Create a new job for a device",
+                "operationId": "createJob",
+                "parameters": [
+                    {
+                        "name": "device_id",
+                        "in": "path",
+                        "description": "Device ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "job_name",
+                        "in": "path",
+                        "description": "The name of the job",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "job_name",
+                        "in": "query",
+                        "description": "The fleet on which the FOTA has to be scheduled. If omitted the FOTA will be scheduled on all fleets. If you want to schedule the FOTA on multiple fleets, compose the query as follows: ?fleet={fleet_id1}&fleet={fleet_id2}&fleet=...",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Custom object associated to the job",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "example": {
+                                "type": "object",
+                                "name": "value",
+                                "properties": {
+                                    "pump": {
+                                        "type": "string",
+                                        "description": "Custom payload"
+                                    },
+                                    "fan": {
+                                        "type": "string",
+                                        "description": "Custom payload"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Job"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/devices/{device_id}/fota": {
+            "get": {
+                "tags": [
+                    "FOTA"
+                ],
+                "summary": "Get FOTA status",
+                "description": "Get the status of a FOTA",
+                "operationId": "getFotaStatus",
+                "parameters": [
+                    {
+                        "name": "device_id",
+                        "in": "path",
+                        "description": "Device ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FOTA"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/devices/{device_id}/fota/{firmware_id}/versions/{firmware_version}": {
+            "post": {
+                "tags": [
+                    "FOTA"
+                ],
+                "summary": "Schedule multiple FOTA",
+                "description": "Schedule a new FOTA for multiple fleets",
+                "operationId": "createFota",
+                "parameters": [
+                    {
+                        "name": "device_id",
+                        "in": "path",
+                        "description": "Device ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "firmware_id",
+                        "in": "path",
+                        "description": "Firmware ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "firmware_version",
+                        "in": "path",
+                        "description": "Firmware version",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "firmware_version",
+                        "in": "query",
+                        "description": "The fleet on which the FOTA has to be scheduled. If omitted the FOTA will be scheduled on all fleets. If you want to schedule the FOTA on multiple fleets, compose the query as follows: ?fleet={fleet_id1}&fleet={fleet_id2}&fleet=...",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FOTA"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Workspace": {
+                "type": "object",
+                "description": "Workspace object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Workspace ID",
+                        "example": "wks-123456789"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Workspace name",
+                        "example": "workspace name"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Workspace description",
+                        "example": "workspace description"
+                    },
+                    "account_id": {
+                        "type": "string",
+                        "description": "The ID of the current account",
+                        "example": "acc-123456789"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "description": "Fleet creation date in RFC 3339 format",
+                        "format": "date-time",
+                        "example": "2021-03-26T09:46:00.565155Z"
+                    }
+                }
+            },
+            "Workspaces": {
+                "type": "array",
+                "description": "An array of workspaces",
+                "items": {
+                    "$ref": "#/components/schemas/Workspace"
+                }
+            },
+            "Fleet": {
+                "type": "object",
+                "description": "Fleet object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Fleet ID",
+                        "example": "flt-123456789"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Fleet name",
+                        "example": "fleet name"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Fleet description",
+                        "example": "fleet description"
+                    },
+                    "account_id": {
+                        "type": "string",
+                        "description": "The ID of the current account",
+                        "example": "acc-123456789"
+                    },
+                    "workspace_id": {
+                        "type": "string",
+                        "description": "The ID of the workspace that contains the fleet",
+                        "example": "wks-123456789"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "description": "Fleet creation date in RFC 3339 format",
+                        "format": "date-time",
+                        "example": "2021-03-26T09:46:00.565155Z"
+                    }
+                }
+            },
+            "Fleets": {
+                "type": "array",
+                "description": "An array of fleets",
+                "items": {
+                    "$ref": "#/components/schemas/Fleet"
+                }
+            },
+            "Device": {
+                "type": "object",
+                "description": "Device object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Device ID",
+                        "example": "dev-123456789"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Device name",
+                        "example": "device name"
+                    },
+                    "account_id": {
+                        "type": "string",
+                        "description": "The ID of the current account",
+                        "example": "acc-123456789"
+                    },
+                    "fleet_id": {
+                        "type": "string",
+                        "description": "The ID of the fleet that contains the device",
+                        "example": "flt-123456789"
+                    },
+                    "fleet_name": {
+                        "type": "string",
+                        "description": "The name of the fleet that contains the device",
+                        "example": "fleet name"
+                    },
+                    "workspace_id": {
+                        "type": "string",
+                        "description": "The ID of the workspace that contains the fleet",
+                        "example": "wks-123456789"
+                    },
+                    "workspace": {
+                        "type": "string",
+                        "description": "The name of the workspace that contains the device",
+                        "example": "fleet name"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "description": "Fleet creation date in RFC 3339 format",
+                        "format": "date-time",
+                        "example": "2021-03-26T09:46:00.565155Z"
+                    },
+                    "phys_id": {
+                        "type": "string",
+                        "description": "Physical device ID",
+                        "example": "devkit"
+                    },
+                    "identities": {
+                        "type": "object",
+                        "description": "The identitites associated to the device",
+                        "example": "null"
+                    }
+                }
+            },
+            "Devices": {
+                "type": "array",
+                "description": "An array of devices",
+                "items": {
+                    "$ref": "#/components/schemas/Device"
+                }
+            },
+            "Job": {
+                "type": "object",
+                "description": "Job object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the job",
+                        "example": "jobOne"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "The status of the job",
+                        "example": "pending"
+                    },
+                    "scheduled_at": {
+                        "type": "string",
+                        "description": "The date of the job scheduling in RFC 3339 format",
+                        "format": "date-time",
+                        "example": "2021-03-26T09:46:00.565155Z"
+                    },
+                    "value": {
+                        "type": "object",
+                        "description": "An object that contains the arguments of the job",
+                        "example": {
+                            "pump": "off"
+                        }
+                    }
+                }
+            },
+            "Jobs": {
+                "type": "array",
+                "description": "A jobs array",
+                "items": {
+                    "$ref": "#/components/schemas/Job"
+                }
+            },
+            "FOTA": {
+                "type": "object",
+                "description": "FOTA status object",
+                "properties": {
+                    "scheduled_at": {
+                        "type": "string",
+                        "description": "The date of the FOTA scheduling in RFC 3339 format",
+                        "format": "date-time",
+                        "example": "2021-03-26T09:46:00.565155Z"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "The status of the job",
+                        "example": "pending"
+                    },
+                    "value": {
+                        "type": "object",
+                        "description": "An object that contains the fw_id and the fw_version",
+                        "example": {
+                            "firmware_id": "fmw-123456789",
+                            "firmware_version": 1
+                        }
+                    }
+                }
+            }
+        },
+        "requestBodies": {
+            "Workspace": {
+                "description": "Workspace object required to create a new workspace",
+                "required": true,
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "description": "Workspace name",
+                                    "example": "workspace name"
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "description": "Workspace description",
+                                    "example": "workspace description"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "Fleet": {
+                "description": "Fleet object required to create a new workspace",
+                "required": true,
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "description": "Fleet name",
+                                    "example": "fleet name"
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "description": "Fleet description",
+                                    "example": "fleet description"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "Device": {
+                "description": "Device object required to create a new device",
+                "required": true,
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "description": "Device name",
+                                    "example": "device name"
+                                },
+                                "fleet_id": {
+                                    "type": "string",
+                                    "description": "Fleet ID of the device. If not provided, the device is added in the default fleet",
+                                    "example": "flt-123456789"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "ApiKeyAuth": {
+                "type": "apiKey",
+                "name": "X-API-KEY",
+                "in": "header"
+            }
+        }
+    }
+}

@@ -28,4 +28,4 @@ You will require 3 parameters to use this plugin, your Wansoft support team is r
   <h4>© Netzo Plugin</h4>
 </div>
 
-### Acknowledgements
+### Acknowledgments

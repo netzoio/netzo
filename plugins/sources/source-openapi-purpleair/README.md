@@ -21,4 +21,4 @@ Once created, please add the token to the required fields.
   <h4>© Netzo Plugin</h4>
 </div>
 
-### Acknowledgements
+### Acknowledgments

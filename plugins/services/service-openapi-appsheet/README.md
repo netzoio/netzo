@@ -17,4 +17,4 @@ An open-source service plugin for AppSheet apps and data tables.
   <h4>© Netzo Plugin</h4>
 </div>
 
-### Acknowledgements
+### Acknowledgments

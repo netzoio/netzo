@@ -24,4 +24,4 @@ You should be able to use the as a starting point for generating your client lib
   <h4>© Netzo Plugin</h4>
 </div>
 
-### Acknowledgements
+### Acknowledgments

@@ -21,4 +21,4 @@ The all-in-one sales platform for growing revenue
   <h4>© Netzo Plugin</h4>
 </div>
 
-### Acknowledgements
+### Acknowledgments

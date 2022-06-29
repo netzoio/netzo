@@ -28,4 +28,4 @@ The enabled (admin or user) scopes will limit the calls and information you can 
   <h4>© Netzo Plugin</h4>
 </div>
 
-### Acknowledgements
+### Acknowledgments

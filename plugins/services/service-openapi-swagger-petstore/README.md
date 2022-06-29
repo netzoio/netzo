@@ -26,4 +26,4 @@ This is a sample Pet Store Server based on the OpenAPI 3.0 specification. You ca
   <h4>© Netzo Plugin</h4>
 </div>
 
-### Acknowledgements
+### Acknowledgments

@@ -27,4 +27,4 @@ The enabled scopes will limit the calls and information you can retrieve through
   <h4>© Netzo Plugin</h4>
 </div>
 
-### Acknowledgements
+### Acknowledgments

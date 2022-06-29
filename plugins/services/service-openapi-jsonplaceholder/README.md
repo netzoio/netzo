@@ -22,4 +22,4 @@ JSONPlaceholder is a free online REST API that you can use whenever you need som
   <h4>© Netzo Plugin</h4>
 </div>
 
-### Acknowledgements
+### Acknowledgments

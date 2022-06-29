@@ -22,4 +22,4 @@ Each API request should include an OAuth 2.0 access token as Authorization heade
   <h4>© Netzo Plugin</h4>
 </div>
 
-### Acknowledgements
+### Acknowledgments

@@ -18,4 +18,4 @@ An open-source service plugin for Google Analytics.
   <h4>© Netzo Plugin</h4>
 </div>
 
-### Acknowledgements
+### Acknowledgments

@@ -35,4 +35,4 @@ To create an API key:
   <h4>© Netzo Plugin</h4>
 </div>
 
-### Acknowledgements
+### Acknowledgments

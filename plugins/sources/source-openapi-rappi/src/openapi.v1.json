@@ -1,0 +1,3605 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Restaurants Integrations Public API",
+        "version": "1.14",
+        "description": "# Overview\n\nThis API allows you to integrate with Rappi. It's main features are:\n- Receive and manage [orders](#tag/Orders).\n- Manage restaurants [menus](#tag/Menu).\n- Manage stores and items [availability](#tag/Availability).\n\n## Security\n\nThis API uses Auth0 for client authentication. You will be provided with the following key information:\n- Client Id\n- Client Secret\n- The Audience (aka: Rappi API id)\n- Rappi OAuth Auth0 endpoint\n\nThis four values must be used to get an access token. That token is later used to access secured endpoints. See [Authentication](#section/Authentication).\n\nEach client id is related to a set of stores. So using a token for a given client id only allows you to access orders, items and other resources related to that set of stores.\n\nThe relationship between client id and stores is managed by Rappi but you can choose how it will be configured. The choice will depend on how you want to handle the orders.\n\nFor example, you can choose to have only one client id. In this case, when you invoke the endpoint to get new orders, you will receive all the orders for all of your stores. Another option is to have one client id for each store. In this case, you will only get the orders of the store related to the client id.\n\n\n## Item identifiers\n\nTo integrate your POS with Rappi, you have to decide how to handle item identifiers.\n\nRappi handles two types of identifers:\n- `id`: The identifier in Rappi's system. It's assigned and managed by Rappi.\n- `sku`: A third party identifier managed by the POS.\n\nBecause of this, you have two choices regarding how to handle them:\n- You can use only `ids` and all the menu will be handled by Rappi; or\n- You can manage your own ids. In this case `skus` will be used in your system and `ids` in Rappi's. This will require to establish the relationship between `ids` and `skus`.\n\n## Stores timeouts\n\nTo reduce rejected orders, Rappi monitors if stores are being able to process them. If there is no activity from a store after a configured period of time, it will be automatically turned off, so new orders won't be received until it's manually turned on again.\n\n## Resilience\nIn order to make this API more resilient, we made use of rate limiting to control the share of resources given to different applications according to their service level agreement. \\n\\nIn case a client made too many requests within a given time frame, our endpoints can respond with HTTP status code `429: Too Many Requests` and the following response body:\n\n`{ 'message': 'Too Many Requests' }`\n",
+        "x-logo": {
+            "url": "https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/072017/untitled-1_98.png?itok=9OSsQQAz"
+        }
+    },
+    "servers": [
+        {
+            "url": "https://{domain}/api/v2/restaurants-integrations-public-api",
+            "description": "Restaurants Integrations Public API",
+            "variables": {
+                "domain": {
+                    "enum": [
+                        "microservices.dev.rappi.com",
+                        "services.rappi.com.ar",
+                        "services.rappi.com.br",
+                        "services.rappi.cl",
+                        "services.rappi.co.cr",
+                        "services.rappi.com",
+                        "services.rappi.com.ec",
+                        "services.mxgrability.rappi.com",
+                        "services.rappi.pe",
+                        "services.rappi.com.uy"
+                    ],
+                    "default": "microservices.dev.rappi.com",
+                    "description": "API domain"
+                }
+            }
+        }
+    ],
+    "paths": {
+        "/orders": {
+            "get": {
+                "tags": [
+                    "Orders"
+                ],
+                "parameters": [
+                    {
+                        "name": "storeId",
+                        "description": "Gets orders from a specific store\n\nThis storeId must be the integration Id obtained in the endpoint / stores-pa",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "query",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/PAOrder"
+                                    }
+                                }
+                            }
+                        },
+                        "description": "Success"
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/StoreNotInAppClientException"
+                                }
+                            }
+                        },
+                        "description": "The store don't belong to the appClient of given client id"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/InvalidCredentials"
+                                }
+                            }
+                        },
+                        "description": "Invalid credentials"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/StoreNotFound"
+                                }
+                            }
+                        },
+                        "description": "Store not found"
+                    }
+                },
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "operationId": "getOrders",
+                "summary": "Get the list of new orders",
+                "description": "Return a list of new orders for the authenticated client.\n\nNew orders are those in the `READY` state. After an order is returned, it transitions to the `SENT` state, so it won't be returned by subsequent calls to this endpoint.\n\nYou must then decide what to do with each order. If the order is valid and can be processed, it must be [taken](#operation/takeOrder). Otherwise it must be [rejected](#operation/rejectOrder)."
+            }
+        },
+        "/orders/{orderId}/take/{cookingTime}": {
+            "put": {
+                "tags": [
+                    "Orders"
+                ],
+                "parameters": [
+                    {
+                        "name": "orderId",
+                        "description": "The order id",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "name": "cookingTime",
+                        "description": "The cooking time",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "in": "path",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Order successfully taken"
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                },
+                                "examples": {
+                                    "Invalid transition": {
+                                        "value": {
+                                            "message": "[ORDER 1234] Invalid transition from REJECTED to TAKEN state"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": "Invalid state transition"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/InvalidCredentials"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/OrderNotFound"
+                    }
+                },
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "operationId": "takeOrder",
+                "summary": "Take an order",
+                "description": "Notifies Rappi that an order was accepted and that the client will start preparing it.\n\nAn order can only be taken if it is in the `SENT` state and will then transition to the `TAKEN` state.\nIf desired, a cooking time (different from default) can be specified.\nWhen the order is finished, and if the `READY_FOR_PICKUP` transition is configured to be manual, you must notify Rappi that it's [ready for pickup](#operation/readyForPickup)."
+            }
+        },
+        "/orders/{orderId}/reject": {
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RejectOrderRequest"
+                            },
+                            "examples": {
+                                "Reject only with reason": {
+                                    "value": {
+                                        "reason": "The order has invalid items"
+                                    }
+                                },
+                                "Reject with reason and cancellation type": {
+                                    "value": {
+                                        "reason": "The order has invalid items",
+                                        "cancel_type": "ITEM_OUT_OF_STOCK"
+                                    }
+                                },
+                                "Reject with offending ids": {
+                                    "value": {
+                                        "reason": "Some items are not available",
+                                        "items_ids": [
+                                            "1111",
+                                            "4444",
+                                            "1234"
+                                        ]
+                                    }
+                                },
+                                "Reject with offending skus": {
+                                    "value": {
+                                        "reason": "Some items are not available",
+                                        "items_sku": [
+                                            "1111",
+                                            "4444",
+                                            "1234"
+                                        ]
+                                    }
+                                },
+                                "Reject with cancellation type and offending skus": {
+                                    "value": {
+                                        "reason": "Some items are not available",
+                                        "cancel_type": "ITEM_OUT_OF_STOCK",
+                                        "items_sku": [
+                                            "1111",
+                                            "4444",
+                                            "1234"
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Orders"
+                ],
+                "parameters": [
+                    {
+                        "examples": {
+                            "Example": {
+                                "value": "12345"
+                            }
+                        },
+                        "name": "orderId",
+                        "description": "The order id.",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Order successfully rejected"
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                },
+                                "examples": {
+                                    "Invalid transition": {
+                                        "value": {
+                                            "message": "[ORDER 1234] Invalid transition from TAKEN to REJECTED state"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": "Invalid state transition"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/InvalidCredentials"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/OrderNotFound"
+                    }
+                },
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "operationId": "rejectOrder",
+                "summary": "Reject an order",
+                "description": "Notifies Rappi that an order won't be prepared.\n\nAn order can only be rejected if it is in the `SENT` state and will then transition to the `REJECTED` state.\n\nThis endpoint must be used only to reject those orders that are invalid for some particular reason, for example, if it contains an item with a wrong price.\n\nThis endpoint **must not** be used as a way to limit the amount of orders being processed. If several orders for a given store are rejected within a short period of time, Rappi will assume there is a problem with that store, ant it will turn it off, meaning that customers won't be able to place new orders.\n\n### Offending items\n\nIf the order is being rejected because some items are invalid or not currently available, you can notify Rappi the list of those items, so they are disabled and not included in future orders.\n\nThese offending items are notified as a list of ids in the `items_ids` or `items_sku` optional body fields. See [Item identifiers](#section/Overview/Item-identifiers) for the difference between `id` and `sku`.\n\nItems disabled this way can only be enabled again manually by calling Rappi support. So it is recommended to only turn off those items that are invalid for some reason, and that need Rappi assistance to be fixed. For example, an error in a price or a topping that doesn't belong to a product.\n\nThere is another mechanism to turn on and off products which can be performed entirely by the client. This is the preferred way to manage stock. See [Availability](#tag/Availability) for more details.\n\n### Cancellation type\n\nEven if this field is optional, we highly recommend you to inform a cancellation type (`cancel_type`). By doing so, you will help us to identify issues in a better and consistent way. If you do not inform this field, the rejected order will be marked as \"UNKNOWN\", which could lead to penalties.\n\n#### Some considerations:\n\nIf the value informed for `cancel_type` is one of the following:\n\n  - ITEM_WRONG_PRICE\n  - ITEM_NOT_FOUND\n  - ITEM_OUT_OF_STOCK\n\nIt would be required to inform \"Offending items\", otherwise endpoint will return `HTTP 400 Bad Request` telling you \"Items are required for this type of cancellation\"."
+            }
+        },
+        "/orders/{orderId}/ready-for-pickup": {
+            "post": {
+                "tags": [
+                    "Orders"
+                ],
+                "parameters": [
+                    {
+                        "name": "orderId",
+                        "description": "The order id",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Order successfully updated"
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                },
+                                "examples": {
+                                    "Invalid transition": {
+                                        "value": {
+                                            "message": "[ORDER 1234] Invalid transition from REJECTED to READY_FOR_PICKUP state"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": "Invalid state transition"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/InvalidCredentials"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/OrderNotFound"
+                    }
+                },
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "operationId": "readyForPickup",
+                "summary": "Order ready for pickup",
+                "description": "Notifies Rappi that an order is ready for pickup.\n\nThis endpoint must only be used when the stores are configured to manually notify orders ready for pickup."
+            }
+        },
+        "/stores-pa": {
+            "get": {
+                "tags": [
+                    "Stores"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/StoreDto"
+                                    }
+                                },
+                                "examples": {
+                                    "Store list": {
+                                        "value": [
+                                            {
+                                                "integrationId": "111",
+                                                "rappiId": "890982",
+                                                "name": "Store 1"
+                                            },
+                                            {
+                                                "integrationId": "222",
+                                                "rappiId": "890983",
+                                                "name": "Store 2"
+                                            },
+                                            {
+                                                "integrationId": "333",
+                                                "rappiId": "890983",
+                                                "name": "Store 3"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        "description": "Success"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/InvalidCredentials"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/NotFoundAppClientIdException"
+                    }
+                },
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "operationId": "getStores",
+                "summary": "Get stores",
+                "description": "Return the list of stores for the authenticated client"
+            }
+        },
+        "/orders/{orderId}/events": {
+            "get": {
+                "tags": [
+                    "Orders"
+                ],
+                "parameters": [
+                    {
+                        "name": "orderId",
+                        "description": "The order id",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/PAOrderEventDTO"
+                                    }
+                                },
+                                "examples": {
+                                    "Events list": {
+                                        "value": [
+                                            {
+                                                "event": "canceled_with_charge",
+                                                "event_time": "2020-05-28T12:31:12.501Z",
+                                                "additional_information": {}
+                                            },
+                                            {
+                                                "event": "taken_visible_order",
+                                                "event_time": "2020-05-28T12:30:12.501Z",
+                                                "additional_information": {
+                                                    "eta_to_store": "15"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        "description": "Success"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/InvalidCredentials"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/OrderNotFound"
+                    }
+                },
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "operationId": "findOrderModifications",
+                "summary": "Get order events",
+                "description": "By polling this endpoint periodically, you will get the latest order modifications and will be able to act accordingly. For example, you can cancel an order in your system when you see that it has been canceled in Rappi, or you could control when to start preparing an order based on the time when the courier is assigned.\n\nNote that consuming these events is not mandatory to be able to process orders. Its additional information that can be used to optimize your process."
+            }
+        },
+        "/availability/stores/items": {
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/ItemAvailabilityIntegration"
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Availability"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Items successfully updated"
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        },
+                        "description": "Error updating items"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/InvalidCredentials"
+                    }
+                },
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "operationId": "switchStoreItemAvailability",
+                "summary": "Turn on/off items by sku",
+                "description": "Switch items availability according to the request body.\n\nThe request contains lists of products and toppings skus to turn on and off.\n\nSee [Item identifiers](#section/Overview/Item-identifiers) for the difference between `id` and `sku`."
+            }
+        },
+        "/availability/stores/items/rappi": {
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/ItemAvailabilityRappi"
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Availability"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Items successfully updated"
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        },
+                        "description": "Error updating items"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/InvalidCredentials"
+                    }
+                },
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "operationId": "switchStoreRappiItemAvailability",
+                "summary": "Turn on/off items by id",
+                "description": "Switch items availability according to the request body.\n\nThe request contains lists of products and toppings ids to turn on and off.\n\nSee [Item identifiers](#section/Overview/Item-identifiers) for the difference between `id` and `sku`."
+            }
+        },
+        "/token": {
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TokenRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "servers": [
+                    {
+                        "url": "https://{auth0Domain}/oauth",
+                        "description": "Auth0 server",
+                        "variables": {
+                            "auth0Domain": {
+                                "enum": [
+                                    "rests-integrations-dev.auth0.com",
+                                    "rests-integrations.auth0.com"
+                                ],
+                                "default": "rests-integrations-dev.auth0.com",
+                                "description": "Testing environment"
+                            }
+                        }
+                    }
+                ],
+                "tags": [
+                    "Token"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TokenResponse"
+                                }
+                            }
+                        },
+                        "description": "Success"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TokenErrorResponse"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    }
+                },
+                "operationId": "getToken",
+                "summary": "Get a token"
+            }
+        },
+        "/availability/stores": {
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StoreAvailability"
+                            },
+                            "examples": {
+                                "Turn on and off": {
+                                    "value": {
+                                        "turn_on": [
+                                            "2222"
+                                        ],
+                                        "turn_off": [
+                                            "333",
+                                            "444"
+                                        ]
+                                    }
+                                },
+                                "Turn on only": {
+                                    "value": {
+                                        "turn_on": [
+                                            "1111",
+                                            "2222"
+                                        ]
+                                    }
+                                },
+                                "Turn off only": {
+                                    "value": {
+                                        "turn_off": [
+                                            "333",
+                                            "444"
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Availability"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Stores successfully updated"
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        },
+                        "description": "Error updating stores"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/InvalidCredentials"
+                    }
+                },
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "operationId": "switchStoreAvailability",
+                "summary": "Turn on/off stores",
+                "description": "Switch stores availability according to the request body.\n\nThe request contains a list of stores to turn on and another list to turn off. Both lists can be empty or contain any number of stores."
+            }
+        },
+        "/menu": {
+            "get": {
+                "tags": [
+                    "Menu"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MenuResponse"
+                                }
+                            }
+                        },
+                        "description": "Success"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/InvalidCredentials"
+                    }
+                },
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "operationId": "getMenu",
+                "summary": "Get menus",
+                "description": "Get the menus for all the stores belonging to the authenticated client.\n\nThe response is a list of store menues. Each menu object contains the corresponding store id and the list of products.\n\nEach item contains the following fields:\n\n- `sku`: Item sku.\n- `name`: Item name.\n- `description`: Item description.\n- `stock`: Item stock. The possible values are AVAILABLE and UNAVAILABLE.\n- `type`: Item type. The possible values are PRODUCT and TOPPING.\n- `price`: Item price.\n- `category`: Item category. For example there could be a category for sodas or side dishes. Each category has its own id and name.\n- `imageUrl`: Item image url.\n- `children`: List of children items (could be empty).\n- `availableFrom`: Date when the Item availability starts.\n- `availableTo`: Date when the Item availability ends.\n- `rappiIds`: List of rappi Id's related to this Item.\n- `sortingPosition`: The position of this item in the entire Menu.\n- `maxLimit`: Maximum limit of times that a Topping item can be selected.\n\n\n  A category is used to group list of items. It contains the following\n      fields:\n\n\n- `id`: Category Id.\n- `name`: Category name.\n- `minQty`: Minimum quantity for this item.\n- `maxQty`: Maximum quantity for this item.\n- `sortingPosition`: The position of this item in the entire Menu."
+            },
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StoreMenu"
+                            },
+                            "examples": {
+                                "Menu": {
+                                    "value": {
+                                        "storeId": "900103361",
+                                        "items": [
+                                            {
+                                                "category": {
+                                                    "id": "2090019638",
+                                                    "maxQty": 0,
+                                                    "minQty": 0,
+                                                    "name": "Hambueguesas",
+                                                    "sortingPosition": 0
+                                                },
+                                                "children": [
+                                                    {
+                                                        "category": {
+                                                            "id": "211",
+                                                            "maxQty": 1,
+                                                            "minQty": 0,
+                                                            "name": "¿DESEAS ADICIONAR?",
+                                                            "sortingPosition": 0
+                                                        },
+                                                        "children": [],
+                                                        "name": "Papas Fritas",
+                                                        "price": 5000,
+                                                        "rappiIds": [],
+                                                        "sku": "4568",
+                                                        "stock": "AVAILABLE",
+                                                        "sortingPosition": 1,
+                                                        "maxLimit": 1,
+                                                        "type": "TOPPING"
+                                                    },
+                                                    {
+                                                        "category": {
+                                                            "id": "211",
+                                                            "maxQty": 1,
+                                                            "minQty": 0,
+                                                            "name": "¿DESEAS ADICIONAR?",
+                                                            "sortingPosition": 0
+                                                        },
+                                                        "children": [],
+                                                        "name": "Papas en casco",
+                                                        "price": 7000,
+                                                        "rappiIds": [],
+                                                        "sku": "7412",
+                                                        "stock": "AVAILABLE",
+                                                        "sortingPosition": 2,
+                                                        "maxLimit": 1,
+                                                        "type": "TOPPING"
+                                                    }
+                                                ],
+                                                "imageUrl": "http://comidaRapidas.com/images/hamburguesaPollo.jpg",
+                                                "name": "Hamburguesa de pollo",
+                                                "price": 14000,
+                                                "rappiIds": [],
+                                                "sku": "78945",
+                                                "stock": "AVAILABLE",
+                                                "sortingPosition": 0,
+                                                "type": "PRODUCT"
+                                            },
+                                            {
+                                                "category": {
+                                                    "id": "2090019639",
+                                                    "maxQty": 0,
+                                                    "minQty": 0,
+                                                    "name": "Pizzas",
+                                                    "sortingPosition": 1
+                                                },
+                                                "children": [],
+                                                "imageUrl": "http://comidaRapidas.com/images/pizzaHawaiana.jpg",
+                                                "name": "Pizza Hawaiana",
+                                                "price": 17000,
+                                                "rappiIds": [],
+                                                "sku": "36925",
+                                                "stock": "UNAVAILABLE",
+                                                "sortingPosition": 0,
+                                                "type": "PRODUCT"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Menu"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Menu updated and ready to be validated"
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        },
+                        "description": "The menu structure is invalid"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/InvalidCredentials"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                },
+                                "examples": {
+                                    "Store not found": {
+                                        "value": {
+                                            "message": "Not found store 1234"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": "Store not found"
+                    }
+                },
+                "operationId": "setStoreMenu",
+                "summary": "Create and update a menu",
+                "description": "Create or update the menu for the given store which must belong to the authenticated client.\n\nNote that if the request is successfull, it doesn't mean that the menu is accepted. It must go through a manual validation process first."
+            }
+        },
+        "/menu/approved/{storeId}": {
+            "get": {
+                "tags": [
+                    "Menu"
+                ],
+                "parameters": [
+                    {
+                        "name": "storeId",
+                        "description": "Partner Store Id (IntegrationId)",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "summary": "Get the current status of the last menu",
+                "description": "Get the current status of the last menu sent for synchronization.\n\nThe possible responses are AVAILABLE and UNAVAILABLE.\n\n"
+            }
+        },
+        "/menu/rappi/{storeId}": {
+            "get": {
+                "tags": [
+                    "Menu"
+                ],
+                "parameters": [
+                    {
+                        "name": "storeId",
+                        "description": "Partner Store Id (IntegrationId)",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SingleMenuResponse"
+                                }
+                            }
+                        },
+                        "description": "Success"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/InvalidCredentials"
+                    }
+                },
+                "summary": "Get last menu",
+                "description": "Get the last menu for the given store.\n\n\nThe response is a list of products.\n\nEach product contains the following fields:\n\n- `id`: Product Id.\n- `name`: Product name.\n- `sku`: Product sku.\n- `toppings`: List of toppings (could be empty).\n\nA topping is similar to a product but also contains a category. It contains the following fields:\n\n- `id`: Topping Id.\n- `name`: Topping name.\n- `sku`: Topping sku.\n- `category`: Category to group toppings, for example there could be a category for sodas or side dishes. Each category has its own id and name.\n\n"
+            }
+        },
+        "/webhook/{event}": {
+            "get": {
+                "tags": [
+                    "Webhooks"
+                ],
+                "parameters": [
+                    {
+                        "name": "event",
+                        "description": "Events available:\n\n- MENU_APPROVED\n- NEW_ORDER\n- ORDER_EVENT\n- ORDER_EVENT_CANCEL\n- ORDER_OTHER_EVENT",
+                        "schema": {
+                            "enum": [
+                                "NEW_ORDER",
+                                "MENU_APPROVED",
+                                "ORDER_EVENT",
+                                "ORDER_EVENT_CANCEL",
+                                "ORDER_OTHER_EVENT"
+                            ],
+                            "type": "string"
+                        },
+                        "in": "path",
+                        "required": false
+                    },
+                    {
+                        "name": "stores",
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        },
+                        "in": "query",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/WebhookConfigList"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/InvalidCredentials"
+                    },
+                    "406": {
+                        "$ref": "#/components/responses/WebhookEventNotSupportedException"
+                    }
+                },
+                "deprecated": false,
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "summary": "Get Webhook Configs",
+                "description": "Allows you to list the configured webhooks."
+            }
+        },
+        "/webhook": {
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/WebhookConfigCreateRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Webhooks"
+                ],
+                "responses": {
+                    "201": {
+                        "$ref": "#/components/responses/WebhookConfigCreateResponse"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/InvalidCredentials"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/WebhookNotFoundInStoresClientException"
+                    },
+                    "406": {
+                        "$ref": "#/components/responses/WebhookConfigExistsException"
+                    }
+                },
+                "deprecated": false,
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "summary": "create Webhook Config",
+                "description": "Create a new Webhook Config.\n\nThe list of stores is optional, but if you do not send it, you must use a single url, since this is the one that will be used for all the clientId stores."
+            }
+        },
+        "/webhook/{event}/add-stores": {
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/WebhookConfigStoreCreateRequest"
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Webhooks"
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/WebhookConfigResponse"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/InvalidCredentials"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/WebhookNotFoundInStoresClientException"
+                    },
+                    "406": {
+                        "$ref": "#/components/responses/WebhookEventNotSupportedException"
+                    }
+                },
+                "deprecated": false,
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "summary": "Add stores in Webhook Config"
+            },
+            "parameters": [
+                {
+                    "name": "event",
+                    "description": "Events available:\n\n- MENU_APPROVED\n- NEW_ORDER\n- ORDER_EVENT\n- ORDER_EVENT_CANCEL\n- ORDER_OTHER_EVENT",
+                    "schema": {
+                        "enum": [
+                            "NEW_ORDER",
+                            "MENU_APPROVED",
+                            "ORDER_EVENT",
+                            "ORDER_EVENT_CANCEL",
+                            "ORDER_OTHER_EVENT"
+                        ],
+                        "type": "string"
+                    },
+                    "in": "path",
+                    "required": true
+                }
+            ]
+        },
+        "/webhook/{event}/change-url": {
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/WebhookConfigStoreCreateRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Webhooks"
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/WebhookConfigResponse"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/InvalidCredentials"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/WebhookNotFoundInStoresClientException"
+                    },
+                    "406": {
+                        "$ref": "#/components/responses/WebhookEventNotSupportedException"
+                    }
+                },
+                "deprecated": false,
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "summary": "change url from stores in Webhook Config",
+                "description": "It is recommended to update the urls if you have registered invalid urls in the previous versions."
+            },
+            "parameters": [
+                {
+                    "name": "event",
+                    "description": "Events available:\n\n- MENU_APPROVED\n- NEW_ORDER\n- ORDER_EVENT\n- ORDER_EVENT_CANCEL\n- ORDER_OTHER_EVENT",
+                    "schema": {
+                        "enum": [
+                            "NEW_ORDER",
+                            "MENU_APPROVED",
+                            "ORDER_EVENT",
+                            "ORDER_EVENT_CANCEL",
+                            "ORDER_OTHER_EVENT"
+                        ],
+                        "type": "string"
+                    },
+                    "in": "path",
+                    "required": true
+                }
+            ]
+        },
+        "/webhook/{event}/reset-secret": {
+            "put": {
+                "tags": [
+                    "Webhooks"
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/WebhookConfigCreateResponse"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/InvalidCredentials"
+                    },
+                    "406": {
+                        "$ref": "#/components/responses/WebhookEventNotSupportedException"
+                    }
+                },
+                "deprecated": false,
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "summary": "reset and get new secret from Webhook Config"
+            },
+            "parameters": [
+                {
+                    "name": "event",
+                    "description": "Events available:\n\n- MENU_APPROVED\n- NEW_ORDER\n- ORDER_EVENT\n- ORDER_EVENT_CANCEL\n- ORDER_OTHER_EVENT",
+                    "schema": {
+                        "enum": [
+                            "NEW_ORDER",
+                            "MENU_APPROVED",
+                            "ORDER_EVENT",
+                            "ORDER_EVENT_CANCEL",
+                            "ORDER_OTHER_EVENT"
+                        ],
+                        "type": "string"
+                    },
+                    "in": "path",
+                    "required": true
+                }
+            ]
+        },
+        "/webhook/{event}/remove-stores": {
+            "delete": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/WebhookConfigRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Webhooks"
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/WebhookConfigRemoveStoreResponse"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/InvalidCredentials"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/WebhookNotFoundInStoresClientException"
+                    }
+                },
+                "deprecated": false,
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "summary": "Remove store from Webhook Config",
+                "description": "It is recommended to delete events other than the following:\n\n- MENU_APPROVED\n- NEW_ORDER\n- ORDER_EVENT\n- ORDER_EVENT_CANCEL\n- ORDER_OTHER_EVENT"
+            },
+            "parameters": [
+                {
+                    "name": "event",
+                    "description": "Events available:\n\n- MENU_APPROVED\n- NEW_ORDER\n- ORDER_EVENT\n- ORDER_EVENT_CANCEL\n- ORDER_OTHER_EVENT",
+                    "schema": {
+                        "enum": [
+                            "NEW_ORDER",
+                            "MENU_APPROVED",
+                            "ORDER_EVENT",
+                            "ORDER_EVENT_CANCEL",
+                            "ORDER_OTHER_EVENT"
+                        ],
+                        "type": "string"
+                    },
+                    "in": "path",
+                    "required": true
+                }
+            ]
+        },
+        "/webhook/{event}/change-status": {
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/WebhookConfigChangeStateRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Webhooks"
+                ],
+                "responses": {
+                    "401": {
+                        "$ref": "#/components/responses/InvalidCredentials"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/WebhookNotFoundInStoresClientException"
+                    },
+                    "406": {
+                        "$ref": "#/components/responses/WebhookEventNotSupportedException"
+                    }
+                },
+                "deprecated": false,
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "summary": "Change state store from Webhook Config"
+            },
+            "parameters": [
+                {
+                    "name": "event",
+                    "description": "Events available:\n\n- MENU_APPROVED\n- NEW_ORDER\n- ORDER_EVENT\n- ORDER_EVENT_CANCEL\n- ORDER_OTHER_EVENT",
+                    "schema": {
+                        "enum": [
+                            "NEW_ORDER",
+                            "MENU_APPROVED",
+                            "ORDER_EVENT",
+                            "ORDER_EVENT_CANCEL",
+                            "ORDER_OTHER_EVENT"
+                        ],
+                        "type": "string"
+                    },
+                    "in": "path",
+                    "required": true
+                }
+            ]
+        }
+    },
+    "components": {
+        "schemas": {
+            "Webhook": {
+                "description": "The webhook for an event",
+                "type": "object",
+                "properties": {
+                    "event": {
+                        "description": "Event type",
+                        "type": "string"
+                    },
+                    "url": {
+                        "description": "Endpoint Url",
+                        "type": "string"
+                    },
+                    "stores": {
+                        "description": "List of stores Ids",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "StoreMenu": {
+                "description": "The full menu of a store",
+                "required": [
+                    "storeId",
+                    "items"
+                ],
+                "type": "object",
+                "properties": {
+                    "storeId": {
+                        "description": "The store integration id",
+                        "type": "string"
+                    },
+                    "items": {
+                        "description": "The list of items in the menu",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/StoreMenuItem"
+                        }
+                    }
+                },
+                "example": {
+                    "items": [
+                        {
+                            "category": {
+                                "id": "2090019638",
+                                "maxQty": 0,
+                                "minQty": 0,
+                                "name": "Hambueguesas",
+                                "sortingPosition": 0
+                            },
+                            "children": [
+                                {
+                                    "category": {
+                                        "id": "211",
+                                        "maxQty": 1,
+                                        "minQty": 0,
+                                        "name": "¿DESEAS ADICIONAR?",
+                                        "sortingPosition": 0
+                                    },
+                                    "children": [],
+                                    "name": "Papas Fritas",
+                                    "price": 5000,
+                                    "rappiIds": [
+                                        "340196278"
+                                    ],
+                                    "sku": "4568",
+                                    "stock": "AVAILABLE",
+                                    "sortingPosition": 0,
+                                    "maxLimit": 1,
+                                    "type": "TOPPING"
+                                },
+                                {
+                                    "category": {
+                                        "id": "211",
+                                        "maxQty": 1,
+                                        "minQty": 0,
+                                        "name": "¿DESEAS ADICIONAR?",
+                                        "sortingPosition": 0
+                                    },
+                                    "children": [],
+                                    "name": "Papas en casco",
+                                    "price": 7000,
+                                    "rappiIds": [
+                                        "340196279"
+                                    ],
+                                    "sku": "7412",
+                                    "stock": "AVAILABLE",
+                                    "sortingPosition": 1,
+                                    "maxLimit": 1,
+                                    "type": "TOPPING"
+                                }
+                            ],
+                            "imageUrl": "http://comidaRapidas.com/images/hamburguesaPollo.jpg",
+                            "name": "Hamburguesa de pollo",
+                            "price": 14000,
+                            "rappiIds": [
+                                "340196277"
+                            ],
+                            "sku": "78945",
+                            "stock": "AVAILABLE",
+                            "sortingPosition": 0,
+                            "type": "PRODUCT"
+                        },
+                        {
+                            "category": {
+                                "id": "2090019639",
+                                "maxQty": 0,
+                                "minQty": 0,
+                                "name": "Pizzas",
+                                "sortingPosition": 1
+                            },
+                            "children": [],
+                            "imageUrl": "http://comidaRapidas.com/images/pizzaHawaiana.jpg",
+                            "name": "Pizza Hawaiana",
+                            "price": 17000,
+                            "rappiIds": [
+                                "340196280"
+                            ],
+                            "sku": "36925",
+                            "stock": "AVAILABLE",
+                            "sortingPosition": 1,
+                            "type": "PRODUCT"
+                        }
+                    ],
+                    "storeId": "900103361"
+                }
+            },
+            "StoreMenuItem": {
+                "description": "An item inside the store menu",
+                "required": [
+                    "sku",
+                    "name"
+                ],
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "description": "Item name",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Item description",
+                        "type": "string"
+                    },
+                    "sku": {
+                        "description": "Item sku",
+                        "type": "string"
+                    },
+                    "stock": {
+                        "description": "Item stock",
+                        "enum": [
+                            "available",
+                            "unavailable"
+                        ],
+                        "type": "string"
+                    },
+                    "type": {
+                        "description": "Item type",
+                        "enum": [
+                            "product",
+                            "topping"
+                        ],
+                        "type": "string"
+                    },
+                    "price": {
+                        "format": "double",
+                        "description": "Item price",
+                        "type": "number"
+                    },
+                    "category": {
+                        "$ref": "#/components/schemas/StoreMenuItemCategory",
+                        "description": "Item category"
+                    },
+                    "imageUrl": {
+                        "description": "URL of the item image",
+                        "type": "string"
+                    },
+                    "availableFrom": {
+                        "format": "date-time",
+                        "description": "Date from which the item is available",
+                        "type": "string"
+                    },
+                    "availableTo": {
+                        "format": "date-time",
+                        "description": "Date when the item stops being available",
+                        "type": "string"
+                    },
+                    "rappiIds": {
+                        "description": "Item ids in Rappi",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "sortingPosition": {
+                        "format": "int32",
+                        "description": "Position of the item inside the menu",
+                        "type": "integer"
+                    },
+                    "maxLimit": {
+                        "format": "int32",
+                        "description": "Maximum limit of times that a Topping item can be selected",
+                        "type": "integer"
+                    },
+                    "children": {
+                        "description": "Subitems",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/StoreMenuItem"
+                        }
+                    }
+                },
+                "example": {
+                    "category": {
+                        "id": "2090019638",
+                        "maxQty": 0,
+                        "minQty": 0,
+                        "name": "Hambueguesas",
+                        "sortingPosition": 0
+                    },
+                    "children": [
+                        {
+                            "category": {
+                                "id": "211",
+                                "maxQty": 1,
+                                "minQty": 0,
+                                "name": "¿DESEAS ADICIONAR?",
+                                "sortingPosition": 0
+                            },
+                            "children": [],
+                            "name": "Papas Fritas",
+                            "price": 5000,
+                            "rappiIds": [],
+                            "sku": "12345",
+                            "stock": "AVAILABLE",
+                            "sortingPosition": 1,
+                            "type": "TOPPING"
+                        },
+                        {
+                            "category": {
+                                "id": "211",
+                                "maxQty": 1,
+                                "minQty": 0,
+                                "name": "¿DESEAS ADICIONAR?",
+                                "sortingPosition": 0
+                            },
+                            "children": [],
+                            "name": "Papas en casco",
+                            "price": 7000,
+                            "rappiIds": [],
+                            "sku": "8524",
+                            "stock": "AVAILABLE",
+                            "sortingPosition": 1,
+                            "type": "TOPPING"
+                        }
+                    ],
+                    "name": "Hamburguesa de pollo",
+                    "price": 14000,
+                    "rappiIds": [],
+                    "sku": "7894",
+                    "stock": "AVAILABLE",
+                    "sortingPosition": 0,
+                    "type": "PRODUCT"
+                }
+            },
+            "StoreMenuItemCategory": {
+                "description": "A category for menu items",
+                "required": [
+                    "id",
+                    "name"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "Category id",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Category name",
+                        "type": "string"
+                    },
+                    "minQty": {
+                        "format": "int32",
+                        "description": "Minimum quantity for items in this category. Use 0 for no limit.",
+                        "type": "integer"
+                    },
+                    "maxQty": {
+                        "format": "int32",
+                        "description": "Maximum quantity for items in this category. Use 0 for no limit.",
+                        "type": "integer"
+                    },
+                    "sortingPosition": {
+                        "format": "int32",
+                        "description": "Position inside the menu",
+                        "type": "integer"
+                    }
+                },
+                "example": {
+                    "id": "2090019638",
+                    "maxQty": 0,
+                    "minQty": 0,
+                    "name": "Hambueguesas",
+                    "sortingPosition": 0
+                }
+            },
+            "PACustomer": {
+                "description": "Customer that placed the order",
+                "required": [
+                    "first_name",
+                    "last_name",
+                    "phone_number"
+                ],
+                "type": "object",
+                "properties": {
+                    "first_name": {
+                        "description": "First name",
+                        "type": "string"
+                    },
+                    "last_name": {
+                        "description": "Last name",
+                        "type": "string"
+                    },
+                    "phone_number": {
+                        "description": "Phone number",
+                        "type": "string"
+                    },
+                    "user_type": {
+                        "description": "The user type, this property will appear only if the user is considered as VIP",
+                        "enum": [
+                            "USER_VIP"
+                        ],
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "first_name": "John",
+                    "last_name": "Doe",
+                    "phone_numer": "123456",
+                    "user_type": "USER_VIP"
+                }
+            },
+            "PAItem": {
+                "description": "A single item inside the order",
+                "type": "object",
+                "properties": {
+                    "sku": {
+                        "description": "Item sku",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "Item id",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Item name",
+                        "type": "string"
+                    },
+                    "type": {
+                        "description": "Item type",
+                        "enum": [
+                            "PRODUCT",
+                            "TOPPING",
+                            "COMBO"
+                        ],
+                        "type": "string"
+                    },
+                    "comments": {
+                        "description": "Comments written by the customer",
+                        "type": "string"
+                    },
+                    "unit_price_with_discount": {
+                        "description": "Unit price minus discount",
+                        "type": "number"
+                    },
+                    "unit_price_without_discount": {
+                        "description": "Unit price without discount",
+                        "type": "number"
+                    },
+                    "percentage_discount": {
+                        "description": "Discount percentage applied to the unit price",
+                        "type": "number"
+                    },
+                    "quantity": {
+                        "description": "Item quantity",
+                        "type": "number"
+                    },
+                    "subitems": {
+                        "description": "List of subitems",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PAItem"
+                        }
+                    }
+                },
+                "example": {
+                    "sku": "111",
+                    "id": "2089918083",
+                    "name": "Ensalada Pollo y Manzana",
+                    "type": "PRODUCT",
+                    "comments": "a comment",
+                    "unit_price_with_discount": 18785,
+                    "unit_price_without_discount": 28900,
+                    "percentage_discount": 35,
+                    "quantity": 3,
+                    "subitems": [
+                        {
+                            "id": "10005260",
+                            "name": "Burrata",
+                            "unit_price_without_discount": 13500,
+                            "quantity": 1
+                        },
+                        {
+                            "id": "10005265",
+                            "name": "Albahaca Orgánica",
+                            "unit_price_without_discount": 2500,
+                            "quantity": 1
+                        }
+                    ]
+                }
+            },
+            "PAOrder": {
+                "description": "Represents an order",
+                "required": [
+                    "store",
+                    "customer",
+                    "order_detail"
+                ],
+                "type": "object",
+                "properties": {
+                    "order_detail": {
+                        "$ref": "#/components/schemas/PAOrderDetail",
+                        "description": "Order detail"
+                    },
+                    "customer": {
+                        "$ref": "#/components/schemas/PACustomer",
+                        "description": "Customer that placed the order"
+                    },
+                    "store": {
+                        "$ref": "#/components/schemas/PAStore",
+                        "description": "Store where the order is placed"
+                    }
+                },
+                "example": {
+                    "order_detail": {
+                        "order_id": "392625",
+                        "cooking_time": 10,
+                        "min_cooking_time": 5,
+                        "max_cooking_time": 20,
+                        "created_at": "2019-04-10T11:12:57.000Z",
+                        "delivery_method": "delivery",
+                        "payment_method": "cc",
+                        "billing_information": {
+                            "address": "Some street 12345",
+                            "billing_type": "Bill",
+                            "document_number": "32432342",
+                            "document_type": "DNI",
+                            "email": "client@gmail.com",
+                            "name": "client",
+                            "phone": "43333222"
+                        },
+                        "totals": {
+                            "total_products_with_discount": 204000,
+                            "total_products_without_discount": 173685,
+                            "total_other_discounts": 0,
+                            "total_order": 204180,
+                            "total_to_pay": 0,
+                            "charges": {
+                                "shipping": 50,
+                                "service_fee": 100
+                            },
+                            "other_totals": {
+                                "tip": 30,
+                                "total_rappi_pay": 0,
+                                "total_rappi_credits": 0
+                            }
+                        },
+                        "items": [
+                            {
+                                "sku": "1234",
+                                "id": "2089918083",
+                                "name": "Ensalada Pollo y Manzana",
+                                "type": "PRODUCT",
+                                "comments": "Without vinegar",
+                                "unit_price_with_discount": 18785,
+                                "unit_price_without_discount": 28900,
+                                "percentage_discount": 35,
+                                "quantity": 3,
+                                "subitems": [
+                                    {
+                                        "sku": "11",
+                                        "id": "10005260",
+                                        "name": "Burrata",
+                                        "type": "TOPPING",
+                                        "unit_price_without_discount": 13500,
+                                        "unit_price_with_discount": 13500,
+                                        "percentage_discount": 0,
+                                        "quantity": 1
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "2089918082",
+                                "name": "Ensalada Marinera",
+                                "comments": "",
+                                "unit_price_with_discount": 34900,
+                                "unit_price_without_discount": 34900,
+                                "percentage_discount": 0,
+                                "quantity": 2,
+                                "subitems": [
+                                    {
+                                        "id": "9928277",
+                                        "name": "Con Vinagreta Blanca",
+                                        "unit_price_without_discount": 0,
+                                        "unit_price_with_discount": 0,
+                                        "percentage_discount": 0,
+                                        "quantity": 1
+                                    },
+                                    {
+                                        "id": "10005257",
+                                        "name": "Ricotta",
+                                        "unit_price_without_discount": 3500,
+                                        "unit_price_with_discount": 3500,
+                                        "percentage_discount": 0,
+                                        "quantity": 1
+                                    }
+                                ]
+                            }
+                        ],
+                        "delivery_discount": {
+                            "total_percentage_discount": 100,
+                            "total_value_discount": 50
+                        }
+                    },
+                    "customer": {
+                        "first_name": "RAPPI",
+                        "last_name": "RAPPI",
+                        "phone_number": "3163535",
+                        "user_type": "USER_VIP"
+                    },
+                    "store": {
+                        "internal_id": "30000011",
+                        "external_id": "123445",
+                        "name": "Store 1"
+                    }
+                }
+            },
+            "PAOrderDetail": {
+                "description": "Order detail (items, price, delivery, etc.)",
+                "required": [
+                    "billing_information",
+                    "cooking_time",
+                    "min_cooking_time",
+                    "max_cooking_time",
+                    "created_at",
+                    "delivery_method",
+                    "items",
+                    "order_id",
+                    "totals",
+                    "payment_method",
+                    "delivery_discount"
+                ],
+                "type": "object",
+                "properties": {
+                    "order_id": {
+                        "description": "Order id",
+                        "type": "string"
+                    },
+                    "cooking_time": {
+                        "format": "int32",
+                        "description": "Time that takes to cook the order in minutes",
+                        "type": "integer"
+                    },
+                    "min_cooking_time": {
+                        "format": "int32",
+                        "description": "Time Minimum time allowed to cook the order in minutes",
+                        "type": "integer"
+                    },
+                    "max_cooking_time": {
+                        "format": "int32",
+                        "description": "Time Maximum time allowed to cook the order in minutes",
+                        "type": "integer"
+                    },
+                    "created_at": {
+                        "format": "date-time",
+                        "description": "Order creation date time",
+                        "type": "string"
+                    },
+                    "delivery_method": {
+                        "description": "Order delivery method. See [Delivery method](#section/Delivery-method) for more details",
+                        "enum": [
+                            "delivery",
+                            "marketplace",
+                            "pickup"
+                        ],
+                        "type": "string"
+                    },
+                    "payment_method": {
+                        "description": "Payment method",
+                        "enum": [
+                            "rappi_pay",
+                            "cc",
+                            "cash",
+                            "paypal",
+                            "edenred",
+                            "webpay",
+                            "masterpass",
+                            "dc",
+                            "pos_terminal",
+                            "elo",
+                            "sodexo",
+                            "vale_r",
+                            "ticket_r",
+                            "alelo",
+                            "visa_checkout",
+                            "google_pay",
+                            "apple_pay",
+                            "rappicorp",
+                            "unknown"
+                        ],
+                        "type": "string"
+                    },
+                    "billing_information": {
+                        "$ref": "#/components/schemas/PAOrderDetailBillingInformation",
+                        "description": "Customer's billing information"
+                    },
+                    "totals": {
+                        "$ref": "#/components/schemas/PAOrderDetailTotals",
+                        "description": "Order totals"
+                    },
+                    "items": {
+                        "description": "Order items",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PAItem"
+                        }
+                    },
+                    "delivery_information": {
+                        "description": "Customer's address. Only returned when the delivery method is `marketplace`.\n\nThe format depends on the country. See [Delivery method](#section/Delivery-method) for more details."
+                    },
+                    "delivery_discount": {
+                        "$ref": "#/components/schemas/deliveryDiscount",
+                        "description": "Delivery discounts from growth"
+                    }
+                },
+                "example": {
+                    "order_id": "392625",
+                    "cooking_time": 10,
+                    "min_cooking_time": 5,
+                    "max_cooking_time": 20,
+                    "created_at": "2019-04-10T11:12:57.000Z",
+                    "delivery_method": "delivery",
+                    "payment_method": "cc",
+                    "billing_information": {
+                        "address": "Some street 12345",
+                        "billing_type": "Bill",
+                        "document_number": "32432342",
+                        "document_type": "DNI",
+                        "email": "client@gmail.com",
+                        "name": "client",
+                        "phone": "43333222"
+                    },
+                    "totals": {
+                        "total_products_with_discount": 204000,
+                        "total_products_without_discount": 173685,
+                        "total_other_discounts": 0,
+                        "total_order": 204180,
+                        "total_to_pay": 0,
+                        "charges": {
+                            "shipping": 50,
+                            "service_fee": 100
+                        },
+                        "other_totals": {
+                            "tip": 30,
+                            "total_rappi_pay": 0,
+                            "total_rappi_credits": 0
+                        }
+                    },
+                    "items": [
+                        {
+                            "sku": "1234",
+                            "id": "2089918083",
+                            "name": "Ensalada Pollo y Manzana",
+                            "type": "PRODUCT",
+                            "comments": "Without vinegar",
+                            "unit_price_with_discount": 18785,
+                            "unit_price_without_discount": 28900,
+                            "percentage_discount": 35,
+                            "quantity": 3,
+                            "subitems": [
+                                {
+                                    "sku": "11",
+                                    "id": "10005260",
+                                    "name": "Burrata",
+                                    "type": "TOPPING",
+                                    "unit_price_without_discount": 13500,
+                                    "unit_price_with_discount": 13500,
+                                    "percentage_discount": 0,
+                                    "quantity": 1
+                                }
+                            ]
+                        },
+                        {
+                            "id": "2089918082",
+                            "name": "Ensalada Marinera",
+                            "comments": "",
+                            "unit_price_with_discount": 34900,
+                            "unit_price_without_discount": 34900,
+                            "percentage_discount": 0,
+                            "quantity": 2,
+                            "subitems": [
+                                {
+                                    "id": "9928277",
+                                    "name": "Con Vinagreta Blanca",
+                                    "unit_price_without_discount": 0,
+                                    "unit_price_with_discount": 0,
+                                    "percentage_discount": 0,
+                                    "quantity": 1
+                                },
+                                {
+                                    "id": "10005257",
+                                    "name": "Ricotta",
+                                    "unit_price_without_discount": 3500,
+                                    "unit_price_with_discount": 3500,
+                                    "percentage_discount": 0,
+                                    "quantity": 1
+                                }
+                            ]
+                        }
+                    ],
+                    "delivery_discount": {
+                        "total_percentage_discount": 100,
+                        "total_value_discount": 50
+                    }
+                }
+            },
+            "PAOrderDetailTotals": {
+                "description": "Order totals including discounts. See [Totals and discounts](#section/Totals-and-discounts) for more details.",
+                "required": [
+                    "charges",
+                    "other_totals",
+                    "total_order",
+                    "total_other_discounts",
+                    "total_products_with_discount",
+                    "total_products_without_discount",
+                    "total_to_pay"
+                ],
+                "type": "object",
+                "properties": {
+                    "total_products_with_discount": {
+                        "description": "Total of all products with discounts applied",
+                        "type": "number"
+                    },
+                    "total_products_without_discount": {
+                        "description": "Total of all products without discounts",
+                        "type": "number"
+                    },
+                    "total_other_discounts": {
+                        "description": "Order global discounts (not applied to individual products)",
+                        "type": "number"
+                    },
+                    "total_order": {
+                        "description": "Total amount that will be received by the restaurant.\n\nWhen delivery method is `marketplace` this field includes tip and delivery fee since they are charged by the restaurant.\n\nFor other deliver methods, this field only contains the total value of all products since tips and other fees are charged by Rappi.\n\nIn all cases this field includes the discounts assumed by the restaurant.",
+                        "type": "number"
+                    },
+                    "total_to_pay": {
+                        "description": "Total the client must pay in cash to the courier. Only applies when delivery method is `marketplace` or `pickup` and the payment method is `cash`.",
+                        "type": "number"
+                    },
+                    "charges": {
+                        "$ref": "#/components/schemas/PAOrderDetailTotalsCharges",
+                        "description": "Service charges",
+                        "additionalProperties": {
+                            "type": "number"
+                        }
+                    },
+                    "other_totals": {
+                        "$ref": "#/components/schemas/PAOrderDetailTotalsOtherTotals",
+                        "description": "Other charges included in the order",
+                        "additionalProperties": {
+                            "type": "number"
+                        }
+                    }
+                },
+                "example": {
+                    "total_products_with_discount": 500,
+                    "total_products_without_discount": 550,
+                    "total_other_discounts": 50,
+                    "total_order": 730,
+                    "total_to_pay": 680,
+                    "charges": {
+                        "shipping": 50,
+                        "service_fee": 100
+                    },
+                    "other_totals": {
+                        "tip": 30,
+                        "total_rappi_pay": 0,
+                        "total_rappi_credits": 0
+                    }
+                }
+            },
+            "PAStore": {
+                "description": "Store where the order is placed",
+                "required": [
+                    "external_id",
+                    "internal_id",
+                    "name"
+                ],
+                "type": "object",
+                "properties": {
+                    "internal_id": {
+                        "description": "Rappi id",
+                        "type": "string"
+                    },
+                    "external_id": {
+                        "description": "Integration id",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Name",
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "external_id": "12345",
+                    "internal_id": "54321",
+                    "name": "Store name"
+                }
+            },
+            "RejectOrderRequest": {
+                "description": "Request to reject an order",
+                "required": [
+                    "reason"
+                ],
+                "type": "object",
+                "properties": {
+                    "reason": {
+                        "description": "The reject reason. It's an arbitrary string used for logging and notification purposes",
+                        "type": "string"
+                    },
+                    "cancel_type": {
+                        "description": "The cancellation type.",
+                        "enum": [
+                            "ITEM_WRONG_PRICE",
+                            "ITEM_NOT_FOUND",
+                            "ITEM_OUT_OF_STOCK",
+                            "ORDER_MISSING_INFORMATION",
+                            "ORDER_MISSING_ADDRESS_INFORMATION",
+                            "ORDER_TOTAL_INCORRECT"
+                        ],
+                        "type": "string"
+                    },
+                    "items_ids": {
+                        "description": "List of offending item ids",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "items_sku": {
+                        "description": "List of offending item skus",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "example": {
+                    "reason": "Some items are not available",
+                    "items_ids": [
+                        "1111",
+                        "4444",
+                        "1234"
+                    ]
+                }
+            },
+            "StoreDto": {
+                "description": "Store data returned to the client",
+                "required": [
+                    "integrationId",
+                    "name",
+                    "rappiId"
+                ],
+                "type": "object",
+                "properties": {
+                    "rappiId": {
+                        "description": "The store id in Rappi",
+                        "type": "string"
+                    },
+                    "integrationId": {
+                        "description": "The store integration id",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "The store name",
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "integrationId": "111",
+                    "rappiId": "890982",
+                    "name": "Store 1"
+                }
+            },
+            "PAOrderEventDTO": {
+                "description": "Order event",
+                "required": [
+                    "event",
+                    "event_time"
+                ],
+                "type": "object",
+                "properties": {
+                    "event": {
+                        "description": "Event name",
+                        "type": "string"
+                    },
+                    "event_time": {
+                        "format": "date-time",
+                        "description": "Creation time",
+                        "type": "string"
+                    },
+                    "additional_information": {
+                        "description": "Additional information. The format may vary given the event type",
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "object"
+                        }
+                    }
+                },
+                "example": {
+                    "event": "taken_visible_order",
+                    "event_time": "2020-05-28T12:31:12.501Z",
+                    "additional_information": {
+                        "eta_to_store": "15"
+                    }
+                }
+            },
+            "StoreAvailability": {
+                "description": "Request to change stores availability",
+                "type": "object",
+                "properties": {
+                    "turn_on": {
+                        "description": "List of store ids to turn on",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "turn_off": {
+                        "description": "List of store ids to turn off",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "example": {
+                    "turn_on": [
+                        "1111",
+                        "2222"
+                    ],
+                    "turn_off": [
+                        "333"
+                    ]
+                }
+            },
+            "ErrorResponse": {
+                "title": "Root Type for ErrorResponse",
+                "description": "Error response body for all endpoints",
+                "required": [
+                    "message"
+                ],
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "description": "Error message",
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "message": "Error message"
+                }
+            },
+            "TokenRequest": {
+                "title": "Root Type for TokenRequest",
+                "description": "Request to get a token in Auth0 server",
+                "required": [
+                    "audience",
+                    "client_id",
+                    "client_secret",
+                    "grant_type"
+                ],
+                "type": "object",
+                "properties": {
+                    "client_id": {
+                        "description": "Client id",
+                        "type": "string"
+                    },
+                    "client_secret": {
+                        "description": "Client secret",
+                        "type": "string"
+                    },
+                    "audience": {
+                        "description": "API identifier",
+                        "type": "string"
+                    },
+                    "grant_type": {
+                        "description": "Permission requested",
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "client_id": "7iCfjZCO4bTns3OjqLK4de2GV3sp6Ymd",
+                    "client_secret": "40iFFYJV9A1LrVmJsaIeARW40iFFYJV9A1LrVmJsaIeARW40iFFYJV9A1LrVmJsaIeARW",
+                    "audience": "https://microservices.dev.rappi.com/api/v2/restaurants-integrations-public-api",
+                    "grant_type": "client_credentials"
+                }
+            },
+            "TokenResponse": {
+                "title": "Root Type for TokenResponse",
+                "description": "Successful response from the Auth0 server containing the token",
+                "required": [
+                    "access_token",
+                    "expires_in",
+                    "scope",
+                    "token_type"
+                ],
+                "type": "object",
+                "properties": {
+                    "access_token": {
+                        "description": "Token",
+                        "type": "string"
+                    },
+                    "scope": {
+                        "description": "Scope granted",
+                        "type": "string"
+                    },
+                    "expires_in": {
+                        "format": "int32",
+                        "description": "Token expiration time in seconds",
+                        "type": "integer"
+                    },
+                    "token_type": {
+                        "description": "Token type",
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpeyJhbGciOiJIUzI1NiIsInR5cCI6IkpeyJhbGciOiJIUzI1NiIsInR5cCI6Ikp",
+                    "scope": "integration:health-check",
+                    "expires_in": 86400,
+                    "token_type": "Bearer"
+                }
+            },
+            "TokenErrorResponse": {
+                "title": "Root Type for TokenErrorResponse",
+                "description": "Error response from Auth0 server",
+                "required": [
+                    "error",
+                    "error_description"
+                ],
+                "type": "object",
+                "properties": {
+                    "error": {
+                        "description": "Error type",
+                        "type": "string"
+                    },
+                    "error_description": {
+                        "description": "Error description",
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "error": "access_denied",
+                    "error_description": "Unauthorized"
+                }
+            },
+            "ItemAvailabilityRappi": {
+                "description": "Request to change items availability by ids",
+                "required": [
+                    "store_integration_id",
+                    "items"
+                ],
+                "type": "object",
+                "properties": {
+                    "store_integration_id": {
+                        "description": "The store integration id",
+                        "type": "string"
+                    },
+                    "items": {
+                        "$ref": "#/components/schemas/ItemAvailabilitySwitchRappi",
+                        "description": "The items to update"
+                    }
+                },
+                "example": {
+                    "store_integration_id": "999",
+                    "items": {
+                        "turn_on": [
+                            1111,
+                            2222,
+                            3333
+                        ],
+                        "turn_off": [
+                            5555
+                        ]
+                    }
+                }
+            },
+            "ItemAvailabilitySwitchRappi": {
+                "description": "The items to update",
+                "type": "object",
+                "properties": {
+                    "turn_on": {
+                        "description": "Item ids to turn on",
+                        "type": "array",
+                        "items": {
+                            "format": "int64",
+                            "type": "integer"
+                        }
+                    },
+                    "turn_off": {
+                        "description": "Item ids to turn off",
+                        "type": "array",
+                        "items": {
+                            "format": "int64",
+                            "type": "integer"
+                        }
+                    }
+                },
+                "example": {
+                    "turn_on": [
+                        1111,
+                        2222,
+                        3333
+                    ],
+                    "turn_off": [
+                        5555
+                    ]
+                }
+            },
+            "ItemAvailabilitySwitchIntegration": {
+                "description": "The items to update",
+                "type": "object",
+                "properties": {
+                    "turn_on": {
+                        "description": "Item skus to turn on",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "turn_off": {
+                        "description": "Item skus to turn off",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "example": {
+                    "turn_on": [
+                        "AA1111",
+                        "BB2222",
+                        "CC3333"
+                    ],
+                    "turn_off": [
+                        "DD5555"
+                    ]
+                }
+            },
+            "ItemAvailabilityIntegration": {
+                "description": "Request to change items availability by skus",
+                "required": [
+                    "store_integration_id",
+                    "items"
+                ],
+                "type": "object",
+                "properties": {
+                    "store_integration_id": {
+                        "description": "The store integration id",
+                        "type": "string"
+                    },
+                    "items": {
+                        "$ref": "#/components/schemas/ItemAvailabilitySwitchIntegration",
+                        "description": "The items to update"
+                    }
+                },
+                "example": {
+                    "store_integration_id": "999",
+                    "items": {
+                        "turn_on": [
+                            "1111",
+                            "2222",
+                            "3333"
+                        ],
+                        "turn_off": [
+                            "5555"
+                        ]
+                    }
+                }
+            },
+            "SingleMenuResponse": {
+                "title": "Root Type for SingleMenuResponse",
+                "description": "Menu of a store: a list of products",
+                "type": "object",
+                "example": [
+                    {
+                        "id": "2134986963",
+                        "name": "Anchellini",
+                        "sku": "A5691",
+                        "toppings": [
+                            {
+                                "id": "340161172",
+                                "name": "Tinta Extra",
+                                "sku": "A5692",
+                                "category": {
+                                    "id": "1247025472",
+                                    "name": "¿Deseas tinta extra? "
+                                },
+                                "price": 55.55
+                            }
+                        ],
+                        "price": 178
+                    },
+                    {
+                        "id": "2134986960",
+                        "name": "Coca de verduras con queso de cabra fundido",
+                        "sku": "A5693",
+                        "toppings": [
+                            {
+                                "id": "340161174",
+                                "name": "Queso Extra",
+                                "sku": "A5694",
+                                "category": {
+                                    "id": "1247025474",
+                                    "name": "¿Deseas queso extra? "
+                                },
+                                "price": 9.96
+                            }
+                        ],
+                        "price": 159
+                    },
+                    {
+                        "id": "2135009677",
+                        "name": "Hamburguesa de pollo",
+                        "sku": "A5695",
+                        "toppings": [
+                            {
+                                "id": "340184481",
+                                "name": "Papas en casco",
+                                "sku": "A5696",
+                                "category": {
+                                    "id": "1247032871",
+                                    "name": "¿DESEAS ADICIONAR?"
+                                },
+                                "price": 7100
+                            },
+                            {
+                                "id": "340184480",
+                                "name": "Papas Fritas",
+                                "sku": "A5697",
+                                "category": {
+                                    "id": "1247032871",
+                                    "name": "¿DESEAS ADICIONAR?"
+                                },
+                                "price": 5200
+                            }
+                        ],
+                        "price": 14000
+                    },
+                    {
+                        "id": "2134987034",
+                        "name": "Hamburguesa de pollo",
+                        "sku": "A5698",
+                        "toppings": [
+                            {
+                                "id": "340161308",
+                                "name": "Papas horneadas",
+                                "sku": "A5699",
+                                "category": {
+                                    "id": "1247025534",
+                                    "name": "¿DESEAS ADICIONAR?"
+                                },
+                                "price": 5200
+                            }
+                        ],
+                        "price": 14000
+                    },
+                    {
+                        "id": "2134986956",
+                        "name": "Jamón de bellota cortado a cuchillo",
+                        "sku": "A56910",
+                        "toppings": [],
+                        "price": 399
+                    },
+                    {
+                        "id": "2134986958",
+                        "name": "Panzerotti ",
+                        "sku": "A56911",
+                        "toppings": [
+                            {
+                                "id": "340161171",
+                                "name": "Queso Extra",
+                                "sku": "A56912",
+                                "category": {
+                                    "id": "1247025471",
+                                    "name": "¿Deseas queso extra? "
+                                },
+                                "price": 9.96
+                            }
+                        ],
+                        "price": 199
+                    },
+                    {
+                        "id": "2134987033",
+                        "name": "Pizza Hawaiana",
+                        "sku": "A56913",
+                        "toppings": [],
+                        "price": 17000
+                    },
+                    {
+                        "id": "2134986964",
+                        "name": "Pruno",
+                        "sku": "A56914",
+                        "toppings": [],
+                        "price": 279
+                    },
+                    {
+                        "id": "2134986959",
+                        "name": "Pulpo braseado con mayonessa de curry",
+                        "sku": "A56915",
+                        "toppings": [
+                            {
+                                "id": "340161173",
+                                "name": "Tinta Extra",
+                                "sku": "A56916",
+                                "category": {
+                                    "id": "1247025473",
+                                    "name": "¿Deseas tinta extra? "
+                                },
+                                "price": 99.99
+                            }
+                        ],
+                        "price": 299
+                    },
+                    {
+                        "id": "2134986961",
+                        "name": "Soufflé de avellana",
+                        "sku": "A56917",
+                        "toppings": [],
+                        "price": 269
+                    },
+                    {
+                        "id": "2134986957",
+                        "name": "Tinta Extra",
+                        "sku": "A56918",
+                        "toppings": [],
+                        "price": 99.99
+                    },
+                    {
+                        "id": "2134986962",
+                        "name": "Valero",
+                        "sku": "A56919",
+                        "toppings": [],
+                        "price": 599
+                    }
+                ]
+            },
+            "MenuResponse": {
+                "title": "Root Type for MenuResponse",
+                "description": "Collection of store menues. Each menu object contains the corresponding store id and the list of products.",
+                "type": "object",
+                "example": [
+                    {
+                        "store_id": "1111",
+                        "products": [
+                            {
+                                "id": "2134986963",
+                                "name": "Anchellini",
+                                "sku": "A5691",
+                                "toppings": [
+                                    {
+                                        "id": "340161172",
+                                        "name": "Tinta Extra",
+                                        "sku": "A5692",
+                                        "category": {
+                                            "id": "1247025472",
+                                            "name": "¿Deseas tinta extra? "
+                                        },
+                                        "price": 55.55
+                                    }
+                                ],
+                                "price": 178
+                            },
+                            {
+                                "id": "2134986960",
+                                "name": "Coca de verduras con queso de cabra fundido",
+                                "sku": "A5693",
+                                "toppings": [
+                                    {
+                                        "id": "340161174",
+                                        "name": "Queso Extra",
+                                        "sku": "A5694",
+                                        "category": {
+                                            "id": "1247025474",
+                                            "name": "¿Deseas queso extra? "
+                                        },
+                                        "price": 9.96
+                                    }
+                                ],
+                                "price": 159
+                            },
+                            {
+                                "id": "2135009677",
+                                "name": "Hamburguesa de pollo",
+                                "sku": "A5695",
+                                "toppings": [
+                                    {
+                                        "id": "340184481",
+                                        "name": "Papas en casco",
+                                        "sku": "A5696",
+                                        "category": {
+                                            "id": "1247032871",
+                                            "name": "¿DESEAS ADICIONAR?"
+                                        },
+                                        "price": 7100
+                                    },
+                                    {
+                                        "id": "340184480",
+                                        "name": "Papas Fritas",
+                                        "sku": "A5697",
+                                        "category": {
+                                            "id": "1247032871",
+                                            "name": "¿DESEAS ADICIONAR?"
+                                        },
+                                        "price": 5200
+                                    }
+                                ],
+                                "price": 14000
+                            },
+                            {
+                                "id": "2134987034",
+                                "name": "Hamburguesa de pollo",
+                                "sku": "A5698",
+                                "toppings": [
+                                    {
+                                        "id": "340161308",
+                                        "name": "Papas horneadas",
+                                        "sku": "A5699",
+                                        "category": {
+                                            "id": "1247025534",
+                                            "name": "¿DESEAS ADICIONAR?"
+                                        },
+                                        "price": 5200
+                                    }
+                                ],
+                                "price": 14000
+                            },
+                            {
+                                "id": "2134986956",
+                                "name": "Jamón de bellota cortado a cuchillo",
+                                "sku": "A56910",
+                                "toppings": [],
+                                "price": 399
+                            },
+                            {
+                                "id": "2134986958",
+                                "name": "Panzerotti ",
+                                "sku": "A56911",
+                                "toppings": [
+                                    {
+                                        "id": "340161171",
+                                        "name": "Queso Extra",
+                                        "sku": "A56912",
+                                        "category": {
+                                            "id": "1247025471",
+                                            "name": "¿Deseas queso extra? "
+                                        },
+                                        "price": 9.96
+                                    }
+                                ],
+                                "price": 199
+                            },
+                            {
+                                "id": "2134987033",
+                                "name": "Pizza Hawaiana",
+                                "sku": "A56913",
+                                "toppings": [],
+                                "price": 17000
+                            },
+                            {
+                                "id": "2134986964",
+                                "name": "Pruno",
+                                "sku": "A56914",
+                                "toppings": [],
+                                "price": 279
+                            },
+                            {
+                                "id": "2134986959",
+                                "name": "Pulpo braseado con mayonessa de curry",
+                                "sku": "A56915",
+                                "toppings": [
+                                    {
+                                        "id": "340161173",
+                                        "name": "Tinta Extra",
+                                        "sku": "A56916",
+                                        "category": {
+                                            "id": "1247025473",
+                                            "name": "¿Deseas tinta extra? "
+                                        },
+                                        "price": 99.99
+                                    }
+                                ],
+                                "price": 299
+                            },
+                            {
+                                "id": "2134986961",
+                                "name": "Soufflé de avellana",
+                                "sku": "A56917",
+                                "toppings": [],
+                                "price": 269
+                            },
+                            {
+                                "id": "2134986957",
+                                "name": "Tinta Extra",
+                                "sku": "A56918",
+                                "toppings": [],
+                                "price": 99.99
+                            },
+                            {
+                                "id": "2134986962",
+                                "name": "Valero",
+                                "sku": "A56919",
+                                "toppings": [],
+                                "price": 599
+                            }
+                        ]
+                    }
+                ]
+            },
+            "PAOrderDetailTotalsOtherTotals": {
+                "title": "Root Type for PAOrderDetailTotalsOtherTotals",
+                "description": "Other charges included in the order",
+                "required": [
+                    "tip",
+                    "total_rappi_credits",
+                    "total_rappi_pay"
+                ],
+                "type": "object",
+                "properties": {
+                    "tip": {
+                        "format": "int32",
+                        "description": "Courier tip",
+                        "type": "integer"
+                    },
+                    "total_rappi_pay": {
+                        "format": "int32",
+                        "description": "Total paid with Rappi Pay",
+                        "type": "integer"
+                    },
+                    "total_rappi_credits": {
+                        "format": "int32",
+                        "description": "Total paid with Rappi Credits",
+                        "type": "integer"
+                    }
+                },
+                "example": {
+                    "tip": 30,
+                    "total_rappi_pay": 100,
+                    "total_rappi_credits": 50
+                }
+            },
+            "PAOrderDetailTotalsCharges": {
+                "title": "Root Type for PAOrderDetailTotalsCharges",
+                "description": "Service charges",
+                "required": [
+                    "service_fee",
+                    "shipping"
+                ],
+                "type": "object",
+                "properties": {
+                    "shipping": {
+                        "format": "double",
+                        "description": "Shipping cost",
+                        "type": "number"
+                    },
+                    "service_fee": {
+                        "format": "int32",
+                        "description": "Rappi's service fee",
+                        "type": "integer"
+                    }
+                },
+                "example": {
+                    "shipping": 345.5,
+                    "service_fee": 98
+                }
+            },
+            "PAOrderDetailBillingInformation": {
+                "description": "Customer's billing information",
+                "type": "object",
+                "properties": {
+                    "billing_type": {
+                        "description": "Billing type",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Customer's name",
+                        "type": "string"
+                    },
+                    "address": {
+                        "description": "Customer's address",
+                        "type": "string"
+                    },
+                    "phone": {
+                        "description": "Customer's phone",
+                        "type": "string"
+                    },
+                    "email": {
+                        "description": "Customer's email",
+                        "type": "string"
+                    },
+                    "document_type": {
+                        "description": "Customer's document type",
+                        "type": "string"
+                    },
+                    "document_number": {
+                        "description": "Customer's document number",
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "address": "Some street 12345",
+                    "billing_type": "Bill",
+                    "document_number": "32432342",
+                    "document_type": "DNI",
+                    "email": "client@gmail.com",
+                    "name": "client",
+                    "phone": "43333222"
+                }
+            },
+            "MenuResponseProduct": {
+                "title": "Root Type for MenuResponseProduct",
+                "description": "A product in the menu response",
+                "required": [
+                    "id",
+                    "name"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "Product id",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Product name",
+                        "type": "string"
+                    },
+                    "toppings": {
+                        "description": "List of toppings",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/MenuResponseTopping"
+                        }
+                    }
+                },
+                "example": {
+                    "id": "1234",
+                    "name": "Product 1",
+                    "sku": "789",
+                    "toppings": [
+                        {
+                            "id": "1",
+                            "name": "Topping 1",
+                            "sku": "1478"
+                        },
+                        {
+                            "id": "2",
+                            "name": "Topping 2",
+                            "sku": "456789"
+                        }
+                    ]
+                }
+            },
+            "MenuResponseTopping": {
+                "description": "A topping in the menu response",
+                "required": [
+                    "id",
+                    "name"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "Topping id",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Topping name",
+                        "type": "string"
+                    },
+                    "category": {
+                        "$ref": "#/components/schemas/MenuResponseCategory",
+                        "description": "Topping category"
+                    }
+                },
+                "example": {
+                    "id": "12345",
+                    "nane": "Topping 1",
+                    "sku": "741256",
+                    "category": {
+                        "id": "111",
+                        "category": "Category name"
+                    }
+                }
+            },
+            "MenuResponseCategory": {
+                "description": "A category for toppings in the menu response",
+                "required": [
+                    "id",
+                    "name"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "Category id",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Category name",
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "id": "111",
+                    "name": "Category 1"
+                }
+            },
+            "InvalidCredentialsError": {
+                "description": "Error",
+                "required": [
+                    "message"
+                ],
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "description": "Error message",
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "message": "Not a valid token"
+                }
+            },
+            "InvalidCredentials": {
+                "description": "Error",
+                "required": [
+                    "message"
+                ],
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "description": "Error message",
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "message": "Not a valid token"
+                }
+            },
+            "StoreNotInAppClientException": {
+                "description": "The store don't belong to the appClient of given client id",
+                "required": [
+                    "Message"
+                ],
+                "type": "object",
+                "properties": {
+                    "Message": {
+                        "description": "Error message",
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "message": "The stores {XX, YY} don't belong to the appClient of client id XX"
+                }
+            },
+            "StoreNotFound": {
+                "title": "Root Type for StoreNotFound",
+                "description": "",
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "description": "Error message",
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "message": "Not found store 2123110"
+                }
+            },
+            "deliveryDiscount": {
+                "title": "Root Type for deliveryDiscount",
+                "description": "",
+                "type": "object",
+                "properties": {
+                    "total_percentage_discount": {
+                        "format": "int32",
+                        "type": "integer"
+                    },
+                    "total_value_discount": {
+                        "format": "int32",
+                        "type": "integer"
+                    }
+                },
+                "example": {
+                    "total_percentage_discount": 100,
+                    "total_value_discount": 5950
+                }
+            },
+            "WebhookEventType": {
+                "description": "Events available:\n\n- MENU_APPROVED\n- NEW_ORDER\n- ORDER_EVENT\n- ORDER_EVENT_CANCEL\n- ORDER_OTHER_EVENT",
+                "enum": [
+                    "NEW_ORDER",
+                    "MENU_APPROVED",
+                    "ORDER_EVENT",
+                    "ORDER_EVENT_CANCEL",
+                    "ORDER_OTHER_EVENT"
+                ],
+                "type": "string"
+            },
+            "WebhookConfig": {
+                "title": "Root Type for WebhookConfig",
+                "description": "",
+                "required": [
+                    "stores",
+                    "event"
+                ],
+                "type": "object",
+                "properties": {
+                    "event": {
+                        "enum": [
+                            "NEW_ORDER",
+                            "MENU_APPROVED",
+                            "ORDER_EVENT",
+                            "ORDER_EVENT_CANCEL",
+                            "ORDER_OTHER_EVENT"
+                        ],
+                        "type": "string"
+                    },
+                    "stores": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/WebhookConfigStore"
+                        }
+                    }
+                }
+            },
+            "WebhookConfigStore": {
+                "title": "Root Type for WebhookConfigStore",
+                "description": "",
+                "required": [],
+                "type": "object",
+                "properties": {
+                    "store_id": {
+                        "type": "string"
+                    },
+                    "url": {
+                        "type": "string"
+                    },
+                    "state": {
+                        "enum": [],
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "store_id": "900082010",
+                    "url": "http://example.com",
+                    "state": "ENABLE"
+                }
+            },
+            "WebhookEventNotSupportedException": {
+                "title": "Root Type for WebhookEventNotSupportedException",
+                "description": "The event a is not supported in the system.",
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "message": "The event {event} is not supported in the system, the available events are: [{events}]"
+                }
+            },
+            "WebhookConfigCreateRequest": {
+                "title": "Root Type for WebhookConfigCreateRequest",
+                "description": "",
+                "required": [
+                    "data",
+                    "event"
+                ],
+                "type": "object",
+                "properties": {
+                    "event": {
+                        "description": "Events available:\n\n- MENU_APPROVED\n- NEW_ORDER\n- ORDER_EVENT\n- ORDER_EVENT_CANCEL\n- ORDER_OTHER_EVENT",
+                        "enum": [
+                            "NEW_ORDER",
+                            "MENU_APPROVED",
+                            "ORDER_EVENT",
+                            "ORDER_EVENT_CANCEL",
+                            "ORDER_OTHER_EVENT"
+                        ],
+                        "type": "string"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/WebhookConfigStoreCreateRequest"
+                        }
+                    }
+                },
+                "example": {
+                    "event": "NEW_ORDER",
+                    "data": [
+                        {
+                            "url": "http://localhost",
+                            "stores": [
+                                "900043767"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "WebhookConfigCreateResponse": {
+                "title": "Root Type for WebhookConfigCreateRequestResponse",
+                "description": "",
+                "type": "object",
+                "properties": {
+                    "event": {
+                        "enum": [
+                            "NEW_ORDER",
+                            "MENU_APPROVED",
+                            "ORDER_EVENT",
+                            "ORDER_EVENT_CANCEL",
+                            "ORDER_OTHER_EVENT"
+                        ],
+                        "type": "string"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/WebhookConfigStore"
+                        }
+                    },
+                    "secret": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "event": "NEW_ORDER",
+                    "data": [
+                        {
+                            "store_id": "900043767",
+                            "url": "http://localhost",
+                            "state": "ENABLE"
+                        }
+                    ],
+                    "secret": "6817D797D3981AA0D06E9E023B48CF1282099D66D90255E524CC29A4DB1343AD"
+                }
+            },
+            "WebhookConfigExistsException": {
+                "title": "Root Type for WebhookConfigExistsException",
+                "description": "",
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "message": "The event '{event}' has aready config in stores [{stores}]. To add a new store to the configuration use 'PUT: /{event}/add-stores'."
+                }
+            },
+            "WebhookNotFoundInStoresClientException": {
+                "title": "Root Type for WebhookNotFoundInStoresClientException",
+                "description": "",
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "message": "The following stores do not exist in the client's credentials [{stores}]"
+                }
+            },
+            "WebhookConfigStoreCreateRequest": {
+                "title": "Root Type for WebhookConfigCreateRequestStore",
+                "description": "",
+                "required": [
+                    "url"
+                ],
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "description": "Examples:\n- http://localhost\n- http://localhost.com\n- https://192.168.1.1",
+                        "type": "string"
+                    },
+                    "stores": {
+                        "description": "",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "example": {
+                    "url": "http://localhost",
+                    "stores": [
+                        "900043767"
+                    ]
+                }
+            },
+            "WebhookConfigResponse": {
+                "title": "Root Type for WebhookConfigCreateRequestResponse",
+                "description": "",
+                "type": "object",
+                "properties": {
+                    "event": {
+                        "enum": [
+                            "NEW_ORDER",
+                            "MENU_APPROVED",
+                            "ORDER_EVENT",
+                            "ORDER_EVENT_CANCEL",
+                            "ORDER_OTHER_EVENT"
+                        ],
+                        "type": "string"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/WebhookConfigStore"
+                        }
+                    }
+                },
+                "example": {
+                    "event": "NEW_ORDER",
+                    "data": [
+                        {
+                            "store_id": "900043767",
+                            "url": "http://localhost",
+                            "state": "ENABLE"
+                        }
+                    ]
+                }
+            },
+            "WebhookConfigRequest": {
+                "title": "Root Type for WebhookConfigRequest",
+                "description": "",
+                "type": "object",
+                "properties": {
+                    "stores": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "example": {
+                    "stores": [
+                        "900043767"
+                    ]
+                }
+            },
+            "WebhookConfigRemoveStoreResponse": {
+                "title": "Root Type for WebhookConfigRemoveStoreResponse",
+                "description": "",
+                "type": "object",
+                "properties": {
+                    "stores": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "stores": [
+                        "{storeId}"
+                    ],
+                    "message": "Store settings removed successfully."
+                }
+            },
+            "WebhookConfigChangeStateRequest": {
+                "title": "Root Type for WebhookConfigChangeStateRequest",
+                "description": "",
+                "type": "object",
+                "properties": {
+                    "stores": {
+                        "type": "object",
+                        "properties": {
+                            "enable": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "disable": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "example": {
+                    "stores": {
+                        "enable": [
+                            "900081932"
+                        ],
+                        "disable": [
+                            "900043645"
+                        ]
+                    }
+                }
+            }
+        },
+        "responses": {
+            "InvalidCredentials": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/InvalidCredentials"
+                        }
+                    }
+                },
+                "description": "Invalid credentials"
+            },
+            "OrderNotFound": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/ErrorResponse"
+                        },
+                        "examples": {
+                            "Order not found": {
+                                "value": {
+                                    "message": "Not found order id 12345 for stores [1111,2222]"
+                                }
+                            }
+                        }
+                    }
+                },
+                "description": "Order not found"
+            },
+            "NotFoundAppClientIdException": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/ErrorResponse"
+                        },
+                        "examples": {
+                            "NotFoundAppClientIdException": {
+                                "value": {
+                                    "message": "Not found appClient of client id {clientId}"
+                                }
+                            }
+                        }
+                    }
+                },
+                "description": "App Client not found"
+            },
+            "SendEventFromWebhook": {
+                "content": {
+                    "application/json": {}
+                },
+                "description": ""
+            },
+            "WebhookConfigList": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/WebhookConfig"
+                            }
+                        }
+                    }
+                },
+                "description": "Get webcongif list"
+            },
+            "WebhookEventNotSupportedException": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/WebhookEventNotSupportedException"
+                        }
+                    }
+                },
+                "description": "event is not valid"
+            },
+            "WebhookConfigExistsException": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/WebhookConfigExistsException"
+                        }
+                    }
+                },
+                "description": "Webhook Config does not exist"
+            },
+            "WebhookNotFoundInStoresClientException": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/WebhookNotFoundInStoresClientException"
+                        }
+                    }
+                },
+                "description": "Do not belong to the client id"
+            },
+            "WebhookConfigStore": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/WebhookConfigStore"
+                        }
+                    }
+                },
+                "description": ""
+            },
+            "WebhookConfigCreateResponse": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/WebhookConfigCreateResponse"
+                        }
+                    }
+                },
+                "description": "Webhook cinfog created"
+            },
+            "WebhookConfigResponse": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/WebhookConfigResponse"
+                        }
+                    }
+                },
+                "description": "success"
+            },
+            "WebhookConfig": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/WebhookConfig"
+                        }
+                    }
+                },
+                "description": ""
+            },
+            "WebhookConfigRequest": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/WebhookConfigRequest"
+                        }
+                    }
+                },
+                "description": ""
+            },
+            "WebhookConfigChangeStateRequest": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/WebhookConfigChangeStateRequest"
+                        },
+                        "examples": {
+                            "webhookStateChanged": {
+                                "value": {
+                                    "stores": {
+                                        "enable": [
+                                            "{storeId}"
+                                        ],
+                                        "disable": [
+                                            "{storeId}"
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "description": "operation finished"
+            },
+            "WebhookConfigRemoveStoreResponse": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/WebhookConfigRemoveStoreResponse"
+                        }
+                    }
+                },
+                "description": "Operation finished"
+            }
+        },
+        "securitySchemes": {
+            "BearerAuth": {
+                "type": "apiKey",
+                "description": "While a custom header is used (x-authorization) it's a bearer authentication scheme, so the \"Bearer\" word must be prepended to the token.\n\nSee [Token](#tag/Token) for information on how to get the token.",
+                "name": "x-authorization",
+                "in": "header"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Token",
+            "description": "Get a token to access secured endpoints"
+        },
+        {
+            "name": "Orders",
+            "description": "## Processing orders\n\nThis API provides you with endpoints to get orders and manage their complete flow.\n\nWhen you request the orders, all new orders will be returned. Note that an order returned once won't be returned again in subsequent requests.\n\nTo be able to process orders as they arrive you must periodically poll the API to get them.\n\n## Order flow\n\nEach order follows a flow from the moment it is created to the moment when it finishes, either successfully or with an error.\n\nIn this flow, the orders goes through a series of states, which can be any of the following: `CREATED`, `READY`, `SENT`, `TAKEN`, `REJECTED`, `TIMEOUT`, `READY_FOR_PICKUP`.\n\nSome state transitions are managed automatically while others must be triggered by you using the endpoints described later.\n\nThe complete order flow is as follows:\n\n- When a new order is created, it has the `CREATED` state, which is later automatically updated to `READY`.\n- You retrieve all the new orders to process them. These orders transition to the `SENT` state. This must be done periodically to get new orders as they are created.\n- Then you have to decide what to do with each order. If the order is taken it will transition to the `TAKEN` state and if it is rejected to the `REJECTED` state.\n- When a taken order is ready to be delivered, it will transition to `READY_FOR_PICKUP`.\n- If the order is not taken after a configured period of time, it will transition from the current state (`READY` or `SENT`) to `TIMEOUT`. This period is configured by Rappi and depends on the store where the order is placed.\n\nNote that `CREATED` to `READY` and `TIMEOUT` transitions are automatical. The other transitions must be trigered by you.\n\nThe transition from `TAKEN` to `READY_FOR_PICKUP` is a special case. It's automatic by default but it can be configured to be done manually (this configuration must be requested to Rappi):\n- If it's automatic, Rappi will try to guess when an order is ready based on the store configured cooking time and the delay in previous orders. This approach is more simple and it's the recommended one.\n- If it's manual, you will have to call an [endpoint](#operation/readyForPickup) when the order is ready. Currently there is no difference with the automatic approach but in future versions it will be used to optimize the courier assignation process.\n\n## Events\n\nDuring the lifetime of an order, it goes through a series of stages, each one can trigger different events inside Rappi. For example, an event is triggered when a courier is assigned to the order, when the order arrives at the customer home or when an order is canceled. We provide an [endpoint](#operation/findOrderModifications) to pull the events associated with an order.\n\n### Types of events\n\nNext, we describe all the types of events we currently produce. The generated events may differ for each order and not necessarily all the events are generated for each order. We can add more events at any time, you should be careful with this during the development and maintenance of your code.\n\n---\n\n>`taken_visible_order`\n\nIt can occur when:\n1. The order is assigned to the store inside Rappi, immediately of a successful take of an order.\n2. The courier is assigned to the order, in this case, we also provide the ETA that it will take for the courier to arrive at the store.\n\n---\n\n> `replace_storekeeper`\n\nOccurs when a **new** courier is assigned to the order, int this case we also provide the ETA that it will take for the courier to arrive at the store.\n\n---\n\n>`domiciliary_in_store`\n\nOccurs when the courier is at the store.\n\n---\n\n> `hand_to_domiciliary`\n\nOccurs when the store delivers the order to the courier.\n\n---\n\n> `arrive`\n\nOccurs when the order arrives at the customer home.\n\n---\n\n> `ready_for_pick_up`\n\nOccurs when the order is prepared and is ready for pickup.\n\n---\n\n> `close_order`\n\nOccurs when the order has already been delivered to the customer.\n\n\n\n#### An order it can be canceled by different reasons, bellow we show the different events that can be produced when an order is canceled.\n\n---\n\n> `cancel_by_user`\n\nOccurs when the order is canceled by the user.\n\n---\n\n> `canceled_with_charge`\n\nOccurs when the order is canceled, the cancellation also includes an additional charge.\n\n---\n\n> `cancel_without_charges`\n\nOccurs when the order is canceled, the cancellation doesn't generate an additional charge.\n\n---\n\n> `cancel_by_support`\n\nOccurs when the order is canceled by our customer support.\n\n---\n\n> `cancel_by_support_with_charge`\n\nOccurs when the order is canceled by our support team, and the operation also includes a charge.\n\n---\n\n> `cancel_by_application_user`\n\nOccurs when the order is canceled using the customer application.\n\n---\n\n> `canceled_from_cms`\n\nOccurs when the order is cancel using our internal CMS.\n\n---\n\n> `canceled_by_fraud_automation`\n\nOccurs when the order is canceled by fraud detection.\n\n\n---\n\n> `canceled_store_closed`\n\nOccurs when the store has a status of close, and we try to create an order.\n\n---\n\n> `cancel_by_sk_with_charge`\n\nOccurs when the order is canceled by the courier service, this operation generates an additional charge to the courier service.\n\n\n\n## Totals and discounts\n\nRappi supports the configuration of discount campaigns. Discounts can be applied to individual products or to a whole store. There are also advanced campaigns, like discounts for a number of users that place their orders first.\n\nWhen an order is marketPlace, the percentage of discounts assumed by Rappi and by the ally will be reflected, otherwise it will only take the percentage assumed by the partner.\n\nFor more details on kinds of discounts and how to configure them, you can ask Rappi about the `Growth` platform.\n\nWhen you get an order, there is information about price and discounts for each item and, at the order level, information of the sum of all discounts and the price totals.\n\nEach item has the following fields:\n- `unit_price_without_discount`: The base unit price of the item. Note that if there are subitems, their price is not included in this field. You have to look into each subitem to get their price (discounts does not apply to subitems).\n- `percentage_discount`: The discount percentage applied to the base price.\n- `unit_price_with_discount`: The final unit price after applying the discount.\n\nIn the order, the `totals` field contains the following subfields:\n- `total_products_without_discount`: The sum of all the items (and subitems) prices without discounts.\n- `total_products_with_discount`: The sum of all the items (and subitems) prices minus their discounts.\n- `total_other_discounts`: The sum of all the discounts applied to the order that are not specific of a product.\n- `total_order`: The order total without discounts\n- `total_to_pay`: The remaining amount to pay by the customer with cash.\n- `charges`:\n    - `shipping`: Shipping fee.\n    - `service_fee`: Service fee.\n- `other_totals`:\n    - `tip`: Tip to courier.\n    - `total_rappi_pay`: Amount payed with Rappi Pay.\n    - `total_rappi_credits`: Amount payed with Rappi Credits.\n\n## Delivery method\n\nThere are three ways to deliver an order:\n- `Delivery`: The order is delivered by a Rappi courier.\n- `Marketplace`: The order is delivered by a courier that belongs to the restaurant.\n- `Pickup`: The client goes to the store and picks up the order.\n\nThe `delivery` option is always supported by Rappi while you can choose to enable any of the other two depending on each restaurant needs. This configuration is done at the store level, so you could have some stores that support `marketplace` and/or `pickup` and some that don't for the same restaurant. If you want to enable some of these options for a store, you must notify Rappi to configure it.\n\nThe delivery method chosen by the customer will be in the `delivery_method` field inside the order.\n\nWhen `marketplace` is chosen, the order will include the client's address details, in the `delivery_information` field. The format of this field will vary for each country. Some fields are common while each country can add additional fields.\n\n### Common address fields\n\nAddresses for all countries contain the following fields:\n\n- `city`: City.\n- `neighborhood`: Neighborhood.\n- `postal_code`: Postal code.\n- `complement`: Address complement.\n- `complete_address`: It is the full address that was mapped.\n\nFor example,\n\n```\n{\n  \"city\": \"Bogotá\",\n  \"neighborhood\": \"El Laurel\",\n  \"postal_code\": \"111061\",\n  \"complete_address\": \"Calle 68 B Bis N 70c - 12\",\n  \"complement\": \"\"\n}\n```\n### Additional fields by country\n\n#### Argentina\n\n- `street_name`.\n- `street_number`.\n- `description`.\n\nFor example,\n\n```\n{\n    \"street_number\": \"630\",\n    \"description\": \"1to D\",\n    \"street_name\": \"Terrero\"\n}\n```\n\n#### Brazil\n\n- `street_shorcut`.\n- `street_name`.\n- `street_number`.\n- `federal_unit`.\n\nFor example,\n\n```\n{\n \"street_shorcut\": \"Rua\",\n \"street_name\": \"Maria Alves Da Rocha\",\n \"street_number\": 51,\n \"federal_unit\": \"PB\"\n}\n\n```\n\n#### Colombia\n\n- `complementary_street_without_meter`.\n- `complete_main_street_number`.\n- `main_street_number_letter`.\n- `complementary_street_quadrant`.\n- `meter`.\n- `complementary_street_prefix`.\n- `complete_main_street`.\n- `main_street_type`.\n- `main_street_number_or_name`.\n- `complementary_street_letter`.\n- `main_street_prefix_letter`.\n- `main_street_prefix`.\n- `complete_complementary_street`.\n- `complementary_street_number`.\n- `complementary_street_prefix_letter`.\n- `main_street_quadrant`.\n\nFor example,\n\n```\n{\n    \"complementary_street_without_meter\": \"50 \",\n    \"complete_main_street_number\": \"45 \",\n    \"main_street_number_letter\": \"\",\n    \"complementary_street_quadrant\": null,\n    \"meter\": \"07\",\n    \"complementary_street_prefix\": null,\n    \"complete_main_street\": \"Carrera 45 \",\n    \"main_street_type\": \"Carrera\",\n    \"main_street_number_or_name\": \"45\",\n    \"complementary_street_letter\": \"\",\n    \"main_street_prefix_letter\": null,\n    \"main_street_prefix\": null,\n    \"complete_complementary_street\": \"50 07\",\n    \"complementary_street_number\": \"50\",\n    \"complementary_street_prefix_letter\": null,\n    \"main_street_quadrant\": null\n}\n```\n\n\n#### Mexico\n\n- `street_name`.\n- `street_number`.\n\nFor example,\n\n```\n{\n \"street_name\": \"Calle Kansas\",\n \"street_number\": \"20\"\n}\n```\n\n#### Peru\n\n- `street_shorcut`.\n- `street_name`.\n- `street_number`.\n\nFor example,\n\n```\n{\n \"street_shorcut\": \"Jirón\",\n \"street_name\": \"Huaraz\",\n \"street_number\": 1527\n}\n```\n\n#### Other countries\n\nAll other countries not listed before add the following fields:\n\n- `description`.\n\n```\n{\n \"description\": \"dtpo 1001\"\n}\n```\n"
+        },
+        {
+            "name": "Stores",
+            "description": "Get Stores.\n\nEach store has two ids:\n- The `Rappi id`: The id in Rappi's system. This id is always assigned by Rappi.\n- The `Integration id`: The id in POS integrating with Rappi. This id is assigned by you. Note that you could choose the same value of the `Rappi id` if you wanted to.\n\n"
+        },
+        {
+            "name": "Availability",
+            "description": "Manage stores and items availability.\n\nYou can turn off items if they are out of stock to prevent that new orders are created containing those items. The items can later be turned on when there is stock again. Check [Items identifiers](#section/Overview/Item-identifiers) to see how items are identified.\n\nStores can also be turned off and on. When a store is off Rappi won't allow placing orders for that store. Check [Stores](#tag/Stores) to see how stores are identified."
+        },
+        {
+            "name": "Menu",
+            "description": "Get and manage store menus.\n\nEach store must have a menu, which is the set of items that customers can include in their orders.\n\nYou can handle this configuration manually, in which case, you must send Rappi the information of all available products and notify each time there is any change in the menu (new products, products no longer available, price variations, etc.).\n\nYou could also choose to manage menus automatically, using the endpoints described in this section. The flow is basically as follows:\n- You post the store menu. Note that there are no partial updates, so every time you want to create a new version, the full menu must be posted.\n- If the menu structure is valid, it is accepted. After this, it goes through a manual validation process done by Rappi. If the validation succeeds, the menu will be available for customers to use.\n- There is an endpoint to get the current menu for a store. By polling this endpoint you could know when products are added or deleted."
+        },
+        {
+            "name": "Webhooks",
+            "description": "Webhook endpoints can be configured to be notified about events that happen in your stores.\n\nThese events includes:\n- ORDER_EVENT_CANCEL: Order cancellation events\n- ORDER_OTHER_EVENT: Other order events\n- NEW_ORDER: New orders\n- MENU_APPROVED: Menu approved\n\nUsers can configure webhooks via the API, which provide endpoints for registering and test your webhooks.\n\nEach webhook corresponds to a POST method which has a body which can vary according to the event and a header which is \"Rappi-Signature\" which is the security signature.\n\n## Security\n\nPublic-api has signatures for the security of its webhooks using a hash-based message authentication code **(HMAC)** with **SHA-256**.\nEach request has its own signature which will come in the header with the name of **Rappi-Signature** and will have the following format.\n\n#### example:\n```\nt=123456,sign=d74b65c2e68c1a84a4d5843a69ef5faf1d82f28df2dd3723e8e0dad9c54abc79\n\n```\n\nFollow the steps below to validate the health of the request\n### Step 1: Extract the timestamp and signatures from the header\n\nYou will have to separate first by \"**,**\" to have a list and then separate each element again by \"**=**\" to obtain **t** and a **sign**.\n\n\n- **t:** Corresponds to the timestamp from request.\n- **sign:** corresponds to the signature\n\n### Step 2: Prepare the signed_payload string\n\nThe signed_payload string is created by concatenating:\n\n- The timestamp\n- The character *.*\n- The actual payload (i.e., the request body)\n\n#### example:\n```\n123456.{ \"message\" : \"body mock\" }\n\n```\n\n### Step 3: Determine the expected signature\nCompute an HMAC with the SHA256 hash function. Use the  secret as the key, and use the signed_payload string as the message.\n\n### Step 4: Compare the signature\nCompare the signature in the header to the expected signature."
+        }
+    ]
+}

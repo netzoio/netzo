@@ -19,4 +19,4 @@ Get current weather, daily forecast for 16 days, and 3-hourly forecast 5 days fo
   <h4>© Netzo Plugin</h4>
 </div>
 
-### Acknowledgements
+### Acknowledgments

@@ -18,4 +18,4 @@ An open-source service plugin for Contentful.
   <h4>© Netzo Plugin</h4>
 </div>
 
-### Acknowledgements
+### Acknowledgments

@@ -21,4 +21,4 @@ It enables a local API which can be used to control the devices paired to your b
   <h4>© Netzo Plugin</h4>
 </div>
 
-### Acknowledgements
+### Acknowledgments

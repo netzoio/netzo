@@ -19,4 +19,4 @@ An open-source source plugin for Countries API.
   <h4>© Netzo Plugin</h4>
 </div>
 
-### Acknowledgements
+### Acknowledgments

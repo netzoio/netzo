@@ -52,7 +52,9 @@
         }
       },
       "transforms": {
-        "encapsulate": {}
+        "encapsulate": {
+          "name": "PurpleAir"
+        }
       }
     },
     "schema": {

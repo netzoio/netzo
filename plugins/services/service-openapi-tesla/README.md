@@ -33,4 +33,4 @@ Considerations:
   <h4>© Netzo Plugin</h4>
 </div>
 
-### Acknowledgements
+### Acknowledgments

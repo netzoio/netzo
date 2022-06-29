@@ -18,4 +18,4 @@ An open source service plugin for Gmail. The Gmail API is used to interact with 
   <h4>© Netzo Plugin</h4>
 </div>
 
-### Acknowledgements
+### Acknowledgments

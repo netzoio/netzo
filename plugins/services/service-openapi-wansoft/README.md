@@ -56,4 +56,4 @@ Through this workaround, we can complete the request based on the path `operatio
   <h4>© Netzo Plugin</h4>
 </div>
 
-### Acknowledgements
+### Acknowledgments

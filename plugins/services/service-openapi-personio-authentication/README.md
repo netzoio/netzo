@@ -18,4 +18,4 @@ An open-source service plugin for the Persionio Authentication API.
   <h4>© Netzo Plugin</h4>
 </div>
 
-### Acknowledgements
+### Acknowledgments

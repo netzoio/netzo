@@ -21,4 +21,4 @@ The Calendar API lets you integrate your app with Google Calendar, creating new 
   <h4>© Netzo Plugin</h4>
 </div>
 
-### Acknowledgements
+### Acknowledgments

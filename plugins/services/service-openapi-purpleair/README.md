@@ -17,4 +17,4 @@ An open-source service plugin for Purple Air IoT Sensors.
   <h4>© Netzo Plugin</h4>
 </div>
 
-### Acknowledgements
+### Acknowledgments

@@ -21,4 +21,4 @@ The Drive API is used to interact with Google Drive storage, and supports severa
   <h4>© Netzo Plugin</h4>
 </div>
 
-### Acknowledgements
+### Acknowledgments

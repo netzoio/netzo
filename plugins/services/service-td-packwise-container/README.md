@@ -64,4 +64,4 @@ SUCCESS: You have sucessfully created a new query string to fetch data from the 
   <h4>© Netzo Plugin</h4>
 </div>
 
-### Acknowledgements
+### Acknowledgments

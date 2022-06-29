@@ -39,4 +39,4 @@ Finally, the coffee machine has the following Event Affordances:
   <h4>© Netzo Plugin</h4>
 </div>
 
-### Acknowledgements
+### Acknowledgments

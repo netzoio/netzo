@@ -20,4 +20,4 @@ Serverless, highly scalable, and cost-effective multicloud data warehouse design
   <h4>© Netzo Plugin</h4>
 </div>
 
-### Acknowledgements
+### Acknowledgments

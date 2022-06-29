@@ -20,4 +20,4 @@ AWS IoT provides secure, bi-directional communication between Internet-connected
   <h4>© Netzo Plugin</h4>
 </div>
 
-### Acknowledgements
+### Acknowledgments

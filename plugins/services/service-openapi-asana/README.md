@@ -20,4 +20,4 @@ Interface for interacting with the [Asana Platform](https://developers.asana.com
   <h4>© Netzo Plugin</h4>
 </div>
 
-### Acknowledgements
+### Acknowledgments

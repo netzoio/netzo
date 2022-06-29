@@ -19,4 +19,4 @@ The Web API supplies a collection of HTTP methods that underpin the majority of 
   <h4>© Netzo Plugin</h4>
 </div>
 
-### Acknowledgements
+### Acknowledgments
