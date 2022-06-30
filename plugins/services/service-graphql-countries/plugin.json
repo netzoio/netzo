@@ -1,0 +1,302 @@
+{
+  "uid": "service-graphql-countries",
+  "type": "source",
+  "version": "1.0.0",
+  "status": "enterprise",
+  "category": "core",
+  "name": "Countries",
+  "description": "API for Countries",
+  "keywords": [
+    "pos",
+    "restaurant-management"
+  ],
+  "authors": [
+    "arturo.romero@netzo.io"
+  ],
+  "license": "MIT",
+  "display": {
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-graphql-countries/src/assets/icon.png",
+    "color": "",
+    "screenshots": []
+  },
+  "links": [
+    {
+      "rel": "author",
+      "href": "https://netzo.io",
+      "title": "Netzo"
+    },
+    {
+      "rel": "repository",
+      "href": "https://github.com/netzoio/netzo/tree/main/plugins/services/service-graphql-countries"
+    },
+    {
+      "rel": "readme",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-graphql-countries/README.md"
+    },
+    {
+      "rel": "license",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/LICENSE"
+    }
+  ],
+  "form": {
+    "model": {
+      "name": "Countries",
+      "handler": {
+        "graphql": {
+          "endpoint": "https://countries.trevorblades.com/"
+        }
+      },
+      "transforms": {
+        "encapsulate": {}
+      }
+    }
+  },
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "The name you wish to set to your remote API, this will be used for building the GraphQL context"
+      },
+      "handler": {
+        "type": "object",
+        "properties": {
+          "graphql": {
+            "description": "Handler for remote/local/third-party GraphQL schema (Any of: GraphQLHandlerHTTPConfiguration, GraphQLHandlerCodeFirstConfiguration, GraphQLHandlerMultipleHTTPConfiguration)",
+            "anyOf": [
+              {
+                "additionalProperties": false,
+                "type": "object",
+                "title": "GraphQLHandlerHTTPConfiguration",
+                "properties": {
+                  "endpoint": {
+                    "type": "string",
+                    "description": "A url or file path to your remote GraphQL endpoint.\nIf you provide a path to a code file(js or ts),\nother options will be ignored and the schema exported from the file will be used directly."
+                  },
+                  "schemaHeaders": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "additionalProperties": true
+                      },
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "array",
+                        "additionalItems": true
+                      }
+                    ],
+                    "description": "JSON object representing the Headers to add to the runtime of the API calls only for schema introspection"
+                  },
+                  "operationHeaders": {
+                    "type": "object",
+                    "properties": {},
+                    "description": "JSON object representing the Headers to add to the runtime of the API calls only for operation during runtime"
+                  },
+                  "useGETForQueries": {
+                    "type": "boolean",
+                    "description": "Use HTTP GET for Query operations"
+                  },
+                  "method": {
+                    "type": "string",
+                    "enum": [
+                      "GET",
+                      "POST"
+                    ],
+                    "description": "HTTP method used for GraphQL operations (Allowed values: GET, POST)"
+                  },
+                  "webSocketImpl": {
+                    "type": "string",
+                    "description": "Path to a custom W3 Compatible WebSocket Implementation"
+                  },
+                  "introspection": {
+                    "type": "string",
+                    "description": "Path to the introspection\nYou can seperately give schema introspection"
+                  },
+                  "multipart": {
+                    "type": "boolean",
+                    "description": "Enable multipart/formdata in order to support file uploads"
+                  },
+                  "subscriptionsProtocol": {
+                    "type": "string",
+                    "enum": [
+                      "SSE",
+                      "WS",
+                      "LEGACY_WS"
+                    ],
+                    "description": "SSE - Server Sent Events\nWS - New graphql-ws\nLEGACY_WS - Legacy subscriptions-transport-ws (Allowed values: SSE, WS, LEGACY_WS)"
+                  },
+                  "retry": {
+                    "type": "integer",
+                    "description": "Retry attempts if fails"
+                  },
+                  "timeout": {
+                    "type": "integer",
+                    "description": "Timeout in milliseconds"
+                  },
+                  "batch": {
+                    "type": "boolean",
+                    "description": "Enable/Disable automatic query batching"
+                  }
+                },
+                "required": [
+                  "endpoint"
+                ]
+              },
+              {
+                "additionalProperties": false,
+                "type": "object",
+                "title": "GraphQLHandlerCodeFirstConfiguration",
+                "properties": {
+                  "schema": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "additionalProperties": true
+                      },
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "array",
+                        "additionalItems": true
+                      }
+                    ],
+                    "description": "A file path to your GraphQL Schema\nIf you provide a path to a code file(js or ts),\nother options will be ignored and the schema exported from the file will be used directly."
+                  }
+                },
+                "required": [
+                  "schema"
+                ]
+              },
+              {
+                "additionalProperties": false,
+                "type": "object",
+                "title": "GraphQLHandlerMultipleHTTPConfiguration",
+                "properties": {
+                  "sources": {
+                    "type": "array",
+                    "items": {
+                      "additionalProperties": false,
+                      "type": "object",
+                      "title": "GraphQLHandlerHTTPConfiguration",
+                      "properties": {
+                        "endpoint": {
+                          "type": "string",
+                          "description": "A url or file path to your remote GraphQL endpoint.\nIf you provide a path to a code file(js or ts),\nother options will be ignored and the schema exported from the file will be used directly."
+                        },
+                        "schemaHeaders": {
+                          "anyOf": [
+                            {
+                              "type": "object",
+                              "additionalProperties": true
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "array",
+                              "additionalItems": true
+                            }
+                          ],
+                          "description": "JSON object representing the Headers to add to the runtime of the API calls only for schema introspection"
+                        },
+                        "operationHeaders": {
+                          "type": "object",
+                          "properties": {},
+                          "description": "JSON object representing the Headers to add to the runtime of the API calls only for operation during runtime"
+                        },
+                        "useGETForQueries": {
+                          "type": "boolean",
+                          "description": "Use HTTP GET for Query operations"
+                        },
+                        "method": {
+                          "type": "string",
+                          "enum": [
+                            "GET",
+                            "POST"
+                          ],
+                          "description": "HTTP method used for GraphQL operations (Allowed values: GET, POST)"
+                        },
+                        "webSocketImpl": {
+                          "type": "string",
+                          "description": "Path to a custom W3 Compatible WebSocket Implementation"
+                        },
+                        "introspection": {
+                          "type": "string",
+                          "description": "Path to the introspection\nYou can seperately give schema introspection"
+                        },
+                        "multipart": {
+                          "type": "boolean",
+                          "description": "Enable multipart/formdata in order to support file uploads"
+                        },
+                        "subscriptionsProtocol": {
+                          "type": "string",
+                          "enum": [
+                            "SSE",
+                            "WS",
+                            "LEGACY_WS"
+                          ],
+                          "description": "SSE - Server Sent Events\nWS - New graphql-ws\nLEGACY_WS - Legacy subscriptions-transport-ws (Allowed values: SSE, WS, LEGACY_WS)"
+                        },
+                        "retry": {
+                          "type": "integer",
+                          "description": "Retry attempts if fails"
+                        },
+                        "timeout": {
+                          "type": "integer",
+                          "description": "Timeout in milliseconds"
+                        },
+                        "batch": {
+                          "type": "boolean",
+                          "description": "Enable/Disable automatic query batching"
+                        }
+                      },
+                      "required": [
+                        "endpoint"
+                      ]
+                    },
+                    "additionalItems": false,
+                    "description": "HTTP Source Configurations"
+                  },
+                  "strategy": {
+                    "type": "string",
+                    "enum": [
+                      "fallback",
+                      "race",
+                      "highestValue"
+                    ],
+                    "description": "Handling strategy (default: fallback) (Allowed values: fallback, race, highestValue)"
+                  },
+                  "strategyConfig": {
+                    "description": "Handling strategy configuration",
+                    "additionalProperties": false,
+                    "type": "object",
+                    "title": "GraphQLHandlerhighestValueStrategyConfig",
+                    "properties": {
+                      "selectionSet": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "selectionSet",
+                      "value"
+                    ]
+                  }
+                },
+                "required": [
+                  "sources"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "options": {}
+}

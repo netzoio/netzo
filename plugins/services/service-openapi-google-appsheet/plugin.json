@@ -1,5 +1,5 @@
 {
-  "uid": "service-openapi-google-sheets",
+  "uid": "service-openapi-google-appsheet",
   "type": "source",
   "version": "1.0.0",
   "status": "enterprise",
@@ -15,7 +15,7 @@
   ],
   "license": "MIT",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-google-sheets/src/assets/icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-google-appsheet/src/assets/icon.png",
     "color": "",
     "screenshots": []
   },
@@ -27,11 +27,11 @@
     },
     {
       "rel": "repository",
-      "href": "https://github.com/netzoio/netzo/tree/main/plugins/services/service-openapi-google-sheets"
+      "href": "https://github.com/netzoio/netzo/tree/main/plugins/services/service-openapi-google-appsheet"
     },
     {
       "rel": "readme",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-google-sheets/README.md"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-google-appsheet/README.md"
     },
     {
       "rel": "license",
@@ -40,20 +40,18 @@
   ],
   "form": {
     "model": {
-      "name": "Google Sheets",
+      "name": "Google AppSheet",
       "handler": {
         "newOpenapi": {
-          "oasFilePath": "https://api.apis.guru/v2/specs/googleapis.com/sheets/v4/openapi.json",
-          "baseUrl": "https://sheets.googleapis.com/",
+          "oasFilePath": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-google-appsheet/src/openapi.v1.json",
+          "baseUrl": "",
           "operationHeaders": {
             "Authorization": "Bearer {{token}}"
           }
         }
       },
       "transforms": {
-        "encapsulate": {
-          "name": "GoogleSheets"
-        }
+        "encapsulate": {}
       }
     },
     "schema": {

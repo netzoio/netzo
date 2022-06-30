@@ -1,21 +1,21 @@
 {
-  "uid": "service-openapi-google-sheets",
+  "uid": "service-openapi-rappi",
   "type": "source",
   "version": "1.0.0",
   "status": "enterprise",
   "category": "core",
-  "name": "Google AppSheet",
-  "description": "API for Google AppSheet",
+  "name": "Rappi",
+  "description": "API for Rappi Restaurants Integrations",
   "keywords": [
-    "appsheet",
-    "google"
+    "restaurants",
+    "delivery"
   ],
   "authors": [
     "arturo.romero@netzo.io"
   ],
   "license": "MIT",
   "display": {
-    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-google-sheets/src/assets/icon.png",
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-rappi/src/assets/icon.png",
     "color": "",
     "screenshots": []
   },
@@ -27,11 +27,11 @@
     },
     {
       "rel": "repository",
-      "href": "https://github.com/netzoio/netzo/tree/main/plugins/services/service-openapi-google-sheets"
+      "href": "https://github.com/netzoio/netzo/tree/main/plugins/services/service-openapi-rappi"
     },
     {
       "rel": "readme",
-      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-google-sheets/README.md"
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-rappi/README.md"
     },
     {
       "rel": "license",
@@ -40,20 +40,18 @@
   ],
   "form": {
     "model": {
-      "name": "Google Sheets",
+      "name": "Rappi",
       "handler": {
         "newOpenapi": {
-          "oasFilePath": "https://api.apis.guru/v2/specs/googleapis.com/sheets/v4/openapi.json",
-          "baseUrl": "https://sheets.googleapis.com/",
+          "oasFilePath": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-rappi/src/openapi.v1.json",
+          "baseUrl": "https://{domain}/api/v2/restaurants-integrations-public-api",
           "operationHeaders": {
-            "Authorization": "Bearer {{token}}"
+            "BearerAuth": "Bearer {{token}}"
           }
         }
       },
       "transforms": {
-        "encapsulate": {
-          "name": "GoogleSheets"
-        }
+        "encapsulate": {}
       }
     },
     "schema": {

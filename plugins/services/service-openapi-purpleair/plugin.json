@@ -1,8 +1,8 @@
 {
   "uid": "service-openapi-purpleair",
-  "type": "service",
+  "type": "source",
   "version": "1.0.0",
-  "status": "alpha",
+  "status": "enterprise",
   "category": "core",
   "name": "Purple Air",
   "description": "API for Purple Air Sensors",
@@ -15,7 +15,6 @@
     "arturo.romero@netzo.io"
   ],
   "license": "MIT",
-  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-purpleair/src/openapi.v1.json",
   "display": {
     "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-purpleair/src/assets/icon.png",
     "color": "",
@@ -39,5 +38,120 @@
       "rel": "license",
       "href": "https://raw.githubusercontent.com/netzoio/netzo/main/LICENSE"
     }
-  ]
+  ],
+  "form": {
+    "model": {
+      "name": "Purple Air",
+      "handler": {
+        "newOpenapi": {
+          "oasFilePath": "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-purpleair/src/openapi.v1.json",
+          "baseUrl": "https://api.purpleair.com/v1",
+          "operationHeaders": {
+            "X-API-Key": "{{readApiKey}}"
+          }
+        }
+      },
+      "transforms": {
+        "encapsulate": {
+          "name": "PurpleAir"
+        }
+      }
+    },
+    "schema": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name you wish to set to your remote API, this will be used for building the GraphQL context"
+        },
+        "handler": {
+          "type": "object",
+          "properties": {
+            "newOpenapi": {
+              "description": "Handler for Swagger / OpenAPI 2/3 specification. Source could be a local json/swagger file, or a url to it.",
+              "additionalProperties": false,
+              "type": "object",
+              "title": "NewOpenapiHandler",
+              "properties": {
+                "oasFilePath": {
+                  "type": "string"
+                },
+                "fallbackFormat": {
+                  "type": "string",
+                  "enum": [
+                    "json",
+                    "yaml",
+                    "js",
+                    "ts"
+                  ],
+                  "description": "Allowed values: json, yaml, js, ts"
+                },
+                "baseUrl": {
+                  "type": "string"
+                },
+                "schemaHeaders": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "operationHeaders": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "ignoreErrorResponses": {
+                  "type": "boolean"
+                },
+                "selectQueryOrMutationField": {
+                  "type": "array",
+                  "items": {
+                    "additionalProperties": false,
+                    "type": "object",
+                    "title": "OASSelectQueryOrMutationFieldConfig",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "query",
+                          "mutation",
+                          "Query",
+                          "Mutation"
+                        ],
+                        "description": "Allowed values: query, mutation, Query, Mutation"
+                      },
+                      "fieldName": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "fieldName"
+                    ]
+                  },
+                  "additionalItems": false
+                },
+                "queryParams": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": true
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "additionalItems": true
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "oasFilePath"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "options": {}
+  }
 }

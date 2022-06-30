@@ -15,7 +15,7 @@
                         <s:element minOccurs="0" maxOccurs="1" name="subsidiaryName" type="s:string"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
                         <s:element minOccurs="0" maxOccurs="1" name="order" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -31,7 +31,7 @@
                     <s:sequence>
                         <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -42,28 +42,12 @@
                     </s:sequence>
                 </s:complexType>
             </s:element>
-            <s:element name="GetOrdersByDay_Xml">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetOrdersByDay_XmlResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="GetOrdersByDay_XmlResult" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
             <s:element name="GetAllOrdersByDay_Json">
                 <s:complexType>
                     <s:sequence>
                         <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -74,60 +58,12 @@
                     </s:sequence>
                 </s:complexType>
             </s:element>
-            <s:element name="GetAllOrdersByDay_Xml">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetAllOrdersByDay_XmlResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="GetAllOrdersByDay_XmlResult" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetAllAcountsReceivable_Xml">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetAllAcountsReceivable_XmlResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="GetAllAcountsReceivable_XmlResult" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetAllAnticipatedPayment_xml">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetAllAnticipatedPayment_xmlResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="GetAllAnticipatedPayment_xmlResult" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
             <s:element name="GetInventoryByDepartment">
                 <s:complexType>
                     <s:sequence>
                         <s:element minOccurs="0" maxOccurs="1" name="subsidiaryName" type="s:string"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -143,7 +79,7 @@
                     <s:sequence>
                         <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -151,22 +87,6 @@
                 <s:complexType>
                     <s:sequence>
                         <s:element minOccurs="0" maxOccurs="1" name="GetInventoryByWarehouse_JsonResult" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetInventoryByWarehouse_Xml">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetInventoryByWarehouse_XmlResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="GetInventoryByWarehouse_XmlResult" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -185,27 +105,12 @@
                     </s:sequence>
                 </s:complexType>
             </s:element>
-            <s:element name="GetInventory_Xml">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetInventory_XmlResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="GetInventory_XmlResult" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
             <s:element name="GetPurchaseOrdersReceived">
                 <s:complexType>
                     <s:sequence>
                         <s:element minOccurs="0" maxOccurs="1" name="subsidiaryName" type="s:string"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -221,7 +126,7 @@
                     <s:sequence>
                         <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -232,28 +137,12 @@
                     </s:sequence>
                 </s:complexType>
             </s:element>
-            <s:element name="GetSalesByPaymentType_Xml">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetSalesByPaymentType_XmlResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="GetSalesByPaymentType_XmlResult" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
             <s:element name="GetSalesByGroupType">
                 <s:complexType>
                     <s:sequence>
                         <s:element minOccurs="0" maxOccurs="1" name="subsidiaryName" type="s:string"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -269,7 +158,7 @@
                     <s:sequence>
                         <s:element minOccurs="0" maxOccurs="1" name="subsidiaryName" type="s:string"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -285,7 +174,7 @@
                     <s:sequence>
                         <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -296,28 +185,12 @@
                     </s:sequence>
                 </s:complexType>
             </s:element>
-            <s:element name="GetSalesByGroup_Xml">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetSalesByGroup_XmlResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="GetSalesByGroup_XmlResult" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
             <s:element name="GetDebtsToPay">
                 <s:complexType>
                     <s:sequence>
                         <s:element minOccurs="0" maxOccurs="1" name="subsidiaryName" type="s:string"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -333,7 +206,7 @@
                     <s:sequence>
                         <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -344,28 +217,12 @@
                     </s:sequence>
                 </s:complexType>
             </s:element>
-            <s:element name="GetDiscountsByDate_Xml">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetDiscountsByDate_XmlResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="GetDiscountsByDate_XmlResult" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
             <s:element name="GetTotalPurchasesByDate">
                 <s:complexType>
                     <s:sequence>
                         <s:element minOccurs="0" maxOccurs="1" name="subsidiaryName" type="s:string"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -381,7 +238,7 @@
                     <s:sequence>
                         <s:element minOccurs="0" maxOccurs="1" name="subsidiaryName" type="s:string"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="operationdate" type="s:string"/>
                         <s:element minOccurs="0" maxOccurs="1" name="departmentsToIgnore" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
@@ -398,7 +255,7 @@
                     <s:sequence>
                         <s:element minOccurs="0" maxOccurs="1" name="subsidiaryName" type="s:string"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -414,7 +271,7 @@
                     <s:sequence>
                         <s:element minOccurs="0" maxOccurs="1" name="subsidiaryName" type="s:string"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -430,7 +287,7 @@
                     <s:sequence>
                         <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -438,22 +295,6 @@
                 <s:complexType>
                     <s:sequence>
                         <s:element minOccurs="0" maxOccurs="1" name="GetOutgoingInventory_JsonResult" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetOutgoingInventory_Xml">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetOutgoingInventory_XmlResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="GetOutgoingInventory_XmlResult" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -466,8 +307,8 @@
                         <s:element minOccurs="0" maxOccurs="1" name="productCode" type="s:string"/>
                         <s:element minOccurs="1" maxOccurs="1" name="quantity" type="s:decimal"/>
                         <s:element minOccurs="1" maxOccurs="1" name="unitCost" type="s:decimal"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="date" type="s:dateTime"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="expirationDate" nillable="true" type="s:dateTime"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="date" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="expirationDate" nillable="true" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -475,27 +316,6 @@
                 <s:complexType>
                     <s:sequence>
                         <s:element minOccurs="0" maxOccurs="1" name="AddInventory_JsonResult" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="AddInventory_Xml">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="warehouseCode" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="productCode" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="quantity" type="s:decimal"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="unitCost" type="s:decimal"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="date" type="s:dateTime"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="expirationDate" nillable="true" type="s:dateTime"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="AddInventory_XmlResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="AddInventory_XmlResult" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -507,7 +327,7 @@
                         <s:element minOccurs="0" maxOccurs="1" name="warehouseCode" type="s:string"/>
                         <s:element minOccurs="0" maxOccurs="1" name="productCode" type="s:string"/>
                         <s:element minOccurs="1" maxOccurs="1" name="quantity" type="s:decimal"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="date" type="s:dateTime"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="date" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -515,25 +335,6 @@
                 <s:complexType>
                     <s:sequence>
                         <s:element minOccurs="0" maxOccurs="1" name="RemoveInventory_JsonResult" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="RemoveInventory_Xml">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="warehouseCode" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="productCode" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="quantity" type="s:decimal"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="date" type="s:dateTime"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="RemoveInventory_XmlResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="RemoveInventory_XmlResult" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -556,28 +357,6 @@
                 <s:complexType>
                     <s:sequence>
                         <s:element minOccurs="0" maxOccurs="1" name="CreateProduct_JsonResult" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="CreateProduct_Xml">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="productName" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="productCode" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="unitOfMeasureCode" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="departmentCode" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="productTypeId" type="s:short"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="budgetedCost" type="s:decimal"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="withTax" type="s:boolean"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="CreateProduct_XmlResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="CreateProduct_XmlResult" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -604,29 +383,6 @@
                     </s:sequence>
                 </s:complexType>
             </s:element>
-            <s:element name="EditProduct_Xml">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="productName" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="productCode" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="newProductCode" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="unitOfMeasureCode" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="departmentCode" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="productTypeId" type="s:short"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="budgetedCost" type="s:decimal"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="withTax" type="s:boolean"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="EditProduct_XmlResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="EditProduct_XmlResult" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
             <s:element name="GetDepartments_Json">
                 <s:complexType>
                     <s:sequence>
@@ -639,21 +395,6 @@
                 <s:complexType>
                     <s:sequence>
                         <s:element minOccurs="0" maxOccurs="1" name="GetDepartments_JsonResult" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetDepartments_Xml">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetDepartments_XmlResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="GetDepartments_XmlResult" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -672,21 +413,6 @@
                     </s:sequence>
                 </s:complexType>
             </s:element>
-            <s:element name="GetUnitOfMeasures_Xml">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetUnitOfMeasures_XmlResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="GetUnitOfMeasures_XmlResult" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
             <s:element name="GetWarehouses_Json">
                 <s:complexType>
                     <s:sequence>
@@ -702,21 +428,6 @@
                     </s:sequence>
                 </s:complexType>
             </s:element>
-            <s:element name="GetWarehouses_Xml">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetWarehouses_XmlResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="GetWarehouses_XmlResult" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
             <s:element name="GetProducts_Json">
                 <s:complexType>
                     <s:sequence>
@@ -729,21 +440,6 @@
                 <s:complexType>
                     <s:sequence>
                         <s:element minOccurs="0" maxOccurs="1" name="GetProducts_JsonResult" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetProducts_Xml">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetProducts_XmlResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="GetProducts_XmlResult" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -763,28 +459,12 @@
                     </s:sequence>
                 </s:complexType>
             </s:element>
-            <s:element name="GetProduct_Xml">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="productCode" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetProduct_XmlResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="GetProduct_XmlResult" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
             <s:element name="GetExpenses_Json">
                 <s:complexType>
                     <s:sequence>
                         <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -792,38 +472,6 @@
                 <s:complexType>
                     <s:sequence>
                         <s:element minOccurs="0" maxOccurs="1" name="GetExpenses_JsonResult" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetExpenses_Xml">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetExpenses_XmlResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="GetExpenses_XmlResult" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetExpensesByDocumentId_Xml">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="documentId" type="s:long"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetExpensesByDocumentId_XmlResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="GetExpensesByDocumentId_XmlResult" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -843,28 +491,12 @@
                     </s:sequence>
                 </s:complexType>
             </s:element>
-            <s:element name="MarkExpenseAsPaid_Xml">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="documentId" type="s:long"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="MarkExpenseAsPaid_XmlResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="MarkExpenseAsPaid_XmlResult" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
             <s:element name="GetIncomes_Json">
                 <s:complexType>
                     <s:sequence>
                         <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -872,38 +504,6 @@
                 <s:complexType>
                     <s:sequence>
                         <s:element minOccurs="0" maxOccurs="1" name="GetIncomes_JsonResult" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetIncomes_Xml">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetIncomes_XmlResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="GetIncomes_XmlResult" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetIncomesByDocumentId_Xml">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="documentId" type="s:long"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetIncomesByDocumentId_XmlResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="GetIncomesByDocumentId_XmlResult" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -928,7 +528,7 @@
                     <s:sequence>
                         <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -939,28 +539,12 @@
                     </s:sequence>
                 </s:complexType>
             </s:element>
-            <s:element name="GetPaymentOfExpenses_Xml">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetPaymentOfExpenses_XmlResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="GetPaymentOfExpenses_XmlResult" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
             <s:element name="GetInputInventory_Json">
                 <s:complexType>
                     <s:sequence>
                         <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -971,28 +555,12 @@
                     </s:sequence>
                 </s:complexType>
             </s:element>
-            <s:element name="GetInputInventory_Xml">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetInputInventory_XmlResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="GetInputInventory_XmlResult" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
             <s:element name="GetAccessControl_Json">
                 <s:complexType>
                     <s:sequence>
                         <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -1000,22 +568,6 @@
                 <s:complexType>
                     <s:sequence>
                         <s:element minOccurs="0" maxOccurs="1" name="GetAccessControl_JsonResult" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetAccessControl_Xml">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetAccessControl_XmlResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="GetAccessControl_XmlResult" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -1034,21 +586,6 @@
                     </s:sequence>
                 </s:complexType>
             </s:element>
-            <s:element name="GetPendingPurchaseOrders_Xml">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetPendingPurchaseOrders_XmlResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="GetPendingPurchaseOrders_XmlResult" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
             <s:element name="ChangeStatusPurchaseOrder_Json">
                 <s:complexType>
                     <s:sequence>
@@ -1063,23 +600,6 @@
                 <s:complexType>
                     <s:sequence>
                         <s:element minOccurs="0" maxOccurs="1" name="ChangeStatusPurchaseOrder_JsonResult" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="ChangeStatusPurchaseOrder_Xml">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="purchaseOrderId" type="s:int"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="status" type="s:int"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="ChangeStatusPurchaseOrder_XmlResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="ChangeStatusPurchaseOrder_XmlResult" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -1102,31 +622,12 @@
                     </s:sequence>
                 </s:complexType>
             </s:element>
-            <s:element name="SavePricePresentation_Xml">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="supplierCode" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="productCode" type="s:string"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="presentationCode" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="Cost" type="s:decimal"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="SavePricePresentation_XmlResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="SavePricePresentation_XmlResult" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
             <s:element name="GetGlobalCashClosing_Json">
                 <s:complexType>
                     <s:sequence>
                         <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:dateTime"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -1137,28 +638,12 @@
                     </s:sequence>
                 </s:complexType>
             </s:element>
-            <s:element name="GetGlobalCashClosing_Xml">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:dateTime"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetGlobalCashClosing_XmlResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="GetGlobalCashClosing_XmlResult" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
             <s:element name="GetCfdis_Json">
                 <s:complexType>
                     <s:sequence>
                         <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -1169,28 +654,12 @@
                     </s:sequence>
                 </s:complexType>
             </s:element>
-            <s:element name="GetCfdis_Xml">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetCfdis_XmlResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="GetCfdis_XmlResult" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
             <s:element name="GetSaleDetailsWithInvoiceInfo_Json">
                 <s:complexType>
                     <s:sequence>
                         <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
                         <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="operationdate" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -1198,22 +667,6 @@
                 <s:complexType>
                     <s:sequence>
                         <s:element minOccurs="0" maxOccurs="1" name="GetSaleDetailsWithInvoiceInfo_JsonResult" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetSaleDetailsWithInvoiceInfo_Xml">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="subsidiaryId" type="s:int"/>
-                        <s:element minOccurs="0" maxOccurs="1" name="pwdWebService" type="s:string"/>
-                        <s:element minOccurs="1" maxOccurs="1" name="operationDate" type="s:string"/>
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="GetSaleDetailsWithInvoiceInfo_XmlResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="GetSaleDetailsWithInvoiceInfo_XmlResult" type="s:string"/>
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -1231,35 +684,11 @@
     <wsdl:message name="GetOrdersByDay_JsonSoapOut">
         <wsdl:part name="parameters" element="tns:GetOrdersByDay_JsonResponse"/>
     </wsdl:message>
-    <wsdl:message name="GetOrdersByDay_XmlSoapIn">
-        <wsdl:part name="parameters" element="tns:GetOrdersByDay_Xml"/>
-    </wsdl:message>
-    <wsdl:message name="GetOrdersByDay_XmlSoapOut">
-        <wsdl:part name="parameters" element="tns:GetOrdersByDay_XmlResponse"/>
-    </wsdl:message>
     <wsdl:message name="GetAllOrdersByDay_JsonSoapIn">
         <wsdl:part name="parameters" element="tns:GetAllOrdersByDay_Json"/>
     </wsdl:message>
     <wsdl:message name="GetAllOrdersByDay_JsonSoapOut">
         <wsdl:part name="parameters" element="tns:GetAllOrdersByDay_JsonResponse"/>
-    </wsdl:message>
-    <wsdl:message name="GetAllOrdersByDay_XmlSoapIn">
-        <wsdl:part name="parameters" element="tns:GetAllOrdersByDay_Xml"/>
-    </wsdl:message>
-    <wsdl:message name="GetAllOrdersByDay_XmlSoapOut">
-        <wsdl:part name="parameters" element="tns:GetAllOrdersByDay_XmlResponse"/>
-    </wsdl:message>
-    <wsdl:message name="GetAllAcountsReceivable_XmlSoapIn">
-        <wsdl:part name="parameters" element="tns:GetAllAcountsReceivable_Xml"/>
-    </wsdl:message>
-    <wsdl:message name="GetAllAcountsReceivable_XmlSoapOut">
-        <wsdl:part name="parameters" element="tns:GetAllAcountsReceivable_XmlResponse"/>
-    </wsdl:message>
-    <wsdl:message name="GetAllAnticipatedPayment_xmlSoapIn">
-        <wsdl:part name="parameters" element="tns:GetAllAnticipatedPayment_xml"/>
-    </wsdl:message>
-    <wsdl:message name="GetAllAnticipatedPayment_xmlSoapOut">
-        <wsdl:part name="parameters" element="tns:GetAllAnticipatedPayment_xmlResponse"/>
     </wsdl:message>
     <wsdl:message name="GetInventoryByDepartmentSoapIn">
         <wsdl:part name="parameters" element="tns:GetInventoryByDepartment"/>
@@ -1273,23 +702,11 @@
     <wsdl:message name="GetInventoryByWarehouse_JsonSoapOut">
         <wsdl:part name="parameters" element="tns:GetInventoryByWarehouse_JsonResponse"/>
     </wsdl:message>
-    <wsdl:message name="GetInventoryByWarehouse_XmlSoapIn">
-        <wsdl:part name="parameters" element="tns:GetInventoryByWarehouse_Xml"/>
-    </wsdl:message>
-    <wsdl:message name="GetInventoryByWarehouse_XmlSoapOut">
-        <wsdl:part name="parameters" element="tns:GetInventoryByWarehouse_XmlResponse"/>
-    </wsdl:message>
     <wsdl:message name="GetInventory_JsonSoapIn">
         <wsdl:part name="parameters" element="tns:GetInventory_Json"/>
     </wsdl:message>
     <wsdl:message name="GetInventory_JsonSoapOut">
         <wsdl:part name="parameters" element="tns:GetInventory_JsonResponse"/>
-    </wsdl:message>
-    <wsdl:message name="GetInventory_XmlSoapIn">
-        <wsdl:part name="parameters" element="tns:GetInventory_Xml"/>
-    </wsdl:message>
-    <wsdl:message name="GetInventory_XmlSoapOut">
-        <wsdl:part name="parameters" element="tns:GetInventory_XmlResponse"/>
     </wsdl:message>
     <wsdl:message name="GetPurchaseOrdersReceivedSoapIn">
         <wsdl:part name="parameters" element="tns:GetPurchaseOrdersReceived"/>
@@ -1302,12 +719,6 @@
     </wsdl:message>
     <wsdl:message name="GetSalesByPaymentType_JsonSoapOut">
         <wsdl:part name="parameters" element="tns:GetSalesByPaymentType_JsonResponse"/>
-    </wsdl:message>
-    <wsdl:message name="GetSalesByPaymentType_XmlSoapIn">
-        <wsdl:part name="parameters" element="tns:GetSalesByPaymentType_Xml"/>
-    </wsdl:message>
-    <wsdl:message name="GetSalesByPaymentType_XmlSoapOut">
-        <wsdl:part name="parameters" element="tns:GetSalesByPaymentType_XmlResponse"/>
     </wsdl:message>
     <wsdl:message name="GetSalesByGroupTypeSoapIn">
         <wsdl:part name="parameters" element="tns:GetSalesByGroupType"/>
@@ -1327,12 +738,6 @@
     <wsdl:message name="GetSalesByGroup_JsonSoapOut">
         <wsdl:part name="parameters" element="tns:GetSalesByGroup_JsonResponse"/>
     </wsdl:message>
-    <wsdl:message name="GetSalesByGroup_XmlSoapIn">
-        <wsdl:part name="parameters" element="tns:GetSalesByGroup_Xml"/>
-    </wsdl:message>
-    <wsdl:message name="GetSalesByGroup_XmlSoapOut">
-        <wsdl:part name="parameters" element="tns:GetSalesByGroup_XmlResponse"/>
-    </wsdl:message>
     <wsdl:message name="GetDebtsToPaySoapIn">
         <wsdl:part name="parameters" element="tns:GetDebtsToPay"/>
     </wsdl:message>
@@ -1344,12 +749,6 @@
     </wsdl:message>
     <wsdl:message name="GetDiscountsByDate_JsonSoapOut">
         <wsdl:part name="parameters" element="tns:GetDiscountsByDate_JsonResponse"/>
-    </wsdl:message>
-    <wsdl:message name="GetDiscountsByDate_XmlSoapIn">
-        <wsdl:part name="parameters" element="tns:GetDiscountsByDate_Xml"/>
-    </wsdl:message>
-    <wsdl:message name="GetDiscountsByDate_XmlSoapOut">
-        <wsdl:part name="parameters" element="tns:GetDiscountsByDate_XmlResponse"/>
     </wsdl:message>
     <wsdl:message name="GetTotalPurchasesByDateSoapIn">
         <wsdl:part name="parameters" element="tns:GetTotalPurchasesByDate"/>
@@ -1381,23 +780,11 @@
     <wsdl:message name="GetOutgoingInventory_JsonSoapOut">
         <wsdl:part name="parameters" element="tns:GetOutgoingInventory_JsonResponse"/>
     </wsdl:message>
-    <wsdl:message name="GetOutgoingInventory_XmlSoapIn">
-        <wsdl:part name="parameters" element="tns:GetOutgoingInventory_Xml"/>
-    </wsdl:message>
-    <wsdl:message name="GetOutgoingInventory_XmlSoapOut">
-        <wsdl:part name="parameters" element="tns:GetOutgoingInventory_XmlResponse"/>
-    </wsdl:message>
     <wsdl:message name="AddInventory_JsonSoapIn">
         <wsdl:part name="parameters" element="tns:AddInventory_Json"/>
     </wsdl:message>
     <wsdl:message name="AddInventory_JsonSoapOut">
         <wsdl:part name="parameters" element="tns:AddInventory_JsonResponse"/>
-    </wsdl:message>
-    <wsdl:message name="AddInventory_XmlSoapIn">
-        <wsdl:part name="parameters" element="tns:AddInventory_Xml"/>
-    </wsdl:message>
-    <wsdl:message name="AddInventory_XmlSoapOut">
-        <wsdl:part name="parameters" element="tns:AddInventory_XmlResponse"/>
     </wsdl:message>
     <wsdl:message name="RemoveInventory_JsonSoapIn">
         <wsdl:part name="parameters" element="tns:RemoveInventory_Json"/>
@@ -1405,23 +792,11 @@
     <wsdl:message name="RemoveInventory_JsonSoapOut">
         <wsdl:part name="parameters" element="tns:RemoveInventory_JsonResponse"/>
     </wsdl:message>
-    <wsdl:message name="RemoveInventory_XmlSoapIn">
-        <wsdl:part name="parameters" element="tns:RemoveInventory_Xml"/>
-    </wsdl:message>
-    <wsdl:message name="RemoveInventory_XmlSoapOut">
-        <wsdl:part name="parameters" element="tns:RemoveInventory_XmlResponse"/>
-    </wsdl:message>
     <wsdl:message name="CreateProduct_JsonSoapIn">
         <wsdl:part name="parameters" element="tns:CreateProduct_Json"/>
     </wsdl:message>
     <wsdl:message name="CreateProduct_JsonSoapOut">
         <wsdl:part name="parameters" element="tns:CreateProduct_JsonResponse"/>
-    </wsdl:message>
-    <wsdl:message name="CreateProduct_XmlSoapIn">
-        <wsdl:part name="parameters" element="tns:CreateProduct_Xml"/>
-    </wsdl:message>
-    <wsdl:message name="CreateProduct_XmlSoapOut">
-        <wsdl:part name="parameters" element="tns:CreateProduct_XmlResponse"/>
     </wsdl:message>
     <wsdl:message name="EditProduct_JsonSoapIn">
         <wsdl:part name="parameters" element="tns:EditProduct_Json"/>
@@ -1429,23 +804,11 @@
     <wsdl:message name="EditProduct_JsonSoapOut">
         <wsdl:part name="parameters" element="tns:EditProduct_JsonResponse"/>
     </wsdl:message>
-    <wsdl:message name="EditProduct_XmlSoapIn">
-        <wsdl:part name="parameters" element="tns:EditProduct_Xml"/>
-    </wsdl:message>
-    <wsdl:message name="EditProduct_XmlSoapOut">
-        <wsdl:part name="parameters" element="tns:EditProduct_XmlResponse"/>
-    </wsdl:message>
     <wsdl:message name="GetDepartments_JsonSoapIn">
         <wsdl:part name="parameters" element="tns:GetDepartments_Json"/>
     </wsdl:message>
     <wsdl:message name="GetDepartments_JsonSoapOut">
         <wsdl:part name="parameters" element="tns:GetDepartments_JsonResponse"/>
-    </wsdl:message>
-    <wsdl:message name="GetDepartments_XmlSoapIn">
-        <wsdl:part name="parameters" element="tns:GetDepartments_Xml"/>
-    </wsdl:message>
-    <wsdl:message name="GetDepartments_XmlSoapOut">
-        <wsdl:part name="parameters" element="tns:GetDepartments_XmlResponse"/>
     </wsdl:message>
     <wsdl:message name="GetUnitOfMeasures_JsonSoapIn">
         <wsdl:part name="parameters" element="tns:GetUnitOfMeasures_Json"/>
@@ -1453,23 +816,11 @@
     <wsdl:message name="GetUnitOfMeasures_JsonSoapOut">
         <wsdl:part name="parameters" element="tns:GetUnitOfMeasures_JsonResponse"/>
     </wsdl:message>
-    <wsdl:message name="GetUnitOfMeasures_XmlSoapIn">
-        <wsdl:part name="parameters" element="tns:GetUnitOfMeasures_Xml"/>
-    </wsdl:message>
-    <wsdl:message name="GetUnitOfMeasures_XmlSoapOut">
-        <wsdl:part name="parameters" element="tns:GetUnitOfMeasures_XmlResponse"/>
-    </wsdl:message>
     <wsdl:message name="GetWarehouses_JsonSoapIn">
         <wsdl:part name="parameters" element="tns:GetWarehouses_Json"/>
     </wsdl:message>
     <wsdl:message name="GetWarehouses_JsonSoapOut">
         <wsdl:part name="parameters" element="tns:GetWarehouses_JsonResponse"/>
-    </wsdl:message>
-    <wsdl:message name="GetWarehouses_XmlSoapIn">
-        <wsdl:part name="parameters" element="tns:GetWarehouses_Xml"/>
-    </wsdl:message>
-    <wsdl:message name="GetWarehouses_XmlSoapOut">
-        <wsdl:part name="parameters" element="tns:GetWarehouses_XmlResponse"/>
     </wsdl:message>
     <wsdl:message name="GetProducts_JsonSoapIn">
         <wsdl:part name="parameters" element="tns:GetProducts_Json"/>
@@ -1477,23 +828,11 @@
     <wsdl:message name="GetProducts_JsonSoapOut">
         <wsdl:part name="parameters" element="tns:GetProducts_JsonResponse"/>
     </wsdl:message>
-    <wsdl:message name="GetProducts_XmlSoapIn">
-        <wsdl:part name="parameters" element="tns:GetProducts_Xml"/>
-    </wsdl:message>
-    <wsdl:message name="GetProducts_XmlSoapOut">
-        <wsdl:part name="parameters" element="tns:GetProducts_XmlResponse"/>
-    </wsdl:message>
     <wsdl:message name="GetProduct_JsonSoapIn">
         <wsdl:part name="parameters" element="tns:GetProduct_Json"/>
     </wsdl:message>
     <wsdl:message name="GetProduct_JsonSoapOut">
         <wsdl:part name="parameters" element="tns:GetProduct_JsonResponse"/>
-    </wsdl:message>
-    <wsdl:message name="GetProduct_XmlSoapIn">
-        <wsdl:part name="parameters" element="tns:GetProduct_Xml"/>
-    </wsdl:message>
-    <wsdl:message name="GetProduct_XmlSoapOut">
-        <wsdl:part name="parameters" element="tns:GetProduct_XmlResponse"/>
     </wsdl:message>
     <wsdl:message name="GetExpenses_JsonSoapIn">
         <wsdl:part name="parameters" element="tns:GetExpenses_Json"/>
@@ -1501,47 +840,17 @@
     <wsdl:message name="GetExpenses_JsonSoapOut">
         <wsdl:part name="parameters" element="tns:GetExpenses_JsonResponse"/>
     </wsdl:message>
-    <wsdl:message name="GetExpenses_XmlSoapIn">
-        <wsdl:part name="parameters" element="tns:GetExpenses_Xml"/>
-    </wsdl:message>
-    <wsdl:message name="GetExpenses_XmlSoapOut">
-        <wsdl:part name="parameters" element="tns:GetExpenses_XmlResponse"/>
-    </wsdl:message>
-    <wsdl:message name="GetExpensesByDocumentId_XmlSoapIn">
-        <wsdl:part name="parameters" element="tns:GetExpensesByDocumentId_Xml"/>
-    </wsdl:message>
-    <wsdl:message name="GetExpensesByDocumentId_XmlSoapOut">
-        <wsdl:part name="parameters" element="tns:GetExpensesByDocumentId_XmlResponse"/>
-    </wsdl:message>
     <wsdl:message name="MarkExpenseAsPaid_JsonSoapIn">
         <wsdl:part name="parameters" element="tns:MarkExpenseAsPaid_Json"/>
     </wsdl:message>
     <wsdl:message name="MarkExpenseAsPaid_JsonSoapOut">
         <wsdl:part name="parameters" element="tns:MarkExpenseAsPaid_JsonResponse"/>
     </wsdl:message>
-    <wsdl:message name="MarkExpenseAsPaid_XmlSoapIn">
-        <wsdl:part name="parameters" element="tns:MarkExpenseAsPaid_Xml"/>
-    </wsdl:message>
-    <wsdl:message name="MarkExpenseAsPaid_XmlSoapOut">
-        <wsdl:part name="parameters" element="tns:MarkExpenseAsPaid_XmlResponse"/>
-    </wsdl:message>
     <wsdl:message name="GetIncomes_JsonSoapIn">
         <wsdl:part name="parameters" element="tns:GetIncomes_Json"/>
     </wsdl:message>
     <wsdl:message name="GetIncomes_JsonSoapOut">
         <wsdl:part name="parameters" element="tns:GetIncomes_JsonResponse"/>
-    </wsdl:message>
-    <wsdl:message name="GetIncomes_XmlSoapIn">
-        <wsdl:part name="parameters" element="tns:GetIncomes_Xml"/>
-    </wsdl:message>
-    <wsdl:message name="GetIncomes_XmlSoapOut">
-        <wsdl:part name="parameters" element="tns:GetIncomes_XmlResponse"/>
-    </wsdl:message>
-    <wsdl:message name="GetIncomesByDocumentId_XmlSoapIn">
-        <wsdl:part name="parameters" element="tns:GetIncomesByDocumentId_Xml"/>
-    </wsdl:message>
-    <wsdl:message name="GetIncomesByDocumentId_XmlSoapOut">
-        <wsdl:part name="parameters" element="tns:GetIncomesByDocumentId_XmlResponse"/>
     </wsdl:message>
     <wsdl:message name="GetPdfIncomeByDocumentIdSoapIn">
         <wsdl:part name="parameters" element="tns:GetPdfIncomeByDocumentId"/>
@@ -1555,23 +864,11 @@
     <wsdl:message name="GetPaymentOfExpenses_JsonSoapOut">
         <wsdl:part name="parameters" element="tns:GetPaymentOfExpenses_JsonResponse"/>
     </wsdl:message>
-    <wsdl:message name="GetPaymentOfExpenses_XmlSoapIn">
-        <wsdl:part name="parameters" element="tns:GetPaymentOfExpenses_Xml"/>
-    </wsdl:message>
-    <wsdl:message name="GetPaymentOfExpenses_XmlSoapOut">
-        <wsdl:part name="parameters" element="tns:GetPaymentOfExpenses_XmlResponse"/>
-    </wsdl:message>
     <wsdl:message name="GetInputInventory_JsonSoapIn">
         <wsdl:part name="parameters" element="tns:GetInputInventory_Json"/>
     </wsdl:message>
     <wsdl:message name="GetInputInventory_JsonSoapOut">
         <wsdl:part name="parameters" element="tns:GetInputInventory_JsonResponse"/>
-    </wsdl:message>
-    <wsdl:message name="GetInputInventory_XmlSoapIn">
-        <wsdl:part name="parameters" element="tns:GetInputInventory_Xml"/>
-    </wsdl:message>
-    <wsdl:message name="GetInputInventory_XmlSoapOut">
-        <wsdl:part name="parameters" element="tns:GetInputInventory_XmlResponse"/>
     </wsdl:message>
     <wsdl:message name="GetAccessControl_JsonSoapIn">
         <wsdl:part name="parameters" element="tns:GetAccessControl_Json"/>
@@ -1579,23 +876,11 @@
     <wsdl:message name="GetAccessControl_JsonSoapOut">
         <wsdl:part name="parameters" element="tns:GetAccessControl_JsonResponse"/>
     </wsdl:message>
-    <wsdl:message name="GetAccessControl_XmlSoapIn">
-        <wsdl:part name="parameters" element="tns:GetAccessControl_Xml"/>
-    </wsdl:message>
-    <wsdl:message name="GetAccessControl_XmlSoapOut">
-        <wsdl:part name="parameters" element="tns:GetAccessControl_XmlResponse"/>
-    </wsdl:message>
     <wsdl:message name="GetPendingPurchaseOrders_JsonSoapIn">
         <wsdl:part name="parameters" element="tns:GetPendingPurchaseOrders_Json"/>
     </wsdl:message>
     <wsdl:message name="GetPendingPurchaseOrders_JsonSoapOut">
         <wsdl:part name="parameters" element="tns:GetPendingPurchaseOrders_JsonResponse"/>
-    </wsdl:message>
-    <wsdl:message name="GetPendingPurchaseOrders_XmlSoapIn">
-        <wsdl:part name="parameters" element="tns:GetPendingPurchaseOrders_Xml"/>
-    </wsdl:message>
-    <wsdl:message name="GetPendingPurchaseOrders_XmlSoapOut">
-        <wsdl:part name="parameters" element="tns:GetPendingPurchaseOrders_XmlResponse"/>
     </wsdl:message>
     <wsdl:message name="ChangeStatusPurchaseOrder_JsonSoapIn">
         <wsdl:part name="parameters" element="tns:ChangeStatusPurchaseOrder_Json"/>
@@ -1603,23 +888,11 @@
     <wsdl:message name="ChangeStatusPurchaseOrder_JsonSoapOut">
         <wsdl:part name="parameters" element="tns:ChangeStatusPurchaseOrder_JsonResponse"/>
     </wsdl:message>
-    <wsdl:message name="ChangeStatusPurchaseOrder_XmlSoapIn">
-        <wsdl:part name="parameters" element="tns:ChangeStatusPurchaseOrder_Xml"/>
-    </wsdl:message>
-    <wsdl:message name="ChangeStatusPurchaseOrder_XmlSoapOut">
-        <wsdl:part name="parameters" element="tns:ChangeStatusPurchaseOrder_XmlResponse"/>
-    </wsdl:message>
     <wsdl:message name="SavePricePresentation_JsonSoapIn">
         <wsdl:part name="parameters" element="tns:SavePricePresentation_Json"/>
     </wsdl:message>
     <wsdl:message name="SavePricePresentation_JsonSoapOut">
         <wsdl:part name="parameters" element="tns:SavePricePresentation_JsonResponse"/>
-    </wsdl:message>
-    <wsdl:message name="SavePricePresentation_XmlSoapIn">
-        <wsdl:part name="parameters" element="tns:SavePricePresentation_Xml"/>
-    </wsdl:message>
-    <wsdl:message name="SavePricePresentation_XmlSoapOut">
-        <wsdl:part name="parameters" element="tns:SavePricePresentation_XmlResponse"/>
     </wsdl:message>
     <wsdl:message name="GetGlobalCashClosing_JsonSoapIn">
         <wsdl:part name="parameters" element="tns:GetGlobalCashClosing_Json"/>
@@ -1627,35 +900,17 @@
     <wsdl:message name="GetGlobalCashClosing_JsonSoapOut">
         <wsdl:part name="parameters" element="tns:GetGlobalCashClosing_JsonResponse"/>
     </wsdl:message>
-    <wsdl:message name="GetGlobalCashClosing_XmlSoapIn">
-        <wsdl:part name="parameters" element="tns:GetGlobalCashClosing_Xml"/>
-    </wsdl:message>
-    <wsdl:message name="GetGlobalCashClosing_XmlSoapOut">
-        <wsdl:part name="parameters" element="tns:GetGlobalCashClosing_XmlResponse"/>
-    </wsdl:message>
     <wsdl:message name="GetCfdis_JsonSoapIn">
         <wsdl:part name="parameters" element="tns:GetCfdis_Json"/>
     </wsdl:message>
     <wsdl:message name="GetCfdis_JsonSoapOut">
         <wsdl:part name="parameters" element="tns:GetCfdis_JsonResponse"/>
     </wsdl:message>
-    <wsdl:message name="GetCfdis_XmlSoapIn">
-        <wsdl:part name="parameters" element="tns:GetCfdis_Xml"/>
-    </wsdl:message>
-    <wsdl:message name="GetCfdis_XmlSoapOut">
-        <wsdl:part name="parameters" element="tns:GetCfdis_XmlResponse"/>
-    </wsdl:message>
     <wsdl:message name="GetSaleDetailsWithInvoiceInfo_JsonSoapIn">
         <wsdl:part name="parameters" element="tns:GetSaleDetailsWithInvoiceInfo_Json"/>
     </wsdl:message>
     <wsdl:message name="GetSaleDetailsWithInvoiceInfo_JsonSoapOut">
         <wsdl:part name="parameters" element="tns:GetSaleDetailsWithInvoiceInfo_JsonResponse"/>
-    </wsdl:message>
-    <wsdl:message name="GetSaleDetailsWithInvoiceInfo_XmlSoapIn">
-        <wsdl:part name="parameters" element="tns:GetSaleDetailsWithInvoiceInfo_Xml"/>
-    </wsdl:message>
-    <wsdl:message name="GetSaleDetailsWithInvoiceInfo_XmlSoapOut">
-        <wsdl:part name="parameters" element="tns:GetSaleDetailsWithInvoiceInfo_XmlResponse"/>
     </wsdl:message>
     <wsdl:portType name="IntegrationServiceSoap">
         <wsdl:operation name="GetSaleByOrder">
@@ -1666,25 +921,9 @@
             <wsdl:input message="tns:GetOrdersByDay_JsonSoapIn"/>
             <wsdl:output message="tns:GetOrdersByDay_JsonSoapOut"/>
         </wsdl:operation>
-        <wsdl:operation name="GetOrdersByDay_Xml">
-            <wsdl:input message="tns:GetOrdersByDay_XmlSoapIn"/>
-            <wsdl:output message="tns:GetOrdersByDay_XmlSoapOut"/>
-        </wsdl:operation>
         <wsdl:operation name="GetAllOrdersByDay_Json">
             <wsdl:input message="tns:GetAllOrdersByDay_JsonSoapIn"/>
             <wsdl:output message="tns:GetAllOrdersByDay_JsonSoapOut"/>
-        </wsdl:operation>
-        <wsdl:operation name="GetAllOrdersByDay_Xml">
-            <wsdl:input message="tns:GetAllOrdersByDay_XmlSoapIn"/>
-            <wsdl:output message="tns:GetAllOrdersByDay_XmlSoapOut"/>
-        </wsdl:operation>
-        <wsdl:operation name="GetAllAcountsReceivable_Xml">
-            <wsdl:input message="tns:GetAllAcountsReceivable_XmlSoapIn"/>
-            <wsdl:output message="tns:GetAllAcountsReceivable_XmlSoapOut"/>
-        </wsdl:operation>
-        <wsdl:operation name="GetAllAnticipatedPayment_xml">
-            <wsdl:input message="tns:GetAllAnticipatedPayment_xmlSoapIn"/>
-            <wsdl:output message="tns:GetAllAnticipatedPayment_xmlSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="GetInventoryByDepartment">
             <wsdl:input message="tns:GetInventoryByDepartmentSoapIn"/>
@@ -1694,17 +933,9 @@
             <wsdl:input message="tns:GetInventoryByWarehouse_JsonSoapIn"/>
             <wsdl:output message="tns:GetInventoryByWarehouse_JsonSoapOut"/>
         </wsdl:operation>
-        <wsdl:operation name="GetInventoryByWarehouse_Xml">
-            <wsdl:input message="tns:GetInventoryByWarehouse_XmlSoapIn"/>
-            <wsdl:output message="tns:GetInventoryByWarehouse_XmlSoapOut"/>
-        </wsdl:operation>
         <wsdl:operation name="GetInventory_Json">
             <wsdl:input message="tns:GetInventory_JsonSoapIn"/>
             <wsdl:output message="tns:GetInventory_JsonSoapOut"/>
-        </wsdl:operation>
-        <wsdl:operation name="GetInventory_Xml">
-            <wsdl:input message="tns:GetInventory_XmlSoapIn"/>
-            <wsdl:output message="tns:GetInventory_XmlSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="GetPurchaseOrdersReceived">
             <wsdl:input message="tns:GetPurchaseOrdersReceivedSoapIn"/>
@@ -1713,10 +944,6 @@
         <wsdl:operation name="GetSalesByPaymentType_Json">
             <wsdl:input message="tns:GetSalesByPaymentType_JsonSoapIn"/>
             <wsdl:output message="tns:GetSalesByPaymentType_JsonSoapOut"/>
-        </wsdl:operation>
-        <wsdl:operation name="GetSalesByPaymentType_Xml">
-            <wsdl:input message="tns:GetSalesByPaymentType_XmlSoapIn"/>
-            <wsdl:output message="tns:GetSalesByPaymentType_XmlSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="GetSalesByGroupType">
             <wsdl:input message="tns:GetSalesByGroupTypeSoapIn"/>
@@ -1730,10 +957,6 @@
             <wsdl:input message="tns:GetSalesByGroup_JsonSoapIn"/>
             <wsdl:output message="tns:GetSalesByGroup_JsonSoapOut"/>
         </wsdl:operation>
-        <wsdl:operation name="GetSalesByGroup_Xml">
-            <wsdl:input message="tns:GetSalesByGroup_XmlSoapIn"/>
-            <wsdl:output message="tns:GetSalesByGroup_XmlSoapOut"/>
-        </wsdl:operation>
         <wsdl:operation name="GetDebtsToPay">
             <wsdl:input message="tns:GetDebtsToPaySoapIn"/>
             <wsdl:output message="tns:GetDebtsToPaySoapOut"/>
@@ -1741,10 +964,6 @@
         <wsdl:operation name="GetDiscountsByDate_Json">
             <wsdl:input message="tns:GetDiscountsByDate_JsonSoapIn"/>
             <wsdl:output message="tns:GetDiscountsByDate_JsonSoapOut"/>
-        </wsdl:operation>
-        <wsdl:operation name="GetDiscountsByDate_Xml">
-            <wsdl:input message="tns:GetDiscountsByDate_XmlSoapIn"/>
-            <wsdl:output message="tns:GetDiscountsByDate_XmlSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="GetTotalPurchasesByDate">
             <wsdl:input message="tns:GetTotalPurchasesByDateSoapIn"/>
@@ -1766,113 +985,53 @@
             <wsdl:input message="tns:GetOutgoingInventory_JsonSoapIn"/>
             <wsdl:output message="tns:GetOutgoingInventory_JsonSoapOut"/>
         </wsdl:operation>
-        <wsdl:operation name="GetOutgoingInventory_Xml">
-            <wsdl:input message="tns:GetOutgoingInventory_XmlSoapIn"/>
-            <wsdl:output message="tns:GetOutgoingInventory_XmlSoapOut"/>
-        </wsdl:operation>
         <wsdl:operation name="AddInventory_Json">
             <wsdl:input message="tns:AddInventory_JsonSoapIn"/>
             <wsdl:output message="tns:AddInventory_JsonSoapOut"/>
-        </wsdl:operation>
-        <wsdl:operation name="AddInventory_Xml">
-            <wsdl:input message="tns:AddInventory_XmlSoapIn"/>
-            <wsdl:output message="tns:AddInventory_XmlSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="RemoveInventory_Json">
             <wsdl:input message="tns:RemoveInventory_JsonSoapIn"/>
             <wsdl:output message="tns:RemoveInventory_JsonSoapOut"/>
         </wsdl:operation>
-        <wsdl:operation name="RemoveInventory_Xml">
-            <wsdl:input message="tns:RemoveInventory_XmlSoapIn"/>
-            <wsdl:output message="tns:RemoveInventory_XmlSoapOut"/>
-        </wsdl:operation>
         <wsdl:operation name="CreateProduct_Json">
             <wsdl:input message="tns:CreateProduct_JsonSoapIn"/>
             <wsdl:output message="tns:CreateProduct_JsonSoapOut"/>
-        </wsdl:operation>
-        <wsdl:operation name="CreateProduct_Xml">
-            <wsdl:input message="tns:CreateProduct_XmlSoapIn"/>
-            <wsdl:output message="tns:CreateProduct_XmlSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="EditProduct_Json">
             <wsdl:input message="tns:EditProduct_JsonSoapIn"/>
             <wsdl:output message="tns:EditProduct_JsonSoapOut"/>
         </wsdl:operation>
-        <wsdl:operation name="EditProduct_Xml">
-            <wsdl:input message="tns:EditProduct_XmlSoapIn"/>
-            <wsdl:output message="tns:EditProduct_XmlSoapOut"/>
-        </wsdl:operation>
         <wsdl:operation name="GetDepartments_Json">
             <wsdl:input message="tns:GetDepartments_JsonSoapIn"/>
             <wsdl:output message="tns:GetDepartments_JsonSoapOut"/>
-        </wsdl:operation>
-        <wsdl:operation name="GetDepartments_Xml">
-            <wsdl:input message="tns:GetDepartments_XmlSoapIn"/>
-            <wsdl:output message="tns:GetDepartments_XmlSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="GetUnitOfMeasures_Json">
             <wsdl:input message="tns:GetUnitOfMeasures_JsonSoapIn"/>
             <wsdl:output message="tns:GetUnitOfMeasures_JsonSoapOut"/>
         </wsdl:operation>
-        <wsdl:operation name="GetUnitOfMeasures_Xml">
-            <wsdl:input message="tns:GetUnitOfMeasures_XmlSoapIn"/>
-            <wsdl:output message="tns:GetUnitOfMeasures_XmlSoapOut"/>
-        </wsdl:operation>
         <wsdl:operation name="GetWarehouses_Json">
             <wsdl:input message="tns:GetWarehouses_JsonSoapIn"/>
             <wsdl:output message="tns:GetWarehouses_JsonSoapOut"/>
-        </wsdl:operation>
-        <wsdl:operation name="GetWarehouses_Xml">
-            <wsdl:input message="tns:GetWarehouses_XmlSoapIn"/>
-            <wsdl:output message="tns:GetWarehouses_XmlSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="GetProducts_Json">
             <wsdl:input message="tns:GetProducts_JsonSoapIn"/>
             <wsdl:output message="tns:GetProducts_JsonSoapOut"/>
         </wsdl:operation>
-        <wsdl:operation name="GetProducts_Xml">
-            <wsdl:input message="tns:GetProducts_XmlSoapIn"/>
-            <wsdl:output message="tns:GetProducts_XmlSoapOut"/>
-        </wsdl:operation>
         <wsdl:operation name="GetProduct_Json">
             <wsdl:input message="tns:GetProduct_JsonSoapIn"/>
             <wsdl:output message="tns:GetProduct_JsonSoapOut"/>
-        </wsdl:operation>
-        <wsdl:operation name="GetProduct_Xml">
-            <wsdl:input message="tns:GetProduct_XmlSoapIn"/>
-            <wsdl:output message="tns:GetProduct_XmlSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="GetExpenses_Json">
             <wsdl:input message="tns:GetExpenses_JsonSoapIn"/>
             <wsdl:output message="tns:GetExpenses_JsonSoapOut"/>
         </wsdl:operation>
-        <wsdl:operation name="GetExpenses_Xml">
-            <wsdl:input message="tns:GetExpenses_XmlSoapIn"/>
-            <wsdl:output message="tns:GetExpenses_XmlSoapOut"/>
-        </wsdl:operation>
-        <wsdl:operation name="GetExpensesByDocumentId_Xml">
-            <wsdl:input message="tns:GetExpensesByDocumentId_XmlSoapIn"/>
-            <wsdl:output message="tns:GetExpensesByDocumentId_XmlSoapOut"/>
-        </wsdl:operation>
         <wsdl:operation name="MarkExpenseAsPaid_Json">
             <wsdl:input message="tns:MarkExpenseAsPaid_JsonSoapIn"/>
             <wsdl:output message="tns:MarkExpenseAsPaid_JsonSoapOut"/>
         </wsdl:operation>
-        <wsdl:operation name="MarkExpenseAsPaid_Xml">
-            <wsdl:input message="tns:MarkExpenseAsPaid_XmlSoapIn"/>
-            <wsdl:output message="tns:MarkExpenseAsPaid_XmlSoapOut"/>
-        </wsdl:operation>
         <wsdl:operation name="GetIncomes_Json">
             <wsdl:input message="tns:GetIncomes_JsonSoapIn"/>
             <wsdl:output message="tns:GetIncomes_JsonSoapOut"/>
-        </wsdl:operation>
-        <wsdl:operation name="GetIncomes_Xml">
-            <wsdl:input message="tns:GetIncomes_XmlSoapIn"/>
-            <wsdl:output message="tns:GetIncomes_XmlSoapOut"/>
-        </wsdl:operation>
-        <wsdl:operation name="GetIncomesByDocumentId_Xml">
-            <wsdl:input message="tns:GetIncomesByDocumentId_XmlSoapIn"/>
-            <wsdl:output message="tns:GetIncomesByDocumentId_XmlSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="GetPdfIncomeByDocumentId">
             <wsdl:input message="tns:GetPdfIncomeByDocumentIdSoapIn"/>
@@ -1882,73 +1041,37 @@
             <wsdl:input message="tns:GetPaymentOfExpenses_JsonSoapIn"/>
             <wsdl:output message="tns:GetPaymentOfExpenses_JsonSoapOut"/>
         </wsdl:operation>
-        <wsdl:operation name="GetPaymentOfExpenses_Xml">
-            <wsdl:input message="tns:GetPaymentOfExpenses_XmlSoapIn"/>
-            <wsdl:output message="tns:GetPaymentOfExpenses_XmlSoapOut"/>
-        </wsdl:operation>
         <wsdl:operation name="GetInputInventory_Json">
             <wsdl:input message="tns:GetInputInventory_JsonSoapIn"/>
             <wsdl:output message="tns:GetInputInventory_JsonSoapOut"/>
-        </wsdl:operation>
-        <wsdl:operation name="GetInputInventory_Xml">
-            <wsdl:input message="tns:GetInputInventory_XmlSoapIn"/>
-            <wsdl:output message="tns:GetInputInventory_XmlSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="GetAccessControl_Json">
             <wsdl:input message="tns:GetAccessControl_JsonSoapIn"/>
             <wsdl:output message="tns:GetAccessControl_JsonSoapOut"/>
         </wsdl:operation>
-        <wsdl:operation name="GetAccessControl_Xml">
-            <wsdl:input message="tns:GetAccessControl_XmlSoapIn"/>
-            <wsdl:output message="tns:GetAccessControl_XmlSoapOut"/>
-        </wsdl:operation>
         <wsdl:operation name="GetPendingPurchaseOrders_Json">
             <wsdl:input message="tns:GetPendingPurchaseOrders_JsonSoapIn"/>
             <wsdl:output message="tns:GetPendingPurchaseOrders_JsonSoapOut"/>
-        </wsdl:operation>
-        <wsdl:operation name="GetPendingPurchaseOrders_Xml">
-            <wsdl:input message="tns:GetPendingPurchaseOrders_XmlSoapIn"/>
-            <wsdl:output message="tns:GetPendingPurchaseOrders_XmlSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="ChangeStatusPurchaseOrder_Json">
             <wsdl:input message="tns:ChangeStatusPurchaseOrder_JsonSoapIn"/>
             <wsdl:output message="tns:ChangeStatusPurchaseOrder_JsonSoapOut"/>
         </wsdl:operation>
-        <wsdl:operation name="ChangeStatusPurchaseOrder_Xml">
-            <wsdl:input message="tns:ChangeStatusPurchaseOrder_XmlSoapIn"/>
-            <wsdl:output message="tns:ChangeStatusPurchaseOrder_XmlSoapOut"/>
-        </wsdl:operation>
         <wsdl:operation name="SavePricePresentation_Json">
             <wsdl:input message="tns:SavePricePresentation_JsonSoapIn"/>
             <wsdl:output message="tns:SavePricePresentation_JsonSoapOut"/>
-        </wsdl:operation>
-        <wsdl:operation name="SavePricePresentation_Xml">
-            <wsdl:input message="tns:SavePricePresentation_XmlSoapIn"/>
-            <wsdl:output message="tns:SavePricePresentation_XmlSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="GetGlobalCashClosing_Json">
             <wsdl:input message="tns:GetGlobalCashClosing_JsonSoapIn"/>
             <wsdl:output message="tns:GetGlobalCashClosing_JsonSoapOut"/>
         </wsdl:operation>
-        <wsdl:operation name="GetGlobalCashClosing_Xml">
-            <wsdl:input message="tns:GetGlobalCashClosing_XmlSoapIn"/>
-            <wsdl:output message="tns:GetGlobalCashClosing_XmlSoapOut"/>
-        </wsdl:operation>
         <wsdl:operation name="GetCfdis_Json">
             <wsdl:input message="tns:GetCfdis_JsonSoapIn"/>
             <wsdl:output message="tns:GetCfdis_JsonSoapOut"/>
         </wsdl:operation>
-        <wsdl:operation name="GetCfdis_Xml">
-            <wsdl:input message="tns:GetCfdis_XmlSoapIn"/>
-            <wsdl:output message="tns:GetCfdis_XmlSoapOut"/>
-        </wsdl:operation>
         <wsdl:operation name="GetSaleDetailsWithInvoiceInfo_Json">
             <wsdl:input message="tns:GetSaleDetailsWithInvoiceInfo_JsonSoapIn"/>
             <wsdl:output message="tns:GetSaleDetailsWithInvoiceInfo_JsonSoapOut"/>
-        </wsdl:operation>
-        <wsdl:operation name="GetSaleDetailsWithInvoiceInfo_Xml">
-            <wsdl:input message="tns:GetSaleDetailsWithInvoiceInfo_XmlSoapIn"/>
-            <wsdl:output message="tns:GetSaleDetailsWithInvoiceInfo_XmlSoapOut"/>
         </wsdl:operation>
     </wsdl:portType>
     <wsdl:binding name="IntegrationServiceSoap" type="tns:IntegrationServiceSoap">
@@ -1971,44 +1094,8 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="GetOrdersByDay_Xml">
-            <soap:operation soapAction="http://tempuri.org/GetOrdersByDay_Xml" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="GetAllOrdersByDay_Json">
             <soap:operation soapAction="http://tempuri.org/GetAllOrdersByDay_Json" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="GetAllOrdersByDay_Xml">
-            <soap:operation soapAction="http://tempuri.org/GetAllOrdersByDay_Xml" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="GetAllAcountsReceivable_Xml">
-            <soap:operation soapAction="http://tempuri.org/GetAllAcountsReceivable_Xml" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="GetAllAnticipatedPayment_xml">
-            <soap:operation soapAction="http://tempuri.org/GetAllAnticipatedPayment_xml" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -2034,26 +1121,8 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="GetInventoryByWarehouse_Xml">
-            <soap:operation soapAction="http://tempuri.org/GetInventoryByWarehouse_Xml" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="GetInventory_Json">
             <soap:operation soapAction="http://tempuri.org/GetInventory_Json" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="GetInventory_Xml">
-            <soap:operation soapAction="http://tempuri.org/GetInventory_Xml" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -2072,15 +1141,6 @@
         </wsdl:operation>
         <wsdl:operation name="GetSalesByPaymentType_Json">
             <soap:operation soapAction="http://tempuri.org/GetSalesByPaymentType_Json" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="GetSalesByPaymentType_Xml">
-            <soap:operation soapAction="http://tempuri.org/GetSalesByPaymentType_Xml" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -2115,15 +1175,6 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="GetSalesByGroup_Xml">
-            <soap:operation soapAction="http://tempuri.org/GetSalesByGroup_Xml" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="GetDebtsToPay">
             <soap:operation soapAction="http://tempuri.org/GetDebtsToPay" style="document"/>
             <wsdl:input>
@@ -2135,15 +1186,6 @@
         </wsdl:operation>
         <wsdl:operation name="GetDiscountsByDate_Json">
             <soap:operation soapAction="http://tempuri.org/GetDiscountsByDate_Json" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="GetDiscountsByDate_Xml">
-            <soap:operation soapAction="http://tempuri.org/GetDiscountsByDate_Xml" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -2196,26 +1238,8 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="GetOutgoingInventory_Xml">
-            <soap:operation soapAction="http://tempuri.org/GetOutgoingInventory_Xml" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="AddInventory_Json">
             <soap:operation soapAction="http://tempuri.org/AddInventory_Json" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="AddInventory_Xml">
-            <soap:operation soapAction="http://tempuri.org/AddInventory_Xml" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -2232,26 +1256,8 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="RemoveInventory_Xml">
-            <soap:operation soapAction="http://tempuri.org/RemoveInventory_Xml" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="CreateProduct_Json">
             <soap:operation soapAction="http://tempuri.org/CreateProduct_Json" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="CreateProduct_Xml">
-            <soap:operation soapAction="http://tempuri.org/CreateProduct_Xml" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -2268,26 +1274,8 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="EditProduct_Xml">
-            <soap:operation soapAction="http://tempuri.org/EditProduct_Xml" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="GetDepartments_Json">
             <soap:operation soapAction="http://tempuri.org/GetDepartments_Json" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="GetDepartments_Xml">
-            <soap:operation soapAction="http://tempuri.org/GetDepartments_Xml" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -2304,26 +1292,8 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="GetUnitOfMeasures_Xml">
-            <soap:operation soapAction="http://tempuri.org/GetUnitOfMeasures_Xml" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="GetWarehouses_Json">
             <soap:operation soapAction="http://tempuri.org/GetWarehouses_Json" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="GetWarehouses_Xml">
-            <soap:operation soapAction="http://tempuri.org/GetWarehouses_Xml" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -2340,26 +1310,8 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="GetProducts_Xml">
-            <soap:operation soapAction="http://tempuri.org/GetProducts_Xml" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="GetProduct_Json">
             <soap:operation soapAction="http://tempuri.org/GetProduct_Json" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="GetProduct_Xml">
-            <soap:operation soapAction="http://tempuri.org/GetProduct_Xml" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -2376,24 +1328,6 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="GetExpenses_Xml">
-            <soap:operation soapAction="http://tempuri.org/GetExpenses_Xml" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="GetExpensesByDocumentId_Xml">
-            <soap:operation soapAction="http://tempuri.org/GetExpensesByDocumentId_Xml" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="MarkExpenseAsPaid_Json">
             <soap:operation soapAction="http://tempuri.org/MarkExpenseAsPaid_Json" style="document"/>
             <wsdl:input>
@@ -2403,35 +1337,8 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="MarkExpenseAsPaid_Xml">
-            <soap:operation soapAction="http://tempuri.org/MarkExpenseAsPaid_Xml" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="GetIncomes_Json">
             <soap:operation soapAction="http://tempuri.org/GetIncomes_Json" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="GetIncomes_Xml">
-            <soap:operation soapAction="http://tempuri.org/GetIncomes_Xml" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="GetIncomesByDocumentId_Xml">
-            <soap:operation soapAction="http://tempuri.org/GetIncomesByDocumentId_Xml" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -2457,26 +1364,8 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="GetPaymentOfExpenses_Xml">
-            <soap:operation soapAction="http://tempuri.org/GetPaymentOfExpenses_Xml" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="GetInputInventory_Json">
             <soap:operation soapAction="http://tempuri.org/GetInputInventory_Json" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="GetInputInventory_Xml">
-            <soap:operation soapAction="http://tempuri.org/GetInputInventory_Xml" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -2493,26 +1382,8 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="GetAccessControl_Xml">
-            <soap:operation soapAction="http://tempuri.org/GetAccessControl_Xml" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="GetPendingPurchaseOrders_Json">
             <soap:operation soapAction="http://tempuri.org/GetPendingPurchaseOrders_Json" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="GetPendingPurchaseOrders_Xml">
-            <soap:operation soapAction="http://tempuri.org/GetPendingPurchaseOrders_Xml" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -2529,26 +1400,8 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="ChangeStatusPurchaseOrder_Xml">
-            <soap:operation soapAction="http://tempuri.org/ChangeStatusPurchaseOrder_Xml" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="SavePricePresentation_Json">
             <soap:operation soapAction="http://tempuri.org/SavePricePresentation_Json" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="SavePricePresentation_Xml">
-            <soap:operation soapAction="http://tempuri.org/SavePricePresentation_Xml" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -2565,15 +1418,6 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="GetGlobalCashClosing_Xml">
-            <soap:operation soapAction="http://tempuri.org/GetGlobalCashClosing_Xml" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="GetCfdis_Json">
             <soap:operation soapAction="http://tempuri.org/GetCfdis_Json" style="document"/>
             <wsdl:input>
@@ -2583,26 +1427,8 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="GetCfdis_Xml">
-            <soap:operation soapAction="http://tempuri.org/GetCfdis_Xml" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="GetSaleDetailsWithInvoiceInfo_Json">
             <soap:operation soapAction="http://tempuri.org/GetSaleDetailsWithInvoiceInfo_Json" style="document"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="GetSaleDetailsWithInvoiceInfo_Xml">
-            <soap:operation soapAction="http://tempuri.org/GetSaleDetailsWithInvoiceInfo_Xml" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -2631,44 +1457,8 @@
                 <soap12:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="GetOrdersByDay_Xml">
-            <soap12:operation soapAction="http://tempuri.org/GetOrdersByDay_Xml" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="GetAllOrdersByDay_Json">
             <soap12:operation soapAction="http://tempuri.org/GetAllOrdersByDay_Json" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="GetAllOrdersByDay_Xml">
-            <soap12:operation soapAction="http://tempuri.org/GetAllOrdersByDay_Xml" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="GetAllAcountsReceivable_Xml">
-            <soap12:operation soapAction="http://tempuri.org/GetAllAcountsReceivable_Xml" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="GetAllAnticipatedPayment_xml">
-            <soap12:operation soapAction="http://tempuri.org/GetAllAnticipatedPayment_xml" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -2694,26 +1484,8 @@
                 <soap12:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="GetInventoryByWarehouse_Xml">
-            <soap12:operation soapAction="http://tempuri.org/GetInventoryByWarehouse_Xml" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="GetInventory_Json">
             <soap12:operation soapAction="http://tempuri.org/GetInventory_Json" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="GetInventory_Xml">
-            <soap12:operation soapAction="http://tempuri.org/GetInventory_Xml" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -2732,15 +1504,6 @@
         </wsdl:operation>
         <wsdl:operation name="GetSalesByPaymentType_Json">
             <soap12:operation soapAction="http://tempuri.org/GetSalesByPaymentType_Json" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="GetSalesByPaymentType_Xml">
-            <soap12:operation soapAction="http://tempuri.org/GetSalesByPaymentType_Xml" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -2775,15 +1538,6 @@
                 <soap12:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="GetSalesByGroup_Xml">
-            <soap12:operation soapAction="http://tempuri.org/GetSalesByGroup_Xml" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="GetDebtsToPay">
             <soap12:operation soapAction="http://tempuri.org/GetDebtsToPay" style="document"/>
             <wsdl:input>
@@ -2795,15 +1549,6 @@
         </wsdl:operation>
         <wsdl:operation name="GetDiscountsByDate_Json">
             <soap12:operation soapAction="http://tempuri.org/GetDiscountsByDate_Json" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="GetDiscountsByDate_Xml">
-            <soap12:operation soapAction="http://tempuri.org/GetDiscountsByDate_Xml" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -2856,26 +1601,8 @@
                 <soap12:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="GetOutgoingInventory_Xml">
-            <soap12:operation soapAction="http://tempuri.org/GetOutgoingInventory_Xml" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="AddInventory_Json">
             <soap12:operation soapAction="http://tempuri.org/AddInventory_Json" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="AddInventory_Xml">
-            <soap12:operation soapAction="http://tempuri.org/AddInventory_Xml" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -2892,26 +1619,8 @@
                 <soap12:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="RemoveInventory_Xml">
-            <soap12:operation soapAction="http://tempuri.org/RemoveInventory_Xml" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="CreateProduct_Json">
             <soap12:operation soapAction="http://tempuri.org/CreateProduct_Json" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="CreateProduct_Xml">
-            <soap12:operation soapAction="http://tempuri.org/CreateProduct_Xml" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -2928,26 +1637,8 @@
                 <soap12:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="EditProduct_Xml">
-            <soap12:operation soapAction="http://tempuri.org/EditProduct_Xml" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="GetDepartments_Json">
             <soap12:operation soapAction="http://tempuri.org/GetDepartments_Json" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="GetDepartments_Xml">
-            <soap12:operation soapAction="http://tempuri.org/GetDepartments_Xml" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -2964,26 +1655,8 @@
                 <soap12:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="GetUnitOfMeasures_Xml">
-            <soap12:operation soapAction="http://tempuri.org/GetUnitOfMeasures_Xml" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="GetWarehouses_Json">
             <soap12:operation soapAction="http://tempuri.org/GetWarehouses_Json" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="GetWarehouses_Xml">
-            <soap12:operation soapAction="http://tempuri.org/GetWarehouses_Xml" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -3000,26 +1673,8 @@
                 <soap12:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="GetProducts_Xml">
-            <soap12:operation soapAction="http://tempuri.org/GetProducts_Xml" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="GetProduct_Json">
             <soap12:operation soapAction="http://tempuri.org/GetProduct_Json" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="GetProduct_Xml">
-            <soap12:operation soapAction="http://tempuri.org/GetProduct_Xml" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -3036,24 +1691,6 @@
                 <soap12:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="GetExpenses_Xml">
-            <soap12:operation soapAction="http://tempuri.org/GetExpenses_Xml" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="GetExpensesByDocumentId_Xml">
-            <soap12:operation soapAction="http://tempuri.org/GetExpensesByDocumentId_Xml" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="MarkExpenseAsPaid_Json">
             <soap12:operation soapAction="http://tempuri.org/MarkExpenseAsPaid_Json" style="document"/>
             <wsdl:input>
@@ -3063,35 +1700,8 @@
                 <soap12:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="MarkExpenseAsPaid_Xml">
-            <soap12:operation soapAction="http://tempuri.org/MarkExpenseAsPaid_Xml" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="GetIncomes_Json">
             <soap12:operation soapAction="http://tempuri.org/GetIncomes_Json" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="GetIncomes_Xml">
-            <soap12:operation soapAction="http://tempuri.org/GetIncomes_Xml" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="GetIncomesByDocumentId_Xml">
-            <soap12:operation soapAction="http://tempuri.org/GetIncomesByDocumentId_Xml" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -3117,26 +1727,8 @@
                 <soap12:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="GetPaymentOfExpenses_Xml">
-            <soap12:operation soapAction="http://tempuri.org/GetPaymentOfExpenses_Xml" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="GetInputInventory_Json">
             <soap12:operation soapAction="http://tempuri.org/GetInputInventory_Json" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="GetInputInventory_Xml">
-            <soap12:operation soapAction="http://tempuri.org/GetInputInventory_Xml" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -3153,26 +1745,8 @@
                 <soap12:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="GetAccessControl_Xml">
-            <soap12:operation soapAction="http://tempuri.org/GetAccessControl_Xml" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="GetPendingPurchaseOrders_Json">
             <soap12:operation soapAction="http://tempuri.org/GetPendingPurchaseOrders_Json" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="GetPendingPurchaseOrders_Xml">
-            <soap12:operation soapAction="http://tempuri.org/GetPendingPurchaseOrders_Xml" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -3189,26 +1763,8 @@
                 <soap12:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="ChangeStatusPurchaseOrder_Xml">
-            <soap12:operation soapAction="http://tempuri.org/ChangeStatusPurchaseOrder_Xml" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="SavePricePresentation_Json">
             <soap12:operation soapAction="http://tempuri.org/SavePricePresentation_Json" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="SavePricePresentation_Xml">
-            <soap12:operation soapAction="http://tempuri.org/SavePricePresentation_Xml" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -3225,15 +1781,6 @@
                 <soap12:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="GetGlobalCashClosing_Xml">
-            <soap12:operation soapAction="http://tempuri.org/GetGlobalCashClosing_Xml" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="GetCfdis_Json">
             <soap12:operation soapAction="http://tempuri.org/GetCfdis_Json" style="document"/>
             <wsdl:input>
@@ -3243,26 +1790,8 @@
                 <soap12:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="GetCfdis_Xml">
-            <soap12:operation soapAction="http://tempuri.org/GetCfdis_Xml" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="GetSaleDetailsWithInvoiceInfo_Json">
             <soap12:operation soapAction="http://tempuri.org/GetSaleDetailsWithInvoiceInfo_Json" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="GetSaleDetailsWithInvoiceInfo_Xml">
-            <soap12:operation soapAction="http://tempuri.org/GetSaleDetailsWithInvoiceInfo_Xml" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>

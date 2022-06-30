@@ -6,9 +6,9 @@
   <h1 style="padding: 6px 0px 24px 0px">service-openapi-zerynth-storage</h1>
 </div>
 
-An open-source service plugin for the Zerynth Storage API.
+An open-source source plugin for the Zerynth Storage API.
 
-The Zerynth Storage REST APIs offer the possibility to get time series data from the Zerynth Storage cloud service.
+The Zerynth Storage REST API offers the possibility to get time-series data from the Zerynth Storage cloud service.
 
 ### Authentication
 
@@ -33,6 +33,7 @@ To create an API key:
 - [Marketplace](https://app.netzo.io/marketplace/service-openapi-zerynth-storage)
 - [Zerynth for Developers](https://docs.zerynth.com/latest/)
 - [Source](https://docs.zerynth.com/latest/reference/api/zstorage/)
+
 
 <div align="center">
   <h4>© Netzo Plugin</h4>
