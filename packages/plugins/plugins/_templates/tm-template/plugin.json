@@ -1,0 +1,37 @@
+{
+  "uid": "tm-template",
+  "type": "thing-model",
+  "version": "1.0.0",
+  "status": "alpha",
+  "category": "core",
+  "name": "Template",
+  "description": "Template thing model for Netzo",
+  "keywords": ["template"],
+  "authors": ["miguel.romero@netzo.io"],
+  "license": "MIT",
+  "main": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/_templates/tm-template/src/tm.json",
+  "display": {
+    "imageUrl": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/_templates/tm-template/src/assets/icon.png",
+    "color": "#0080FF",
+    "screenshots": []
+  },
+  "links": [
+    {
+      "rel": "author",
+      "href": "https://netzo.io",
+      "title": "Netzo"
+    },
+    {
+      "rel": "repository",
+      "href": "https://github.com/netzoio/netzo/tree/main/packages/plugins/plugins/thing-models/tm-template"
+    },
+    {
+      "rel": "readme",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/plugins/_templates/tm-template/README.md"
+    },
+    {
+      "rel": "license",
+      "href": "https://raw.githubusercontent.com/netzoio/netzo/main/packages/plugins/LICENSE"
+    }
+  ]
+}

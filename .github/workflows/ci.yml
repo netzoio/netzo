@@ -1,0 +1,90 @@
+name: CI Pipeline
+
+on: [push, pull_request]
+
+jobs:
+  build-and-test:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+        node-version: [12.x, 14.x, 16.x]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.os }} ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # npm workspaces requires npm v7 or higher
+      - name: npm 7
+        run: npm i -g npm@7 --registry=https://registry.npmjs.org
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Test
+        run: npm run test # could add --coverage flag to jest
+
+      # - name: Upload to codecov.io
+      #   uses: codecov/codecov-action@v2
+
+  eslint:
+    name: 'eslint: lint code'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Use Node.js 14
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+
+      # npm workspaces requires npm v7 or higher
+      - name: npm 7
+        run: npm i -g npm@7 --registry=https://registry.npmjs.org
+
+      - name: Install
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+        continue-on-error: true
+
+  # version_consistency:
+  #   name: Check version consistency of packages
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v1
+  #     - name: install node v12
+  #       uses: actions/setup-node@v1
+  #       with:
+  #         node-version: 12
+  #     - name: verify packages version consistency accross sub-modules
+  #       run: npm run check:versions
+
+  format:
+    name: 'format: style code'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actionsx/prettier@v2
+        with:
+          args: --check .
+
+  # publish:
+  #   name: Publish packages to npm
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - run: npm run publish --workspaces --if-present
+  #       uses: ./
+  #       with:
+  #         token: ${{ secrets.GITHUB_TOKEN }}

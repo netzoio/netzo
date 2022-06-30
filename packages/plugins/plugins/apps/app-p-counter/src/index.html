@@ -1,0 +1,100 @@
+<script src="https://unpkg.com/vue@next"></script>
+<script src="https://unpkg.com/@node-wot/browser-bundle"></script>
+<script src="https://unpkg.com/@netzoio/sdk@0.1.21"></script>
+
+<div id="app">
+  <button @click="count--">-</button>
+  <span
+    contenteditable
+    @keydown.enter="$event.target.blur()"
+    @blur="count = Number($event.target.innerText)"
+  >
+    {{count}}
+  </span>
+  <button @click="count++">+</button>
+</div>
+
+<script>
+  const { ref, onMounted, watchEffect, createApp } = Vue
+
+  createApp({
+    setup() {
+      const count = ref(0)
+
+      onMounted(async () => {
+        const wot = await Netzo.wot()
+
+        // TODO: keep either (1) or (2), replace the placeholder value and remove the other
+
+        // 1: fetch thing WoT Thing Description (td) from URL and consume it directly
+        const THING_TD_URL =
+          'http://plugfest.thingweb.io:8083/smart-coffee-machine'
+        const res = await fetch(THING_TD_URL)
+        const td = await res.json()
+        const thing = await wot.consume(td)
+
+        // 2: consume the thing by its Netzo ID directly (no need to fetch the TD)
+        // const THING_ID = '' // TIP: copy it from left drawer
+        // const thing = await wot.consumeThing(THING_ID)
+
+        // TODO: replace with name of property with type 'number'
+        const PROPERTY_NAME = 'servedCounter'
+
+        const read = async () => {
+          count.value = await thing.readProperty(PROPERTY_NAME)
+          console.log(`[${thing.title}] readproperty ${count.value}`)
+        }
+        const write = async () => {
+          await thing.writeProperty(PROPERTY_NAME, count.value) // write changes to thing
+          console.log(`[${thing.title}] writeproperty ${count.value}`)
+        }
+        read()
+        setInterval(async () => read(), 3000)
+        watchEffect(async () => write())
+      })
+
+      return { count }
+    }
+  }).mount('#app')
+</script>
+
+<style>
+  html,
+  body {
+    display: grid;
+    place-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  #app {
+    display: flex;
+    align-items: center;
+    margin: auto;
+  }
+
+  span,
+  button {
+    font-size: 200%;
+  }
+
+  span {
+    width: auto;
+    text-align: center;
+    padding: 0px 12px;
+    margin: 0px 12px;
+  }
+
+  button {
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #0080ff;
+    color: white;
+  }
+
+  button:hover {
+    cursor: pointer;
+  }
+</style>

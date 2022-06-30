@@ -1,0 +1,863 @@
+{
+  "info": {
+    "_postman_id": "d71d2434-9042-4f27-ab9a-37734ed5dd68",
+    "name": "Philips Hue API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Lights",
+      "item": [
+        {
+          "name": "Get All Lights",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://{{ip}}/api/{{username}}/lights",
+              "protocol": "http",
+              "host": ["{{ip}}"],
+              "path": ["api", "{{username}}", "lights"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Put Light State",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{AccessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"on\": true,\n    \"bri\": 254,\n    \"hue\": 50000,\n    \"sat\": 0,\n    \"xy\":[0.409,0.5179],\n    \"ct\":500\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://{{ip}}/api/{{username}}/lights/1/state/",
+              "protocol": "http",
+              "host": ["{{ip}}"],
+              "path": ["api", "{{username}}", "lights", "1", "state", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Light From Bridge",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://{{ip}}/api/{{username}}/lights/6",
+              "protocol": "http",
+              "host": ["{{ip}}"],
+              "path": ["api", "{{username}}", "lights", "6"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "APIs related to light"
+    },
+    {
+      "name": "Bridge Config",
+      "item": [
+        {
+          "name": "Get Config",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://{{ip}}/api/{{username}}/config",
+              "protocol": "http",
+              "host": ["{{ip}}"],
+              "path": ["api", "{{username}}", "config"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Put Config",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"timezone\":\"Europe/London\"}"
+            },
+            "url": {
+              "raw": "http://{{ip}}/api/{{username}}/config",
+              "protocol": "http",
+              "host": ["{{ip}}"],
+              "path": ["api", "{{username}}", "config"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "Get and edit bridge config"
+    },
+    {
+      "name": "Group",
+      "item": [
+        {
+          "name": "Get All Groups",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://{{ip}}/api/{{username}}/groups",
+              "protocol": "http",
+              "host": ["{{ip}}"],
+              "path": ["api", "{{username}}", "groups"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Group Details",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://{{ip}}/api/{{username}}/groups/0",
+              "protocol": "http",
+              "host": ["{{ip}}"],
+              "path": ["api", "{{username}}", "groups", "0"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Group",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"delete light test\", \"lights\":[\"28\", \"29\", \"31\", \"32\", \"33\", \"34\", \"35\", \"36\", \"37\", \"38\", \"39\", \"40\", \"41\", \"45\"]}"
+            },
+            "url": {
+              "raw": "http://{{ip}}/api/{{username}}/groups",
+              "protocol": "http",
+              "host": ["{{ip}}"],
+              "path": ["api", "{{username}}", "groups"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Group State",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"xy\":[0.3, 0.3]}"
+            },
+            "url": {
+              "raw": "http://{{ip}}/api/{{username}}/groups/1/action",
+              "protocol": "http",
+              "host": ["{{ip}}"],
+              "path": ["api", "{{username}}", "groups", "1", "action"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "Group Operations"
+    },
+    {
+      "name": "Schedule",
+      "item": [
+        {
+          "name": "Get All Schedules",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://{{ip}}/api/{{username}}/schedules",
+              "protocol": "http",
+              "host": ["{{ip}}"],
+              "path": ["api", "{{username}}", "schedules"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Schedule",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"description\": \"\",\n    \"name\": \"Test_PR_Abhishek\",\n    \"status\": \"enabled\",\n    \"command\": {\n    \t\"method\":\"PUT\",\n        \"body\": {\"on\":true,\"bri\":1,\"xy\":[0.673,0.323]},\n        \"address\": \"/api/2-PdpiAvTDO-SQokppQHSexWlfTus68WXCcHTlkg/groups/0/action\"\n    },\n    \"time\": \"2017-03-19T14:55:00\"\n}\n"
+            },
+            "url": {
+              "raw": "http://{{ip}}/api/{{username}}/schedules/",
+              "protocol": "http",
+              "host": ["{{ip}}"],
+              "path": ["api", "{{username}}", "schedules", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Edit Schedule",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"description\": \"\",\n    \"name\": \"Test_PR_Abhishek\",\n    \"status\": \"enabled\",\n    \"command\": {\n    \t\"method\":\"PUT\",\n        \"body\": {\"on\":true,\"bri\":1,\"xy\":[0.673,0.323]},\n        \"address\": \"/api/2-PdpiAvTDO-SQokppQHSexWlfTus68WXCcHTlkg/groups/0/action\"\n    },\n    \"time\": \"2017-03-20T06:59:00\"\n}\n"
+            },
+            "url": {
+              "raw": "http://{{ip}}/api/{{username}}/schedules/2",
+              "protocol": "http",
+              "host": ["{{ip}}"],
+              "path": ["api", "{{username}}", "schedules", "2"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Repeating Timer Schedule",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"name\": \"Test Schedule\",\n\t\"description\": \"\",\n\t\"command\": {\n\t\t\"address\": \"/api/woGzR67YSFkne1GJSEjCKMKPdfCWaLSBmuMN-KeA/sensors/2/state\",\n\t\t\"method\": \"PUT\",\n\t\t\"body\": {\n\t\t\t\"status\": 1\n\t\t}\n\t},\n\t\"localtime\": \"R/PT00:00:10\",\n\t\"recycle\": false,\n\t\"status\": \"enabled\"\n}"
+            },
+            "url": {
+              "raw": "http://{{ip}}/api/{{username}}/schedules",
+              "protocol": "http",
+              "host": ["{{ip}}"],
+              "path": ["api", "{{username}}", "schedules"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "Schedule operations"
+    },
+    {
+      "name": "Sensor",
+      "item": [
+        {
+          "name": "Get All Sensors",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://{{ip}}/api/{{username}}/sensors",
+              "protocol": "http",
+              "host": ["{{ip}}"],
+              "path": ["api", "{{username}}", "sensors"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Sensor",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Test Sensor\",\n    \"swversion\": \"1.0\",\n    \"modelid\": \"randomwid\",\n    \"type\": \"CLIPGenericStatus\",\n    \"uniqueid\": \"12345678\",\n    \"state\": {\"status\": 36000},\n    \"manufacturername\": \"Moldedbits\"\n}"
+            },
+            "url": {
+              "raw": "http://{{ip}}/api/{{username}}/sensors",
+              "protocol": "http",
+              "host": ["{{ip}}"],
+              "path": ["api", "{{username}}", "sensors"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Sensor State",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"status\":0}"
+            },
+            "url": {
+              "raw": "http://{{ip}}/api/{{username}}/sensors/2/state",
+              "protocol": "http",
+              "host": ["{{ip}}"],
+              "path": ["api", "{{username}}", "sensors", "2", "state"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "Sensor Operations"
+    },
+    {
+      "name": "Scene",
+      "item": [
+        {
+          "name": "Get All Scenes",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://{{ip}}/api/{{username}}/scenes",
+              "protocol": "http",
+              "host": ["{{ip}}"],
+              "path": ["api", "{{username}}", "scenes"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Scene Details",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://{{ip}}/api/{{username}}/scenes/381mJSoKqbbCA0u/",
+              "protocol": "http",
+              "host": ["{{ip}}"],
+              "path": ["api", "{{username}}", "scenes", "381mJSoKqbbCA0u", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Scene",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"PR_Schedules_Test\", \"lights\":[\"1\", \"2\"], \"recycle\":false}\n"
+            },
+            "url": {
+              "raw": "http://{{ip}}/api/{{username}}/scenes",
+              "protocol": "http",
+              "host": ["{{ip}}"],
+              "path": ["api", "{{username}}", "scenes"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Edit Scene",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"on\":true,\"bri\":255}"
+            },
+            "url": {
+              "raw": "http://{{ip}}/api/{{username}}/scenes/381mJSoKqbbCA0u/lightstates/2",
+              "protocol": "http",
+              "host": ["{{ip}}"],
+              "path": [
+                "api",
+                "{{username}}",
+                "scenes",
+                "381mJSoKqbbCA0u",
+                "lightstates",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "Scene operations"
+    },
+    {
+      "name": "Rule",
+      "item": [
+        {
+          "name": "Get All Rules",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://{{ip}}/api/{{username}}/rules",
+              "protocol": "http",
+              "host": ["{{ip}}"],
+              "path": ["api", "{{username}}", "rules"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Edit Rule",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"actions\":[\n        {\"address\":\"/scenes/381mJSoKqbbCA0u/lightstates/2\",\"method\":\"PUT\",\"body\":{\"on\":true,\"bri\":1}},\n        {\"address\":\"/scenes/381mJSoKqbbCA0u/lightstates/1\",\"method\":\"PUT\",\"body\":{\"on\":true,\"bri\":1}}\n    ]}\n"
+            },
+            "url": {
+              "raw": "http://{{ip}}/api/{{username}}/rules/5",
+              "protocol": "http",
+              "host": ["{{ip}}"],
+              "path": ["api", "{{username}}", "rules", "5"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Rule on Sensor State",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{  \"name\":\"Test Rule\",\n   \"conditions\":[\n        {\"address\":\"/sensors/2/state/status\",\"operator\":\"eq\",\"value\":\"1\"}\n   ],\n   \"actions\":[\t\n        {\"address\":\"/groups/0/action\",\"method\":\"PUT\", \"body\":{\"on\":false}}\n]}\n"
+            },
+            "url": {
+              "raw": "http://{{ip}}/api/{{username}}/rules",
+              "protocol": "http",
+              "host": ["{{ip}}"],
+              "path": ["api", "{{username}}", "rules"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Rule on Localtime",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{  \"name\":\"Test Rule\",\n   \"conditions\":[\n        {\"address\":\"/config/localtime\",\"operator\":\"in\",\"value\":\"W127/T17:25:00/T17:25:05\"}\n   ],\n   \"actions\":[\n        {\"address\":\"/scenes/381mJSoKqbbCA0u/lightstates/2\",\"method\":\"PUT\",\"body\":{\"on\":true,\"bri\":1}},\n        {\"address\":\"/scenes/381mJSoKqbbCA0u/lightstates/1\",\"method\":\"PUT\",\"body\":{\"on\":true,\"bri\":1}}\n    ]\n}\n"
+            },
+            "url": {
+              "raw": "http://{{ip}}/api/{{username}}/rules",
+              "protocol": "http",
+              "host": ["{{ip}}"],
+              "path": ["api", "{{username}}", "rules"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Rule",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://{{ip}}/api/{{username}}/rules/5",
+              "protocol": "http",
+              "host": ["{{ip}}"],
+              "path": ["api", "{{username}}", "rules", "5"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "Rule operations"
+    },
+    {
+      "name": "Remote Authentication OAuth2.0",
+      "item": [
+        {
+          "name": "Get Authorization Request",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.meethue.com/oauth2/auth?clientid={{ClientId}}&response_type=code&state=anystring&appid={{AppId}}&deviceid={{DeviceID}}&devicename={{DeviceName}}",
+              "protocol": "https",
+              "host": ["api", "meethue", "com"],
+              "path": ["oauth2", "auth"],
+              "query": [
+                {
+                  "key": "clientid",
+                  "value": "{{ClientId}}"
+                },
+                {
+                  "key": "response_type",
+                  "value": "code"
+                },
+                {
+                  "key": "state",
+                  "value": "anystring"
+                },
+                {
+                  "key": "appid",
+                  "value": "{{AppId}}"
+                },
+                {
+                  "key": "deviceid",
+                  "value": "{{DeviceID}}"
+                },
+                {
+                  "key": "devicename",
+                  "value": "{{DeviceName}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Token (Basic)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var json = JSON.parse(responseBody);",
+                  "pm.environment.set(\"AccessToken\", json.access_token);",
+                  "pm.environment.set(\"RefreshToken\", json.refresh_token);",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [""],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {},
+            "strictSSL": true,
+            "followOriginalHttpMethod": false,
+            "followAuthorizationHeader": false
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "{{ClientSecret}}",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "{{ClientId}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "type": "text"
+              },
+              {
+                "key": "grant_type",
+                "value": "authorization_code",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "code",
+                "value": "{{AuthorizationCode}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/x-www-form-urlencoded",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://api.meethue.com/oauth2/token?grant_type=authorization_code&code={{AuthorizationCode}}",
+              "protocol": "https",
+              "host": ["api", "meethue", "com"],
+              "path": ["oauth2", "token"],
+              "query": [
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                },
+                {
+                  "key": "code",
+                  "value": "{{AuthorizationCode}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "Applications have to authenticate with the Hue Remote API and allow users to authorize them to use their Hue lighting system remotely. When you register with Hue, an appid, clientid and clientsecret are provided to authenticate your applications with the Hue Remote API. With these credentials you can use OAuth2 to ask users to allow your application access to their system remotely. If the user grants your application access, the Hue Remote API will grant an authorization_code that can be used to request an access_token. This access_token is to be included as an HTTPS Authorization header as a Bearer token for every call that you make to the remote API."
+    },
+    {
+      "name": "Remote Config",
+      "item": [
+        {
+          "name": "PUT Enable Link Button",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{AccessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"linkbutton\":true }"
+            },
+            "url": {
+              "raw": "https://api.meethue.com/bridge/0/config",
+              "protocol": "https",
+              "host": ["api", "meethue", "com"],
+              "path": ["bridge", "0", "config"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Add Whitelist Identifier",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{AccessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"devicetype\": \"roms_netzo_remote\" }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://api.meethue.com/bridge/",
+              "protocol": "https",
+              "host": ["api", "meethue", "com"],
+              "path": ["bridge", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Get Config",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.meethue.com/bridge/{{username}}/config",
+              "protocol": "https",
+              "host": ["api", "meethue", "com"],
+              "path": ["bridge", "{{username}}", "config"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "auth": {
+        "type": "bearer",
+        "bearer": [
+          {
+            "key": "token",
+            "value": "{{AccessToken}}",
+            "type": "string"
+          }
+        ]
+      }
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "password",
+        "value": "{{ClientSecret}}",
+        "type": "string"
+      },
+      {
+        "key": "username",
+        "value": "{{ClientId}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "username",
+      "value": ""
+    },
+    {
+      "key": "ClientId",
+      "value": ""
+    },
+    {
+      "key": "ClientSecret",
+      "value": ""
+    },
+    {
+      "key": "AppId",
+      "value": ""
+    },
+    {
+      "key": "DeviceID",
+      "value": ""
+    },
+    {
+      "key": "DeviceName",
+      "value": ""
+    },
+    {
+      "key": "AuthorizationCode",
+      "value": ""
+    },
+    {
+      "key": "AccessToken",
+      "value": ""
+    },
+    {
+      "key": "RefreshToken",
+      "value": ""
+    },
+    {
+      "key": "ip",
+      "value": ""
+    }
+  ]
+}

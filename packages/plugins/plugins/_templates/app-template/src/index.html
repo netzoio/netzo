@@ -1,0 +1,59 @@
+<script src="https://unpkg.com/vue@next"></script>
+<script src="https://unpkg.com/@node-wot/browser-bundle"></script>
+<script src="https://unpkg.com/@netzoio/sdk@0.1.21"></script>
+
+<div id="app">
+  <button @click="count--">-</button>
+  <h1>{{ count }}</h1>
+  <button @click="count++">+</button>
+</div>
+
+<script>
+  const { ref, createApp } = Vue
+  createApp({
+    setup() {
+      const count = ref(0)
+
+      return { count }
+    }
+  }).mount('#app')
+</script>
+
+<style>
+  html,
+  body {
+    display: grid;
+    place-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  #app {
+    display: flex;
+    align-items: center;
+    margin: auto;
+  }
+
+  h1,
+  button {
+    font-size: 200%;
+  }
+
+  h1 {
+    width: 4rem;
+    text-align: center;
+  }
+
+  button {
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #0080ff;
+    color: white;
+  }
+
+  button:hover {
+    cursor: pointer;
+  }
+</style>

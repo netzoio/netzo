@@ -1,0 +1,58 @@
+{
+  "name": "@netzoio/sdk",
+  "version": "0.3.0",
+  "description": "Open source software development kit (SDK) for the Netzo WoT Platform, a Web of Things platform to interconnect IoT devices, platforms and services over the web.",
+  "keywords": [
+    "netzo",
+    "wot",
+    "web-of-things",
+    "iot",
+    "internet-of-things",
+    "w3c",
+    "opensource",
+    "sdk",
+    "javascript",
+    "typescript"
+  ],
+  "homepage": "https://github.com/netzoio/netzo/tree/main/packages/sdk#readme",
+  "bugs": {
+    "url": "https://github.com/netzoio/netzo/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/netzoio/netzo.git"
+  },
+  "license": "MIT",
+  "author": "Asterisc GmbH",
+  "main": "./dist/tsc/main.js",
+  "browser": "./dist/esbuild/browser.js",
+  "types": "./dist/tsc/main.d.ts",
+  "scripts": {
+    "test": "jest",
+    "clean": "rm -rf dist build package",
+    "docs": "typedoc --entryPoints src/main.ts",
+    "build": "npm run clean && npm run build:tsc && npm run esbuild-browser",
+    "build:tsc": "tsc -p tsconfig.json",
+    "esbuild-browser": "esbuild src/browser.ts --bundle --minify --sourcemap=external --outfile=dist/esbuild/browser.js --external:@node-wot/core --external:@node-wot/binding-http --external:@node-wot/binding-websockets",
+    "esbuild-browser:dev": "esbuild src/browser.ts --bundle --outfile=dist/esbuild/browser.js",
+    "esbuild-browser:watch": "esbuild src/browser.ts --bundle --watch --outfile=dist/esbuild/browser.js",
+    "publish": "npm publish"
+  },
+  "dependencies": {
+    "@node-wot/binding-http": "^0.7.8",
+    "@node-wot/binding-websockets": "^0.7.8",
+    "@node-wot/core": "^0.7.8",
+    "isomorphic-fetch": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/isomorphic-fetch": "0.0.35",
+    "@types/node": "^15.0.1",
+    "@typescript-eslint/eslint-plugin": "^4.19.0",
+    "@typescript-eslint/parser": "^4.19.0",
+    "esbuild": "^0.11.23",
+    "ts-jest": "^26.5.4",
+    "typedoc": "^0.20.35",
+    "typescript": "^4.2.3",
+    "wot-typescript-definitions": "^0.8.0-SNAPSHOT.21"
+  }
+}
