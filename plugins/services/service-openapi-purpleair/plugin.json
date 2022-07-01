@@ -1,6 +1,6 @@
 {
   "uid": "service-openapi-purpleair",
-  "type": "source",
+  "type": "service",
   "version": "1.0.0",
   "status": "enterprise",
   "category": "core",

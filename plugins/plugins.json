@@ -17,9 +17,9 @@
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-switch/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-table/plugin.json",
   "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/components/component-webcontent/plugin.json",
-  "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/sources/source-graphql-countries/plugin.json",
-  "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/sources/source-graphql-github/plugin.json",
-  "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/sources/source-graphql-monday/plugin.json",
-  "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/sources/source-openapi-purpleair/plugin.json",
-  "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/sources/source-soap-wansoft/plugin.json"
+  "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-graphql-countries/plugin.json",
+  "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-graphql-github/plugin.json",
+  "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-graphql-monday/plugin.json",
+  "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-openapi-purpleair/plugin.json",
+  "https://raw.githubusercontent.com/netzoio/netzo/main/plugins/services/service-soap-wansoft/plugin.json"
 ]
