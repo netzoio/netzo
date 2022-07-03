@@ -51,6 +51,7 @@
       "name": "",
       "description": "",
       "series": [],
+      "labels": [],
       "eventHandlers": [],
       "display": {
         "transparent": false,
@@ -113,6 +114,12 @@
                 "properties": {}
               },
               "x-display": "custom-vjs-array-series"
+            },
+            "labels": {
+              "type": "string",
+              "title": "Labels",
+              "description": "An array of labels (strings) for all series",
+              "x-display": "custom-vjs-template-string"
             }
           }
         },
